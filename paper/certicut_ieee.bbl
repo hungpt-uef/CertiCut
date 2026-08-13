@@ -48,14 +48,22 @@ A.~M. Branczyk, A.~Carrera~Vazquez, D.~J. Egger \emph{et~al.}, ``{Qiskit}
   \url{https://github.com/Qiskit/qiskit-addon-cutting}
 \BIBentrySTDinterwordspacing
 
+\bibitem{deza1997}
+M.~M. Deza and M.~Laurent, \emph{Geometry of Cuts and Metrics}.\hskip 1em plus
+  0.5em minus 0.4em\relax Springer, 1997.
+
+\bibitem{lawler1966}
+E.~L. Lawler and D.~E. Wood, ``Branch-and-bound methods: A survey,''
+  \emph{Operations Research}, vol.~14, no.~4, pp. 699--719, 1966.
+
+\bibitem{kaibel2008}
+V.~Kaibel and M.~E. Pfetsch, ``Packing and partitioning orbitopes,''
+  \emph{Mathematical Programming}, vol. 114, no.~1, pp. 1--36, 2008.
+
 \bibitem{mitarai2021}
 K.~Mitarai and K.~Fujii, ``Constructing a virtual two-qubit gate by sampling
   single-qubit operations,'' \emph{New Journal of Physics}, vol.~23, no.~2, p.
   023021, 2021.
-
-\bibitem{deza1997}
-M.~M. Deza and M.~Laurent, \emph{Geometry of Cuts and Metrics}.\hskip 1em plus
-  0.5em minus 0.4em\relax Springer, 1997.
 
 \bibitem{scipy}
 P.~Virtanen, R.~Gommers, T.~E. Oliphant \emph{et~al.}, ``{SciPy} 1.0:
@@ -109,6 +117,10 @@ J.~Nakamura, T.~Satoh, and S.~Sanji, ``Improved sampling bounds and scalable
   partitioning for quantum circuit cutting beyond bipartitions,''
   \emph{Physical Review A}, vol. 112, no.~4, p. 042422, 2025.
 
+\bibitem{harada2024}
+H.~Harada, K.~Wada, and N.~Yamamoto, ``Doubly optimal parallel wire cutting
+  without ancilla qubits,'' \emph{PRX Quantum}, vol.~5, no.~4, p. 040308, 2024.
+
 \bibitem{frohler2026}
 \BIBentryALTinterwordspacing
 F.~J. Fr{\"o}hler, Y.~Stade, C.~Ufrecht, D.~D. Scherer, and R.~Wille,
@@ -131,19 +143,15 @@ Y.~Idan, E.~Zahavi, E.~Mentovich, E.~Cohen, and S.~Zaks, ``Quantum circuit
 
 \bibitem{tamura2026}
 \BIBentryALTinterwordspacing
-K.~Tamura, T.~Shirakawa, R.~Sato, T.~Imoto, and S.~Endo, ``Decomposition of
-  multi-qubit gates for circuit cutting,'' \emph{arXiv preprint
-  arXiv:2603.26278}, 2026. [Online]. Available:
+R.~Tamura, T.~Kashimata, Y.~Hamakawa, K.~Tatsumura, and H.~Imai,
+  ``Decomposition of multi-qubit gates for circuit cutting,'' \emph{arXiv
+  preprint arXiv:2603.26278}, 2026. [Online]. Available:
   \url{https://arxiv.org/abs/2603.26278}
 \BIBentrySTDinterwordspacing
 
 \bibitem{burt2026}
 F.~Burt, K.-C. Chen, and K.~K. Leung, ``A multilevel framework for partitioning
   quantum circuits,'' \emph{Quantum}, vol.~10, p. 1984, 2026.
-
-\bibitem{lawler1966}
-E.~L. Lawler and D.~E. Wood, ``Branch-and-bound methods: A survey,''
-  \emph{Operations Research}, vol.~14, no.~4, pp. 699--719, 1966.
 
 \bibitem{schmitt2025}
 L.~Schmitt, C.~Piveteau, and D.~Sutter, ``Cutting circuits with multiple

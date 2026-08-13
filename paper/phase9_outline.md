@@ -5,7 +5,7 @@
 - Working title: **CertiCut: Certified Anytime Optimization for Sampling-Aware Quantum Circuit Cutting via Polyhedral Relaxations**.
 - Budget: 8 main pages excluding references and appendix. Scale section allocations proportionally if the venue differs; do not expand scope.
 - Evidence freeze: `results/final_manifest.json`, dated 2026-08-11. All numerical claims must trace to `paper/claims.md` or its frozen raw artifact hash.
-- Scope throughout: exact balanced two-fragment (`K=2`) partitioning; independent Qiskit Addon Cutting 0.10 QPD costs; logical all-to-all circuit representation.
+- Scope throughout: exact balanced two-fragment (`K=2`) partitioning; independent Qiskit Addon Cutting 0.10.0 QPD costs; logical all-to-all circuit representation.
 
 ## Page Budget
 
@@ -46,7 +46,7 @@ Move the n=40 family-tail table to appendix unless the main-page budget has room
    - Certified anytime optimization: safe-stop `LB <= OPT <= UB`, factor `F = exp(UB - LB)`.
    - Polyhedral strengthening: B2S root separation materially improves controlled proof completion.
    - Gate-dependent objective: minimizing cut count differs from minimizing independent-QPD overhead.
-   - Native representation sensitivity: legal QPD representations can alter the predicted optimum under the stated Qiskit 0.10 model.
+   - Native representation sensitivity: legal QPD representations can alter the predicted optimum under the stated Qiskit Addon Cutting 0.10.0 model.
 6. State `K=2` specialization before contributions end. Do not frame a general multi-fragment solver.
 
 ## 2. Background and Problem Formulation (0.85 page)
@@ -153,7 +153,7 @@ Move the n=40 family-tail table to appendix unless the main-page budget has room
 - Explain counterexample: two iSWAP cuts cost `49^2 = 2401`; three CX cuts cost `9^3 = 729`.
 - Table 4 and Fig. 4.
 - Paired QAOA `n=16`, fixed `pi/4`: `J*_CX = 158.200`, `J*_native = 79.100`, ratio `2.25e34`.
-- Qualify every such statement: under respective Qiskit 0.10 independent-QPD representations; not an intrinsic physical-shot claim.
+- Qualify every such statement: under respective Qiskit Addon Cutting 0.10.0 independent-QPD representations; not an intrinsic physical-shot claim.
 
 ### RQ5. How does specialization relate to practical automatic cutting?
 
@@ -190,7 +190,7 @@ Move the n=40 family-tail table to appendix unless the main-page budget has room
 | --- | --- | --- |
 | Certification | Valid at completed safe boundaries; final 60 s time-limit returns valid certificate | Hard real-time guarantee; certificate available before first safe boundary |
 | B2S | Dominates controlled proof completion in the stated ablation | Universally best relaxation or branching policy |
-| Native QPD | Materially changes predicted independent-QPD overhead under Qiskit 0.10 | Intrinsic physical shot reduction |
+| Native QPD | Materially changes predicted independent-QPD overhead under Qiskit Addon Cutting 0.10.0 | Intrinsic physical shot reduction |
 | n=40 | Family-stratified observed tail | Density causes difficulty |
 | K=2 | No observed penalty on 24 stated practical cases | K=2 is generally equivalent to practical cutting |
 | Qiskit/KaHIP | Complementary feasible/practical baselines | Equal-wall-clock certified comparisons |

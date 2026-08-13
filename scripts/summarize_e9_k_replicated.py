@@ -16,6 +16,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.lines import Line2D
 
+plt.rcParams.update({"pdf.fonttype": 42, "ps.fonttype": 42})
+
 
 FIGURES = ROOT / "paper" / "figures"
 SUMMARY = ROOT / "results" / "e9_k_heterogeneous_scaling_replicated_summary.json"

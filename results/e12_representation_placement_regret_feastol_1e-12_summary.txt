@@ -1,0 +1,86 @@
+========================================================================
+E12: Representation-Induced Optimal-Placement Regret
+========================================================================
+Pinned SCIP numerics/feastol: 1e-12
+
+--- Tier 2: Algorithm-derived MQT families ---
+
+--- Tier 3: Medium instances (tie-safe two-stage SCIP) ---
+  [qaoa n=12 K=2 SCIP-TS] J_cx*=114.2557 J_nat*=57.1278 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=158.2002 disagree=0 t=0.78s no reversal [tau-stable]
+  [qaoa n=12 K=3 SCIP-TS] J_cx*=175.7780 J_nat*=87.8890 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=158.2002 disagree=0 t=2.66s no reversal [tau-stable]
+  [qaoa n=14 K=2 SCIP-TS] J_cx*=193.3558 J_nat*=96.6779 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=237.3003 disagree=0 t=5.10s no reversal [tau-stable]
+  [qaoa n=14 K=3 SCIP-TS] J_cx*=272.4558 J_nat*=136.2279 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=237.3003 disagree=0 t=12.67s no reversal [tau-stable]
+  [qaoa n=16 K=2 SCIP-TS] J_cx*=158.2002 J_nat*=79.1001 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=250.4836 disagree=0 t=0.89s no reversal [tau-stable]
+  [qaoa n=16 K=3 SCIP-TS] J_cx*=254.8781 J_nat*=127.4390 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=250.4836 disagree=0 t=6.07s no reversal [tau-stable]
+  [qft n=12 K=2 SCIP-TS] J_cx*=158.2002 J_nat*=16.1148 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=264.4037 disagree=0 t=1.20s no reversal [tau-stable]
+  [qft n=12 K=3 SCIP-TS] J_cx*=210.9336 J_nat*=26.1026 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=264.4037 disagree=0 t=3.69s no reversal [tau-stable]
+  [qft n=14 K=2 SCIP-TS] J_cx*=221.9197 J_nat*=20.9092 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=368.3735 disagree=0 t=3.44s no reversal [tau-stable]
+  [qft n=14 K=3 SCIP-TS] J_cx*=292.2309 J_nat*=31.9640 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=368.3735 disagree=2 t=13.00s no reversal [tau-stable]
+  [qft n=16 K=2 SCIP-TS] J_cx*=281.2447 J_nat*=17.8414 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=489.9194 disagree=0 t=6.90s no reversal [tau-stable]
+  [qft n=16 K=3 SCIP-TS] J_cx*=380.1199 J_nat*=33.6828 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=489.9194 disagree=12 t=22.98s no reversal [tau-stable]
+  [qpeexact n=12 K=2 SCIP-TS] J_cx*=153.8057 J_nat*=25.0300 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=243.7729 disagree=0 t=1.10s no reversal [tau-stable]
+  [qpeexact n=12 K=3 SCIP-TS] J_cx*=206.5391 J_nat*=37.4927 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=243.7729 disagree=0 t=5.38s no reversal [tau-stable]
+  [qpeexact n=14 K=2 SCIP-TS] J_cx*=202.1447 J_nat*=28.1900 R(cx->nat)=4.0293 R(nat->cx)=729.0000 delta_l1=338.9561 disagree=2 t=6.83s REVERSAL(a->b R=4.0293) REVERSAL(b->a R=729.0000) [tau-stable]
+  [qpeexact n=14 K=3 SCIP-TS] J_cx*=272.4558 J_nat*=38.2927 R(cx->nat)=27.4809 R(nat->cx)=81.0000 delta_l1=338.9561 disagree=6 t=16.42s REVERSAL(a->b R=27.4809) REVERSAL(b->a R=81.0000) [tau-stable]
+  [qpeexact n=16 K=2 SCIP-TS] J_cx*=281.2447 J_nat*=32.7558 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=465.0665 disagree=0 t=5.34s no reversal [tau-stable]
+  [qpeexact n=16 K=3 SCIP-TS] J_cx*=373.5282 J_nat*=48.5070 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=465.0665 disagree=11 t=35.17s no reversal [tau-stable]
+  [bv n=12 K=2 SCIP-TS] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [bv n=12 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [bv n=14 K=2 SCIP-TS] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [bv n=14 K=3 SCIP-TS] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.04s no reversal [tau-stable]
+  [bv n=16 K=2 SCIP-TS] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [bv n=16 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.03s no reversal [tau-stable]
+  [grover n=12 K=2 SCIP-TS] J_cx*=24455.1095 J_nat*=35682.9271 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=39836.3242 disagree=0 t=1.94s no reversal [tau-stable]
+  [grover n=12 K=3 SCIP-TS] J_cx*=34760.0928 J_nat*=53525.0333 R(cx->nat)=inf R(nat->cx)=inf delta_l1=39836.3242 disagree=3 t=3.63s REVERSAL(a->b R=inf) REVERSAL(b->a R=inf) [tau-stable]
+  [grover n=14 K=2 SCIP-TS] J_cx*=66457.2546 J_nat*=111074.0968 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=128234.7473 disagree=0 t=5.69s no reversal [tau-stable]
+  [grover n=14 K=3 SCIP-TS] J_cx*=89233.6845 J_nat*=138530.6152 R(cx->nat)=inf R(nat->cx)=inf delta_l1=128234.7473 disagree=10 t=7.98s REVERSAL(a->b R=inf) REVERSAL(b->a R=inf) [tau-stable]
+  [grover n=16 K=2 SCIP-TS] J_cx*=162243.0628 J_nat*=263332.9711 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=371287.1724 disagree=0 t=15.00s no reversal [tau-stable]
+  [grover n=16 K=3 SCIP-TS] J_cx*=240244.5353 J_nat*=394375.4449 R(cx->nat)=inf R(nat->cx)=inf delta_l1=371287.1724 disagree=2 t=21.60s REVERSAL(a->b R=inf) REVERSAL(b->a R=inf) [tau-stable]
+  [vqe_real_amp n=12 K=2 SCIP-TS] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.03s no reversal [tau-stable]
+  [vqe_real_amp n=12 K=3 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.06s no reversal [tau-stable]
+  [vqe_real_amp n=14 K=2 SCIP-TS] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [vqe_real_amp n=14 K=3 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.07s no reversal [tau-stable]
+  [vqe_real_amp n=16 K=2 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.04s no reversal [tau-stable]
+  [vqe_real_amp n=16 K=3 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.09s no reversal [tau-stable]
+  [ghz n=12 K=2 SCIP-TS] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.02s no reversal [tau-stable]
+  [ghz n=12 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.06s no reversal [tau-stable]
+  [ghz n=14 K=2 SCIP-TS] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [ghz n=14 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.07s no reversal [tau-stable]
+  [ghz n=16 K=2 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.04s no reversal [tau-stable]
+  [ghz n=16 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.09s no reversal [tau-stable]
+  [dj n=12 K=2 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.10s no reversal [tau-stable]
+  [dj n=12 K=3 SCIP-TS] J_cx*=17.5778 J_nat*=17.5778 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.18s no reversal [tau-stable]
+  [dj n=14 K=2 SCIP-TS] J_cx*=15.3806 J_nat*=15.3806 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.04s no reversal [tau-stable]
+  [dj n=14 K=3 SCIP-TS] J_cx*=19.7750 J_nat*=19.7750 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.27s no reversal [tau-stable]
+  [dj n=16 K=2 SCIP-TS] J_cx*=17.5778 J_nat*=17.5778 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.12s no reversal [tau-stable]
+  [dj n=16 K=3 SCIP-TS] J_cx*=21.9722 J_nat*=21.9722 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.17s no reversal [tau-stable]
+
+========================================================================
+SUMMARY
+========================================================================
+Total records: 48
+Valid (computed): 48 (exact: 0, scip: 48)
+Strict reversals (a->b): 5
+Strict reversals (b->a): 5
+Any reversal: 5/48
+Max R(cx->native): inf
+Max R(native->cx): inf
+
+Per-family breakdown:
+  qaoa: 6 instances, 0 reversals, max R=1.0000
+  qft: 6 instances, 0 reversals, max R=1.0000
+  qpeexact: 6 instances, 2 reversals, max R=729.0000
+  bv: 6 instances, 0 reversals, max R=1.0000
+  grover: 6 instances, 3 reversals, max R=inf
+  vqe_real_amp: 6 instances, 0 reversals, max R=1.0000
+  ghz: 6 instances, 0 reversals, max R=1.0000
+  dj: 6 instances, 0 reversals, max R=1.0000
+
+Tau sensitivity (SCIP tier reversals):
+  qpeexact n=14 K=2: tau=1e-08: R_ab=4.0293 R_ba=729.0000 | tau=1e-09: R_ab=4.0293 R_ba=729.0000 | tau=1e-10: R_ab=4.0293 R_ba=729.0000
+  qpeexact n=14 K=3: tau=1e-08: R_ab=27.4809 R_ba=81.0000 | tau=1e-09: R_ab=27.4809 R_ba=81.0000 | tau=1e-10: R_ab=27.4809 R_ba=81.0000
+  grover n=12 K=3: tau=1e-08: R_ab=inf R_ba=inf | tau=1e-09: R_ab=inf R_ba=inf | tau=1e-10: R_ab=inf R_ba=inf
+  grover n=14 K=3: tau=1e-08: R_ab=inf R_ba=inf | tau=1e-09: R_ab=inf R_ba=inf | tau=1e-10: R_ab=inf R_ba=inf
+  grover n=16 K=3: tau=1e-08: R_ab=inf R_ba=inf | tau=1e-09: R_ab=inf R_ba=inf | tau=1e-10: R_ab=inf R_ba=inf
+
+Results written to results\e12_representation_placement_regret_feastol_1e-12.json

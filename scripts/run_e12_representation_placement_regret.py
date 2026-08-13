@@ -20,6 +20,7 @@ No hardware routing is enabled: both representations use coupling_map=None.
 from __future__ import annotations
 
 import json
+import os
 import sys
 from dataclasses import asdict, dataclass
 from itertools import combinations
@@ -42,6 +43,7 @@ from certicut.optimization.exact import _valid_partitions
 ROOT = Path(__file__).resolve().parents[1]
 
 TOLERANCE = 1e-10
+SCIP_FEASIBILITY_TOLERANCE = 1e-12
 
 
 # ---------------------------------------------------------------------------
@@ -298,6 +300,7 @@ def _solve_cross_representation_mip(
     lower_capacities: tuple[int, ...],
     upper_capacities: tuple[int, ...],
     tau_opt: float,
+    feasibility_tolerance: float,
     time_limit_s: float,
 ) -> tuple[float | None, tuple[int, ...] | None, str]:
     """Two-stage tie-safe MIP: minimize J_cross(P) subject to J_primary(P) <= J*_primary + tau_opt.
@@ -312,10 +315,22 @@ def _solve_cross_representation_mip(
     n = graph_primary.num_qubits
     K = num_fragments
 
+    if (
+        not graph_primary.edges
+        or all(abs(edge.qpd_log_cost) <= TOLERANCE for edge in graph_primary.edges)
+    ):
+        partition = tuple(
+            fragment
+            for fragment, capacity in enumerate(lower_capacities)
+            for _ in range(capacity)
+        )
+        return 0.0, partition, "trivial"
+
     model = Model("e12_cross_representation")
     model.hideOutput(True)
     model.setIntParam("randomization/randomseedshift", 0)
     model.setIntParam("randomization/permutationseed", 0)
+    model.setRealParam("numerics/feastol", feasibility_tolerance)
     if time_limit_s > 0:
         model.setRealParam("limits/time", time_limit_s)
 
@@ -359,13 +374,18 @@ def _solve_cross_representation_mip(
             model.addCons(y_c[ei, k] >= x[edge.u, k] + x[edge.v, k] - 1)
         model.addCons(z_c[ei] + quicksum(y_c[ei, k] for k in range(K)) == 1)
 
-    # Stage-1 budget: J_primary(P) <= J*_primary + tau_opt
-    scip_tol = float(model.getParam("numerics/feastol"))
-    primary_obj = quicksum(
-        edge.qpd_log_cost * z_p[ei]
-        for ei, edge in enumerate(graph_primary.edges)
-    )
-    model.addCons(primary_obj <= J_primary_star + tau_opt + scip_tol)
+    # Stage-1 budget: J_primary(P) <= J*_primary + tau_opt.
+    # Rebuild it from the objective to avoid a zero-length quicksum becoming
+    # an invalid constant constraint in PySCIPOpt.
+    if any(edge.qpd_log_cost > TOLERANCE for edge in graph_primary.edges):
+        scip_tol = float(model.getParam("numerics/feastol"))
+        primary_obj = quicksum(
+            edge.qpd_log_cost * z_p[ei]
+            for ei, edge in enumerate(graph_primary.edges)
+        )
+        budget = J_primary_star + tau_opt + scip_tol
+        if budget > TOLERANCE:
+            model.addCons(primary_obj <= budget)
 
     # Stage-2 objective: minimize J_cross(P)
     cross_obj = quicksum(
@@ -400,6 +420,7 @@ def scip_representation_regret(
     source_fingerprint: str = "",
     time_limit_s: float = 300.0,
     tau_opt: float = 1e-9,
+    feasibility_tolerance: float = SCIP_FEASIBILITY_TOLERANCE,
 ) -> RepresentationRegretResult:
     """Tie-safe two-stage SCIP regret for medium instances.
 
@@ -407,6 +428,7 @@ def scip_representation_regret(
     Stage 2a: Solve min J_b(P) s.t. J_a(P) <= J*_a + tau_opt  (tie-safe a->b)
     Stage 2b: Solve min J_a(P) s.t. J_b(P) <= J*_b + tau_opt  (tie-safe b->a)
 
+    The same explicit SCIP feasibility tolerance is pinned in every stage.
     This ensures Delta_{a->b} = min_{P in argmin_tau J_a} J_b(P) - J*_b,
     which correctly handles ties in the primary objective.
     """
@@ -432,40 +454,53 @@ def scip_representation_regret(
         graph_a, num_fragments=K,
         lower_capacities=lower_caps, upper_capacities=upper_caps,
         time_limit_s=time_limit_s, symmetry_breaking=True,
+        feasibility_tolerance=feasibility_tolerance,
     )
     result_b = solve_scip_k_partition(
         graph_b, num_fragments=K,
         lower_capacities=lower_caps, upper_capacities=upper_caps,
         time_limit_s=time_limit_s, symmetry_breaking=True,
+        feasibility_tolerance=feasibility_tolerance,
     )
 
     if result_a.partition is None or result_b.partition is None:
         raise RuntimeError(f"SCIP failed: a={result_a.status}, b={result_b.status}")
 
-    J_a_star = result_a.objective_log_cost
-    J_b_star = result_b.objective_log_cost
+    # Recompute from the integral witnesses. SCIP's primal bound can be rounded
+    # just below the discrete objective, which would make a tight Stage-2 budget
+    # incorrectly infeasible on zero-cost or tied instances.
+    J_a_star = graph_partition_objective(graph_a, result_a.partition)
+    J_b_star = graph_partition_objective(graph_b, result_b.partition)
 
-    # Stage 2a: min J_b(P) s.t. J_a(P) <= J*_a + tau
-    C_a_to_b, P_a_cross, status_a2 = _solve_cross_representation_mip(
-        graph_a, graph_b,
-        J_primary_star=J_a_star,
-        num_fragments=K,
-        lower_capacities=lower_caps,
-        upper_capacities=upper_caps,
-        tau_opt=tau_opt,
-        time_limit_s=time_limit_s,
-    )
+    if w_a == w_b:
+        # Identical objective vectors have identical argmin sets; avoid a
+        # redundant cross model and its floating-point budget constraint.
+        C_a_to_b, P_a_cross, status_a2 = J_b_star, result_a.partition, "identical_objectives"
+        C_b_to_a, P_b_cross, status_b2 = J_a_star, result_b.partition, "identical_objectives"
+    else:
+        # Stage 2a: min J_b(P) s.t. J_a(P) <= J*_a + tau
+        C_a_to_b, P_a_cross, status_a2 = _solve_cross_representation_mip(
+            graph_a, graph_b,
+            J_primary_star=J_a_star,
+            num_fragments=K,
+            lower_capacities=lower_caps,
+            upper_capacities=upper_caps,
+            tau_opt=tau_opt,
+            feasibility_tolerance=feasibility_tolerance,
+            time_limit_s=time_limit_s,
+        )
 
-    # Stage 2b: min J_a(P) s.t. J_b(P) <= J*_b + tau
-    C_b_to_a, P_b_cross, status_b2 = _solve_cross_representation_mip(
-        graph_b, graph_a,
-        J_primary_star=J_b_star,
-        num_fragments=K,
-        lower_capacities=lower_caps,
-        upper_capacities=upper_caps,
-        tau_opt=tau_opt,
-        time_limit_s=time_limit_s,
-    )
+        # Stage 2b: min J_a(P) s.t. J_b(P) <= J*_b + tau
+        C_b_to_a, P_b_cross, status_b2 = _solve_cross_representation_mip(
+            graph_b, graph_a,
+            J_primary_star=J_b_star,
+            num_fragments=K,
+            lower_capacities=lower_caps,
+            upper_capacities=upper_caps,
+            tau_opt=tau_opt,
+            feasibility_tolerance=feasibility_tolerance,
+            time_limit_s=time_limit_s,
+        )
 
     if C_a_to_b is None or C_b_to_a is None:
         raise RuntimeError(
@@ -575,6 +610,7 @@ def main() -> None:
     _log("=" * 72)
     _log("E12: Representation-Induced Optimal-Placement Regret")
     _log("=" * 72)
+    _log(f"Pinned SCIP numerics/feastol: {SCIP_FEASIBILITY_TOLERANCE:.0e}")
 
     # ---- Tier 2: Algorithm-derived MQT families ----
     _log("\n--- Tier 2: Algorithm-derived MQT families ---")
@@ -585,7 +621,7 @@ def main() -> None:
     control_families = ["vqe_real_amp", "ghz", "dj"]
     all_families = mqt_families + control_families
     # n values where exhaustive enumeration is feasible (K=2 balanced)
-    mqt_exact_sizes = [4, 6, 8, 10]
+    mqt_exact_sizes = [] if os.environ.get("E12_SKIP_EXACT") == "1" else [4, 6, 8, 10]
     # n values for SCIP tier
     mqt_scip_sizes = [12, 14, 16]
     # K values to try for exact tier
@@ -697,6 +733,7 @@ def main() -> None:
                     )
                     record = result.as_dict()
                     record["tau_opt"] = 1e-9
+                    record["scip_numerics_feastol"] = SCIP_FEASIBILITY_TOLERANCE
                     record["audit_a"] = audit_a.as_dict()
                     record["audit_b"] = audit_b.as_dict()
 
@@ -720,6 +757,7 @@ def main() -> None:
                                 source_fingerprint=audit_a.source_fingerprint,
                                 time_limit_s=600.0,
                                 tau_opt=tau,
+                                feasibility_tolerance=SCIP_FEASIBILITY_TOLERANCE,
                             )
                             sensitivity[str(tau)] = {
                                 "R_a_to_b": result_tau.R_a_to_b,
@@ -834,13 +872,15 @@ def main() -> None:
         _log(f"  {fam} n={nn} K={kk}: {' | '.join(tau_results)}")
 
     # Write results
-    output = ROOT / "results" / "e12_representation_placement_regret.json"
+    output = Path(os.environ.get(
+        "E12_OUTPUT", ROOT / "results" / "e12_representation_placement_regret.json"
+    ))
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(records, indent=2, default=str) + "\n", encoding="utf-8")
     _log(f"\nResults written to {output}")
 
     # Write summary
-    summary_path = ROOT / "results" / "e12_summary.txt"
+    summary_path = output.with_name(f"{output.stem}_summary.txt")
     summary_path.write_text("\n".join(summary_lines) + "\n", encoding="utf-8")
 
 

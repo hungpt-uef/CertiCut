@@ -36,7 +36,7 @@ Claim: legal native-QPD versus CX-normalized representations can materially alte
 
 Evidence: Phase 6.5B paired fixed-pi/4 QAOA source circuits; BV/VQE controls.
 
-Scope: paired MQT Bench sources, Qiskit 0.10 cost model.
+Scope: paired MQT Bench sources, Qiskit Addon Cutting 0.10.0 cost model.
 
 Limitation: not an intrinsic shot-complexity claim for abstract algorithms.
 

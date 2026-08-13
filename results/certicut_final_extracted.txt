@@ -1,0 +1,876 @@
+     CertiCut: Capacitated K-Way Independent-QPD
+     Circuit Cutting with Anytime Overhead Bounds
+                                       Anonymous Authors for Double-Blind Review
+
+
+   Abstract—Circuit cutting trades quantum-device width for a                CERTICUT Conceptual Model
+quasiprobability sampling overhead that grows multiplicatively
+with severed interactions. We present C ERTI C UT, an exact                            Common Logical Problem
+capacitated K-way independent-QPD formulation that reduces
+static gate cutting to log-domain weighted graph partitioning.                   Same source circuit, logical wires, frag-
+Any valid global MIP gap then yields an interpretable anytime                    ment capacities, and feasible placements
+overhead certificate Γinc /Γ∗ ≤ exp(UB − LB). Empirically,
+unweighted cut-count minimization can incur modeled overhead
+regret up to 1.04×106 , while a mature MIP solver closes 101/144
+capacitated K-way instances (n ≤ 60, K ≤ 5) within 10 s
+with transparent finite bounds on open cases. Beyond fixed-                Representation a                       Representation b
+representation optimization, we show that semantically equiva-
+lent circuit representations can change the optimal placement              Gate decomposition                 Equivalent decomposition
+itself: a tie-safe lexicographic MIP confirms representation-                 QPD interac-                         QPD interac-
+induced reversals on Grover circuits, while a stability theorem             tion weights w(a)                    tion weights w(b)
+and positive-scaling corollary characterize when placement is
+invariant.
+   Index Terms—quantum circuit cutting, quasiprobability de-
+composition, capacitated graph partitioning, anytime optimiza-
+tion, mixed-integer programming
+                                                                                 Shared Placement Decision Space
+                      I. I NTRODUCTION                                              Optimize each weighted graph over
+   Near-term quantum processors remain limited in qubit                            the same feasible partitions; compare
+count, fidelity, and connectivity [1]. Circuit cutting mitigates                   their optimal-placement sets tie-safely
+the width constraint by decomposing a circuit into smaller,
+independently executable fragments and recovering the target
+quantity through classical post-processing [2], [3], [4]. This
+tradeoff can be expensive: every severed interaction contributes                                                Part II: Placement
+                                                                           Part I: Anytime
+a gate-dependent quasiprobability sampling factor, and these                                                         Stability
+                                                                          Overhead Bounds
+factors multiply across cuts. Minimizing the number of cuts                                                        Regret quantifies
+therefore need not minimize the resulting sampling overhead.              Global MIP bounds
+                                                                                                                  changed decisions;
+   Automatic cutting workflows commonly report a partition               quantify independent-
+                                                                                                                  margin conditions
+and a solver-specific status. Although generic mixed-integer             QPD model overhead
+                                                                                                                  guarantee stability
+programming (MIP) solvers expose primal and dual bounds,
+their implications for circuit-cutting resource overhead are not
+                                                                    Fig. 1. C ERTI C UT conceptual model. A common logical circuit and feasible
+explicit in the solver output. Such a translation matters because   placement space induce representation-specific independent-QPD interaction
+an additive objective gap can represent orders of magnitude         weights. Part I optimizes each fixed-representation instance and interprets
+in multiplicative sampling cost. Working in the log-overhead        valid global bounds through F = exp(UB − LB). Part II compares the
+                                                                    resulting optimal-placement sets tie-safely to quantify representation-induced
+domain makes the connection exact: a global optimization gap        regret or establish placement stability.
+immediately yields a worst-case overhead ratio.
+   We present C ERTI C UT, a solver-independent resource-           The production optimizer is SCIP. A specialized B2S branch-
+semantics framework and a capacitated K-way independent-            and-bound implementation remains a K = 2 balanced-
+QPD MIP. The formulation targets logical interaction graphs,        bisection reference for polyhedral ablation, not a production-
+supports arbitrary declared fragment counts and per-fragment        performance claim.
+lower/upper capacities, and uses independent gate-level QPD            The novelty scope is explicit. The contribution is not
+costs from Qiskit Addon Cutting 0.10 [5], which supports            merely “put QPD costs on graph edges and call SCIP.”
+SparsePauliOp-oriented reconstruction workflows compatible          Weighted graph partitioning, branch-and-bound, capacity con-
+with the partitions we certify. In exact arithmetic, global         straints, cardinality identities, and metric inequalities are es-
+bounds at a safe stopping boundary imply F = exp(UB−LB);            tablished machinery [6], [7], [8]; C ERTI C UT does not claim
+runtime outputs are floating-point solver-tolerance quantities.     a new graph-partitioning algorithm. The contribution is in-
+stead three circuit-cutting specializations: (i) exact model        For a partition P with crossed-gate set S(P ), independent
+reduction of independent QPD to a log-domain graph MIP;             sampling across gates gives
+(ii) resource-semantic certificates Γinc /Γ∗ ≤ exp(UB − LB);                    Y                                X
+                                                                      Γ(P ) =        ρg ,    J(P ) = log Γ(P ) =       log ρg .
+and (iii) representation-placement theory (tie-safe regret, mar-
+                                                                              g∈S(P )                                    g∈S(P )
+gin stability, and positive-scaling invariance). The third pillar                                                             (2)
+is the most distinctive: semantically equivalent decompositions     This objective matches the independent gate-level model in
+can reverse the optimal fragment map, and the manuscript            Qiskit Addon Cutting 0.10 [5]; it is not a model of joint
+supplies both the theory and the empirical protocol that            decompositions, finite-shot variance, or hardware noise. Be-
+distinguishes true reversals from solver tie-breaking artifacts.    cause the QPD coefficient one-norm is at least one, ρg ≥ 1
+   This work therefore makes three primary contributions            and all log weights are nonnegative. We validated the gate
+aligned with that novelty statement:                                costs against the Qiskit QPD registry: ρ√  CX = ρCZ = 9,
+  1) Exact capacitated K-way independent-QPD formula-               ρiSWAP = ρDCX = 49, ρCS = 3 + 2 2 ≈ 5.828, and
+     tion. For arbitrary K ≥ 2, lower/upper fragment ca-            ρRZZ(θ) = (1 + 2| sin θ|)2 for numerically bound rotations.
+     pacities, fixed representation, and independent per-gate       B. Log-Domain Interaction Graph
+     QPD, we give an exact assignment/locality MIP whose
+                                                                      Let V = {0, . . . , n−1} be the circuit qubits, and let Gij
+     log-domain optimum equals the multiplicative sampling
+                                                                    contain the two-qubit gate occurrences acting on pair (i, j).
+     overhead.
+                                                                    We assign the nonnegative interaction weight
+  2) Interpretable anytime resource certificates. In exact                                      X
+     arithmetic, any valid global pair (UB, LB) guarantees                                wij =      log ρg .                 (3)
+     Γinc /Γ∗ ≤ exp(UB − LB); implementation outputs                                                  g∈Gij
+     are labelled solver-tolerance bounds and are usable by         For any fragment map f : V → {1, . . . , K}, the objective
+     mature MIP solvers without a specialized branch-and-           becomes
+     bound claim.                                                                J(P ) =
+                                                                                         X
+                                                                                           wij · I(f (i) ̸= f (j)).        (4)
+  3) Representation-placement theory and evidence. We de-                                      i<j
+     fine tie-safe cross-representation regret Ra→b , prove
+     perturbation stability and positive-scaling invariance,        The binary bisection identity I(f (i) ̸= f (j)) = |zi − zj | is
+     and confirm placement reversals on QPE and Grover              recovered when K = 2.
+     with a two-stage lexicographic MIP across τopt ∈                  Proposition 1 (Objective equivalence). Under independent
+     {10−8 , 10−9 , 10−10 }, while ruling out single-solve false    gate-level QPD, minimizing (2) is equivalent to minimizing (4).
+     positives on QFT.                                              Proof. Every g ∈ Gij is cut exactly when f (i) ̸= f (j).
+   The empirical narrative follows the same three pillars:          Regrouping the gate-level sum by qubit pair yields (4).
+count-versus-QPD reversals (E5/E6), anytime certification           C. Capacitated K-Way Partition Problem
+and K-way backend boundary (E7/E9/E10), and representa-                Let K ≥ 2 be the declared fragment count. Binary assign-
+tion sensitivity. Supporting tracks (legacy E1, representation-     ment aik = 1 denotes
+ingestion probes E2–E4, finite-shot E8, and polyhedral abla-                         P that qubit i belongs to fragment k, with
+                                                                    capacities Lk ≤ i aik ≤ Uk . For each aggregated interaction
+tions) are retained only as brief context or deferred to the        edge e = (i, j), locality variable yek = 1 denotes that both
+supplement.                                                         endpoints occupy fragment k, while ze = 1 denotes a crossed
+   The remainder develops the formulation and bound seman-          interaction. The exact independent-QPD MIP is
+tics, then evaluates the three pillars. Throughout, we separate                   X
+circuit-cutting model semantics from optimization-backend                  min        we ze
+performance.                                                                      e∈E
+                                                                                  XK
+                                                                           s.t.         aik = 1                  ∀i,
+     II. BACKGROUND AND P ROBLEM F ORMULATION                                     k=1
+                                                                                         X
+                                                                                  Lk ≤         aik ≤ Uk          ∀k,
+A. Independent QPD Circuit Cutting                                                         i                                       (5)
+                                                                                  yek ≤ aik ,        yek ≤ ajk   ∀e = (i, j), k,
+   Gate cutting replaces selected two-qubit channels by                           yek ≥ aik + ajk − 1            ∀e = (i, j), k,
+quasiprobability decompositions (QPDs) over fragment-local
+                                               P                                         K
+channels [2], [9]. For a cuttable channel Ug =    i ag,i Eg,i ,
+                                                                                         X
+                                                                                  ze +         yek = 1           ∀e,
+the corresponding independent sampling overhead is                                       k=1
+
+                                             !2                                   aik , yek , ze ∈ {0, 1}.
+                             X                                      The three inequalities are the exact binary AND hull. Since
+                     ρg =          |ag,i |        .          (1)
+                               i
+                                                                    each endpoint has exactly one assignment, exactly one yek is
+one iff both endpoints share a fragment; otherwise all locality   even n; it requires n/2 qubits per fragment and fixes z0 = 0
+variables are zero and ze = 1. Thus (5) exactly optimizes (4)     to remove label symmetry:
+for arbitrary feasible capacities.                                           X                       P
+   Proposition 2 (Objective equivalence for capacitated K-            min n     wij |zi − zj | s.t.     i zi = n/2, z0 = 0. (7)
+                                                                    z∈{0,1}
+                                                                              i<j
+way partitioning). For any K ≥ 2 and feasible capacities,
+the objective of (5) equals the independent gate-level log        Every feasible bisection cuts exactly (n/2)2 pairs in the
+overhead (2).                                                     complete-pair representation:
+                                                                                        X
+Proof. The assignment/locality constraints set ze = 1 exactly                                xij = n2 /4.               (8)
+when endpoints of aggregate edge e are in different fragments.                             i<j
+Equation (3) sums the log overhead ofP every gate occurrence
+                                                                  This identity is central to the strengthened relaxation below.
+in Ge . Regrouping (2) by edge yields e we ze .
+                                                                       III. O PTIMIZATION F ORMULATIONS AND B OUND
+   Problem (5) is NP-hard because exact-balanced weighted                               S EMANTICS
+bisection is its K = 2 special case.
+                                                                  A. Exact MILP Validation Oracle
+D. Fixed-Capacity Cardinality and the Balanced K = 2                We use a compact MIP and brute-force enumeration as
+Special Case                                                      independent validation oracles. For one pair (i, j), the convex
+   If fragment sizes are fixed exactly as |Fk | = nk , every      hull of xij = |zi − zj | is described by
+feasible partition crosses
+                                                                                xij ≥ zi − zj ,   xij ≥ zj − zi ,
+                               K                      K
+                                                             !                                                                   (9)
+                                                                                xij ≤ zi + zj ,   xij ≤ 2 − zi − zj .
+                           X        
+X                         n        nk       1     2
+                                                      X
+                                                           2
+     I(f (i) ̸= f (j)) =    −            =      n −       nk
+i<j
+                          2         2       2                     The implementation uses an equivalent one-hot assignment
+                              k=1                     k=1
+                                                           (6)    model. Its MIP retains only the two lower inequalities in (9)
+complete-graph pairs. This is a structural identity, not a        and declares xij binary; for positive-weight interacting pairs,
+constraint for lower/upper-only capacities. Exact-balanced bi-    minimization sets xij to its exact XOR value. Zero-weight
+section is the special case K = 2, n1 = n2 = n/2, yielding        pairs do not affect the objective. SciPy/HiGHS solves this
+n2 /4.                                                            MIP, while exhaustive enumeration supplies a second oracle
+   Proposition 3 (Trivial sparse root relaxation). For exact      through 16 qubits. Neither oracle contributes bounds to the
+capacities Lk = Uk = nk , the LP relaxation of the sparse         anytime results.
+edge-only formulation (5) has objective zero.
+                                                                  B. Basic Assignment Relaxation
+Proof. Set aik = nk /n and yek = nk /n for every qubit i, edge       The basic reference LP, denoted A0, uses one-hot assign-
+                      P set ze = 0. Assignment and capacity
+e, and fragment k, then                                           ment variables on qubits and cut variables only for interacting
+equalities hold since k nk = n. The upper AND inequalities        pairs. It retains exact balance and the two lower XOR inequal-
+                         P inequality holds because nk /n ≥
+hold at equality; the lower                                       ities from (9), then relaxes all variables to [0, 1]. Because the
+2nk /n − 1. Finally, ze + k yek = 1. Thus this is LP feasible     weights are nonnegative, this is a valid lower relaxation. It
+with zero nonnegative objective.                                  is nevertheless weak: fractional assignments can make many
+                                                                  weighted cut variables small simultaneously.
+   We therefore tested an all-pair extension of (5) that im-
+poses (6) with auxiliary nonedge variables, complete-metric       C. B2S Polyhedral Strengthening
+triangles, and a0,1 = 1 for equal capacities. The extension is
+                                                                     B2S lifts A0 to the complete pair space, imposes the full
+valid but dense. On a 36-record n ∈ {20, 32} ablation at 5 s,
+                                                                  XOR hull (9), and adds two families of valid constraints. To
+the base formulation closes 31 records, symmetry-only closes
+                                                                  isolate the added families independently of this representation
+29, and the cardinality or cardinality-plus-metric variants
+                                                                  change, Sec. V compares them against a complete-pair base-
+close 6 each. Thus production E9 uses SCIP’s sparse assign-
+                                                                  line, denoted CP0.
+ment/locality formulation with the valid equal-capacity anchor
+                                                                     Balanced-cut cardinality. Equality (8) fixes the total cut
+only. Orbitopes can remove redundant fragment-label permu-
+                                                                  mass over all qubit pairs.
+tations, but they cannot eliminate distinct primary-optimal
+                                                                     Metric inequalities. For each triple (i, j, k), the cut polytope
+partitions having different cut-indicator vectors. Therefore
+                                                                  satisfies [6]
+symmetry breaking does not replace the second lexicographic
+optimization required to evaluate tie-safe regret.                                      xij − xik − xjk ≤ 0,                    (10)
+E. Exact Balanced K = 2 Reference Problem                                               xik − xij − xjk ≤ 0,                    (11)
+                                                                                        xjk − xij − xik ≤ 0,                    (12)
+  The specialized reference implementation uses the K = 2
+exact-balanced special case. All legacy reference circuits have                         xij + xik + xjk ≤ 2.                    (13)
+Among three binary labels, the number of pairwise disagree-             Algorithm: Anytime CertiCut Reference Search
+ments is zero or two; inequalities (10)–(13) exclude the
+                                                                        Input: QPD-weighted interaction graph G, capacity qmax =
+fractional analogues of one or three disagreements. B2S solves          n/2, soft deadline T .
+the root LP, separates violated inequalities, and repeats until         Step 1. Compute initial feasible partition and upper bound:
+no violation remains or the separation budget is exhausted.             (Pinc , UB) ← H2(G).
+The resulting pool is then reused throughout the search tree;           Step 2. Solve and strengthen root LP via B2S separation:
+no node-level separation is performed.                                  (LB0 , C) ← B2S-ROOT(G). Freeze cut pool C.
+   Proposition 4 (Objective-bound redundancy without car-               Step 3. Initialize search frontier F with root node.
+dinality). For nonnegative weights, adding (10)–(13) to CP0             Step 4. While F ̸= ∅ and elapsed time < T :
+does not change its optimal value. This is an objective state-                               ∗
+                                                                           • Select node N = arg minN ∈F LBN .
+                                                                                   ∗
+ment, not a claim that the metric inequalities leave the CP0               • If N is integral and improves UB, update the incumbent.
+polyhedron unchanged.                                                      • Otherwise, branch on the most fractional unfixed qubit;
+                                                                              solve child LPs using C; prune children with LBN ≥ UB.
+Proof. Take an optimal CP0 solution and retain its label vector         Step 5. At each safe boundary, compute LB           =
+z. Set xij = |zi −zj | for every pair. This extension satisfies the     min(UB, minN ∈F LBN ) and emit bound report.
+pairwise XOR hull and all metric inequalities because absolute          Output:   Best   partition Pinc    and    bound report
+distance on the line is a metric and, for zi ∈ [0, 1], |zi −            (LB, UB, F = exp(UB − LB)).
+zj | + |zi − zk | + |zj − zk | ≤ 2. For fixed z, these are the        Fig. 2. The C ERTI C UT reference anytime search for exact-balanced K = 2
+smallest feasible pair values; nonnegative weights therefore          partitioning.
+ensure that the objective does not increase. Hence the metric-
+augmented optimum is no larger than the CP0 optimum. The
+reverse inequality follows because constraints were added.            F. Reference Branch-and-Bound
+                                                                         The reference optimizer maintains open nodes in non-
+   Proposition 5 (Relaxation validity). The B2S LP optimum            decreasing order of their LP bounds. It expands the best-
+is a valid lower bound on the K = 2 reference OPT.                    bound node, updates the incumbent when an integral solution
+                                                                      improves UB, and otherwise branches on the most fractional
+Proof. For binary labels, xij = |zi − zj | satisfies (9). A
+                                                                      label. Child LPs reuse the root cut pool; any child whose lower
+balanced partition cuts |F0 ||F1 | = n2 /4 complete-graph pairs,
+                                                                      bound is at least UB is pruned. After all LP solves associated
+and each label triple satisfies (10)–(13). Hence every feasible
+                                                                      with an expansion have completed, the algorithm reaches a
+integral bisection remains feasible in the relaxation, whose
+                                                                      safe boundary and computes
+minimum cannot exceed OPT.
+                                                                                                                  
+D. CertiCut Reference Implementation                                                  LB = min UB, min LBN ,                      (15)
+                                                                                                             N ∈F
+  H2 constructs feasible bisections from deterministic degree-        where F denotes the open frontier. The additive log-domain
+based orderings and a spectral initialization based on the            gap and the corresponding multiplicative overhead factor are
+graph Laplacian’s Fiedler vector. Each candidate undergoes
+best-improving Kernighan–Lin-style swaps between fragments                           ∆ = UB − LB,             F = exp(∆).                 (16)
+until no improving swap remains. The best candidate initializes
+UB; H2 does not establish a lower bound or certify optimality.           Proposition 6 (Reference safe-boundary validity, exact
+                                                                      arithmetic). In exact arithmetic, every reference-search safe
+E. Backend-Independent Gap Semantics                                  stopping boundary satisfies LB ≤ OPT ≤ UB.
+   Theorem 1 (Gap-to-overhead translation, exact arithmetic).         Proof. Feasibility of the incumbent gives OPT ≤ UB. Every
+For any K ≥ 2, feasible capacity bounds, and optimization             unexplored feasible solution belongs to a frontier subtree
+backend, if LB ≤ OPT ≤ UB, where UB = J(Pinc ) for a                  whose LP value lower-bounds all integral completions in that
+feasible incumbent of (5), then                                       subtree. Equation (15) therefore gives LB ≤ OPT.
+     Γ(Pinc )                                                            Experimental deadlines are soft: the reference optimizer
+              = exp(UB − OPT) ≤ exp(UB − LB).                 (14)
+       Γ∗                                                             stops only at a safe boundary. We report the actual boundary
+Proof. Equation (2) gives Γ(P ) = exp(J(P )). Since OPT ≥             time and never assign a later bound report to an earlier
+LB, exponentiation yields (14).                                       checkpoint. Propositions 5–6 are exact-arithmetic statements.
+                                                                      Runtime results use floating-point HiGHS or SCIP bounds and
+   This result depends on the specified independent-QPD ob-           are therefore labelled solver-tolerance quantities, not indepen-
+jective and valid global bounds, not on how a backend obtains         dently verified numerical proofs. A formal numerical bound
+them. Proposition 6 below establishes the required bound              would additionally require a verified conservative lower-bound
+premise for the K = 2 C ERTI C UT reference search in exact           procedure, such as dual-feasible recovery with outward round-
+arithmetic.                                                           ing or rational/interval verification.
+                              TABLE I                                    boundary is counted as unavailable. E7 reports F , threshold
+  E XPERIMENT- TO - QUESTION MAP. P RIMARY NARRATIVE EVIDENCE IS         counts, closure, and incumbent agreement. E9/E10 report
+     E5/E6, E7/E9/E10, AND THE REPRESENTATION - REGRET STUDY;
+               REMAINING ROWS ARE SUPPLEMENTARY.                         status, incumbent, primal/dual bounds, and F for every record.
+                                                                         These corpora are fixed designs rather than IID samples, so
+   Role      Set           Question                                      proportions are descriptive rather than population-prevalence
+   Supp.     E1            Legacy CNOT-only characterization of the      inference.
+                           reference implementation.                        KaHIP supplies fast feasible bisections for CNOT-only
+   Supp.     E2/E3         Dependence on specified CX-normalized
+                           versus native representation.
+                                                                         instances but no optimality certificate. For E9, a capacity-
+   Supp.     E4            Narrow overlap with Qiskit’s practical        exact multistart weighted greedy-swap heuristic is the direct
+                           multi-fragment cutter.                        K-way baseline. It uses the same aggregate log-QPD weights
+   Primary   E5/E6         Tie-safe count-versus-QPD reversals, con-
+                           structed and algorithm-derived.
+                                                                         and exact capacities, returns a feasible plan PH , and has no
+   Primary   E7            Which backend gives the strongest K =         bound of its own. CertiCut’s SCIP lower bound evaluates
+                           2 anytime bounds on heterogeneous-QPD         it as Γ(PH )/Γ∗ ≤ exp(J(PH ) − LB). Qiskit’s automatic
+                           instances?
+   Supp.     E8            Does lower modeled overhead correspond
+                                                                         cut finder [5] uses a different width-constrained gate/wire-cut
+                           to lower finite-shot error at equal budget?   model and remains contextual.
+   Primary   E9            How do replicated K ∈ {2, 3, 4, 5} clo-
+                           sure and bound factors vary through n =       C. E7 Backend Protocol
+                           60?
+   Primary   E10           Does the K-way boundary persist on               E7 is the primary backend comparison. All meth-
+                           algorithm-derived native-QPD circuits?        ods run single-threaded, pinning OMP_NUM_THREADS,
+   Primary   Rep.-regret   Does a semantically equivalent represen-      OPENBLAS_NUM_THREADS, and MKL_NUM_THREADS to
+                           tation alter the independent-QPD-optimal
+                           placement, and when is that placement         one before numerical-library import. CERTICUT uses its
+                           guaranteed stable?                            10−9 solver-tolerance protocol; SCIP uses its documented
+                                                                         numerical feasibility tolerance. At each independent wall-
+                                                                         clock checkpoint, all methods emit common UB, LB, and
+             IV. E XPERIMENTAL M ETHODOLOGY                              F = exp(UB − LB) fields. These are solver-tolerance numer-
+                                                                         ical quantities, not independently verified numerical proofs.
+A. Experimental Protocol
+                                                                         The frozen protocol, raw records, checkpoint requirements,
+   All reported results come from an evidence corpus frozen              and SHA-256 hashes are included in the artifact.
+on August 11–12, 2026. The environment uses Python 3.11.9,
+Qiskit 2.5.1, Qiskit Addon Cutting 0.10.0, Qiskit Aer 0.17.2,                            V. E XPERIMENTAL R ESULTS
+SciPy 1.17.1 [10], KaHIP 3.25 [11], MQT Bench 2.2.2 [12],                A. Gate Costs Change the Optimization Target
+PySCIPOpt 6.2.1, and SCIP 10.0 [13]. Experiments ran on                     Unweighted cut count can rank feasible plans incorrectly.
+Windows 11 Education (build 26200), an Intel Core i5-14400               Two iSWAP cuts have modeled overhead 492 = 2,401,
+(10 physical cores, 16 logical processors), and 31.69 GB                 whereas three CNOT cuts cost 93 = 729; the√three-cut plan
+RAM. Revision runners pin OpenMP, OpenBLAS, and MKL                      is cheaper. Likewise, two CS cuts cost (3 + 2 2)2 ≈ 33.97,
+to one thread before numerical imports; the frozen legacy                compared with 81 for two CNOT cuts. Equation (3) preserves
+E1 data did not. We use an LP tolerance of 10−9 , fixed                  these gate-dependent distinctions.
+random seeds, and fresh isolated processes for E1 deadlines. A              E5 tests this distinction under controlled heterogeneity. It
+manifest records exact versions, machine protocol, experiment            uses validated Qiskit costs for CX, CZ, iSWAP, and three
+counts, and SHA-256 hashes of raw results.                               nonzero RZZ angles on 120 deterministic circuits; no opera-
+   The manuscript is organized around three narrative pil-               tion has unit QPD overhead. To avoid tie-breaking artifacts, we
+lars only: (1) count-versus-QPD objective reversals (E5, E6);            compare minP : c(P )=c∗ J(P ), the best QPD objective among
+(2) capacitated K-way scaling and anytime backend bounds                 all minimum-cut partitions, with minP J(P ); both values are
+(E7, E9, E10); and (3) representation-induced placement regret           obtained by exhaustive enumeration. This stronger regret is
+and stability. Tracks E1–E4, E8, and the polyhedral ablations            strict in 16/120 cases (13.3%). Its conditional factor has
+are supporting context and are summarized briefly or deferred            median 5.30, 90th percentile 27.47, and maximum 181.11.
+to the anonymized supplement; they are not additional research           Every strict reversal requires more cuts under a QPD-optimal
+claims.                                                                  plan, with median count increase one and maximum three.
+   Table I maps each experiment to its research question and             Across the 16 reversals, QPD-optimal plans cut 28 fewer
+marks which evidence is primary versus supplementary.                    iSWAP gates while accepting 47 additional lower-overhead
+                                                                         gates (CX, CZ, and RZZ). All 120 QPD optimization runs
+B. Metrics and Baselines                                                 close numerically within the 30-s deadline; 90 close at the
+  We report solver-tolerance gap closure, bound-report avail-            B2S root.
+ability, factor F , optimizer and end-to-end runtime, and                   E6 tests whether this mechanism occurs without con-
+peak resident memory. Every E1 checkpoint uses the full                  structed gate palettes. Its predeclared protocol fixes six
+denominator of 420; a run that has not reached a safe                    algorithm-derived MQT Bench families [12], six even sizes,
+                           TABLE II                                                               TABLE III
+I DENTITY- FREE HETEROGENEOUS -QPD COMPANION CORPUS (E5). A LL           E6 ALGORITHM - DERIVED MQT B ENCH AUDIT. “M AX FACTOR ” IS
+     COSTS COME FROM Q ISKIT ’ S INDEPENDENT-QPD REGISTRY.              DESCRIPTIVE OVER SIX FIXED SIZES PER FAMILY, NOT A POPULATION
+                                                                                                  ESTIMATE .
+
+     Metric                                                  Value
+                                                                             Family               Eligible    Reversals         Max factor
+     Instances                   120 (5 families; n ∈ {12, 14, 16})
+     Strict reversals                                   16 (13.3%)           Draper QFT adder         6/6            4/6        1.04 × 106
+     Median / p90 factor                           5.30× / 27.47×            HHL                      6/6            0/6                 1
+     Extra cuts, median / max                                  1/3           Exact QPE                6/6            2/6              4.03
+     Avoided iSWAP cuts                                          28          Inexact QPE              6/6            0/6                 1
+     Numerically closed                                    120/120           QFT                      6/6            0/6                 1
+                                                                             Entangled QFT            6/6            0/6                 1
+
+
+                                                                                                  TABLE IV
+the eligibility criterion, and the decision rule before in-           G ROUPED NONZERO - DELTA GATE - CLASS ACCOUNTING FOR THE D RAPER
+specting outcomes. It selectively expands only operations                     n = 16 WITNESS . T HE GROUPS SUM TO +6 CUTS AND
+                                                                         ∗
+                                                                       JQPD     ∗
+                                                                             − Jcount = −13.856805; FULL PER - ANGLE ACCOUNTING IS IN
+with arity above two, preserves numeric one- and two-                                    THE ANONYMIZED ARTIFACT.
+qubit semantic operations, never transpiles to a target ba-
+sis, and queries every retained two-qubit occurrence via                         CP angle class              Count    QPD         ∆c
+QPDBasis.from_instruction. All 36 circuits are el-                               −π/64 through −π/4              5         13      +8
+igible: none has an unsupported or unit-overhead two-qubit                       π/64 through π/16               6         15      +9
+operation, and each has at least two positive QPD-cost classes.                  π/4                             5          2      −3
+                                                                                 π/2                             6          2      −4
+Exhaustive tie-safe enumeration finds six strict reversals: four                 π                               6          2      −4
+among six Draper QFT adders and two among six exact-                             Total                          28         34      +6
+QPE circuits. HHL, inexact QPE, QFT, and entangled-QFT
+supply 24 negative results despite heterogeneous costs. Thus
+heterogeneity is necessary for the observed mechanism but is
+                                                                      B. Mature MIP Is the Strongest Evaluated Backend
+not sufficient to change the optimum.
+                                                                         E7 makes the backend result explicit. Table V reports all
+  For E6, the count objective c(P ) and QPD objective J(P )
+                                                                      200 frozen heterogeneous-QPD instances at each independent
+define the tie-safe regret
+                                                                      checkpoint. SCIP G0 is the strongest practical backend
+                                                                      among the evaluated methods. It reaches solver-tolerance
+  ∆E6 =       min        J(P ) − min J(P ),         c∗ = min c(P ),   closure on 199/200 instances at 2 s and all 200 by 10 s.
+          P : c(P )=c∗            P                         P         The specialized C ERTI C UT reference implementation closes
+                                                        (17)          160/200, 184/200, and 199/200 at 2, 10, and 60 s, respectively.
+and a strict reversal requires ∆E6 > 10−10 . Fixing qubit            The F ≤ 1.01 and solver-tolerance-closure counts happen
+                                                      n−1
+zero removes complementary-label symmetry, leaving n/2−1              to coincide on this corpus. These results do not support a
+balanced partitions; E6 exhaustively evaluates all of them,           specialized-solver performance advantage. Instead, they show
+from 10 at n = 6 through 6,435 at n = 16.                             that the log-domain model-factor semantics can be instantiated
+   The largest witness is the Draper QFT adder at n =                 by either the reference implementation or a mature MIP solver.
+16: the best count-optimal plan has 36 cuts and J =                      At 60 s, C ERTI C UT matches the G0 incumbent on 199/200
+37.968133, whereas the QPD-optimal plan has 42 cuts and               records; its open case is a dense-shuffled n = 40 instance
+J = 24.111328, yielding a factor 1.042 × 106 . The QPD plan           with F = 6.1262. Its incumbent exceeds G0’s by 1.00041
+avoids expensive CP (π/2) and CP (π) crossings by accepting           log-objective units, equivalent to a modeled-overhead ratio
+more small-angle controlled phases. Direct occurrence-level           of exp(1.00041) ≈ 2.72. Statically adding cardinality or full
+sums and independently aggregated pair weights agree within           triangles to SCIP does not improve its end-to-end performance
+10−10 for both plans in every reversal record. This is exis-          on this corpus. This does not contradict the specialized root
+tence evidence on algorithm-derived benchmark circuits, not           study below: it concerns LP objective strength under the
+a prevalence estimate over workloads or a hardware-routing            reference formulation, whereas E7 measures mature-solver
+result.                                                               branch-and-bound behavior under fixed time budgets.
+  Fig. 3 makes the same Draper n = 16 witness geo-
+metric: node colors encode the two fragments, while edge              C. Capacitated K-Way Heterogeneous Scaling
+darkness encodes independent-QPD log weight. The count-                  E9 evaluates the core formulation beyond bisection. Ta-
+optimal map severs fewer interactions but retains several high-       ble VI and Fig. 4 summarize all 144 heterogeneous-QPD runs,
+ρ controlled phases across the cut; the QPD-optimal map               including open cases. SCIP reaches solver-tolerance closure on
+accepts six additional crossings yet eliminates most expensive        101/144 runs within 10 s. The boundary is strongly graph and
+phase crossings, converting the abstract 1.04 × 106 factor into       seed dependent. Community matching closes all three seeds
+a visible redistribution of cut mass.                                 through (K, n) = (3, 60) and (4, 40); weighted repeat closes
+        Draper QFT adder (n = 16): cut topology under count vs. independent-QPD objectives
+
+
+                  Count-optimal placement                                                           QPD-optimal placement
+
+
+                                           8                                                                            8
+                                9                   7                                                            9              7
+
+                         10                                6                                             10                            6
+
+
+                    11                                         5                                    11                                      5
+
+
+                  12                                               4                               12                                           4
+
+
+                    13                                         3                                    13                                      3
+
+
+                         14                                2                                             14                            2
+
+                               15                   1                                                            15             1
+                                           0                                                                            0
+
+
+
+                       c * = 36, J = 37.968 (Γ ≈ e 37.97)                                          c = 42, J = 24.111 (factor 1.04 × 106)
+
+                              Fragment 0                 Fragment 1            Cut, high ρ         Cut, low ρ           Uncut interaction
+
+
+
+Fig. 3. Draper QFT-adder interaction topology at n = 16 under exact balanced bipartition. Left: count-optimal placement (c∗ = 36, J ≈ 37.97). Right:
+independent-QPD-optimal placement (c = 42, J ≈ 24.11). Darker cut edges carry larger log ρ; the QPD plan trades cut count for avoidance of high-overhead
+controlled phases.
+
+
+
+                             TABLE V                                                                              TABLE VI
+  E7 FROZEN HETEROGENEOUS -QPD BACKEND COMPARISON . E NTRIES                          E9 CAPACITATED K- WAY HETEROGENEOUS -QPD SCALING , THREE FIXED
+    ARE COUNTS WITH F ≤ 1.01; THEY EQUAL SOLVER - TOLERANCE                                  SEEDS PER CELL AND 10- S SCIP LIMIT. “C LOSED ” MEANS
+CLOSURES HERE . A LL FACTORS AND CLOSURES ARE SOLVER - TOLERANCE                      SOLVER - TOLERANCE CLOSURE . O PEN RECORDS RETAIN FINITE FACTORS ;
+                      NUMERICAL QUANTITIES .                                             THIS FIXED MATRIX IS NOT A WORKLOAD - PREVALENCE ESTIMATE .
+
+
+   Method              2s           10 s          60 s    60 s UB match G0             Family                 Closed     All-seed closed              Boundary
+
+   CERTICUT      160/200      184/200          199/200                  199/200        Random matching         24/48    K2, n60; K4, n20            K ≥ 3, n ≥ 40
+                                                                                       Community matching      37/48    K3, n60; K4, n40             K5, n ≥ 32
+   SCIP G0       199/200      200/200          200/200                 reference       Weighted repeat         40/48    K3, n60; K4, n40            K ≥ 4, n = 60
+   SCIP G1       111/200      186/200          196/200                  198/200
+   SCIP G2       108/200      158/200          183/200                  189/200        Total                  101/144    n = 60, K = 3      family/seed dependent
+
+
+
+
+all three through (3, 60) and (4, 40). Random matching is the                        multiplicative model-overhead guarantee at this deadline. Con-
+hard family: all three K = 2, n = 60 runs close, whereas                             versely, their explicit reporting prevents an unproven incum-
+every K ≥ 3, n ≥ 40 run remains open.                                                bent from being presented as an optimum. Thus E9 establishes
+   Each E9 circuit contains four interaction rounds. Random                          a practical baseline and a transparent computational boundary,
+matching draws a fresh perfect matching per round. Commu-                            not universal large-K scalability.
+nity matching draws separate within-half matchings and inserts                          The exact-capacity comparison also expresses the fragment-
+two fixed bridge pairs per round. Weighted repeat uses a ring                        width/overhead tradeoff directly: increasing K reduces the
+backbone and diametric chords, repeating each pair one to                            maximum fragment size while generally forcing more
+four times. Gate occurrences cycle deterministically through                         independent-QPD boundaries. Fig. 5 plots this relation for
+CX, CZ, iSWAP, RZZ(π/8), RZZ(π/4), and RZZ(π/2) in                                   closed runs using the median closed log Γ∗ in each cell.
+circuit order; this assignment is seed-independent. The seed                         The homogeneous small matrix is only an implementation
+controls only matching order or repeat multiplicities.                               check; E9 supplies replicated heterogeneous sampling-aware
+   The factors quantify why closure alone is insufficient.                           scaling evidence. The three seeds improve stability assessment
+Across the three random-matching n = 32, K = 5 runs,                                 but remain a fixed benchmark design rather than a workload
+the median open factor is 1015.47 ≈ 2.9 × 1015 ; at n =                              distribution. The deterministic cost cycle is seed-independent,
+60, K = 4 it is 1044.84 ≈ 6.9 × 1044 . These values state that                       but residual ordering effects are a limitation rather than a proof
+the corresponding incumbents have no useful solver-tolerance                         of zero topology–cost correlation.
+                            TABLE VII                                                                                                                                         50
+   E9 CAPACITY- EXACT WEIGHTED K- WAY GREEDY- SWAP BASELINE ,
+                                                                                                                                                                              45
+EVALUATED WITH C ERTI C UT SCIP BOUNDS . FACTORS USE ONLY THE 101
+  SCIP- CLOSED RECORDS AND ARE EXACT UP TO SOLVER TOLERANCE .                                                                                                                 40
+
+
+
+
+                                                                                                                                                      Median closed log Γ *
+                                                                                                                                                                              35
+                      Metric                                                                     Value
+                                                                                                                                                                              30
+                      Feasible heuristic records                                         144/144
+                      Median heuristic runtime                                           21.6 ms                                                                              25
+                      SCIP-closed comparison records                                         101                                                                              20
+                      Heuristic-optimal records                                           23/101
+                      Median / p90 regret factor                             28.05 / 3.32 × 1010                                                                              15
+
+                      Maximum regret factor                                          5.80 × 1020                                                                              10
+
+                                                                                                                                                                                   5         10           15            20           25            30
+                      Random matching               Community matching                 Weighted repeat                                                                                            Maximum fragment width Qmax
+                                                                                                               1.0
+           20   3/3    3/3        3/3   2/3   3/3     3/3         3/3    3/3     3/3   3/3         3/3   3/3
+
+
+
+
+                                                                                                                     Solver-tolerance closure rate
+                                                                                                               0.8
+                                                                                                                                                                                                               Family
+           32   3/3    2/3        1/3   0/3   3/3     3/3         3/3    1/3     3/3   3/3         3/3   2/3
+                                                                                                               0.6
+                                                                                                                                                                                       Random matching    Community matching     Weighted repeat
+Qubits n
+
+
+
+
+                                                                                                               0.4
+           40   3/3    1/3        0/3   0/3   3/3     3/3         3/3    0/3     3/3   3/3         3/3   2/3
+                                                                                                                                                                                                           Fragments
+                                                                                                               0.2                                                                                  K=2    K=3       K=4       K=5
+           60   3/3    0/3        0/3   0/3   3/3     3/3         0/3    0/3     3/3   3/3         0/3   0/3
+                                                                                                               0.0
+
+
+                2      3            4   5     2        3            4    5        2     3            4   5
+                        Fragments K                     Fragments K                      Fragments K
+
+                                                                                                                                                     Fig. 5. E9 width–overhead tradeoff restricted to cells closed for all three seeds.
+                                                                                                                                                     Colors denote families; markers denote K. Each point is the median log Γ∗
+Fig. 4. E9 solver-tolerance closure counts under a 10-s SCIP limit. Each                                                                             for its cell. This avoids conditioning the plot on solver-successful seeds.
+heatmap cell reports closed runs out of three fixed seeds. The boundary
+depends materially on graph family, K, and seed.
+
+                                                                                                                                                     F. Finite-Shot Scope
+D. Direct Capacity-Exact K-Way Heuristic Baseline                                                                                                       Supplementary E8 fixes an equal total ideal-Aer shot budget
+   The weighted K-way greedy-swap baseline uses the same                                                                                             on three predeclared n = 12 witnesses. The strong 719.66×
+aggregate log-QPD weights and exact capacity vector as E9,                                                                                           modeled reversal reduces RMSE for both observables, whereas
+then performs best-improving inter-fragment swaps. It returns                                                                                        a moderate 3.27× reversal is mixed and a no-reversal control
+every E9 feasible partition in a median 21.6 ms, but has no                                                                                          is identical under shared seeds. Hence independent-QPD over-
+internal lower bound. On the 101 SCIP-closed records, Cer-                                                                                           head can be operationally informative but is not claimed as a
+tiCut’s closed lower bounds evaluate its exact multiplicative                                                                                        universal finite-shot RMSE predictor. Full witness identities,
+regret: 23 heuristic partitions are optimal, the median factor is                                                                                    signed-estimator behavior, and bootstrap intervals remain in
+28.05, the 90th percentile is 3.32 × 1010 , and the maximum                                                                                          the artifact supplement.
+is 5.80 × 1020 . For the remaining 43 time-limited records, the
+                                                                                                                                                     G. Artifact Availability
+same anytime expression remains valid but loose: its median
+upper factor is 5.79 × 1015 , its 90th percentile is 5.81 × 1030 ,                                                                                      For double-blind review, the accompanying package is
+and its maximum is 9.97×1031 . This comparison is intention-                                                                                         provided only through anonymized channels linked from the
+ally not a reproduction of Nakamura et al. or Fröhler et al.; it                                                                                    submission system: an anonymous Zenodo archive and an
+is a capacity-exact weighted K-way heuristic under precisely                                                                                         anonymous GitHub repository that omit author names, insti-
+the same objective. It demonstrates the intended use of (14):                                                                                        tutional paths, and funding identifiers. The package contains
+a scalable heuristic incumbent can be assigned a resource-                                                                                           the reference implementation, frozen raw results, experiment
+interpretable regret factor whenever SCIP supplies a lower                                                                                           scripts, and SHA-256 manifests, including complete E5/E6/E7
+bound.                                                                                                                                               generators, deterministic H2 ordering and swap rules, B2S
+                                                                                                                                                     cut policy/tolerance, branching rules, solver options, E6 gate-
+E. Algorithm-Derived K-Way Boundary                                                                                                                  occurrence accounting, frozen E8 plan and seed records, the
+   E10 applies the same native independent-QPD model to                                                                                              E9 generator with exact near-balanced capacity vectors and
+algorithm-derived MQT Bench circuits. Among 36 valid                                                                                                 all 144 raw records, the capacity-exact greedy-swap baseline
+QAOA, QFT, exact-QPE, and Draper-QFT-adder records,                                                                                                  with 144 regret records, the E10 MQT ingestion runner with
+SCIP closes 15 within 10 s: 11/12 at K = 2, 3/12 at K = 3,                                                                                           all 36 valid records and three unsupported-VQE failures, and
+and 1/12 at K = 4. The six Draper-adder records provide                                                                                              the scripts that regenerate Figs. 4–3. Identity-bearing URLs
+the largest structured positive subset, closing all n = 20                                                                                           are withheld until acceptance.
+plans and both K = 2, 3 plans at n = 24. Three VQE
+candidates are retained as explicit ingestion failures because                                                                                       H. Supplementary Analyses (Condensed)
+their native two-qubit operations lack a Qiskit QPD basis. Thus                                                                                        The following material supports the three primary pillars
+the E9 boundary is not solely a synthetic-graph artifact, while                                                                                      but is not an additional experimental claim. Root-relaxation
+E10’s small fixed matrix does not estimate algorithm-family                                                                                          decomposition on 24 matched complete-pair instances shows
+prevalence.                                                                                                                                          that cardinality and metric inequalities become jointly effective
+                           TABLE VIII                                                                    TABLE X
+     ROOT- RELAXATION DECOMPOSITION ON 24 CIRCUIT- DERIVED                    E XACT RECONSTRUCTION CHECK ( SUPPLEMENTARY ). P REDICTED AND
+ INSTANCES ( SUPPLEMENTARY ). C AND T SEPARATELY MATCH CP0 ON                    Q ISKIT- DERIVED OVERHEADS AGREE ; “A BS . ERROR ” COMPARES
+  EVERY INSTANCE ; CT DENOTES THEIR COMBINATION . G APS ARE IN                             RECONSTRUCTED AND UNCUT OBSERVABLES .
+                     LOG - OVERHEAD UNITS .
+                                                                              Circuit                   Cuts   Pred. Γ   Exec. Γ    Abs. error
+   Root formulation     Exact    Med. gap        p90 gap     Med. time
+                                                                              QAOA n = 6, native RZZ     2     33.9706   33.9706   1.39×10−17
+   CP0                    0/24        26.2935    52.4468       0.3211 s       VQE n = 6, CX              1        9         9      5.55×10−17
+   CP0 + C                0/24        26.2935    52.4468       0.3429 s
+   CP0 + T                0/24        26.2935    52.4468       0.2832 s
+   CP0 + C + T           12/24         0.2848     3.8761       2.3222 s
+                                                                             The minimum makes the metric tie-safe and conservative: it
+                                                                             reports positive regret only when every a-optimal placement is
+                           TABLE IX                                          suboptimal under b; it is not a worst-case arbitrary-tie-breaking
+  C ONTROLLED ABLATION ON 90 SYNTHETIC BALANCED INSTANCES
+  UNDER A 100- NODE BUDGET ( SUPPLEMENTARY ). “C LOSED ” MEANS               metric. When Ra→b = 1, at least one optimal partition under
+             SOLVER - TOLERANCE GAP AT MOST 10−9 .                           representation a remains optimal under b (Aa ∩ Ab ̸= ∅).
+                                                                             When Ra→b > 1, every optimal partition under a is strictly
+ Configuration      Closed   Node-lim.     Med. nodes      Root / Tree (s)
+                                                                             suboptimal under b. In general, Ra→b ̸= Rb→a .
+ A0 + H0 (basic)    41/90        56             100         0.000 / 2.059      2) Theoretical Bound and Stability Theorem: The follow-
+ A0 + H2            41/90        52             100         0.000 / 2.072
+ B2S-root + H0      90/90         0              1          0.260 / 0.060    ing perturbation statements are exact model-level results; the
+ B2S-root + H2      90/90         0              1          0.256 / 0.063    medium-tier numerical evaluations below are solver-tolerance
+                                                                             quantities. Let δ = w(b) − w(a) ∈ R|E| be the interaction-
+                                                                             weight perturbation vector over the edge universe E.
+only when combined (12/24 roots closed under CT versus 0/24                    Proposition 7 (Representation-Regret Bound). For any
+under CP0, C, or T alone; Table VIII), consistent with Propo-                common feasible partition space F, 0 ≤ ∆a→b ≤ ∥δ∥1 , and
+sition 4. A 90-instance node-budget ablation confirms that the               Ra→b ≤ exp(∥δ∥1 ).
+B2S package, rather than incumbent construction alone, ex-
+                                                                             Proof. Let Pa ∈ arg minP ∈Aa Jb (P ) and Pb ∈ Ab . Then
+plains reference-search closure under that protocol (Table IX).
+                                                                             Jb (Pa ) − Jb (Pb ) = [Ja (Pa ) − Ja (Pb )] + δ ⊤ [z(Pa ) − z(Pb )].
+Legacy E1 documents CNOT-only B2S behavior; E7 already
+                                                                             Because Pa is Ja -optimal, Ja (Pa ) − Ja (Pb ) ≤ 0. Since
+supersedes it as the matched production-backend comparison.
+                                                                             [z(Pa )−z(Pb )]e ∈ {−1, 0, 1}, we obtain ∆a→b ≤ δ ⊤ [z(Pa )−
+E4 reports a narrow overlap with Qiskit’s practical cutter on
+                                                                             z(Pb )] ≤ ∥δ∥1 .
+24 “minimum reached” records, and two exact statevector
+reconstruction checks confirm cost accounting compatibility at                 Let ma = minP ∈F \Aa [Ja (P ) − Ja∗ ] denote the optimality
+machine precision (Table X). Full family-level E1 tails remain               margin of representation a, with the convention ma = +∞ if
+in Appendix A.                                                               F \ Aa = ∅.
+                                                                               Theorem 2 (Representation Stability). If ma > ∥δ∥1 , then
+I. Representation Sensitivity and Optimal-Placement Regret                   Ab ⊆ Aa , and consequently Ra→b = 1.
+    A circuit representation change affects not only absolute
+                                                                             Proof. For any P ∈ Aa and Q ∈ F \ Aa , Ja (Q) − Ja (P ) ≥
+independent-QPD resource costs but can alter the optimal par-
+                                                                             ma . The perturbation changes the objective difference by at
+tition placement itself. We quantify this decision effect using
+                                                                             most |δ ⊤ [z(Q) − z(P )]| ≤ ∥δ∥1 . If ma > ∥δ∥1 , then Jb (Q) −
+tie-safe cross-representation placement regret and formalize
+                                                                             Jb (P ) ≥ ma − ∥δ∥1 > 0, so no non-optimal partition Q ∈      /
+conditions for placement stability.
+                                                                             Aa can achieve a smaller or equal Jb objective than P . Thus
+    1) Tie-Safe Placement Regret: Consider a logical circuit
+                                                                             Ab ⊆ Aa , guaranteeing Ra→b = 1.
+on a fixed set of logical qubits V = {0, . . . , n−1} evaluated
+over a common feasible partition space F (defined by declared                   Defining κa→b = ∥δ∥1 /ma , κa→b < 1 provides a sufficient
+fragment count K and capacity bounds). Let a and b be two                    condition for placement stability.
+semantically equivalent representations with interaction edge                   Corollary 1 (Positive-Scaling Invariance). If w(b) = c w(a)
+sets Ea and Eb . We define the common edge universe E =                      for c > 0, then Aa = Ab and Ra→b = Rb→a = 1.
+                                           (a)
+Ea ∪ Eb and zero-pad the log-weights: we = 0 for e ∈      / Ea
+       (b)                                                                   Proof. For any P ∈ F, Jb (P ) = c Ja (P ). Since c > 0, the
+and we = 0 for e ∈   / Eb .                                                  scalar multiplier preserves exact partition objective ordering,
+    For any partition P ∈ F, the log objectives are                          so arg min Ja = arg min Jb and Ra→b = Rb→a = 1.
+Ja (P ) = (w(a) )⊤ z(P ) and Jb (P ) = (w(b) )⊤ z(P ), where
+z(P ) ∈ {0, 1}|E| is the cut indicator vector. Let Aa =                         3) Tie-Safe Evaluation Protocol, Orbitopes, and Numerical
+arg minP ∈F Ja (P ) and Jb∗ = minP ∈F Jb (P ). The tie-safe                  Tolerances: Label-permutation symmetry is endemic to as-
+cross-representation regret and corresponding sampling over-                 signment formulations of partitioning. SCIP 10.0 can impose
+head factor are:                                                             partitioning-orbitope constraints that keep only lexicograph-
+                                                                             ically maximal fragment-label matrices under the symmet-
+ ∆a→b = min Jb (P ) − Jb∗ ,               Ra→b = exp(∆a→b ). (18)            ric group acting on columns [8]. These constraints address
+            P ∈Aa
+                                       TABLE XI                                                                 τopt thresholds. All medium-tier Stage-1 and Stage-2
+   T IE - SAFE CROSS - REPRESENTATION PLACEMENT REGRET ACROSS 93                                                problems reported as reversals reached solver-tolerance
+      VALID PAIRED REPRESENTATION RECORDS (∆ IN NATURAL - LOG
+ OVERHEAD UNITS ). R ECORDS WITH n ≤ 10 ARE EXHAUSTIVE ; n ≥ 12                                                 closure. One predeclared Grover record (n = 16, K =
+      RECORDS USE SOLVER - TOLERANCE LEXICOGRAPHIC MIP WITH                                                     2) was excluded due to transpiler memory limit during
+N U M E R I C S / F E A S T O L = 10−12 . A LL REPORTED ROW- LEVEL OUTCOMES                                     composite decomposition.
+                 ARE UNCHANGED ACROSS TESTED τopt VALUES .
+                                                                                                             2) Elimination of Single-Solve Artifacts: Single-solve
+Family                  Records   Tie-Safe Rev.      Max ∆CX→native               Max ∆native→CX                SCIP evaluations initially reported 6 QFT reversals with
+QAOA
+QFT
+                          12
+                          12
+                                       0
+                                       0
+                                                              0.0
+                                                              0.0
+                                                                                          0.0
+                                                                                          0.0
+                                                                                                                R up to 27,741. Under the two-stage tie-safe MIP,
+QPE-exact
+Grover
+                          12
+                          11
+                                    3 (25%)
+                                    4 (36%)
+                                                             3.31
+                                                  9984.19 (log10 R = 4336.1)
+                                                                                 6.59 (log10 R = 2.86)
+                                                                               1248.02 (log10 R = 542.0)
+                                                                                                                all 6 QFT cases resolve to R = 1.0 (∆ = 0.0).
+BV
+Controls (VQE,GHZ,DJ)
+                          10
+                          36
+                                       0
+                                       0
+                                                              0.0
+                                                              0.0
+                                                                                          0.0
+                                                                                          0.0
+                                                                                                                The QFT cases admit alternative CX-optimal place-
+                                                                                                                ments that are also native-optimal, showing that arbi-
+                                                                                                                trary single-optimum cross-evaluation can create false-
+fragment-label symmetry: renaming fragments permutes as-                                                        positive placement regret—precisely the failure mode
+signment columns but leaves every cut-indicator vector z(P )                                                    that orbitopes alone cannot prevent.
+unchanged. Orbitopes can remove redundant fragment-label                                                     3) Collinearity and Theorem Verification: QAOA ex-
+permutations, but they cannot eliminate distinct primary-                                                       hibits R = 1.0 across all sizes despite a 2× cost
+optimal partitions having different cut-indicator vectors. Con-                                                          ∗                   ∗
+                                                                                                                shift (JCX   = 158.2 vs Jnative      = 79.1 at n = 16),
+sequently, a single MIP solve that returns one a-optimum                                                        as predicted by Positive-Scaling Invariance. Among
+and evaluates it under b can report a spurious positive ∆a→b                                                    exact-tier records satisfying κ < 1 (including zero-
+whenever another a-optimum would have been jointly optimal                                                      perturbation controls), all 25 satisfy R = 1.0 as required
+under b. Therefore symmetry breaking does not replace the                                                       by Theorem 2.
+second lexicographic optimization required to evaluate tie-safe
+regret. Stage 1 computes Ja∗ and Jb∗ ; Stage 2 minimizes Jb (P )                                                               VI. R ELATED W ORK
+subject to Ja (P ) ≤ Ja∗ + τopt , and the reverse direction yields
+∆b→a .                                                                                                        Peng et al. [2] introduced circuit cutting for evaluating
+   The denoising threshold τopt is not an arbitrary soft mar-                                              circuits wider than the available quantum device, building on
+gin. It must sit strictly above the solver’s internal numerical                                            quasiprobability simulation [3]. Mitarai and Fujii developed
+feasibility/integrality tolerances while remaining far below any                                           virtual-gate constructions and overhead bounds for nonlocal
+physically meaningful log-overhead separation on the studied                                               channel simulation [9], [14]. Harrow and Lowe characterize
+instances. Writing εfeas for SCIP’s feasibility tolerance and                                              cut costs through product extent and give cost bounds for
+εint for its integrality tolerance, we require                                                             spacelike and timelike cuts [15]. CutQC couples automatic
+                                                                                                          partitioning with classical recombination [4], while Qiskit
+      max(εfeas , εint ) ≪ τopt ≪ min ma , mb , 1             (19)
+                                                                                                           Addon Cutting implements gate-level QPD experiment genera-
+whenever the relevant optimality margins are finite. For the                                               tion and reconstruction [5]. Complementary directions include
+representation-regret rerun, every Stage 1 and Stage 2 SCIP                                                maximum-likelihood fragment tomography [16], fragmenta-
+model explicitly pins numerics/feastol= 10−12 , along                                                      tion for error reduction [17], operator backpropagation [18],
+with the fixed randomization settings reported above; thus                                                 and sampling bounds beyond bipartitions [19]. Harada, Wada,
+the sweep τopt ∈ {10−8 , 10−9 , 10−10 } satisfies the left-                                                and Yamamoto [20] give a doubly optimal ancilla-free parallel
+hand separation. The sweep checks numerical robustness of                                                  wire-cutting decomposition of the n-qubit identity channel,
+the tolerance-defined lexicographic formulation; it does not                                               simultaneously minimizing sampling overhead and the number
+by itself establish conclusions for an exact real-arithmetic                                               of LOCC channels via mutually unbiased bases. C ERTI C UT
+decision problem. The rerun preserves the reported QPE and                                                 addresses an orthogonal placement problem under a fixed in-
+K = 3 Grover reversals and all QFT non-reversals across all                                                dependent gate-QPD registry—where to cut, under capacitated
+three values, while one prior Grover K = 2 reversal no longer                                              K-way constraints, with anytime multiplicative certificates—
+meets the tightened protocol. Exact enumeration is used for                                                and does not claim a new wire-cut channel decomposition.
+n ≤ 10; the lexicographic MIP covers n ∈ {12, 14, 16} under                                                The two lines are therefore complementary rather than com-
+PySCIPOpt 6.2.1 and Qiskit 2.5.1 / Addon Cutting 0.10.0.                                                   peting: Harada et al. optimize the local replacement of wires;
+   Table XI summarizes the findings:                                                                       C ERTI C UT optimizes the global assignment of gate-level
+   1) Confirmed Placement Reversals: 7/93 (7.5%) valid                                                     independent-QPD costs.
+      records exhibit strict tie-safe placement reversal on QPE                                               Qiskit Addon Cutting 0.10 [5] supports SparsePauliOp-
+      and Grover circuits. For QPE at n = 14, K = 2,                                                       oriented workflows. C ERTI C UT is designed to feed that stack:
+      ∆native→CX = 6.5917 (log10 R = 2.86, R = 729.0),                                                     the MIP returns a capacitated partition and an independent-
+      indicating a 3-order-of-magnitude placement regret. The                                              QPD cut set whose sampling overhead is certified in the
+      largest pinned Grover result occurs at n = 16, K = 3,                                                same multiplicative model that the addon uses to generate
+      with ∆CX→native = 9984.19 (log10 R = 4336.1).                                                        and recombine subexperiments. The SparsePauliOp interface
+      All retained reversals are consistent across all tested                                              does not change the independent gate-QPD objective, but it
+makes the certified placements compatible with current Qiskit         and independent per-gate QPD registry. Each optimization
+reconstruction pipelines.                                             instance fixes one circuit representation; the representation-
+   Nakamura, Satoh, and Sanji [19] study sampling bounds and          regret study compares separate fixed-representation instances
+scalable partitioning beyond bipartitions. Their objective and        but does not jointly optimize over representation choice and
+cut-placement setting address multi-fragment cutting directly.        partition placement. It supports arbitrary declared K and
+C ERTI C UT instead fixes an independent gate-QPD registry and        capacity bounds but does not optimize wire cuts, exact global
+solves a capacitated graph-partitioning MIP, translating a valid      routing, hardware noise, or an end-to-end physical execution
+global log-objective gap into a multiplicative model-overhead         objective. Joint QPD can reduce sampling overhead when
+factor. Fröhler et al. [21] propose a broader scalable heuristic     compatible cut gates admit a collective decomposition, but its
+framework for combined gate cuts, wire cuts, and joint gate           structural cost semantics lie outside the independent per-gate
+groups. Their cut-mechanism scope is broader; C ERTI C UT is          model optimized here; general joint-aware partition optimiza-
+narrower and focuses on the fixed independent-QPD objective           tion remains future work [26]. The sparse K-way LP relaxation
+and solver-tolerance global-bound semantics.                          is weak; the tested dense cardinality/metric extension improves
+   Brandhofer, Polian, and Krsulich [22] optimize richer              neither closure nor runtime at the reported scale. E9 uses three
+circuit-knitting partitions that jointly select gate and wire cuts,   deterministic seeds per family–size–K cell; this replication
+ancilla insertions, and classical communication under gate-           exposes seed sensitivity but remains a fixed matrix rather than
+dependent execution and sampling costs. Idan et al. [23]              a workload-prevalence estimate. Random-matching K ≥ 3
+establish NP-completeness for general cut placement and               instances retain weak factors at 10 s. E10 broadens the
+use SMT for bounded-size fragments. Tamura et al. [24]                evidence to a small algorithm-derived matrix but remains non-
+investigate partition-dependent multi-qubit gate decomposition        prevalence evidence. Supplementary E8 evaluates finite-shot
+strategies, including ancilla-assisted cut optimizations. These       behavior rather than modeling it. Finally, empirical optimiza-
+works are broader along the axis of cut mechanics and                 tion bounds are obtained from floating-point solvers. They are
+execution resources. C ERTI C UT extends the balanced K = 2           solver-tolerance quantities and have not been independently
+special case along different axes: declared fragment count,           verified using directed rounding, rational reconstruction, or
+capacity constraints, and translation of a global independent-        another rigorous lower-bound procedure.
+QPD optimization gap into a multiplicative model-overhead                The frozen manifest records software versions, solver toler-
+factor. Furthermore, while Tamura et al. optimize gate decom-         ance, seeds, experiment counts, and SHA-256 hashes. Repro-
+position strategies, C ERTI C UT holds the logical wire set and       ducing the reported numbers requires this protocol; changing
+feasible partition space fixed and analyzes how semantically          the solver stack requires regenerating the evidence.
+equivalent representations perturb interaction weights to in-
+duce or preserve optimal placement decisions. In distributed          B. Conclusion
+quantum computing, multilevel temporal-hypergraph partition-             This work organizes capacitated circuit-cutting optimization
+ing instead optimizes teleportation and entanglement cost [25];       around three pillars rather than a new graph-partitioning algo-
+it is a distinct resource model from circuit cutting.                 rithm. First, static capacitated K-way gate cutting under inde-
+   C ERTI C UT deliberately fixes a per-gate independent-QPD          pendent per-gate QPD reduces exactly to log-domain weighted
+registry, then optimizes capacitated K-way placement of those         graph partitioning. Second, that reduction yields backend-
+costs across a partition. Weighted graph partitioning, branch-        independent resource certificates: in exact arithmetic, any valid
+and-bound bounds, fixed-capacity cardinality, metric inequal-         primal/lower-bound pair (UB, LB) guarantees Γinc /Γ∗ ≤
+ities, and partitioning orbitopes are established optimization        exp(UB − LB). Third—and most distinctive—semantically
+machinery [6], [7], [8]; we do not claim them as new. Our             equivalent circuit representations can alter the optimal frag-
+contribution is the model specialization, resource-interpretable      ment placement itself. We establish an upper bound on
+bound semantics, and representation-placement theory above.           representation regret, prove that a perturbation ∥δ∥1 smaller
+E7 does not claim a specialized branch-and-bound procedure            than the primary optimality margin ma guarantees optimal-
+dominates general-purpose optimization; it shows the opposite         partition containment, and prove a positive-scaling invariance
+on the evaluated K = 2 corpus. Multilevel partitioners such           corollary explaining QAOA stability. Partitioning orbitopes
+as KaHIP [11] provide strong feasible bisections but do not           remove redundant fragment-label permutations but cannot
+supply the same global bound.                                         remove distinct primary-optimal partitions with different cut-
+   Supplementary E8 does not establish globally optimal de-           indicator vectors; tie-safe regret therefore requires a second
+composition cost. It tests only whether plan differences under        lexicographic optimization. With explicitly pinned SCIP fea-
+the specified independent-QPD objective can have finite-shot          sibility tolerances, that protocol confirms placement reversals
+consequences in the evaluated ideal-simulator implementation.         on Grover circuits and rules out single-solve false positives on
+                                                                      QFT.
+            VII. L IMITATIONS AND C ONCLUSION
+                                                                         Empirically, the same three pillars structure the evaluation:
+A. Limitations                                                        count-versus-QPD reversals (including the Draper n = 16
+  The core formulation is restricted to gate-cut partitions           topology witness), anytime certification with a transparent K-
+under a fixed circuit representation, logical interaction graph,      way backend boundary (101/144 E9 closures within 10 s),
+and representation sensitivity. C ERTI C UT provides a rigorous              [10] P. Virtanen, R. Gommers, T. E. Oliphant et al., “SciPy 1.0: Fundamental
+formulation, resource-interpretable anytime-bound semantics,                      algorithms for scientific computing in python,” Nature Methods, vol. 17,
+                                                                                  pp. 261–272, 2020.
+and a reproducible anonymized artifact for independent-QPD                   [11] P. Sanders and C. Schulz, “Think locally, act globally: Highly balanced
+circuit-cutting optimization.                                                     graph partitioning,” in Experimental Algorithms, ser. Lecture Notes in
+                                                                                  Computer Science, vol. 7933. Springer, 2013, pp. 164–175.
+                      A PPENDIX A                                            [12] N. Quetschlich, L. Burgholzer, and R. Wille, “MQT bench: Bench-
+      FAMILY-L EVEL R ESULTS FOR L EGACY E1 B2S                                   marking software and design automation tools for quantum computing,”
+                                                                                  Quantum, vol. 7, p. 1062, 2023.
+                 R EFERENCE AT n = 40                                        [13] K. Bestuzheva, P. Beskrovny, L. Eifler et al., “The SCIP optimization
+   Table XII breaks down the largest size in the legacy E1                        suite 8.0,” ACM Transactions on Mathematical Software, vol. 49, no. 2,
+                                                                                  pp. 11:1–11:47, 2023.
+corpus (n = 40) by graph family. Median time ranges from                     [14] K. Mitarai and K. Fujii, “Overhead for simulating a non-local channel
+0.809 s for community instances to 37.215 s for weighted-                         with local channels by quasiprobability sampling,” Quantum, vol. 5, p.
+random instances. These values describe the evaluated sam-                        388, 2021.
+                                                                             [15] A. W. Harrow and A. Lowe, “Optimal quantum circuit cuts with
+ples; they do not establish a causal relationship between graph                   application to clustered hamiltonian simulation,” PRX Quantum, vol. 6,
+structure and computational difficulty.                                           p. 010316, 2025.
+                                                                             [16] M. A. Perlin, Z. H. Saleem, M. Suchara, and J. C. Osborn, “Quantum
+                                                                                  circuit cutting with maximum-likelihood tomography,” npj Quantum
+                           TABLE XII                                              Information, vol. 7, p. 64, 2021.
+ FAMILY- LEVEL PERFORMANCE BREAKDOWN AT n = 40. E ACH FAMILY                 [17] S. Basu, A. Das, A. Saha, A. Chakrabarti, and S. Sur-Kolay, “Fragqc:
+                 CONTAINS TEN SEEDED INSTANCES .
+                                                                                  An efficient quantum error reduction technique using quantum circuit
+                                                                                  fragmentation,” Journal of Systems and Software, vol. 214, p. 112085,
+ Family               Solver-tol. closed   Med. time (s)   p90 time (s)           2024.
+ Community                  10/10              0.809           1.186
+                                                                             [18] D. Pal and R. Majumdar, “Low overhead circuit cutting with operator
+ Nearest-neighbor           10/10              1.646           1.764              backpropagation,” Quantum Information Processing, vol. 25, no. 8, p.
+ QAOA ring                  10/10              5.367           6.173              274, 2026.
+ Noisy-community             9/10              2.419          18.188         [19] J. Nakamura, T. Satoh, and S. Sanji, “Improved sampling bounds and
+ Random                     10/10             18.344          41.224              scalable partitioning for quantum circuit cutting beyond bipartitions,”
+ Dense                      10/10             24.070          52.669              Physical Review A, vol. 112, no. 4, p. 042422, 2025.
+ Weighted-random             8/10             37.215          60.067         [20] H. Harada, K. Wada, and N. Yamamoto, “Doubly optimal parallel wire
+                                                                                  cutting without ancilla qubits,” PRX Quantum, vol. 5, no. 4, p. 040308,
+                                                                                  2024.
+                                                                             [21] F. J. Fröhler, Y. Stade, C. Ufrecht, D. D. Scherer, and R. Wille, “Scalable
+                            A PPENDIX B                                           circuit cutting: A framework for combined gate and wire cuts using gate
+                    B OUND -R EPORT S EMANTICS                                    groups,” 2026. [Online]. Available: https://arxiv.org/abs/2608.05287
+                                                                             [22] S. Brandhofer, I. Polian, and K. Krsulich, “Optimal partitioning of
+   We evaluate F in the log domain to avoid overflow.                             quantum circuits using gate cuts and wire cuts,” IEEE Transactions on
+“Closed” means a solver-reported gap UB − LB ≤ 10−9 ; it                          Quantum Engineering, vol. 5, pp. 1–10, 2024.
+is not an independently verified exact proof. “Bound report                  [23] Y. Idan, E. Zahavi, E. Mentovich, E. Cohen, and S. Zaks, “Quantum
+                                                                                  circuit cutting: Complexity and optimization,” 2026. [Online]. Available:
+unavailable” means that no safe boundary has completed by                         https://arxiv.org/abs/2604.23700
+the checkpoint. At 60 s, all E1 runs have finite bounds; the                 [24] K. Tamura, T. Shirakawa, R. Sato, T. Imoto, and S. Endo,
+three open runs retain positive gaps and nonempty frontiers                       “Decomposition of multi-qubit gates for circuit cutting,” arXiv preprint
+                                                                                  arXiv:2603.26278, 2026. [Online]. Available: https://arxiv.org/abs/2603.
+and are classified as time-limit bound reports.                                   26278
+                                                                             [25] F. Burt, K.-C. Chen, and K. K. Leung, “A multilevel framework for
+                             R EFERENCES                                          partitioning quantum circuits,” Quantum, vol. 10, p. 1984, 2026.
+[1] J. Preskill, “Quantum computing in the NISQ era and beyond,” Quan-       [26] L. Schmitt, C. Piveteau, and D. Sutter, “Cutting circuits with multiple
+    tum, vol. 2, p. 79, 2018.                                                     two-qubit unitaries,” Quantum, vol. 9, p. 1634, 2025.
+[2] T. Peng, A. W. Harrow, M. Ozols, and X. Wu, “Simulating large quantum
+    circuits on a small quantum computer,” Physical Review Letters, vol.
+    125, no. 15, p. 150504, 2020.
+[3] S. Bravyi, G. Smith, and J. A. Smolin, “Trading classical and quantum
+    computational resources,” Physical Review X, vol. 6, no. 2, p. 021043,
+    2016.
+[4] W. Tang, T. Tomesh, M. Suchara, J. Larson, and M. Martonosi, “CutQC:
+    Using small quantum computers for large quantum circuit evaluations,”
+    in Proceedings of the 26th ACM International Conference on Archi-
+    tectural Support for Programming Languages and Operating Systems,
+    2021, pp. 473–486.
+[5] A. M. Branczyk, A. Carrera Vazquez, D. J. Egger et al.,
+    “Qiskit addon: Circuit cutting,” 2024. [Online]. Available: https:
+    //github.com/Qiskit/qiskit-addon-cutting
+[6] M. M. Deza and M. Laurent, Geometry of Cuts and Metrics. Springer,
+    1997.
+[7] E. L. Lawler and D. E. Wood, “Branch-and-bound methods: A survey,”
+    Operations Research, vol. 14, no. 4, pp. 699–719, 1966.
+[8] V. Kaibel and M. E. Pfetsch, “Packing and partitioning orbitopes,”
+    Mathematical Programming, vol. 114, no. 1, pp. 1–36, 2008.
+[9] K. Mitarai and K. Fujii, “Constructing a virtual two-qubit gate by
+    sampling single-qubit operations,” New Journal of Physics, vol. 23,
+    no. 2, p. 023021, 2021.
+

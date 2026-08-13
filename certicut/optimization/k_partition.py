@@ -69,6 +69,7 @@ def solve_scip_k_partition(
     cross_pair_strengthening: bool = False,
     metric_strengthening: bool = False,
     symmetry_breaking: bool = True,
+    feasibility_tolerance: float | None = None,
 ) -> KPartitionResult:
     """Minimize independent-QPD log overhead under per-fragment capacities.
 
@@ -84,6 +85,8 @@ def solve_scip_k_partition(
     lower, upper = _capacities(graph.num_qubits, num_fragments, lower_capacities, upper_capacities)
     if time_limit_s is not None and time_limit_s < 0:
         raise ValueError("time_limit_s must be nonnegative")
+    if feasibility_tolerance is not None and feasibility_tolerance <= 0:
+        raise ValueError("feasibility_tolerance must be positive")
     if sum(lower) > graph.num_qubits or sum(upper) < graph.num_qubits:
         return _infeasible_result(num_fragments, lower, upper)
 
@@ -92,6 +95,8 @@ def solve_scip_k_partition(
     model.hideOutput(True)
     model.setIntParam("randomization/randomseedshift", 0)
     model.setIntParam("randomization/permutationseed", 0)
+    if feasibility_tolerance is not None:
+        model.setRealParam("numerics/feastol", feasibility_tolerance)
     if time_limit_s is not None:
         model.setRealParam("limits/time", time_limit_s)
 
