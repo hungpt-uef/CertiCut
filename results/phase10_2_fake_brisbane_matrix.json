@@ -1,0 +1,1592 @@
+[
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 6,
+    "K_qpus": 2,
+    "qpu_capacity": 3,
+    "hyperedges": 3,
+    "higher_arity_hyperedges": 3,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003898,
+    "solver_s": 0.063735,
+    "fragment_sizes": [
+      3,
+      3
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.469407771826,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.144287109375,
+    "gate_error_cost": 0.021939712038,
+    "partition": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 6,
+    "K_qpus": 3,
+    "qpu_capacity": 2,
+    "hyperedges": 3,
+    "higher_arity_hyperedges": 3,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003898,
+    "solver_s": 0.072701,
+    "fragment_sizes": [
+      2,
+      2,
+      2
+    ],
+    "cut_hyperedge_count": 3,
+    "objective": 2.166406974545,
+    "joint_cut_cost": 2.07944154168,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.159423828125,
+    "gate_error_cost": 0.014507037605,
+    "partition": [
+      0,
+      0,
+      2,
+      1,
+      2,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 6,
+    "K_qpus": 2,
+    "qpu_capacity": 3,
+    "hyperedges": 3,
+    "higher_arity_hyperedges": 2,
+    "status": "optimal",
+    "hypergraph_build_s": 0.002917,
+    "solver_s": 0.051962,
+    "fragment_sizes": [
+      3,
+      3
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 0.780518454138,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.144287109375,
+    "gate_error_cost": 0.030455437781,
+    "partition": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 6,
+    "K_qpus": 3,
+    "qpu_capacity": 2,
+    "hyperedges": 3,
+    "higher_arity_hyperedges": 2,
+    "status": "optimal",
+    "hypergraph_build_s": 0.002917,
+    "solver_s": 0.037345,
+    "fragment_sizes": [
+      2,
+      2,
+      2
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.476976131201,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.159423828125,
+    "gate_error_cost": 0.021939712038,
+    "partition": [
+      0,
+      0,
+      1,
+      1,
+      2,
+      2
+    ],
+    "physical_placements": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        1
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 8,
+    "K_qpus": 2,
+    "qpu_capacity": 4,
+    "hyperedges": 4,
+    "higher_arity_hyperedges": 4,
+    "status": "optimal",
+    "hypergraph_build_s": 0.004375,
+    "solver_s": 1.260108,
+    "fragment_sizes": [
+      4,
+      4
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 1.829916615348,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 2.000000000084,
+    "readout_error_cost": 0.170898437487,
+    "gate_error_cost": 0.102640432082,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        14
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 8,
+    "K_qpus": 3,
+    "qpu_capacity": 3,
+    "hyperedges": 4,
+    "higher_arity_hyperedges": 4,
+    "status": "optimal",
+    "hypergraph_build_s": 0.004375,
+    "solver_s": 1.419163,
+    "fragment_sizes": [
+      2,
+      3,
+      3
+    ],
+    "cut_hyperedge_count": 3,
+    "objective": 2.185676628378,
+    "joint_cut_cost": 2.07944154168,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.182373046875,
+    "gate_error_cost": 0.030097126521,
+    "partition": [
+      0,
+      0,
+      2,
+      2,
+      1,
+      2,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 8,
+    "K_qpus": 2,
+    "qpu_capacity": 4,
+    "hyperedges": 4,
+    "higher_arity_hyperedges": 3,
+    "status": "optimal",
+    "hypergraph_build_s": 0.002854,
+    "solver_s": 0.191544,
+    "fragment_sizes": [
+      4,
+      4
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 0.801619162659,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.1708984375,
+    "gate_error_cost": 0.046045526697,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 8,
+    "K_qpus": 3,
+    "qpu_capacity": 3,
+    "hyperedges": 4,
+    "higher_arity_hyperedges": 3,
+    "status": "optimal",
+    "hypergraph_build_s": 0.002854,
+    "solver_s": 0.388336,
+    "fragment_sizes": [
+      3,
+      3,
+      2
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.498076839722,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.18603515625,
+    "gate_error_cost": 0.037529800954,
+    "partition": [
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 10,
+    "K_qpus": 2,
+    "qpu_capacity": 5,
+    "hyperedges": 5,
+    "higher_arity_hyperedges": 5,
+    "status": "optimal",
+    "hypergraph_build_s": 0.005224,
+    "solver_s": 3.081309,
+    "fragment_sizes": [
+      5,
+      5
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 2.377395800519,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 3.0,
+    "readout_error_cost": 0.211669921875,
+    "gate_error_cost": 0.156827318043,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        18
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 10,
+    "K_qpus": 3,
+    "qpu_capacity": 4,
+    "hyperedges": 5,
+    "higher_arity_hyperedges": 5,
+    "status": "optimal",
+    "hypergraph_build_s": 0.005224,
+    "solver_s": 9.489924,
+    "fragment_sizes": [
+      4,
+      4,
+      2
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 2.547475000933,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 2.0,
+    "readout_error_cost": 0.212646484375,
+    "gate_error_cost": 0.109714795252,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 10,
+    "K_qpus": 2,
+    "qpu_capacity": 5,
+    "hyperedges": 5,
+    "higher_arity_hyperedges": 4,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003502,
+    "solver_s": 0.323736,
+    "fragment_sizes": [
+      5,
+      5
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 0.834949621482,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.211669921875,
+    "gate_error_cost": 0.071934959969,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        18
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        14
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 10,
+    "K_qpus": 3,
+    "qpu_capacity": 4,
+    "hyperedges": 5,
+    "higher_arity_hyperedges": 4,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003502,
+    "solver_s": 1.273449,
+    "fragment_sizes": [
+      4,
+      4,
+      2
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.519177548242,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.212646484375,
+    "gate_error_cost": 0.05311988987,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        14
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 12,
+    "K_qpus": 2,
+    "qpu_capacity": 6,
+    "hyperedges": 6,
+    "higher_arity_hyperedges": 6,
+    "status": "optimal",
+    "hypergraph_build_s": 0.005466,
+    "solver_s": 33.886811,
+    "fragment_sizes": [
+      6,
+      6
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 2.924874985688,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 4.0,
+    "readout_error_cost": 0.25244140625,
+    "gate_error_cost": 0.211014204006,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        18
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        18
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 12,
+    "K_qpus": 3,
+    "qpu_capacity": 4,
+    "hyperedges": 6,
+    "higher_arity_hyperedges": 6,
+    "status": "optimal",
+    "hypergraph_build_s": 0.005466,
+    "solver_s": 21.527501,
+    "fragment_sizes": [
+      4,
+      4,
+      4
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 3.10227553776,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 2.99999999999,
+    "readout_error_cost": 0.267822265625,
+    "gate_error_cost": 0.164140087661,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2
+    ],
+    "physical_placements": [
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 12,
+    "K_qpus": 2,
+    "qpu_capacity": 6,
+    "hyperedges": 6,
+    "higher_arity_hyperedges": 5,
+    "status": "optimal",
+    "hypergraph_build_s": 0.004766,
+    "solver_s": 0.553605,
+    "fragment_sizes": [
+      6,
+      6
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 0.868280080306,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.25244140625,
+    "gate_error_cost": 0.097824393242,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        18
+      ],
+      [
+        1,
+        18
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 12,
+    "K_qpus": 3,
+    "qpu_capacity": 4,
+    "hyperedges": 6,
+    "higher_arity_hyperedges": 5,
+    "status": "optimal",
+    "hypergraph_build_s": 0.004766,
+    "solver_s": 0.660635,
+    "fragment_sizes": [
+      4,
+      4,
+      4
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.559829358726,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.267822265625,
+    "gate_error_cost": 0.079247729588,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2
+    ],
+    "physical_placements": [
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 14,
+    "K_qpus": 2,
+    "qpu_capacity": 7,
+    "hyperedges": 7,
+    "higher_arity_hyperedges": 7,
+    "status": "optimal",
+    "hypergraph_build_s": 0.007881,
+    "solver_s": 141.792566,
+    "fragment_sizes": [
+      7,
+      7
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 3.473299814233,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 5.0,
+    "readout_error_cost": 0.30908203125,
+    "gate_error_cost": 0.251223236095,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        19
+      ],
+      [
+        0,
+        18
+      ],
+      [
+        1,
+        18
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "qaoa_style",
+    "num_qubits": 14,
+    "K_qpus": 3,
+    "qpu_capacity": 5,
+    "hyperedges": 7,
+    "higher_arity_hyperedges": 7,
+    "status": "optimal",
+    "hypergraph_build_s": 0.007881,
+    "solver_s": 274.918661,
+    "fragment_sizes": [
+      5,
+      5,
+      4
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 3.649754722932,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 4.0,
+    "readout_error_cost": 0.30859375,
+    "gate_error_cost": 0.218326973625,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2
+    ],
+    "physical_placements": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        18
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 14,
+    "K_qpus": 2,
+    "qpu_capacity": 7,
+    "hyperedges": 7,
+    "higher_arity_hyperedges": 6,
+    "status": "optimal",
+    "hypergraph_build_s": 0.005582,
+    "solver_s": 1.519947,
+    "fragment_sizes": [
+      7,
+      7
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 0.912947224525,
+    "joint_cut_cost": 0.69314718056,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.30908203125,
+    "gate_error_cost": 0.13051805668,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        18
+      ],
+      [
+        0,
+        19
+      ],
+      [
+        1,
+        18
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "snapshot_backend": "fake_brisbane",
+    "snapshot_source": "qiskit_ibm_runtime_fake_provider",
+    "snapshot_sha256": "e694bcbfd96fd71c25f0433b0f4cf79c2312203764fc2ec79197e20b01019a2c",
+    "candidate_policy": "BFS connected subgraph; candidate_count=logical capacity; seed_site=qpu_id",
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 14,
+    "K_qpus": 3,
+    "qpu_capacity": 5,
+    "hyperedges": 7,
+    "higher_arity_hyperedges": 6,
+    "status": "optimal",
+    "hypergraph_build_s": 0.005582,
+    "solver_s": 0.929191,
+    "fragment_sizes": [
+      5,
+      5,
+      4
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.59315981755,
+    "joint_cut_cost": 1.38629436112,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.30859375,
+    "gate_error_cost": 0.10513716286,
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_placements": [
+      [
+        0,
+        18
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ]
+  }
+]

@@ -1,0 +1,478 @@
+[
+  {
+    "circuit": "qaoa_style",
+    "num_qubits": 6,
+    "K_qpus": 2,
+    "hyperedges": 3,
+    "higher_arity_hyperedges": 3,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003945,
+    "solver_s": 0.272781,
+    "fragment_sizes": [
+      2,
+      4
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 1.250147181,
+    "joint_cut_cost": 0.693147181,
+    "routing_cost": 1.0,
+    "readout_error_cost": 0.066,
+    "gate_error_cost": 0.048,
+    "physical_placements": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "partition": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "circuit": "qaoa_style",
+    "num_qubits": 6,
+    "K_qpus": 3,
+    "hyperedges": 3,
+    "higher_arity_hyperedges": 3,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003945,
+    "solver_s": 0.316182,
+    "fragment_sizes": [
+      2,
+      1,
+      3
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.422294361,
+    "joint_cut_cost": 1.386294361,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.048,
+    "gate_error_cost": 0.024,
+    "physical_placements": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "partition": [
+      0,
+      0,
+      2,
+      1,
+      2,
+      2
+    ]
+  },
+  {
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 6,
+    "K_qpus": 2,
+    "hyperedges": 3,
+    "higher_arity_hyperedges": 2,
+    "status": "optimal",
+    "hypergraph_build_s": 0.002612,
+    "solver_s": 0.199257,
+    "fragment_sizes": [
+      3,
+      3
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 0.738147181,
+    "joint_cut_cost": 0.693147181,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.066,
+    "gate_error_cost": 0.024,
+    "physical_placements": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "partition": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 6,
+    "K_qpus": 3,
+    "hyperedges": 3,
+    "higher_arity_hyperedges": 2,
+    "status": "optimal",
+    "hypergraph_build_s": 0.002612,
+    "solver_s": 0.226739,
+    "fragment_sizes": [
+      3,
+      1,
+      2
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.418294361,
+    "joint_cut_cost": 1.386294361,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.048,
+    "gate_error_cost": 0.016,
+    "physical_placements": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "partition": [
+      0,
+      0,
+      0,
+      2,
+      2,
+      1
+    ]
+  },
+  {
+    "circuit": "qaoa_style",
+    "num_qubits": 8,
+    "K_qpus": 2,
+    "hyperedges": 4,
+    "higher_arity_hyperedges": 4,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003973,
+    "solver_s": 2.404554,
+    "fragment_sizes": [
+      3,
+      5
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 1.782147181,
+    "joint_cut_cost": 0.693147181,
+    "routing_cost": 2.0,
+    "readout_error_cost": 0.098,
+    "gate_error_cost": 0.08,
+    "physical_placements": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ],
+    "partition": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "circuit": "qaoa_style",
+    "num_qubits": 8,
+    "K_qpus": 3,
+    "hyperedges": 4,
+    "higher_arity_hyperedges": 4,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003973,
+    "solver_s": 2.603676,
+    "fragment_sizes": [
+      2,
+      4,
+      2
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.952294361,
+    "joint_cut_cost": 1.386294361,
+    "routing_cost": 1.0,
+    "readout_error_cost": 0.08,
+    "gate_error_cost": 0.052,
+    "physical_placements": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "partition": [
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 8,
+    "K_qpus": 2,
+    "hyperedges": 4,
+    "higher_arity_hyperedges": 3,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003081,
+    "solver_s": 0.276608,
+    "fragment_sizes": [
+      5,
+      3
+    ],
+    "cut_hyperedge_count": 1,
+    "objective": 0.760147181,
+    "joint_cut_cost": 0.693147181,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.086,
+    "gate_error_cost": 0.048,
+    "physical_placements": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "partition": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "circuit": "vqe_real_amplitudes",
+    "num_qubits": 8,
+    "K_qpus": 3,
+    "hyperedges": 4,
+    "higher_arity_hyperedges": 3,
+    "status": "optimal",
+    "hypergraph_build_s": 0.003081,
+    "solver_s": 0.789811,
+    "fragment_sizes": [
+      3,
+      2,
+      3
+    ],
+    "cut_hyperedge_count": 2,
+    "objective": 1.439294361,
+    "joint_cut_cost": 1.386294361,
+    "routing_cost": 0.0,
+    "readout_error_cost": 0.074,
+    "gate_error_cost": 0.032,
+    "physical_placements": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "partition": [
+      0,
+      0,
+      0,
+      2,
+      2,
+      2,
+      1,
+      1
+    ]
+  }
+]

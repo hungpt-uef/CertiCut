@@ -1,0 +1,62 @@
+% Compile: pdflatex -interaction=nonstopmode -halt-on-error fig_certicut_architecture.tex
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\begin{tikzpicture}[
+  font=\sffamily,
+  >=Latex,
+  flow/.style={-{Latex[length=1.7mm,width=1.25mm]}, line width=.7pt},
+  rail/.style={draw=black, line width=.7pt},
+  main/.style={draw=black, line width=.7pt, fill=white, align=center,
+    text width=76mm, minimum height=13mm, inner sep=2mm},
+  branch/.style={draw=black, line width=.7pt, fill=black!6, align=center,
+    text width=32mm, minimum height=19mm, inner sep=1.5mm},
+  output/.style={draw=black, fill=black, text=white, line width=.8pt,
+    align=center, text width=76mm, minimum height=14mm, inner sep=2mm}
+]
+
+\node[font=\bfseries\large] (title) at (0,0) {CERTICUT Layered Workflow};
+\node[main] (circuit) at (0,-13mm) {
+  \textbf{Quantum circuit + fixed representation}\\[-1pt]
+  independent-QPD gate costs $\rho_g=\left(\sum_i\lvert a_{g,i}\rvert\right)^2$
+};
+\node[main] (graph) at (0,-31mm) {
+  \textbf{Core independent-QPD reduction}\\[-1pt]
+  $w_{ij}=\sum_{g\in G_{ij}}\log\rho_g$\\[-1pt]
+  \textbf{capacitated $K$-way graph partitioning}
+};
+\node[branch] (reference) at (-25mm,-53mm) {
+  \textbf{$K=2$ reference}\\[-1pt]
+  \textbf{B2S + H2 + B\&B}\\[-1pt]
+  \footnotesize structural ablation
+};
+\node[branch] (mip) at (25mm,-53mm) {
+  \textbf{Production backend}\\[-1pt]
+  \textbf{SCIP K-way MIP}\\[-1pt]
+  \footnotesize solver-tolerance primal/dual bounds
+};
+\node[output] (bounds) at (0,-76mm) {
+  \textbf{Solver-tolerance model-overhead factor}\\[-1pt]
+  $\mathrm{LB}\leq\mathrm{OPT}\leq\mathrm{UB}$ \quad $F=\exp\!\left(\mathrm{UB}-\mathrm{LB}\right)$
+};
+
+\coordinate (split) at (0,-40mm);
+\coordinate (splitleft) at (-25mm,-40mm);
+\coordinate (splitright) at (25mm,-40mm);
+\draw[flow] (circuit.south) -- (graph.north);
+\draw[rail] (graph.south) -- (split);
+\draw[rail] (splitleft) -- (splitright);
+\draw[flow] (splitleft) -- (reference.north);
+\draw[flow] (splitright) -- (mip.north);
+
+\coordinate (merge) at (0,-66mm);
+\coordinate (mergeleft) at (-25mm,-66mm);
+\coordinate (mergeright) at (25mm,-66mm);
+\draw[rail] (reference.south) -- (mergeleft);
+\draw[rail] (mip.south) -- (mergeright);
+\draw[rail] (mergeleft) -- (mergeright);
+\draw[flow] (merge) -- (bounds.north);
+\end{tikzpicture}
+\end{document}

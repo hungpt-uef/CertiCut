@@ -1,0 +1,95 @@
+{
+  "qiskit_addon_cutting_version": "0.10.0",
+  "model": "independent_qiskit_qpd_0.10.0",
+  "cases": [
+    {
+      "gate": "cx",
+      "params": [],
+      "overhead": 9.0,
+      "expected": 9.0,
+      "log_cost": 2.1972245773362196,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    },
+    {
+      "gate": "cz",
+      "params": [],
+      "overhead": 9.0,
+      "expected": 9.0,
+      "log_cost": 2.1972245773362196,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    },
+    {
+      "gate": "cs",
+      "params": [],
+      "overhead": 5.828427124746192,
+      "expected": 5.82842712474619,
+      "log_cost": 1.7627471740390863,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    },
+    {
+      "gate": "iswap",
+      "params": [],
+      "overhead": 49.0,
+      "expected": 49.0,
+      "log_cost": 3.8918202981106265,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    },
+    {
+      "gate": "dcx",
+      "params": [],
+      "overhead": 49.0,
+      "expected": 49.0,
+      "log_cost": 3.8918202981106265,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    },
+    {
+      "gate": "rzz_0",
+      "params": [
+        0.0
+      ],
+      "overhead": 1.0,
+      "expected": 1.0,
+      "log_cost": 0.0,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    },
+    {
+      "gate": "rzz_pi_4",
+      "params": [
+        0.7853981633974483
+      ],
+      "overhead": 5.828427124746192,
+      "expected": 5.82842712474619,
+      "log_cost": 1.7627471740390863,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    },
+    {
+      "gate": "rzz_pi_2",
+      "params": [
+        1.5707963267948966
+      ],
+      "overhead": 9.000000000000004,
+      "expected": 9.0,
+      "log_cost": 2.1972245773362196,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    },
+    {
+      "gate": "rxx_pi_4",
+      "params": [
+        0.7853981633974483
+      ],
+      "overhead": 5.828427124746192,
+      "expected": 5.82842712474619,
+      "log_cost": 1.7627471740390863,
+      "source": "qiskit_qpd_0.10.0",
+      "pass": true
+    }
+  ]
+}

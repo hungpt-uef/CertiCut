@@ -1,0 +1,163 @@
+{
+  "track_a_exact_balanced": {
+    "certicut": {
+      "status": "optimal",
+      "partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "fragments": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "cut_edges": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "cut_instruction_indices": [
+        4,
+        5
+      ],
+      "certificate": {
+        "lower_bound_log": 4.394449154672439,
+        "upper_bound_log": 4.394449154672439,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "proven_optimal": true
+      },
+      "expanded_nodes": 1,
+      "timeline": [
+        {
+          "expanded_nodes": 1,
+          "open_nodes": 0,
+          "node_depth": 0,
+          "node_lb": 4.394449154672439,
+          "global_lb": 4.394449154672439,
+          "incumbent_ub": 4.394449154672439,
+          "additive_log_gap": 0.0,
+          "overhead_factor_bound": 1.0,
+          "event": "prune"
+        }
+      ],
+      "profile": null,
+      "strong_branching_states": []
+    },
+    "phase2_exact": {
+      "status": "optimal",
+      "num_fragments": 2,
+      "qmax": 3,
+      "exact_num_fragments": true,
+      "partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "fragments": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "cut_edges": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "cut_instruction_indices": [
+        4,
+        5
+      ],
+      "objective_log_cost": 4.394449154672439,
+      "gamma": 81.00000000000003
+    },
+    "h2": {
+      "method": "graph_h2",
+      "track": "A_exact_balanced",
+      "status": "feasible",
+      "runtime_s": 0.00012229999992996454,
+      "objective_log_cost": 4.394449154672439,
+      "sampling_overhead": 81.00000000000003,
+      "cut_instruction_indices": [
+        4,
+        5
+      ],
+      "fragment_sizes": [
+        3,
+        3
+      ],
+      "minimum_reached": null,
+      "notes": "Heuristic only: no quantitative lower bound or optimality certificate."
+    },
+    "h3": {
+      "method": "graph_h3",
+      "track": "A_exact_balanced",
+      "status": "feasible",
+      "runtime_s": 0.00021169998217374086,
+      "objective_log_cost": 4.394449154672439,
+      "sampling_overhead": 81.00000000000003,
+      "cut_instruction_indices": [
+        4,
+        5
+      ],
+      "fragment_sizes": [
+        3,
+        3
+      ],
+      "minimum_reached": null,
+      "notes": "Heuristic only: no quantitative lower bound or optimality certificate."
+    }
+  },
+  "track_b_practical_qmax": {
+    "qiskit_gate_only": {
+      "method": "qiskit_gate_only",
+      "track": "B_practical_qmax",
+      "status": "feasible",
+      "runtime_s": 0.002121899975463748,
+      "objective_log_cost": 4.394449154672439,
+      "sampling_overhead": 81.0,
+      "cut_instruction_indices": [
+        4,
+        5
+      ],
+      "fragment_sizes": [
+        3,
+        3
+      ],
+      "minimum_reached": true,
+      "notes": "Track B only: Qiskit enforces maximum subcircuit width, not CertiCut exact balanced K=2 semantics."
+    }
+  },
+  "fairness_note": "Track A requires exact balanced K=2. Track B only requires Qmax and is not used for direct optimality ranking against Track A."
+}

@@ -1,0 +1,35 @@
+- generic [ref=e2]:
+  - article [ref=e4]:
+    - paragraph [ref=e6]: F_i^(j) ∈LO(AE
+  - generic [ref=e7]: Conversion to HTML had a Fatal error and exited abruptly. This document may be truncated or damaged.
+  - generic [ref=e10]:
+    - link "◄" [ref=e11] [cursor=pointer]:
+      - /url: /html/2312.11637
+    - link "ar5iv homepage" [ref=e12] [cursor=pointer]:
+      - /url: /
+      - img "ar5iv homepage" [ref=e13]
+    - link "Feeling lucky?" [ref=e14] [cursor=pointer]:
+      - /url: /feeling_lucky
+      - text: Feelinglucky?
+    - link "Conversion report (F)" [ref=e15] [cursor=pointer]:
+      - /url: /log/2312.11638
+      - text: Conversionreport (F)
+    - link "Report an issue" [ref=e16] [cursor=pointer]:
+      - /url: https://github.com/dginev/ar5iv/issues/new?template=improve-article--arxiv-id-.md&title=Improve+article+2312.11638
+      - text: Reportan issue
+    - link "View original on arXiv" [ref=e17] [cursor=pointer]:
+      - /url: https://arxiv.org/abs/2312.11638
+      - text: View originalon arXiv
+    - link "►" [ref=e18] [cursor=pointer]:
+      - /url: /html/2312.11639
+  - contentinfo [ref=e19]:
+    - link "🌙" [ref=e20] [cursor=pointer]:
+      - /url: javascript:toggleColorScheme()
+    - link "Copyright" [ref=e22] [cursor=pointer]:
+      - /url: https://arxiv.org/help/license
+    - link "Privacy Policy" [ref=e23] [cursor=pointer]:
+      - /url: https://arxiv.org/help/policies/privacy_policy
+    - generic [ref=e24]:
+      - text: Generated on Tue Feb 27 13:39:26 2024 by
+      - link "LaTeXMLMascot Sammy" [ref=e25] [cursor=pointer]:
+        - /url: http://dlmf.nist.gov/LaTeXML/

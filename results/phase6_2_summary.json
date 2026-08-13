@@ -1,0 +1,110 @@
+{
+  "instances": 90,
+  "method_runs": 720,
+  "checkpoint_records": 540,
+  "errors": 0,
+  "oracle_checkpoint_invariant_violations": 0,
+  "heuristics": {
+    "h2": {
+      "oracle_subset": 90,
+      "optimal_hits": 65,
+      "median_factor": 1.0,
+      "p90_factor": 729.0000000000052,
+      "median_runtime_s": 0.010169399960432202
+    },
+    "h3": {
+      "oracle_subset": 90,
+      "optimal_hits": 72,
+      "median_factor": 1.0,
+      "p90_factor": 728.9999999999949,
+      "median_runtime_s": 0.01156894996529445
+    },
+    "kahip_fast": {
+      "oracle_subset": 90,
+      "optimal_hits": 77,
+      "median_factor": 1.0,
+      "p90_factor": 8.99999999999999,
+      "median_runtime_s": 0.0005494499928317964
+    }
+  },
+  "ablations": {
+    "a0_b0_h0": {
+      "proven_optimal": 41,
+      "node_limited": 56,
+      "median_nodes": 100.0,
+      "median_root_time_s": 0.0,
+      "median_tree_time_s": 2.0593776003224775
+    },
+    "a1_b0_h2": {
+      "proven_optimal": 41,
+      "node_limited": 52,
+      "median_nodes": 100.0,
+      "median_root_time_s": 0.0,
+      "median_tree_time_s": 2.0717926502693444
+    },
+    "a2_b2s_h0": {
+      "proven_optimal": 90,
+      "node_limited": 0,
+      "median_nodes": 1.0,
+      "median_root_time_s": 0.26025595003739,
+      "median_tree_time_s": 0.059639599989168346
+    },
+    "certicut_b2s_h2": {
+      "proven_optimal": 90,
+      "node_limited": 0,
+      "median_nodes": 1.0,
+      "median_root_time_s": 0.25636365002719685,
+      "median_tree_time_s": 0.06336835003457963
+    }
+  },
+  "checkpoints": {
+    "0": {
+      "proven_optimal": 0,
+      "at_most_1_01": 39,
+      "at_most_1_05": 39,
+      "at_most_1_10": 39,
+      "median_factor": 4.073676635149294,
+      "p90_factor": 2886.9540358876666
+    },
+    "1": {
+      "proven_optimal": 48,
+      "at_most_1_01": 48,
+      "at_most_1_05": 48,
+      "at_most_1_10": 48,
+      "median_factor": 1.0,
+      "p90_factor": 728.9999999999793
+    },
+    "5": {
+      "proven_optimal": 74,
+      "at_most_1_01": 80,
+      "at_most_1_05": 80,
+      "at_most_1_10": 81,
+      "median_factor": 1.0,
+      "p90_factor": 1.0862843456756077
+    },
+    "10": {
+      "proven_optimal": 85,
+      "at_most_1_01": 88,
+      "at_most_1_05": 88,
+      "at_most_1_10": 88,
+      "median_factor": 1.0,
+      "p90_factor": 1.0
+    },
+    "30": {
+      "proven_optimal": 90,
+      "at_most_1_01": 90,
+      "at_most_1_05": 90,
+      "at_most_1_10": 90,
+      "median_factor": 1.0,
+      "p90_factor": 1.0
+    },
+    "100": {
+      "proven_optimal": 90,
+      "at_most_1_01": 90,
+      "at_most_1_05": 90,
+      "at_most_1_10": 90,
+      "median_factor": 1.0,
+      "p90_factor": 1.0
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "root_corpus": {
+    "instances": 175,
+    "root_bound_exact": 143,
+    "root_lp_integral": 143,
+    "b2s_matches_b2": 175,
+    "median_b2s_triangles_added": 150,
+    "median_b2s_rounds": 2,
+    "by_family": {
+      "random": {
+        "root_bound_exact": 25,
+        "root_lp_integral": 25,
+        "instances": 35
+      },
+      "nearest_neighbor": {
+        "root_bound_exact": 25,
+        "root_lp_integral": 25,
+        "instances": 35
+      },
+      "qaoa_ring": {
+        "root_bound_exact": 35,
+        "root_lp_integral": 35,
+        "instances": 35
+      },
+      "dense": {
+        "root_bound_exact": 23,
+        "root_lp_integral": 23,
+        "instances": 35
+      },
+      "community": {
+        "root_bound_exact": 35,
+        "root_lp_integral": 35,
+        "instances": 35
+      }
+    }
+  },
+  "stress_root_only": {
+    "instances": 24,
+    "integral_roots": 6,
+    "fractional_roots": 18,
+    "median_triangles_added": 2796.5,
+    "median_lp_time_s": 1.374629349913448,
+    "max_constraints": 9128
+  },
+  "gap_witness": {
+    "found": true,
+    "num_qubits": 8,
+    "trial": 7,
+    "density": 0.5,
+    "objective_optimum_log": 28.56391950537085,
+    "b2_root_lb_log": 27.685029674436333,
+    "integrality_gap_log": 0.8788898309345186,
+    "root_fractional_variable_count": 7,
+    "root_max_fractionality": 0.40000000000000047,
+    "instructions": [
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        3,
+        3
+      ],
+      [
+        0,
+        4,
+        5
+      ],
+      [
+        0,
+        6,
+        1
+      ],
+      [
+        0,
+        7,
+        5
+      ],
+      [
+        1,
+        7,
+        2
+      ],
+      [
+        2,
+        5,
+        1
+      ],
+      [
+        2,
+        6,
+        5
+      ],
+      [
+        2,
+        7,
+        1
+      ],
+      [
+        3,
+        4,
+        1
+      ],
+      [
+        3,
+        5,
+        3
+      ],
+      [
+        4,
+        5,
+        4
+      ],
+      [
+        4,
+        7,
+        1
+      ],
+      [
+        5,
+        7,
+        5
+      ]
+    ]
+  }
+}

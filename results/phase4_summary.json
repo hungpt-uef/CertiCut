@@ -1,0 +1,127 @@
+{
+  "hard_instance_count": 6,
+  "variants": {
+    "mf": {
+      "status_counts": {
+        "optimal": 6
+      },
+      "nodes": {
+        "median": 4.0,
+        "p90": 7.0,
+        "max": 13.0
+      },
+      "normal_lp_time_s": {
+        "median": 0.4015368998516351,
+        "p90": 0.5271210998762399,
+        "max": 1.0127789000980556
+      },
+      "sb_probe_time_s": {
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.0
+      },
+      "total_time_s": {
+        "median": 0.8524826999637298,
+        "p90": 0.968508500023745,
+        "max": 4.082687699934468
+      },
+      "sb_probe_solves": {
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.0
+      }
+    },
+    "sb4": {
+      "status_counts": {
+        "optimal": 6
+      },
+      "nodes": {
+        "median": 4.5,
+        "p90": 7.0,
+        "max": 11.0
+      },
+      "normal_lp_time_s": {
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.0
+      },
+      "sb_probe_time_s": {
+        "median": 1.634720349975396,
+        "p90": 2.085671399952844,
+        "max": 3.4453392998548225
+      },
+      "total_time_s": {
+        "median": 2.082177850068547,
+        "p90": 2.3020480000413954,
+        "max": 6.653110399958678
+      },
+      "sb_probe_solves": {
+        "median": 20.0,
+        "p90": 32.0,
+        "max": 40.0
+      }
+    },
+    "sb8": {
+      "status_counts": {
+        "optimal": 6
+      },
+      "nodes": {
+        "median": 4.5,
+        "p90": 7.0,
+        "max": 9.0
+      },
+      "normal_lp_time_s": {
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.0
+      },
+      "sb_probe_time_s": {
+        "median": 3.617121600022074,
+        "p90": 4.469451500102878,
+        "max": 6.693291099974886
+      },
+      "total_time_s": {
+        "median": 3.908648649987299,
+        "p90": 4.972153100068681,
+        "max": 9.837608300033025
+      },
+      "sb_probe_solves": {
+        "median": 48.0,
+        "p90": 64.0,
+        "max": 80.0
+      }
+    },
+    "sb_full": {
+      "status_counts": {
+        "optimal": 6
+      },
+      "nodes": {
+        "median": 4.5,
+        "p90": 6.0,
+        "max": 15.0
+      },
+      "normal_lp_time_s": {
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.0
+      },
+      "sb_probe_time_s": {
+        "median": 12.330067050002981,
+        "p90": 14.078038500039838,
+        "max": 22.294380399864167
+      },
+      "total_time_s": {
+        "median": 12.674063049955294,
+        "p90": 17.216989199980162,
+        "max": 22.806323800003156
+      },
+      "sb_probe_solves": {
+        "median": 146.0,
+        "p90": 188.0,
+        "max": 468.0
+      }
+    }
+  },
+  "strong_branching_states": 63,
+  "decision_ratio_note": "Raw full scores stored; MF comparison requires exact LP fractionality, deferred to Phase 5 dataset featurization."
+}

@@ -1,0 +1,20 @@
+{
+  "fast": {
+    "records": 18,
+    "optimal_hits": 13,
+    "median_factor": 1.0,
+    "median_runtime_s": 0.0005398500361479819
+  },
+  "eco": {
+    "records": 18,
+    "optimal_hits": 11,
+    "median_factor": 1.0,
+    "median_runtime_s": 0.0012051999801769853
+  },
+  "strong": {
+    "records": 18,
+    "optimal_hits": 11,
+    "median_factor": 1.0,
+    "median_runtime_s": 0.01641854998888448
+  }
+}

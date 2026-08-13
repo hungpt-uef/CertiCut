@@ -1,0 +1,173 @@
+[
+  {
+    "source_id": "mqt/qaoa/n8/seed000",
+    "family": "qaoa",
+    "num_qubits": 8,
+    "source_fingerprint": "95b8c38199cd66ee7eaff54b3f25df53da5966dfc35e71ab599045b9a0c16705",
+    "cx_fingerprint": "623a591a759d761202ca7bade0a88b865cfe0ec51c334aae616e58c717e05b6d",
+    "native_fingerprint": "95b8c38199cd66ee7eaff54b3f25df53da5966dfc35e71ab599045b9a0c16705",
+    "cx_two_qubit_count": 56,
+    "native_two_qubit_count": 28,
+    "native_gate_types": [
+      "rzz"
+    ],
+    "two_qubit_expansion_ratio": 2.0,
+    "optimum_log_cx": 52.73338985606927,
+    "optimum_log_native": 26.366694928034637,
+    "overhead_ratio_cx_over_native": 282429536481.0011,
+    "optimal_cut_count_cx": 24,
+    "optimal_cut_count_native": 12
+  },
+  {
+    "source_id": "mqt/qaoa/n12/seed000",
+    "family": "qaoa",
+    "num_qubits": 12,
+    "source_fingerprint": "fd8443a30054f5a726e3bfc8330c216fd6573e05c3392057c5bc0dd3b27c78b6",
+    "cx_fingerprint": "9a800d21fcb2bede8d8a5870accd63a3aaa12827334e47058168ddba738e05e4",
+    "native_fingerprint": "fd8443a30054f5a726e3bfc8330c216fd6573e05c3392057c5bc0dd3b27c78b6",
+    "cx_two_qubit_count": 144,
+    "native_two_qubit_count": 72,
+    "native_gate_types": [
+      "rzz"
+    ],
+    "two_qubit_expansion_ratio": 2.0,
+    "optimum_log_cx": 114.25567802148339,
+    "optimum_log_native": 57.127839010741695,
+    "overhead_ratio_cx_over_native": 6.461081889226618e+24,
+    "optimal_cut_count_cx": 52,
+    "optimal_cut_count_native": 26
+  },
+  {
+    "source_id": "mqt/qaoa/n16/seed000",
+    "family": "qaoa",
+    "num_qubits": 16,
+    "source_fingerprint": "7a21b3759eedfd14ff547e0a2b3e87c0047dfee16c89d83c048f84a1517966be",
+    "cx_fingerprint": "b3f3f2e00b794e96085527ce9cefe9f98e0d47f05ecb141758375bcb632bb521",
+    "native_fingerprint": "7a21b3759eedfd14ff547e0a2b3e87c0047dfee16c89d83c048f84a1517966be",
+    "cx_two_qubit_count": 228,
+    "native_two_qubit_count": 114,
+    "native_gate_types": [
+      "rzz"
+    ],
+    "two_qubit_expansion_ratio": 2.0,
+    "optimum_log_cx": 158.2001695682078,
+    "optimum_log_native": 79.1000847841039,
+    "overhead_ratio_cx_over_native": 2.25283995449392e+34,
+    "optimal_cut_count_cx": 72,
+    "optimal_cut_count_native": 36
+  },
+  {
+    "source_id": "mqt/bv/n8/seed000",
+    "family": "bv",
+    "num_qubits": 8,
+    "source_fingerprint": "e32c94f0eaf5a090159665ff1d296bcdeef07307ea04aaa1977dee83ff497707",
+    "cx_fingerprint": "e3ad6e1b6c25707864077a0279e2caeab293061bcdaa2fef95cbd5e7b0fcf673",
+    "native_fingerprint": "e32c94f0eaf5a090159665ff1d296bcdeef07307ea04aaa1977dee83ff497707",
+    "cx_two_qubit_count": 3,
+    "native_two_qubit_count": 3,
+    "native_gate_types": [
+      "cz"
+    ],
+    "two_qubit_expansion_ratio": 1.0,
+    "optimum_log_cx": 0,
+    "optimum_log_native": 0,
+    "overhead_ratio_cx_over_native": 1.0,
+    "optimal_cut_count_cx": 0,
+    "optimal_cut_count_native": 0
+  },
+  {
+    "source_id": "mqt/bv/n12/seed000",
+    "family": "bv",
+    "num_qubits": 12,
+    "source_fingerprint": "439f9e4448ebf904c43869197860df9cf3694998fba5619d8057cf33b60d8514",
+    "cx_fingerprint": "cc331a976ed6609cb1a957dc2347537b31eab62363f47f06044e0a19c988f95c",
+    "native_fingerprint": "439f9e4448ebf904c43869197860df9cf3694998fba5619d8057cf33b60d8514",
+    "cx_two_qubit_count": 5,
+    "native_two_qubit_count": 5,
+    "native_gate_types": [
+      "cz"
+    ],
+    "two_qubit_expansion_ratio": 1.0,
+    "optimum_log_cx": 0,
+    "optimum_log_native": 0,
+    "overhead_ratio_cx_over_native": 1.0,
+    "optimal_cut_count_cx": 0,
+    "optimal_cut_count_native": 0
+  },
+  {
+    "source_id": "mqt/bv/n16/seed000",
+    "family": "bv",
+    "num_qubits": 16,
+    "source_fingerprint": "3b4b6a2608265828414364445b67ec791dd1337c630a6c0f5ce3088a380796e9",
+    "cx_fingerprint": "bd5d89c94c55019c3afdcf34c66a78bd9335856ec190612012f810c948e13b18",
+    "native_fingerprint": "3b4b6a2608265828414364445b67ec791dd1337c630a6c0f5ce3088a380796e9",
+    "cx_two_qubit_count": 7,
+    "native_two_qubit_count": 7,
+    "native_gate_types": [
+      "cz"
+    ],
+    "two_qubit_expansion_ratio": 1.0,
+    "optimum_log_cx": 0,
+    "optimum_log_native": 0,
+    "overhead_ratio_cx_over_native": 1.0,
+    "optimal_cut_count_cx": 0,
+    "optimal_cut_count_native": 0
+  },
+  {
+    "source_id": "mqt/vqe_real_amp/n8/seed000",
+    "family": "vqe_real_amp",
+    "num_qubits": 8,
+    "source_fingerprint": "d7af3594d1fc02c990c66c5b7d3dae130c805f7f9577eef1f675a273d74fe482",
+    "cx_fingerprint": "f93185db96e7d41a30736f967163e862ba429ed029b492bff6b61fb5d2338ee7",
+    "native_fingerprint": "d7af3594d1fc02c990c66c5b7d3dae130c805f7f9577eef1f675a273d74fe482",
+    "cx_two_qubit_count": 21,
+    "native_two_qubit_count": 21,
+    "native_gate_types": [
+      "cx"
+    ],
+    "two_qubit_expansion_ratio": 1.0,
+    "optimum_log_cx": 6.591673732008658,
+    "optimum_log_native": 6.591673732008658,
+    "overhead_ratio_cx_over_native": 1.0,
+    "optimal_cut_count_cx": 3,
+    "optimal_cut_count_native": 3
+  },
+  {
+    "source_id": "mqt/vqe_real_amp/n12/seed000",
+    "family": "vqe_real_amp",
+    "num_qubits": 12,
+    "source_fingerprint": "89e0ac703b7895dad76b4fef304af76c1cc5a2df22ddc038d1be04ada382cf9b",
+    "cx_fingerprint": "48ad48787814481b83ba475a6b0d042daf0d4032998c2132dc0002a54ec2bf42",
+    "native_fingerprint": "89e0ac703b7895dad76b4fef304af76c1cc5a2df22ddc038d1be04ada382cf9b",
+    "cx_two_qubit_count": 33,
+    "native_two_qubit_count": 33,
+    "native_gate_types": [
+      "cx"
+    ],
+    "two_qubit_expansion_ratio": 1.0,
+    "optimum_log_cx": 6.591673732008658,
+    "optimum_log_native": 6.591673732008658,
+    "overhead_ratio_cx_over_native": 1.0,
+    "optimal_cut_count_cx": 3,
+    "optimal_cut_count_native": 3
+  },
+  {
+    "source_id": "mqt/vqe_real_amp/n16/seed000",
+    "family": "vqe_real_amp",
+    "num_qubits": 16,
+    "source_fingerprint": "3373118cb1a52aad8e8b8d5c2546f4472e04c93f374abdf9943d17f7a51fcbfa",
+    "cx_fingerprint": "a03ed7e740ad0ebcebfd992d18c6f7a3e7cd3ff41bcb5cb3e0b2e0207faa8080",
+    "native_fingerprint": "3373118cb1a52aad8e8b8d5c2546f4472e04c93f374abdf9943d17f7a51fcbfa",
+    "cx_two_qubit_count": 45,
+    "native_two_qubit_count": 45,
+    "native_gate_types": [
+      "cx"
+    ],
+    "two_qubit_expansion_ratio": 1.0,
+    "optimum_log_cx": 6.591673732008658,
+    "optimum_log_native": 6.591673732008658,
+    "overhead_ratio_cx_over_native": 1.0,
+    "optimal_cut_count_cx": 3,
+    "optimal_cut_count_native": 3
+  }
+]

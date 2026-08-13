@@ -1,0 +1,8584 @@
+{
+  "experiment": "E6_algorithm_derived_heterogeneous_qpd_audit",
+  "screen_only": false,
+  "families": [
+    "draper_qft_adder",
+    "hhl",
+    "qpeexact",
+    "qpeinexact",
+    "qft",
+    "qftentangled"
+  ],
+  "sizes": [
+    6,
+    8,
+    10,
+    12,
+    14,
+    16
+  ],
+  "source": "MQT Bench 2.2.2",
+  "representation_policy": "algorithm_semantic_2q_preserving",
+  "eligibility_rule": "no unsupported 2q AND no unit-overhead 2q AND at least two distinct positive QPD costs",
+  "reversal_definition": "min_{P: count(P)=count*} J(P) - min_P J(P) > 1e-10",
+  "decision": "E6_FULL_RELEVANCE_PASS",
+  "records": [
+    {
+      "family": "draper_qft_adder",
+      "n": 6,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "6da9a9756cc215aa582791f98772506a3f2920900446c4b4c103e88e04418e30",
+      "num_operations": 25,
+      "num_two_qubit_ops": 12,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 3
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 3,
+      "positive_log_costs": [
+        1.136717048315,
+        1.762747174039,
+        2.197224577336
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 10,
+      "count_optimum": 6,
+      "J_best_among_count_optima": 9.132870070359584,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 9.132870070359584,
+      "min_count_among_qpd_optima": 6,
+      "qpd_optimal_partition": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 6,
+        "count_opt_gate_level_J": 9.132870070359582,
+        "qpd_opt_gate_level_cuts": 6,
+        "qpd_opt_gate_level_J": 9.132870070359582,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "draper_qft_adder",
+      "n": 8,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "586dc7e6206274153f028b275d3c29660488413734eb5452963c417d5804c474",
+      "num_operations": 39,
+      "num_two_qubit_ops": 22,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 4
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 4,
+      "positive_log_costs": [
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 35,
+      "count_optimum": 10,
+      "J_best_among_count_optima": 13.93272696402384,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 13.93272696402384,
+      "min_count_among_qpd_optima": 10,
+      "qpd_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 10,
+        "count_opt_gate_level_J": 13.932726964023837,
+        "qpd_opt_gate_level_cuts": 10,
+        "qpd_opt_gate_level_J": 13.932726964023837,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "draper_qft_adder",
+      "n": 10,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "c81436b673c40ea53d87d860e5ea504269c612526a80ea88448ea22e4c0b1ab6",
+      "num_operations": 56,
+      "num_two_qubit_ops": 35,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 5
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 5,
+      "positive_log_costs": [
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 126,
+      "count_optimum": 15,
+      "J_best_among_count_optima": 19.444616274103,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 16.433576455454535,
+      "min_count_among_qpd_optima": 17,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "strict_reversal": true,
+      "regret_log": 3.0110398186484666,
+      "regret_factor": 20.308506113414417,
+      "extra_cuts_required": 2,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 15,
+        "count_opt_gate_level_J": 19.444616274103005,
+        "qpd_opt_gate_level_cuts": 17,
+        "qpd_opt_gate_level_J": 16.433576455454535,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": [
+        {
+          "gate": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 0.6588673968680042
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 1.1367170483150635
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 4,
+          "delta_qpd_minus_count": 3,
+          "delta_log_cost": 1.9766021906040128
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 1.1367170483150635
+        },
+        {
+          "gate": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 3,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": -2,
+          "delta_log_cost": -3.5254943480781726
+        },
+        {
+          "gate": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.000000000000004,
+          "count_opt_cut": 3,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": -2,
+          "delta_log_cost": -4.394449154672439
+        }
+      ]
+    },
+    {
+      "family": "draper_qft_adder",
+      "n": 12,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "4993a89339581970c3fbb585c0018eecee7a8df4cd518c114b24cab96e4f0cb8",
+      "num_operations": 76,
+      "num_two_qubit_ops": 51,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 6
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 6,
+      "positive_log_costs": [
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 462,
+      "count_optimum": 21,
+      "J_best_among_count_optima": 25.403831457987337,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 20.2337132919818,
+      "min_count_among_qpd_optima": 23,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "strict_reversal": true,
+      "regret_log": 5.170118166005537,
+      "regret_factor": 175.93562586594132,
+      "extra_cuts_required": 2,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 21,
+        "count_opt_gate_level_J": 25.403831457987337,
+        "qpd_opt_gate_level_cuts": 23,
+        "qpd_opt_gate_level_J": 20.233713291981804,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": [
+        {
+          "gate": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.2059012439652776,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 0.35802263575226645
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 0.6588673968680042
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 1.1367170483150635
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.2059012439652776,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 4,
+          "delta_qpd_minus_count": 3,
+          "delta_log_cost": 1.0740679072567993
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 0.6588673968680042
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 3,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": -1,
+          "delta_log_cost": -1.1367170483150635
+        },
+        {
+          "gate": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": -2,
+          "delta_log_cost": -3.5254943480781726
+        },
+        {
+          "gate": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.000000000000004,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": -2,
+          "delta_log_cost": -4.394449154672439
+        }
+      ]
+    },
+    {
+      "family": "draper_qft_adder",
+      "n": 14,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "93751333bed03d8a2a9463838b6982e1b57b8c9c6a9a1b29fd7f0505af071191",
+      "num_operations": 99,
+      "num_two_qubit_ops": 70,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 7
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 7,
+      "positive_log_costs": [
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 1716,
+      "count_optimum": 28,
+      "J_best_among_count_optima": 31.617678672847354,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 21.310305900102726,
+      "min_count_among_qpd_optima": 34,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "strict_reversal": true,
+      "regret_log": 10.307372772744628,
+      "regret_factor": 29952.64078398713,
+      "extra_cuts_required": 6,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 28,
+        "count_opt_gate_level_J": 31.617678672847354,
+        "qpd_opt_gate_level_cuts": 34,
+        "qpd_opt_gate_level_J": 21.310305900102726,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": [
+        {
+          "gate": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.1005740016813044,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.2059012439652776,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 0.1872272076927436
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": 2,
+          "delta_log_cost": 0.7160452715045329
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": 2,
+          "delta_log_cost": 1.3177347937360084
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 1.1367170483150635
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.1005740016813044,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.2059012439652776,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 4,
+          "delta_qpd_minus_count": 3,
+          "delta_log_cost": 0.5616816230782308
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 6,
+          "delta_qpd_minus_count": 4,
+          "delta_log_cost": 1.4320905430090658
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 3,
+          "qpd_opt_cut": 5,
+          "delta_qpd_minus_count": 2,
+          "delta_log_cost": 1.3177347937360084
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": -1,
+          "delta_log_cost": -1.1367170483150635
+        },
+        {
+          "gate": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 5,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": -4,
+          "delta_log_cost": -7.050988696156345
+        },
+        {
+          "gate": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.000000000000004,
+          "count_opt_cut": 5,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": -4,
+          "delta_log_cost": -8.788898309344878
+        }
+      ]
+    },
+    {
+      "family": "draper_qft_adder",
+      "n": 16,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "b1c5d104fe53917ce011ea77f2d7185f43d885f3a881bc331f7b6048570c38c4",
+      "num_operations": 125,
+      "num_two_qubit_ops": 92,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 14
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 8
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 8,
+      "positive_log_costs": [
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 6435,
+      "count_optimum": 36,
+      "J_best_among_count_optima": 37.96813325491692,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 24.11132818934327,
+      "min_count_among_qpd_optima": 42,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "strict_reversal": true,
+      "regret_log": 13.856805065573653,
+      "regret_factor": 1042158.9841052273,
+      "extra_cuts_required": 6,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 36,
+        "count_opt_gate_level_J": 37.968133254916914,
+        "qpd_opt_gate_level_cuts": 42,
+        "qpd_opt_gate_level_J": 24.11132818934326,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": [
+        {
+          "gate": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.0496885157504716,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.1005740016813044,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 0.09583186341404112
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.2059012439652776,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": 2,
+          "delta_log_cost": 0.3744544153854872
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": 2,
+          "delta_log_cost": 0.7160452715045329
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": 2,
+          "delta_log_cost": 1.3177347937360084
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 1.1367170483150635
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.0496885157504716,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.1005740016813044,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 4,
+          "delta_qpd_minus_count": 3,
+          "delta_log_cost": 0.28749559024212334
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.2059012439652776,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 6,
+          "delta_qpd_minus_count": 4,
+          "delta_log_cost": 0.7489088307709744
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 3,
+          "qpd_opt_cut": 5,
+          "delta_qpd_minus_count": 2,
+          "delta_log_cost": 0.7160452715045329
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 4,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 5,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": -3,
+          "delta_log_cost": -3.4101511449451904
+        },
+        {
+          "gate": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 6,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": -4,
+          "delta_log_cost": -7.050988696156345
+        },
+        {
+          "gate": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.000000000000004,
+          "count_opt_cut": 6,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": -4,
+          "delta_log_cost": -8.788898309344878
+        }
+      ]
+    },
+    {
+      "family": "hhl",
+      "n": 6,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "fe4d6b2a970de4aa090e8713a50037e2716973f08071edab4bfccc345b702fc3",
+      "num_operations": 46,
+      "num_two_qubit_ops": 28,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            1.171421005348
+          ],
+          "rho": 4.433480591637,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 3
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 4
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 10,
+      "positive_log_costs": [
+        0.658867396868,
+        0.92882937537,
+        1.136717048315,
+        1.489184962167,
+        1.511640957875,
+        1.669521741844,
+        1.762747174039,
+        2.182194142329,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 10,
+      "count_optimum": 14,
+      "J_best_among_count_optima": 21.506313464318836,
+      "count_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 21.506313464318836,
+      "min_count_among_qpd_optima": 14,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 14,
+        "count_opt_gate_level_J": 21.506313464318836,
+        "qpd_opt_gate_level_cuts": 14,
+        "qpd_opt_gate_level_J": 21.506313464318836,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "hhl",
+      "n": 8,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "56bdefc0460438b97732a864a99ef27c05f7742b85f889213a686630420c8882",
+      "num_operations": 80,
+      "num_two_qubit_ops": 54,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            1.171421005348
+          ],
+          "rho": 4.433480591637,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 5
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 6
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 14,
+      "positive_log_costs": [
+        0.187227207693,
+        0.358022635752,
+        0.605139469998,
+        0.658867396868,
+        0.92882937537,
+        1.056013015127,
+        1.136717048315,
+        1.489184962167,
+        1.511640957875,
+        1.669521741844,
+        1.762747174039,
+        2.182194142329,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 35,
+      "count_optimum": 28,
+      "J_best_among_count_optima": 35.06429900106609,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "J_qpd_optimum": 35.06429900106609,
+      "min_count_among_qpd_optima": 28,
+      "qpd_optimal_partition": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 28,
+        "count_opt_gate_level_J": 35.06429900106608,
+        "qpd_opt_gate_level_cuts": 28,
+        "qpd_opt_gate_level_J": 35.06429900106608,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "hhl",
+      "n": 10,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "f667e2539c8e77dd5321f2c4691f4e4f20b1b312afb355dba13dce0ab7a3f32f",
+      "num_operations": 122,
+      "num_two_qubit_ops": 88,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.088799079849
+          ],
+          "rho": 1.185419911485,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.177598159698
+          ],
+          "rho": 1.386187989861,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.088799079849
+          ],
+          "rho": 1.185419911485,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.177598159698
+          ],
+          "rho": 1.386187989861,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            1.171421005348
+          ],
+          "rho": 4.433480591637,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 7
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 8
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 18,
+      "positive_log_costs": [
+        0.048493468493,
+        0.095831863414,
+        0.170097067502,
+        0.187227207693,
+        0.326557526391,
+        0.358022635752,
+        0.605139469998,
+        0.658867396868,
+        0.92882937537,
+        1.056013015127,
+        1.136717048315,
+        1.489184962167,
+        1.511640957875,
+        1.669521741844,
+        1.762747174039,
+        2.182194142329,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 126,
+      "count_optimum": 44,
+      "J_best_among_count_optima": 39.691902338030864,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "J_qpd_optimum": 39.691902338030864,
+      "min_count_among_qpd_optima": 44,
+      "qpd_optimal_partition": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 44,
+        "count_opt_gate_level_J": 39.691902338030864,
+        "qpd_opt_gate_level_cuts": 44,
+        "qpd_opt_gate_level_J": 39.691902338030864,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "hhl",
+      "n": 12,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "c38a6da989c7154841c5430b91bce6ca0128872fdb75261725c7733366fe7ff1",
+      "num_operations": 172,
+      "num_two_qubit_ops": 130,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.022199769962
+          ],
+          "rho": 1.044891437751,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.044399539925
+          ],
+          "rho": 1.090762781549,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.088799079849
+          ],
+          "rho": 1.185419911485,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.177598159698
+          ],
+          "rho": 1.386187989861,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.022199769962
+          ],
+          "rho": 1.044891437751,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.044399539925
+          ],
+          "rho": 1.090762781549,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.088799079849
+          ],
+          "rho": 1.185419911485,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.177598159698
+          ],
+          "rho": 1.386187989861,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            1.171421005348
+          ],
+          "rho": 4.433480591637,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 9
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 10
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 22,
+      "positive_log_costs": [
+        0.012234330921,
+        0.024394163101,
+        0.043912992701,
+        0.048493468493,
+        0.086877251082,
+        0.095831863414,
+        0.170097067502,
+        0.187227207693,
+        0.326557526391,
+        0.358022635752,
+        0.605139469998,
+        0.658867396868,
+        0.92882937537,
+        1.056013015127,
+        1.136717048315,
+        1.489184962167,
+        1.511640957875,
+        1.669521741844,
+        1.762747174039,
+        2.182194142329,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 462,
+      "count_optimum": 66,
+      "J_best_among_count_optima": 51.9406851768675,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 51.9406851768675,
+      "min_count_among_qpd_optima": 66,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 66,
+        "count_opt_gate_level_J": 51.94068517686746,
+        "qpd_opt_gate_level_cuts": 66,
+        "qpd_opt_gate_level_J": 51.94068517686746,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "hhl",
+      "n": 14,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "24d57fc1c1272df536afbd60e88550215e34e1d8738d6510ca3b94e9bc6787d4",
+      "num_operations": 230,
+      "num_two_qubit_ops": 180,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.005549942491
+          ],
+          "rho": 1.011130672518,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.011099884981
+          ],
+          "rho": 1.022322862178,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.022199769962
+          ],
+          "rho": 1.044891437751,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.044399539925
+          ],
+          "rho": 1.090762781549,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.088799079849
+          ],
+          "rho": 1.185419911485,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.177598159698
+          ],
+          "rho": 1.386187989861,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            -11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.005549942491
+          ],
+          "rho": 1.011130672518,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.011099884981
+          ],
+          "rho": 1.022322862178,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.022199769962
+          ],
+          "rho": 1.044891437751,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.044399539925
+          ],
+          "rho": 1.090762781549,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.088799079849
+          ],
+          "rho": 1.185419911485,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.177598159698
+          ],
+          "rho": 1.386187989861,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            1.171421005348
+          ],
+          "rho": 4.433480591637,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 11
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 12
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 26,
+      "positive_log_costs": [
+        0.003065610582,
+        0.006126527571,
+        0.011069182446,
+        0.012234330921,
+        0.022077354004,
+        0.024394163101,
+        0.043912992701,
+        0.048493468493,
+        0.086877251082,
+        0.095831863414,
+        0.170097067502,
+        0.187227207693,
+        0.326557526391,
+        0.358022635752,
+        0.605139469998,
+        0.658867396868,
+        0.92882937537,
+        1.056013015127,
+        1.136717048315,
+        1.489184962167,
+        1.511640957875,
+        1.669521741844,
+        1.762747174039,
+        2.182194142329,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 1716,
+      "count_optimum": 90,
+      "J_best_among_count_optima": 52.533358720487996,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 52.533358720487996,
+      "min_count_among_qpd_optima": 90,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 90,
+        "count_opt_gate_level_J": 52.53335872048796,
+        "qpd_opt_gate_level_cuts": 90,
+        "qpd_opt_gate_level_J": 52.53335872048796,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "hhl",
+      "n": 16,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "6cafc0b63acbbaaadfc38095f057eedffc3f3c3ae69367ff3fa7d1e32d452ce9",
+      "num_operations": 296,
+      "num_two_qubit_ops": 238,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.000383495197
+          ],
+          "rho": 1.000767137458,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.001387485623
+          ],
+          "rho": 1.002776896139,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.002774971245
+          ],
+          "rho": 1.00555764117,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.005549942491
+          ],
+          "rho": 1.011130672518,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.011099884981
+          ],
+          "rho": 1.022322862178,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.022199769962
+          ],
+          "rho": 1.044891437751,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.044399539925
+          ],
+          "rho": 1.090762781549,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.088799079849
+          ],
+          "rho": 1.185419911485,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.177598159698
+          ],
+          "rho": 1.386187989861,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 13
+        },
+        {
+          "name": "cp",
+          "params": [
+            -11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.000383495197
+          ],
+          "rho": 1.000767137458,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.001387485623
+          ],
+          "rho": 1.002776896139,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.002774971245
+          ],
+          "rho": 1.00555764117,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.005549942491
+          ],
+          "rho": 1.011130672518,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.011099884981
+          ],
+          "rho": 1.022322862178,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.022199769962
+          ],
+          "rho": 1.044891437751,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.044399539925
+          ],
+          "rho": 1.090762781549,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.088799079849
+          ],
+          "rho": 1.185419911485,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.177598159698
+          ],
+          "rho": 1.386187989861,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.355196319396
+          ],
+          "rho": 1.83150763144,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.710392638793
+          ],
+          "rho": 2.874885982286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.420785277586
+          ],
+          "rho": 5.309627817037,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 13
+        },
+        {
+          "name": "cp",
+          "params": [
+            11.366282220688
+          ],
+          "rho": 4.534165066855,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.841570555172
+          ],
+          "rho": 8.865737623537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            5.683141110344
+          ],
+          "rho": 2.53154395467,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            1.171421005348
+          ],
+          "rho": 4.433480591637,
+          "count": 1
+        },
+        {
+          "name": "cry",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 13
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 14
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 30,
+      "positive_log_costs": [
+        0.000766843358,
+        0.001533392777,
+        0.002773047686,
+        0.003065610582,
+        0.005542254466,
+        0.006126527571,
+        0.011069182446,
+        0.012234330921,
+        0.022077354004,
+        0.024394163101,
+        0.043912992701,
+        0.048493468493,
+        0.086877251082,
+        0.095831863414,
+        0.170097067502,
+        0.187227207693,
+        0.326557526391,
+        0.358022635752,
+        0.605139469998,
+        0.658867396868,
+        0.92882937537,
+        1.056013015127,
+        1.136717048315,
+        1.489184962167,
+        1.511640957875,
+        1.669521741844,
+        1.762747174039,
+        2.182194142329,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 6435,
+      "count_optimum": 120,
+      "J_best_among_count_optima": 58.279336120172935,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 58.279336120172935,
+      "min_count_among_qpd_optima": 120,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 120,
+        "count_opt_gate_level_J": 58.27933612017287,
+        "qpd_opt_gate_level_cuts": 120,
+        "qpd_opt_gate_level_J": 58.27933612017287,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeexact",
+      "n": 6,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "c9596c3d1c93ec8c530b29d59ebb8b52a75720455b47d14a66aad4b42bd19641",
+      "num_operations": 33,
+      "num_two_qubit_ops": 16,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.748893571891
+          ],
+          "rho": 8.770900186635,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 2
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 7,
+      "positive_log_costs": [
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.171439444975,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 10,
+      "count_optimum": 8,
+      "J_best_among_count_optima": 12.302910108906106,
+      "count_optimal_partition": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 12.213352038134678,
+      "min_count_among_qpd_optima": 9,
+      "qpd_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "strict_reversal": true,
+      "regret_log": 0.08955807077142808,
+      "regret_factor": 1.0936908429392598,
+      "extra_cuts_required": 1,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 8,
+        "count_opt_gate_level_J": 12.302910108906106,
+        "qpd_opt_gate_level_cuts": 9,
+        "qpd_opt_gate_level_J": 12.213352038134676,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": [
+        {
+          "gate": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 0,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": 2,
+          "delta_log_cost": 2.273434096630127
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": -2,
+          "delta_log_cost": -3.5254943480781726
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -2.748893571891
+          ],
+          "rho": 8.770900186635496,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 0,
+          "delta_qpd_minus_count": -1,
+          "delta_log_cost": -2.171439444974667
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 0,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 1.1367170483150635
+        },
+        {
+          "gate": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.000000000000004,
+          "count_opt_cut": 0,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 2.1972245773362196
+        }
+      ]
+    },
+    {
+      "family": "qpeexact",
+      "n": 8,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "6ab6591b2cf4278f038a44f06e4a1760dfc2054c57cf832eec2d001740c1902b",
+      "num_operations": 54,
+      "num_two_qubit_ops": 31,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.699806186679
+          ],
+          "rho": 8.710787106401,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.748893571891
+          ],
+          "rho": 8.770900186635,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.883572933822
+          ],
+          "rho": 3.441433805394,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.767145867644
+          ],
+          "rho": 6.482222457483,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 3
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 12,
+      "positive_log_costs": [
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.23588818844,
+        1.762747174039,
+        1.869063423397,
+        2.16456215491,
+        2.171439444975,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 35,
+      "count_optimum": 16,
+      "J_best_among_count_optima": 18.692772410497632,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 18.692772410497632,
+      "min_count_among_qpd_optima": 16,
+      "qpd_optimal_partition": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 16,
+        "count_opt_gate_level_J": 18.692772410497632,
+        "qpd_opt_gate_level_cuts": 16,
+        "qpd_opt_gate_level_J": 18.692772410497632,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeexact",
+      "n": 10,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "35a2951e17149f087927fdaa2a2c58ef930887cfee6cda780c195e474c6d3fab",
+      "num_operations": 76,
+      "num_two_qubit_ops": 47,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.699806186679
+          ],
+          "rho": 8.710787106401,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.748893571891
+          ],
+          "rho": 8.770900186635,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.883572933822
+          ],
+          "rho": 3.441433805394,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.767145867644
+          ],
+          "rho": 6.482222457483,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 4
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 14,
+      "positive_log_costs": [
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.23588818844,
+        1.762747174039,
+        1.869063423397,
+        2.16456215491,
+        2.171439444975,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 126,
+      "count_optimum": 23,
+      "J_best_among_count_optima": 21.382811000551797,
+      "count_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 21.382811000551797,
+      "min_count_among_qpd_optima": 23,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 23,
+        "count_opt_gate_level_J": 21.382811000551797,
+        "qpd_opt_gate_level_cuts": 23,
+        "qpd_opt_gate_level_J": 21.382811000551797,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeexact",
+      "n": 12,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "ea7d888b77a7b84028f3f6191caa09d24ec0d6283faefc5dc1e81a3bf2f37517",
+      "num_operations": 105,
+      "num_two_qubit_ops": 70,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.693670263527
+          ],
+          "rho": 8.70279907436,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.699806186679
+          ],
+          "rho": 8.710787106401,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.748893571891
+          ],
+          "rho": 8.770900186635,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.883572933822
+          ],
+          "rho": 3.441433805394,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.895844780125
+          ],
+          "rho": 3.482656299128,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.767145867644
+          ],
+          "rho": 6.482222457483,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.79168956025
+          ],
+          "rho": 6.561151394602,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 5
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 19,
+      "positive_log_costs": [
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.23588818844,
+        1.247795306965,
+        1.762747174039,
+        1.869063423397,
+        1.881166105024,
+        2.163644706601,
+        2.16456215491,
+        2.171439444975,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 462,
+      "count_optimum": 35,
+      "J_best_among_count_optima": 25.029958243824826,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 25.029958243824826,
+      "min_count_among_qpd_optima": 35,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 35,
+        "count_opt_gate_level_J": 25.029958243824822,
+        "qpd_opt_gate_level_cuts": 35,
+        "qpd_opt_gate_level_J": 25.029958243824822,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeexact",
+      "n": 14,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "573e68441d46f0f5e2c11c2bce3768b177f4ffd1e109edcff4eb9d697ede8df5",
+      "num_operations": 135,
+      "num_two_qubit_ops": 94,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.693670263527
+          ],
+          "rho": 8.70279907436,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.699806186679
+          ],
+          "rho": 8.710787106401,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.748893571891
+          ],
+          "rho": 8.770900186635,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.883572933822
+          ],
+          "rho": 3.441433805394,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.895844780125
+          ],
+          "rho": 3.482656299128,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.767145867644
+          ],
+          "rho": 6.482222457483,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.79168956025
+          ],
+          "rho": 6.561151394602,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 6
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 21,
+      "positive_log_costs": [
+        0.001533392777,
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.23588818844,
+        1.247795306965,
+        1.762747174039,
+        1.869063423397,
+        1.881166105024,
+        2.163644706601,
+        2.16456215491,
+        2.171439444975,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 1716,
+      "count_optimum": 46,
+      "J_best_among_count_optima": 29.583608677198,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 28.19001160486163,
+      "min_count_among_qpd_optima": 47,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": true,
+      "regret_log": 1.3935970723363695,
+      "regret_factor": 4.029317764156574,
+      "extra_cuts_required": 1,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 46,
+        "count_opt_gate_level_J": 29.583608677198,
+        "qpd_opt_gate_level_cuts": 47,
+        "qpd_opt_gate_level_J": 28.190011604861635,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": [
+        {
+          "gate": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.0123094764866614,
+          "count_opt_cut": 2,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": -1,
+          "delta_log_cost": -0.012234330920904764
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.0246941349183285,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 3,
+          "delta_qpd_minus_count": -1,
+          "delta_log_cost": -0.024394163101024623
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.0496885157504716,
+          "count_opt_cut": 6,
+          "qpd_opt_cut": 5,
+          "delta_qpd_minus_count": -1,
+          "delta_log_cost": -0.04849346849340502
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.1005740016813044,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 7,
+          "delta_qpd_minus_count": 3,
+          "delta_log_cost": 0.28749559024212334
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.2059012439652776,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 7,
+          "delta_qpd_minus_count": 3,
+          "delta_log_cost": 0.5616816230782308
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.4304980005117807,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 7,
+          "delta_qpd_minus_count": 3,
+          "delta_log_cost": 1.0740679072567993
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.9326022230419404,
+          "count_opt_cut": 8,
+          "qpd_opt_cut": 6,
+          "delta_qpd_minus_count": -2,
+          "delta_log_cost": -1.3177347937360084
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087263,
+          "count_opt_cut": 6,
+          "qpd_opt_cut": 4,
+          "delta_qpd_minus_count": -2,
+          "delta_log_cost": -2.273434096630127
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746192,
+          "count_opt_cut": 4,
+          "qpd_opt_cut": 2,
+          "delta_qpd_minus_count": -2,
+          "delta_log_cost": -3.5254943480781726
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -2.693670263527
+          ],
+          "rho": 8.702799074360017,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -2.699806186679
+          ],
+          "rho": 8.710787106401,
+          "count_opt_cut": 0,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 2.164562154910161
+        },
+        {
+          "gate": "cp",
+          "params": [
+            -2.748893571891
+          ],
+          "rho": 8.770900186635496,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 0,
+          "delta_qpd_minus_count": -1,
+          "delta_log_cost": -2.171439444974667
+        },
+        {
+          "gate": "cp",
+          "params": [
+            0.895844780125
+          ],
+          "rho": 3.4826562991278345,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "cp",
+          "params": [
+            1.79168956025
+          ],
+          "rho": 6.561151394602119,
+          "count_opt_cut": 1,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 0,
+          "delta_log_cost": 0.0
+        },
+        {
+          "gate": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count_opt_cut": 0,
+          "qpd_opt_cut": 1,
+          "delta_qpd_minus_count": 1,
+          "delta_log_cost": 3.8918202981106265
+        }
+      ]
+    },
+    {
+      "family": "qpeexact",
+      "n": 16,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "ceba6135ea33be2e92b04e93f79ebc27251498c7d594bd6f48a63fe48038ef45",
+      "num_operations": 174,
+      "num_two_qubit_ops": 127,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.000191747598
+          ],
+          "rho": 1.000383531964,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.000383495197
+          ],
+          "rho": 1.000767137458,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 13
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 15
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.693095020732
+          ],
+          "rho": 8.702044831102,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.695204244315
+          ],
+          "rho": 8.704805895537,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.712078032982
+          ],
+          "rho": 8.726448536812,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.847068342316
+          ],
+          "rho": 8.870586711324,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.589048622548
+          ],
+          "rho": 2.498199484413,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.859029241216
+          ],
+          "rho": 3.359372554483,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.892776818549
+          ],
+          "rho": 3.47233900111,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.896995265716
+          ],
+          "rho": 3.486527270652,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.178097245096
+          ],
+          "rho": 4.456914067348,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.718058482432
+          ],
+          "rho": 6.322296334937,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.785553637099
+          ],
+          "rho": 6.541486689358,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.793990531432
+          ],
+          "rho": 6.568513855504,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.356194490192
+          ],
+          "rho": 8.109731692418,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            3.14159265359
+          ],
+          "rho": 9.0,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 7
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 29,
+      "positive_log_costs": [
+        0.000383458434,
+        0.000766843358,
+        0.001533392777,
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        0.915570266166,
+        1.136717048315,
+        1.2117542168,
+        1.2448284306,
+        1.248906189433,
+        1.494456613399,
+        1.762747174039,
+        1.844082486301,
+        1.878164462167,
+        1.882287605311,
+        2.093064784031,
+        2.163558036101,
+        2.163875274929,
+        2.16635847572,
+        2.182740939717,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 6435,
+      "count_optimum": 64,
+      "J_best_among_count_optima": 32.75584393737812,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 32.75584393737812,
+      "min_count_among_qpd_optima": 64,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 64,
+        "count_opt_gate_level_J": 32.7558439373781,
+        "qpd_opt_gate_level_cuts": 64,
+        "qpd_opt_gate_level_J": 32.7558439373781,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeinexact",
+      "n": 6,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "177c78d987d037615b438ca9797db20c5bbedf47c210e1fe71e62ae1bcef7aec",
+      "num_operations": 34,
+      "num_two_qubit_ops": 17,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.981747704247
+          ],
+          "rho": 3.774446481265,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.963495408494
+          ],
+          "rho": 7.09124531394,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.356194490192
+          ],
+          "rho": 8.109731692418,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.650718801466
+          ],
+          "rho": 8.643967541475,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 2
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 9,
+      "positive_log_costs": [
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.328253744471,
+        1.762747174039,
+        1.958860968836,
+        2.093064784031,
+        2.156861683602,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 10,
+      "count_optimum": 9,
+      "J_best_among_count_optima": 12.496842735781662,
+      "count_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 12.496842735781662,
+      "min_count_among_qpd_optima": 9,
+      "qpd_optimal_partition": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 9,
+        "count_opt_gate_level_J": 12.496842735781662,
+        "qpd_opt_gate_level_cuts": 9,
+        "qpd_opt_gate_level_J": 12.496842735781662,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeinexact",
+      "n": 8,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "2ee64d99c23ca58bd67e485a69f30546c483c5ba461dc15550aea3d4944db874",
+      "num_operations": 54,
+      "num_two_qubit_ops": 31,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.932660319034
+          ],
+          "rho": 3.607046709634,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.178097245096
+          ],
+          "rho": 4.456914067348,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.865320638069
+          ],
+          "rho": 6.793399480432,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.356194490192
+          ],
+          "rho": 8.109731692418,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.552544031042
+          ],
+          "rho": 8.490700567534,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.675262494073
+          ],
+          "rho": 8.678208411213,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 3
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 13,
+      "positive_log_costs": [
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.282889351556,
+        1.494456613399,
+        1.762747174039,
+        1.91595147614,
+        2.093064784031,
+        2.138971513707,
+        2.16081510313,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 35,
+      "count_optimum": 16,
+      "J_best_among_count_optima": 18.723393813070814,
+      "count_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 18.723393813070814,
+      "min_count_among_qpd_optima": 16,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 16,
+        "count_opt_gate_level_J": 18.723393813070818,
+        "qpd_opt_gate_level_cuts": 16,
+        "qpd_opt_gate_level_J": 18.723393813070818,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeinexact",
+      "n": 10,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "a7423862a7148ecd0bd6a47c2c6a47438c32547b3d7252310fc7023dab3067aa",
+      "num_operations": 78,
+      "num_two_qubit_ops": 49,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.693670263527
+          ],
+          "rho": 8.70279907436,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.699806186679
+          ],
+          "rho": 8.710787106401,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.748893571891
+          ],
+          "rho": 8.770900186635,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.883572933822
+          ],
+          "rho": 3.441433805394,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.895844780125
+          ],
+          "rho": 3.482656299128,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.767145867644
+          ],
+          "rho": 6.482222457483,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.79168956025
+          ],
+          "rho": 6.561151394602,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 4
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 16,
+      "positive_log_costs": [
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.23588818844,
+        1.247795306965,
+        1.762747174039,
+        1.869063423397,
+        1.881166105024,
+        2.163644706601,
+        2.16456215491,
+        2.171439444975,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 126,
+      "count_optimum": 25,
+      "J_best_among_count_optima": 22.402614546164706,
+      "count_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 22.402614546164706,
+      "min_count_among_qpd_optima": 25,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 25,
+        "count_opt_gate_level_J": 22.402614546164703,
+        "qpd_opt_gate_level_cuts": 25,
+        "qpd_opt_gate_level_J": 22.402614546164703,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeinexact",
+      "n": 12,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "4f9f6d1c28103f1929021656bb9d7eb69578f56a23f3deff989624ec7abf537a",
+      "num_operations": 106,
+      "num_two_qubit_ops": 71,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.356194490192
+          ],
+          "rho": 8.109731692418,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -3.018874190559
+          ],
+          "rho": 8.977431520798,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.204019444789
+          ],
+          "rho": 1.448811338068,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.245436926062
+          ],
+          "rho": 1.549580194408,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.408038889578
+          ],
+          "rho": 1.974626604135,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.490873852123
+          ],
+          "rho": 2.208078190916,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.816077779155
+          ],
+          "rho": 3.217072614121,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.981747704247
+          ],
+          "rho": 3.774446481265,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.63215555831
+          ],
+          "rho": 6.036499034397,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.963495408494
+          ],
+          "rho": 7.09124531394,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 5
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 21,
+      "positive_log_costs": [
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.37074345339,
+        0.437984051929,
+        0.658867396868,
+        0.680379319281,
+        0.792122540341,
+        1.136717048315,
+        1.168471820001,
+        1.328253744471,
+        1.762747174039,
+        1.79782421383,
+        1.958860968836,
+        2.093064784031,
+        2.194713819219,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 462,
+      "count_optimum": 36,
+      "J_best_among_count_optima": 23.811647893437957,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 23.811647893437957,
+      "min_count_among_qpd_optima": 36,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 36,
+        "count_opt_gate_level_J": 23.81164789343795,
+        "qpd_opt_gate_level_cuts": 36,
+        "qpd_opt_gate_level_J": 23.81164789343795,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeinexact",
+      "n": 14,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "2ec1074cff582be799e926f19e7f68520af313bd2057fc5a3100e649ce4f6601",
+      "num_operations": 138,
+      "num_two_qubit_ops": 97,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.69328676833
+          ],
+          "rho": 8.702296347639,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.696738225103
+          ],
+          "rho": 8.706806176941,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.724349879285
+          ],
+          "rho": 8.741688994286,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.94524311274
+          ],
+          "rho": 8.942309467495,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.83448554861
+          ],
+          "rho": 3.277847346326,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.889708856974
+          ],
+          "rho": 3.46202944753,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.896611770519
+          ],
+          "rho": 3.4852368269,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.66897109722
+          ],
+          "rho": 6.159838782079,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.779417713947
+          ],
+          "rho": 6.521776615077,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.793223541038
+          ],
+          "rho": 6.566060420643,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 6
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 23,
+      "positive_log_costs": [
+        0.001533392777,
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.187186910087,
+        1.241854962648,
+        1.248535997972,
+        1.762747174039,
+        1.818050605463,
+        1.875146825796,
+        1.881914021084,
+        2.163586938837,
+        2.164105038997,
+        2.168103419771,
+        2.190793885522,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 1716,
+      "count_optimum": 49,
+      "J_best_among_count_optima": 28.93030493719055,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 28.93030493719055,
+      "min_count_among_qpd_optima": 49,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 49,
+        "count_opt_gate_level_J": 28.93030493719054,
+        "qpd_opt_gate_level_cuts": 49,
+        "qpd_opt_gate_level_J": 28.93030493719054,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qpeinexact",
+      "n": 16,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "9662398f57a54ba96d0eb26962a4f604fcf31f9cf593d16a814404751f0a4eca",
+      "num_operations": 174,
+      "num_two_qubit_ops": 127,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            -0.000191747598
+          ],
+          "rho": 1.000383531964,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.000383495197
+          ],
+          "rho": 1.000767137458,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            -0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 14
+        },
+        {
+          "name": "cp",
+          "params": [
+            -1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 15
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.692999146932
+          ],
+          "rho": 8.701919034543,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.694437253921
+          ],
+          "rho": 8.7038033022,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.70594210983
+          ],
+          "rho": 8.71867033435,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            -2.797980957103
+          ],
+          "rho": 8.824198699922,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.687223392973
+          ],
+          "rho": 2.801538506843,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.871301087519
+          ],
+          "rho": 3.40033799742,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.894310799337
+          ],
+          "rho": 3.47749668569,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.897187013315
+          ],
+          "rho": 3.487172537445,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.374446785946
+          ],
+          "rho": 5.147392492622,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.742602175038
+          ],
+          "rho": 6.40259284001,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.788621598675
+          ],
+          "rho": 6.551324745844,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.794374026629
+          ],
+          "rho": 6.569740302948,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            2.748893571891
+          ],
+          "rho": 8.770900186635,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 7
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 28,
+      "positive_log_costs": [
+        0.000383458434,
+        0.000766843358,
+        0.001533392777,
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.030168733009,
+        1.136717048315,
+        1.223874837687,
+        1.246312691742,
+        1.249091246666,
+        1.638490274344,
+        1.762747174039,
+        1.856703039574,
+        1.879667280471,
+        1.882474304006,
+        2.16354358002,
+        2.163760091306,
+        2.165466741701,
+        2.171439444975,
+        2.177497799821,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 6435,
+      "count_optimum": 64,
+      "J_best_among_count_optima": 31.917986846468537,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "J_qpd_optimum": 31.917986846468537,
+      "min_count_among_qpd_optima": 64,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 64,
+        "count_opt_gate_level_J": 31.917986846468537,
+        "qpd_opt_gate_level_cuts": 64,
+        "qpd_opt_gate_level_J": 31.917986846468537,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qft",
+      "n": 6,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "f7d31734c0523509a4aa305875491e6749b7c3c0c6824a7c688d2d1d3b1b5023",
+      "num_operations": 31,
+      "num_two_qubit_ops": 18,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 5
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 3
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 6,
+      "positive_log_costs": [
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 10,
+      "count_optimum": 10,
+      "J_best_among_count_optima": 13.162090617490268,
+      "count_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "J_qpd_optimum": 13.162090617490268,
+      "min_count_among_qpd_optima": 10,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 10,
+        "count_opt_gate_level_J": 13.16209061749027,
+        "qpd_opt_gate_level_cuts": 10,
+        "qpd_opt_gate_level_J": 13.16209061749027,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qft",
+      "n": 8,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "2177cb99af10ddbb492d91674c41d3371688034ed94d4aafeff6b4b10d00385f",
+      "num_operations": 49,
+      "num_two_qubit_ops": 32,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 7
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 4
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 8,
+      "positive_log_costs": [
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 35,
+      "count_optimum": 16,
+      "J_best_among_count_optima": 12.514377087204995,
+      "count_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 12.514377087204995,
+      "min_count_among_qpd_optima": 16,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 16,
+        "count_opt_gate_level_J": 12.514377087204995,
+        "qpd_opt_gate_level_cuts": 16,
+        "qpd_opt_gate_level_J": 12.514377087204995,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qft",
+      "n": 10,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "821cd7b79baeedf70f0a31cd2e44af6bd0a7ac6ff767bb2a4aa4a6676e0a4847",
+      "num_operations": 71,
+      "num_two_qubit_ops": 50,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 9
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 5
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 10,
+      "positive_log_costs": [
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 126,
+      "count_optimum": 26,
+      "J_best_among_count_optima": 18.320758099749654,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 18.320758099749654,
+      "min_count_among_qpd_optima": 26,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 26,
+        "count_opt_gate_level_J": 18.32075809974965,
+        "qpd_opt_gate_level_cuts": 26,
+        "qpd_opt_gate_level_J": 18.32075809974965,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qft",
+      "n": 12,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "a50044eb1bbe256066f351dd39d0d5e7525ef701763ed19be93d651187f537de",
+      "num_operations": 97,
+      "num_two_qubit_ops": 72,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 11
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 6
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 12,
+      "positive_log_costs": [
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 462,
+      "count_optimum": 36,
+      "J_best_among_count_optima": 16.11481936387643,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 16.11481936387643,
+      "min_count_among_qpd_optima": 36,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 36,
+        "count_opt_gate_level_J": 16.114819363876425,
+        "qpd_opt_gate_level_cuts": 36,
+        "qpd_opt_gate_level_J": 16.114819363876425,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qft",
+      "n": 14,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "b1e3074e0b35464565f4a90b068106dfb22d719b69f4e2879a9bb3df77c6853d",
+      "num_operations": 127,
+      "num_two_qubit_ops": 98,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.000383495197
+          ],
+          "rho": 1.000767137458,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 13
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 7
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 14,
+      "positive_log_costs": [
+        0.000766843358,
+        0.001533392777,
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 1716,
+      "count_optimum": 50,
+      "J_best_among_count_optima": 20.909213783963416,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 20.909213783963416,
+      "min_count_among_qpd_optima": 50,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 50,
+        "count_opt_gate_level_J": 20.909213783963416,
+        "qpd_opt_gate_level_cuts": 50,
+        "qpd_opt_gate_level_J": 20.909213783963416,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qft",
+      "n": 16,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "04690b1be69404cb69272c4680845f3d9ae4adf9be69f764d639eb1ede8b7bef",
+      "num_operations": 161,
+      "num_two_qubit_ops": 128,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.000191747598
+          ],
+          "rho": 1.000383531964,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.000383495197
+          ],
+          "rho": 1.000767137458,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 13
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 14
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 15
+        },
+        {
+          "name": "cp",
+          "params": [
+            9.5873799e-05
+          ],
+          "rho": 1.00019175679,
+          "count": 1
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 8
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 16,
+      "positive_log_costs": [
+        0.000191738407,
+        0.000383458434,
+        0.000766843358,
+        0.001533392777,
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 6435,
+      "count_optimum": 64,
+      "J_best_among_count_optima": 17.841364947148996,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 17.841364947148996,
+      "min_count_among_qpd_optima": 64,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 64,
+        "count_opt_gate_level_J": 17.841364947148993,
+        "qpd_opt_gate_level_cuts": 64,
+        "qpd_opt_gate_level_J": 17.841364947148993,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qftentangled",
+      "n": 6,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "86a9c48c46777a23ef2a18b67a0182b6f998a6b987d508bd4f341d764a0a49be",
+      "num_operations": 37,
+      "num_two_qubit_ops": 23,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 5
+        },
+        {
+          "name": "cx",
+          "params": [],
+          "rho": 9.0,
+          "count": 5
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 3
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 7,
+      "positive_log_costs": [
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 10,
+      "count_optimum": 12,
+      "J_best_among_count_optima": 17.556539772162708,
+      "count_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "J_qpd_optimum": 17.556539772162708,
+      "min_count_among_qpd_optima": 12,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 12,
+        "count_opt_gate_level_J": 17.556539772162708,
+        "qpd_opt_gate_level_cuts": 12,
+        "qpd_opt_gate_level_J": 17.556539772162708,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qftentangled",
+      "n": 8,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "a571fc3327de175a08faf6b33ca19d26912c998548235e967e9aa8257029e965",
+      "num_operations": 57,
+      "num_two_qubit_ops": 39,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 7
+        },
+        {
+          "name": "cx",
+          "params": [],
+          "rho": 9.0,
+          "count": 7
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 4
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 9,
+      "positive_log_costs": [
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 35,
+      "count_optimum": 18,
+      "J_best_among_count_optima": 16.908826241877435,
+      "count_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 16.908826241877435,
+      "min_count_among_qpd_optima": 18,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 18,
+        "count_opt_gate_level_J": 16.908826241877435,
+        "qpd_opt_gate_level_cuts": 18,
+        "qpd_opt_gate_level_J": 16.908826241877435,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qftentangled",
+      "n": 10,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "3e90a47237a29b01044f2839963426eb438b06992e71389979321d1bb4825368",
+      "num_operations": 81,
+      "num_two_qubit_ops": 59,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 9
+        },
+        {
+          "name": "cx",
+          "params": [],
+          "rho": 9.0,
+          "count": 9
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 5
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 11,
+      "positive_log_costs": [
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 126,
+      "count_optimum": 28,
+      "J_best_among_count_optima": 22.71520725442209,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 22.71520725442209,
+      "min_count_among_qpd_optima": 28,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 28,
+        "count_opt_gate_level_J": 22.71520725442209,
+        "qpd_opt_gate_level_cuts": 28,
+        "qpd_opt_gate_level_J": 22.71520725442209,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qftentangled",
+      "n": 12,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "324140d5766296140da84f853a0c1497085f1d512e657c42d3381bdb92fef6fa",
+      "num_operations": 109,
+      "num_two_qubit_ops": 83,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 11
+        },
+        {
+          "name": "cx",
+          "params": [],
+          "rho": 9.0,
+          "count": 11
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 6
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 13,
+      "positive_log_costs": [
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 462,
+      "count_optimum": 38,
+      "J_best_among_count_optima": 20.509268518548865,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 20.509268518548865,
+      "min_count_among_qpd_optima": 38,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 38,
+        "count_opt_gate_level_J": 20.509268518548865,
+        "qpd_opt_gate_level_cuts": 38,
+        "qpd_opt_gate_level_J": 20.509268518548865,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qftentangled",
+      "n": 14,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "1d275b5462a07f83c69a31daf06960244217aba84bb265924923525787a0f129",
+      "num_operations": 141,
+      "num_two_qubit_ops": 111,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.000383495197
+          ],
+          "rho": 1.000767137458,
+          "count": 1
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 13
+        },
+        {
+          "name": "cx",
+          "params": [],
+          "rho": 9.0,
+          "count": 13
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 7
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 15,
+      "positive_log_costs": [
+        0.000766843358,
+        0.001533392777,
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 1716,
+      "count_optimum": 52,
+      "J_best_among_count_optima": 25.303662938635856,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 25.303662938635856,
+      "min_count_among_qpd_optima": 52,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 52,
+        "count_opt_gate_level_J": 25.303662938635856,
+        "qpd_opt_gate_level_cuts": 52,
+        "qpd_opt_gate_level_J": 25.303662938635856,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    },
+    {
+      "family": "qftentangled",
+      "n": 16,
+      "source": "MQT Bench 2.2.2",
+      "representation_policy": "algorithm_semantic_2q_preserving",
+      "circuit_fingerprint_sha256": "ab21e8dad35d2ee8c94057015928adace9a5f873c98d5ae204e1c3f1a972e5c2",
+      "num_operations": 177,
+      "num_two_qubit_ops": 143,
+      "gate_histogram": [
+        {
+          "name": "cp",
+          "params": [
+            0.000191747598
+          ],
+          "rho": 1.000383531964,
+          "count": 2
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.000383495197
+          ],
+          "rho": 1.000767137458,
+          "count": 3
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.000766990394
+          ],
+          "rho": 1.001534569025,
+          "count": 4
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.001533980788
+          ],
+          "rho": 1.003070314372,
+          "count": 5
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.003067961576
+          ],
+          "rho": 1.006145333126,
+          "count": 6
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.006135923152
+          ],
+          "rho": 1.012309476487,
+          "count": 7
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.012271846303
+          ],
+          "rho": 1.024694134918,
+          "count": 8
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.024543692606
+          ],
+          "rho": 1.04968851575,
+          "count": 9
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.049087385212
+          ],
+          "rho": 1.100574001681,
+          "count": 10
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.098174770425
+          ],
+          "rho": 1.205901243965,
+          "count": 11
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.196349540849
+          ],
+          "rho": 1.430498000512,
+          "count": 12
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.392699081699
+          ],
+          "rho": 1.932602223042,
+          "count": 13
+        },
+        {
+          "name": "cp",
+          "params": [
+            0.785398163397
+          ],
+          "rho": 3.116520167087,
+          "count": 14
+        },
+        {
+          "name": "cp",
+          "params": [
+            1.570796326795
+          ],
+          "rho": 5.828427124746,
+          "count": 15
+        },
+        {
+          "name": "cp",
+          "params": [
+            9.5873799e-05
+          ],
+          "rho": 1.00019175679,
+          "count": 1
+        },
+        {
+          "name": "cx",
+          "params": [],
+          "rho": 9.0,
+          "count": 15
+        },
+        {
+          "name": "swap",
+          "params": [],
+          "rho": 49.0,
+          "count": 8
+        }
+      ],
+      "num_distinct_positive_qpd_costs": 17,
+      "positive_log_costs": [
+        0.000191738407,
+        0.000383458434,
+        0.000766843358,
+        0.001533392777,
+        0.003065610582,
+        0.006126527571,
+        0.012234330921,
+        0.024394163101,
+        0.048493468493,
+        0.095831863414,
+        0.187227207693,
+        0.358022635752,
+        0.658867396868,
+        1.136717048315,
+        1.762747174039,
+        2.197224577336,
+        3.891820298111
+      ],
+      "zero_cost_two_qubit_ops": 0,
+      "unsupported": [],
+      "eligible": true,
+      "partitions_enumerated": 6435,
+      "count_optimum": 66,
+      "J_best_among_count_optima": 22.235814101821436,
+      "count_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "J_qpd_optimum": 22.235814101821436,
+      "min_count_among_qpd_optima": 66,
+      "qpd_optimal_partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strict_reversal": false,
+      "regret_log": 0.0,
+      "regret_factor": 1.0,
+      "extra_cuts_required": 0,
+      "gate_level_consistency": {
+        "count_opt_gate_level_cuts": 66,
+        "count_opt_gate_level_J": 22.235814101821433,
+        "qpd_opt_gate_level_cuts": 66,
+        "qpd_opt_gate_level_J": 22.235814101821433,
+        "tolerance": 1e-10
+      },
+      "gate_tradeoff": []
+    }
+  ]
+}

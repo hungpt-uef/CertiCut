@@ -1,0 +1,62 @@
+{
+  "frozen_at": "2026-08-12",
+  "git_commit": null,
+  "git_note": "workspace is not a git repository",
+  "python": "3.11.9",
+  "os": "Windows-11-Education-10.0.26200-64-bit",
+  "machine": {
+    "cpu": "Intel(R) Core(TM) i5-14400",
+    "physical_cores": 10,
+    "logical_processors": 16,
+    "ram_gb": 31.69,
+    "blas_thread_limits": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null
+    }
+  },
+  "versions": {
+    "qiskit": "2.5.1",
+    "qiskit_addon_cutting": "0.10.0",
+    "scipy": "1.17.1",
+    "kahip": "3.25",
+    "mqt_bench": "2.2.2",
+    "matplotlib": "3.11.1",
+    "pyscipopt": "6.2.1",
+    "scip": "10.0"
+  },
+  "cost_model": "qiskit_qpd_0.10_independent",
+  "solver_tolerance": 1e-09,
+  "safe_deadline": "soft requested deadline; return only after completed safe LP or B&B boundary; actual event time is recorded",
+  "random_seeds": {
+    "synthetic": "manifested per raw instance",
+    "bootstrap": 20260811
+  },
+  "raw_result_sha256": {
+    "phase6_2_track_a_records.jsonl": "9e48ae0926e59ae73e08487e2cbe30309e5942504d213a63ea7b2e706926f7e8",
+    "phase6_2_checkpoints.jsonl": "9de7ac080b697bc6d402e744916d65c54a62962e39f6b213938d84045da744d8",
+    "phase6_2_summary.json": "e855246baa402e31d7543dafa05820b46ef42bbf69a3706a195bf4bad1c4cbd4",
+    "phase6_4_track_b_records.jsonl": "4a3de3e63ac63365e6841df9107ec865d3fd5041f377c2989fe444c972b725e2",
+    "phase6_4_k2_penalty_summary.json": "5b6ee36c4d0a582a9a17724f6edf5300e00537f7358faee1206213b6229d5bf9",
+    "phase6_5b_representation_comparison.json": "841bcbd9a194de36b8ee4842b08148a52233fc23d3ed49fb8068b989ef531485",
+    "phase6_6b_e1_certicut.jsonl": "720c483094d41ec3f09fe5c06d55f92d510bcd7ae61ee256990eae3ef443d436",
+    "phase6_6b_e1_wallclock_checkpoints.jsonl": "224b51346e8e48b3b9c0f5c8953145f0215f2ef32f5493f64d08f8adf44416a8",
+    "phase6_6b_e1_summary.json": "7d3b4031855338ac9ab552be262fc740f20808e5801f34f67dfd7def4de0ac7e",
+    "phase6_6b_e2_real_cx.jsonl": "07b0d25ef20bb9fae98746234d660f1f73d4c00dd9808716e18579bb71953654",
+    "phase6_6b_e3_native_qpd.jsonl": "44b9fc9beb94499fba9cf57ec33af769c3d4986a31aa67d700b84dfa19d749a6",
+    "phase7_operational_validation.json": "fc536154c1b902e3e9bb42864e52a886c7b6758c65a47489b17044ede0def555",
+    "phase11_3_heterogeneous_qpd_nonzero_companion.jsonl": "37785f9db75b9a150e14618a178d52376b92dffe87024b32bf1218c58b4deb1e",
+    "phase11_3_heterogeneous_qpd_nonzero_summary.json": "a2b4f014ba7ca1a5befc105df5e203d93f54af699dcb83fcd62b39d41066d213",
+    "phase11_5_e3_count_qpd_check.json": "6fc753552b811dce672ec1d16bc80b9d719d2396ad6df3ee24a6d2780eba9ba9",
+    "phase11_3_algorithm_heterogeneous_audit.json": "75b63992b616121b89622d6a1b8e865b2b2c4457b818c6c8aac784de0da1a008"
+  },
+  "experiments": {
+    "E1": "420 synthetic Track A-CX instances",
+    "E2": "25 real CX-normalized instances",
+    "E3": "15 native-QPD instances",
+    "E4": "60 Qiskit practical-Qmax records",
+    "E5": "120 identity-free heterogeneous-QPD exact-balanced companion instances",
+    "E3_small_check": "9 native MQT Bench count-versus-QPD exact checks",
+    "E6": "36 predeclared algorithm-derived MQT Bench heterogeneous-QPD exact-balanced records"
+  }
+}

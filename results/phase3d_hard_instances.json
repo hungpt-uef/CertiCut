@@ -1,0 +1,92 @@
+[
+  {
+    "regime": "random_p10",
+    "seed": 0,
+    "num_qubits": 26
+  },
+  {
+    "regime": "random_p50",
+    "seed": 0,
+    "num_qubits": 26
+  },
+  {
+    "regime": "random_p50",
+    "seed": 1,
+    "num_qubits": 26
+  },
+  {
+    "regime": "community_noise",
+    "seed": 0,
+    "num_qubits": 26
+  },
+  {
+    "regime": "weighted_random",
+    "seed": 0,
+    "num_qubits": 26
+  },
+  {
+    "regime": "weighted_random",
+    "seed": 1,
+    "num_qubits": 26
+  },
+  {
+    "regime": "random_p50",
+    "seed": 0,
+    "num_qubits": 32
+  },
+  {
+    "regime": "random_p50",
+    "seed": 1,
+    "num_qubits": 32
+  },
+  {
+    "regime": "community_noise",
+    "seed": 1,
+    "num_qubits": 32
+  },
+  {
+    "regime": "weighted_random",
+    "seed": 0,
+    "num_qubits": 32
+  },
+  {
+    "regime": "weighted_random",
+    "seed": 1,
+    "num_qubits": 32
+  },
+  {
+    "regime": "random_p10",
+    "seed": 1,
+    "num_qubits": 40
+  },
+  {
+    "regime": "random_p50",
+    "seed": 0,
+    "num_qubits": 40
+  },
+  {
+    "regime": "random_p50",
+    "seed": 1,
+    "num_qubits": 40
+  },
+  {
+    "regime": "community_noise",
+    "seed": 0,
+    "num_qubits": 40
+  },
+  {
+    "regime": "community_noise",
+    "seed": 1,
+    "num_qubits": 40
+  },
+  {
+    "regime": "weighted_random",
+    "seed": 0,
+    "num_qubits": 40
+  },
+  {
+    "regime": "weighted_random",
+    "seed": 1,
+    "num_qubits": 40
+  }
+]

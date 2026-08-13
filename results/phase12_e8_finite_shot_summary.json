@@ -1,0 +1,217 @@
+{
+  "experiment": "E8_finite_shot_equal_budget_reversal",
+  "bootstrap_seed": 20260812,
+  "bootstrap_replicates": 10000,
+  "records": [
+    {
+      "case_id": "moderate_reversal",
+      "witness": {
+        "family": "dense_shuffled",
+        "num_qubits": 12,
+        "seed": 2,
+        "regret_factor": 3.2671197885950507,
+        "regret_log": 1.1839087981833671,
+        "partitions_differ": true
+      },
+      "total_shots_per_seed": 4096,
+      "qpd_samples_per_seed": 16,
+      "trials": 50,
+      "plan_log_costs": [
+        28.963141082283087,
+        27.77923228409972
+      ],
+      "plan_overheads": [
+        3789067574833.761,
+        1159757774435.0664
+      ],
+      "observables": [
+        {
+          "observable": "ZZZZZZZZZZZZ",
+          "reference": 1.0000000000000002,
+          "count": {
+            "mean": -7352.1643212732315,
+            "bias": -7353.1643212732315,
+            "variance": 1505333155.0303366,
+            "rmse": 39489.26665014156,
+            "median_absolute_error": 14844.46037345103
+          },
+          "qpd": {
+            "mean": -12176.494124866647,
+            "bias": -12177.494124866647,
+            "variance": 1972525437.8244894,
+            "rmse": 46052.32677059489,
+            "median_absolute_error": 20283.335438342205
+          },
+          "paired_rmse_improvement_count_minus_qpd": -6563.0601204533305,
+          "bootstrap_95pct_interval": [
+            -24286.029731396808,
+            8963.31113473259
+          ]
+        },
+        {
+          "observable": "XIIIIIIIIIII",
+          "reference": 0.0,
+          "count": {
+            "mean": -5393.6286971166055,
+            "bias": -5393.6286971166055,
+            "variance": 5090226740.170479,
+            "rmse": 71549.40929660313,
+            "median_absolute_error": 33934.85840971598
+          },
+          "qpd": {
+            "mean": -8382.22769389433,
+            "bias": -8382.22769389433,
+            "variance": 3008661845.3988786,
+            "rmse": 55488.04904221419,
+            "median_absolute_error": 26886.182242378207
+          },
+          "paired_rmse_improvement_count_minus_qpd": 16061.360254388943,
+          "bootstrap_95pct_interval": [
+            -3035.359080418719,
+            35078.6754866038
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "strong_reversal",
+      "witness": {
+        "family": "community_matching",
+        "num_qubits": 12,
+        "seed": 3,
+        "regret_factor": 719.6551181206609,
+        "regret_log": 6.57877209464151,
+        "partitions_differ": true
+      },
+      "total_shots_per_seed": 4096,
+      "qpd_samples_per_seed": 16,
+      "trials": 50,
+      "plan_log_costs": [
+        16.146119568298225,
+        9.567347473656715
+      ],
+      "plan_overheads": [
+        10284202.812047102,
+        14290.460184461304
+      ],
+      "observables": [
+        {
+          "observable": "ZZZZZZZZZZZZ",
+          "reference": 1.0000000000000002,
+          "count": {
+            "mean": -4.428189297776274,
+            "bias": -5.428189297776274,
+            "variance": 9307.03406498033,
+            "rmse": 96.62556237369499,
+            "median_absolute_error": 22.1643653435616
+          },
+          "qpd": {
+            "mean": -0.9567403583663397,
+            "bias": -1.95674035836634,
+            "variance": 319.0900563135907,
+            "rmse": 17.969944049541454,
+            "median_absolute_error": 15.088996829006614
+          },
+          "paired_rmse_improvement_count_minus_qpd": 78.65561832415354,
+          "bootstrap_95pct_interval": [
+            49.845983915247004,
+            103.0702722384143
+          ]
+        },
+        {
+          "observable": "XIIIIIIIIIII",
+          "reference": 0.0,
+          "count": {
+            "mean": -1.940035985851798,
+            "bias": -1.940035985851798,
+            "variance": 2202.514043891819,
+            "rmse": 46.97103132270165,
+            "median_absolute_error": 32.83542776341257
+          },
+          "qpd": {
+            "mean": 0.6777441584471692,
+            "bias": 0.6777441584471692,
+            "variance": 9.865265387191418,
+            "rmse": 3.2131919537277374,
+            "median_absolute_error": 2.449930596703167
+          },
+          "paired_rmse_improvement_count_minus_qpd": 43.75783936897391,
+          "bootstrap_95pct_interval": [
+            35.023239275079106,
+            52.299719837517124
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "no_reversal_control",
+      "witness": {
+        "family": "ring_even_odd",
+        "num_qubits": 12,
+        "seed": 0,
+        "regret_factor": 1.0,
+        "regret_log": 0.0,
+        "partitions_differ": false
+      },
+      "total_shots_per_seed": 4096,
+      "qpd_samples_per_seed": 16,
+      "trials": 50,
+      "plan_log_costs": [
+        6.667883251302566,
+        6.667883251302566
+      ],
+      "plan_overheads": [
+        786.7285341007918,
+        786.7285341007918
+      ],
+      "observables": [
+        {
+          "observable": "ZZZZZZZZZZZZ",
+          "reference": 1.0000000000000002,
+          "count": {
+            "mean": 1.0246061352157114,
+            "bias": 0.0246061352157112,
+            "variance": 13.356335679384479,
+            "rmse": 3.654714919289155,
+            "median_absolute_error": 2.371763509511252
+          },
+          "qpd": {
+            "mean": 1.0246061352157114,
+            "bias": 0.0246061352157112,
+            "variance": 13.356335679384479,
+            "rmse": 3.654714919289155,
+            "median_absolute_error": 2.371763509511252
+          },
+          "paired_rmse_improvement_count_minus_qpd": 0.0,
+          "bootstrap_95pct_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "observable": "XIIIIIIIIIII",
+          "reference": 0.0,
+          "count": {
+            "mean": 0.13855387666794697,
+            "bias": 0.13855387666794697,
+            "variance": 0.3223828250788949,
+            "rmse": 0.584448459505722,
+            "median_absolute_error": 0.40301419209303346
+          },
+          "qpd": {
+            "mean": 0.13855387666794697,
+            "bias": 0.13855387666794697,
+            "variance": 0.3223828250788949,
+            "rmse": 0.584448459505722,
+            "median_absolute_error": 0.40301419209303346
+          },
+          "paired_rmse_improvement_count_minus_qpd": 0.0,
+          "bootstrap_95pct_interval": [
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ]
+}

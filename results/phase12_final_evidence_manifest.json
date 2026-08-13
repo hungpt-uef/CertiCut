@@ -1,0 +1,55 @@
+{
+  "phase": "12",
+  "title": "Manuscript Repositioning and Final Evidence Freeze",
+  "frozen_at": "2026-08-12",
+  "scope": {
+    "primary_claims": [
+      "Independent-QPD exact balanced K=2 circuit cutting maps exactly to weighted log-domain bisection.",
+      "Valid optimization bounds map to a multiplicative modeled sampling-overhead factor exp(UB-LB).",
+      "Balanced cut cardinality and metric triangles exhibit strict empirical root-bound complementarity in the documented complete-pair audit.",
+      "The reference implementation exposes safe-boundary certificates and independent-QPD operational reconstruction matches exact Qiskit results.",
+      "Under a predeclared protocol, six tie-safe exact partition reversals occur across two algorithm-derived MQT Bench families under Qiskit independent-QPD costs."
+    ],
+    "excluded_claims": [
+      "Custom CertiCut B&B universally outperforms mature MIP solvers.",
+      "Static B2S materialization improves SCIP production performance.",
+      "PJ-QPD effects are prevalent on real circuits.",
+      "Joint-QPD, hardware-aware, finite-shot, noisy, or general-K guarantees."
+    ]
+  },
+  "core_evidence": [
+    "results/final_manifest.json",
+    "results/phase6_6b_e1_summary.json",
+    "results/phase6_6b_real_summary.json",
+    "results/phase7_operational_validation.json",
+    "results/phase8_statistics.json",
+    "results/phase11_1_scip_hard90_pilot.json",
+    "results/phase11_2_root_tail.json",
+    "results/phase11_3_heterogeneous_qpd_nonzero_summary.json",
+    "results/phase11_3_algorithm_heterogeneous_audit.json",
+    "results/phase11_3_algorithm_heterogeneous_manifest.json",
+    "paper/certicut_ieee.tex",
+    "paper/certicut_ieee.pdf",
+    "paper/figures/fig_certicut_architecture.tex",
+    "paper/figures/fig_certicut_architecture.pdf"
+  ],
+  "branch_excluded_from_core_manuscript": [
+    "results/phase10_3_joint_cost_oracle_study.json",
+    "results/phase10_4b_parallel_decomposition_study.json",
+    "results/phase10_4c_operational_joint_reconstruction.json",
+    "results/phase10_5_partition_reversal_witness.json",
+    "results/phase11_2_pj_real_audit.json"
+  ],
+  "validation": {
+    "full_regression": "117 passed in 23.44s",
+    "manuscript_pdf": {
+      "pages": 8,
+      "sha256": "ffe12153770c509ae583b4f17864fe6e299d147e8e8ec29baa9097e67187904a",
+      "compiled_with": "MiKTeX 25.12 pdflatex plus BibTeX",
+      "visual_qa": "all eight rendered pages inspected; no clipped formula, unresolved citation, or table gutter overflow"
+    },
+    "architecture_figure_pdf_sha256": "c8c0ad8a4346871280bcdff7e9854bdcc0e382232c8d25cb8fa153f7aceb12ec",
+    "scip_version": "10.0.2",
+    "pyscipopt_version": "6.2.1"
+  }
+}

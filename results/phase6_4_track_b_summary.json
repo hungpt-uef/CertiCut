@@ -1,0 +1,13 @@
+{
+  "records": 60,
+  "errors": 0,
+  "minimum_reached": 24,
+  "overlap": 37,
+  "fragment_count_distribution": {
+    "2": 37,
+    "3": 3,
+    "5": 8,
+    "7": 6,
+    "9": 6
+  }
+}

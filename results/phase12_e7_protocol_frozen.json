@@ -1,0 +1,64 @@
+{
+  "experiment": "E7_heterogeneous_qpd_scaling_matched",
+  "frozen_at": "2026-08-12T12:14:51+07:00",
+  "status": "frozen_before_full_execution",
+  "scope": {
+    "partition": "static logical-qubit partition",
+    "fragments": 2,
+    "balance": "exact n/2 per fragment",
+    "cut_type": "gate-only",
+    "qpd_model": "independent per-gate QPD",
+    "representation": "generated fixed instruction representation",
+    "hardware_topology_routing_noise_joint_qpd": "not modeled"
+  },
+  "corpus": {
+    "families": ["random_matching", "ring_even_odd", "community_matching", "dense_shuffled", "weighted_repeat"],
+    "sizes": [20, 24, 32, 40],
+    "seeds": {"start": 0, "stop_exclusive": 10},
+    "records": 200,
+    "gate_assignment_rule": "For the deterministic ordered interaction occurrence list, assign cx, cz, iswap, rzz(pi/8), rzz(pi/4), rzz(pi/2) cyclically by occurrence index modulo 6.",
+    "family_rules": {
+      "random_matching": "four independently seeded perfect-match layers",
+      "ring_even_odd": "four alternating ring matching layers",
+      "community_matching": "three seeded within-community matching layers plus two fixed bridge pairs each layer",
+      "dense_shuffled": "seeded shuffled complete-pair list truncated to 3n occurrences",
+      "weighted_repeat": "ring backbone plus antipodal chords, each repeated 1--4 seeded times"
+    }
+  },
+  "software": {
+    "python": "3.11.9",
+    "qiskit": "2.5.1",
+    "qiskit_addon_cutting": "0.10.0",
+    "scipy": "1.17.1",
+    "pyscipopt": "6.2.1",
+    "scip": "10.0",
+    "qpd_registry": "qiskit-addon-cutting 0.10.0 QPDBasis.from_instruction"
+  },
+  "machine": {
+    "os": "Windows-11-Education-10.0.26200-64-bit",
+    "cpu": "Intel(R) Core(TM) i5-14400",
+    "physical_cores": 10,
+    "logical_processors": 16,
+    "ram_gb": 31.69,
+    "thread_limit": 1,
+    "environment": {"OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}
+  },
+  "methods": {
+    "certicut": {"lp_variant": "b2s_root", "warm_start": "h2", "branching": "mf", "solver_tolerance": 1e-9, "certificate_label": "solver_tolerance"},
+    "scip": {"variants": ["g0_basic", "g1_cardinality", "g2_b2s"], "incumbent": "same validated H2 partition when available", "randomseedshift": 0, "permutationseed": 0, "bound_label": "SCIP numerics/feastol"}
+  },
+  "execution": {
+    "wall_time_checkpoints_s": [2.0, 10.0, 60.0],
+    "checkpoint_protocol": "Each method/checkpoint is an independent solve. Graph construction is excluded from solver wall-time. Raw records append after each completed instance; existing keys are skipped only on resumptions of this exact protocol.",
+    "no_protocol_changes_after_outcome_inspection": true
+  },
+  "planned_metrics": ["UB", "LB", "F=exp(UB-LB)", "percent F<=1.01", "percent F<=1.10", "median F", "p90 F", "time-to-1.01 from fixed checkpoints", "time-to-1.10 from fixed checkpoints", "closed rate", "incumbent objective", "nodes", "LP iterations"],
+  "implementation_sha256": {
+    "scripts/run_phase12_heterogeneous_scaling.py": "9B66F0B264C2051369A1F8AA2B0D3F85A7D536343368A3A2B17F12B926A38ADC",
+    "certicut/circuits/benchmarks.py": "C5A1BBD2653D6A69035B53777A56575564A4431C06CED625E91FCD07185E256D",
+    "certicut/optimization/bnb.py": "562806BCF021344273D3372812E5179E5C983B3427668A5734F9D9761F59D076",
+    "certicut/optimization/scip_core.py": "D44AED58A7B4136056A218A3F1AF8B7095BB646E32EF3B1E5B03C737383C140B",
+    "certicut/optimization/certificate.py": "1A235BBA73E0B4B68C10523B875294414111DCC796806FBBBFB01F785CDF6E37",
+    "requirements.txt": "6592E78CA78FF6C4CB7981554E092ADAA85B04F2EAE9133708AB0B974C8B7E9A"
+  }
+}

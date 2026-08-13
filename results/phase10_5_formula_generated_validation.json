@@ -1,0 +1,902 @@
+[
+  {
+    "case_id": 0,
+    "width": 6,
+    "formula_log": 7.400461893542879,
+    "generated_log": 7.4004618935428885,
+    "abs_error": 9.769962616701378e-15,
+    "formula_overhead": 1636.7402551823407,
+    "generated_overhead": 1636.7402551823563
+  },
+  {
+    "case_id": 1,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 2,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 3,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 4,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 5,
+    "width": 4,
+    "formula_log": 3.5254943480781726,
+    "generated_log": 3.525494348078173,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 33.97056274847716,
+    "generated_overhead": 33.97056274847717
+  },
+  {
+    "case_id": 6,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 7,
+    "width": 6,
+    "formula_log": 4.120100815971985,
+    "generated_log": 4.120100815971987,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 61.56544873212234,
+    "generated_overhead": 61.56544873212246
+  },
+  {
+    "case_id": 8,
+    "width": 6,
+    "formula_log": 5.964110668992827,
+    "generated_log": 5.964110668992824,
+    "abs_error": 3.552713678800501e-15,
+    "formula_overhead": 389.20674048900435,
+    "generated_overhead": 389.2067404890028
+  },
+  {
+    "case_id": 9,
+    "width": 4,
+    "formula_log": 6.8679744089702925,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 0.0,
+    "formula_overhead": 961.0,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 10,
+    "width": 4,
+    "formula_log": 1.7145630391371485,
+    "generated_log": 1.714563039137153,
+    "abs_error": 4.440892098500626e-15,
+    "formula_overhead": 5.554247993039046,
+    "generated_overhead": 5.554247993039071
+  },
+  {
+    "case_id": 11,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 12,
+    "width": 2,
+    "formula_log": 0.9287763004830324,
+    "generated_log": 0.9287763004830352,
+    "abs_error": 2.7755575615628914e-15,
+    "formula_overhead": 2.5314095968259993,
+    "generated_overhead": 2.531409596826006
+  },
+  {
+    "case_id": 13,
+    "width": 2,
+    "formula_log": 1.7627471740390863,
+    "generated_log": 1.762747174039087,
+    "abs_error": 6.661338147750939e-16,
+    "formula_overhead": 5.828427124746192,
+    "generated_overhead": 5.828427124746196
+  },
+  {
+    "case_id": 14,
+    "width": 6,
+    "formula_log": 7.064139528910014,
+    "generated_log": 7.064139528910011,
+    "abs_error": 3.552713678800501e-15,
+    "formula_overhead": 1169.2754107725902,
+    "generated_overhead": 1169.2754107725866
+  },
+  {
+    "case_id": 15,
+    "width": 6,
+    "formula_log": 2.6901811382256557,
+    "generated_log": 2.690181138225654,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 14.734344631775256,
+    "generated_overhead": 14.734344631775228
+  },
+  {
+    "case_id": 16,
+    "width": 4,
+    "formula_log": 3.149041535158977,
+    "generated_log": 3.149041535158978,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 23.31370849898477,
+    "generated_overhead": 23.31370849898479
+  },
+  {
+    "case_id": 17,
+    "width": 4,
+    "formula_log": 2.4471588639998965,
+    "generated_log": 2.447158863999895,
+    "abs_error": 1.3322676295501878e-15,
+    "formula_overhead": 11.55546937679394,
+    "generated_overhead": 11.555469376793926
+  },
+  {
+    "case_id": 18,
+    "width": 6,
+    "formula_log": 5.076397812673824,
+    "generated_log": 5.076397812673824,
+    "abs_error": 0.0,
+    "formula_overhead": 160.19595949289337,
+    "generated_overhead": 160.19595949289337
+  },
+  {
+    "case_id": 19,
+    "width": 4,
+    "formula_log": 6.8679744089702925,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 0.0,
+    "formula_overhead": 961.0,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 20,
+    "width": 4,
+    "formula_log": 5.076397812673824,
+    "generated_log": 5.076397812673824,
+    "abs_error": 0.0,
+    "formula_overhead": 160.19595949289337,
+    "generated_overhead": 160.1959594928934
+  },
+  {
+    "case_id": 21,
+    "width": 6,
+    "formula_log": 6.867974408970293,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 961.0000000000009,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 22,
+    "width": 4,
+    "formula_log": 6.8679744089702925,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 0.0,
+    "formula_overhead": 961.0,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 23,
+    "width": 4,
+    "formula_log": 3.891820298110628,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 1.3322676295501878e-15,
+    "formula_overhead": 49.00000000000006,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 24,
+    "width": 6,
+    "formula_log": 7.064139528910014,
+    "generated_log": 7.064139528910018,
+    "abs_error": 3.552713678800501e-15,
+    "formula_overhead": 1169.2754107725902,
+    "generated_overhead": 1169.2754107725948
+  },
+  {
+    "case_id": 25,
+    "width": 6,
+    "formula_log": 3.3766086885001076,
+    "generated_log": 3.3766086885001094,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 29.271334385213695,
+    "generated_overhead": 29.27133438521375
+  },
+  {
+    "case_id": 26,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 27,
+    "width": 6,
+    "formula_log": 5.629946667233821,
+    "generated_log": 5.6299466672338285,
+    "abs_error": 7.105427357601002e-15,
+    "formula_overhead": 278.6472562077814,
+    "generated_overhead": 278.6472562077833
+  },
+  {
+    "case_id": 28,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 29,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 30,
+    "width": 4,
+    "formula_log": 5.076397812673824,
+    "generated_log": 5.076397812673824,
+    "abs_error": 0.0,
+    "formula_overhead": 160.19595949289337,
+    "generated_overhead": 160.1959594928934
+  },
+  {
+    "case_id": 31,
+    "width": 6,
+    "formula_log": 3.7467195679212777,
+    "generated_log": 3.746719567921278,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 42.381823018346424,
+    "generated_overhead": 42.38182301834645
+  },
+  {
+    "case_id": 32,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 33,
+    "width": 6,
+    "formula_log": 8.286269452783067,
+    "generated_log": 8.286269452783065,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 3969.0000000000064,
+    "generated_overhead": 3969.0
+  },
+  {
+    "case_id": 34,
+    "width": 6,
+    "formula_log": 8.286269452783065,
+    "generated_log": 8.286269452783065,
+    "abs_error": 0.0,
+    "formula_overhead": 3968.999999999999,
+    "generated_overhead": 3969.0
+  },
+  {
+    "case_id": 35,
+    "width": 2,
+    "formula_log": 0.3640877586463603,
+    "generated_log": 0.3640877586463603,
+    "abs_error": 0.0,
+    "formula_overhead": 1.4392005109048276,
+    "generated_overhead": 1.4392005109048276
+  },
+  {
+    "case_id": 36,
+    "width": 4,
+    "formula_log": 4.107905728754027,
+    "generated_log": 4.107905728754026,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 60.81921217352499,
+    "generated_overhead": 60.819212173524946
+  },
+  {
+    "case_id": 37,
+    "width": 4,
+    "formula_log": 3.149041535158977,
+    "generated_log": 3.149041535158978,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 23.31370849898477,
+    "generated_overhead": 23.31370849898479
+  },
+  {
+    "case_id": 38,
+    "width": 2,
+    "formula_log": 0.9287763004830324,
+    "generated_log": 0.9287763004830352,
+    "abs_error": 2.7755575615628914e-15,
+    "formula_overhead": 2.5314095968259993,
+    "generated_overhead": 2.531409596826006
+  },
+  {
+    "case_id": 39,
+    "width": 6,
+    "formula_log": 6.540180078180837,
+    "generated_log": 6.540180078180842,
+    "abs_error": 4.440892098500626e-15,
+    "formula_overhead": 692.4112549695432,
+    "generated_overhead": 692.4112549695461
+  },
+  {
+    "case_id": 40,
+    "width": 6,
+    "formula_log": 8.286269452783067,
+    "generated_log": 8.286269452783065,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 3969.0000000000064,
+    "generated_overhead": 3969.0
+  },
+  {
+    "case_id": 41,
+    "width": 6,
+    "formula_log": 4.120100815971985,
+    "generated_log": 4.120100815971987,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 61.56544873212234,
+    "generated_overhead": 61.56544873212246
+  },
+  {
+    "case_id": 42,
+    "width": 2,
+    "formula_log": 0.3640877586463603,
+    "generated_log": 0.3640877586463603,
+    "abs_error": 0.0,
+    "formula_overhead": 1.4392005109048276,
+    "generated_overhead": 1.4392005109048276
+  },
+  {
+    "case_id": 43,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 44,
+    "width": 6,
+    "formula_log": 8.286269452783067,
+    "generated_log": 8.286269452783065,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 3969.0000000000064,
+    "generated_overhead": 3969.0
+  },
+  {
+    "case_id": 45,
+    "width": 4,
+    "formula_log": 5.416100402204421,
+    "generated_log": 5.41610040220442,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 225.0000000000002,
+    "generated_overhead": 225.0
+  },
+  {
+    "case_id": 46,
+    "width": 6,
+    "formula_log": 6.867974408970293,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 961.0000000000009,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 47,
+    "width": 6,
+    "formula_log": 5.629946667233821,
+    "generated_log": 5.629946667233825,
+    "abs_error": 3.552713678800501e-15,
+    "formula_overhead": 278.6472562077814,
+    "generated_overhead": 278.64725620778245
+  },
+  {
+    "case_id": 48,
+    "width": 2,
+    "formula_log": 1.7627471740390863,
+    "generated_log": 1.762747174039087,
+    "abs_error": 6.661338147750939e-16,
+    "formula_overhead": 5.828427124746192,
+    "generated_overhead": 5.828427124746196
+  },
+  {
+    "case_id": 49,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 50,
+    "width": 4,
+    "formula_log": 5.416100402204421,
+    "generated_log": 5.41610040220442,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 225.0000000000002,
+    "generated_overhead": 225.0
+  },
+  {
+    "case_id": 51,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 52,
+    "width": 4,
+    "formula_log": 5.416100402204421,
+    "generated_log": 5.41610040220442,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 225.0000000000002,
+    "generated_overhead": 225.0
+  },
+  {
+    "case_id": 53,
+    "width": 4,
+    "formula_log": 1.2300608005201223,
+    "generated_log": 1.2300608005201248,
+    "abs_error": 2.4424906541753444e-15,
+    "formula_overhead": 3.4214375551487013,
+    "generated_overhead": 3.4214375551487097
+  },
+  {
+    "case_id": 54,
+    "width": 4,
+    "formula_log": 3.5254943480781726,
+    "generated_log": 3.525494348078173,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 33.97056274847716,
+    "generated_overhead": 33.97056274847717
+  },
+  {
+    "case_id": 55,
+    "width": 4,
+    "formula_log": 6.8679744089702925,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 0.0,
+    "formula_overhead": 961.0,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 56,
+    "width": 6,
+    "formula_log": 7.964120896911333,
+    "generated_log": 7.96412089691134,
+    "abs_error": 7.105427357601002e-15,
+    "formula_overhead": 2875.899853874109,
+    "generated_overhead": 2875.8998538741284
+  },
+  {
+    "case_id": 57,
+    "width": 6,
+    "formula_log": 5.618484240405759,
+    "generated_log": 5.618484240405759,
+    "abs_error": 0.0,
+    "formula_overhead": 275.4715180267987,
+    "generated_overhead": 275.4715180267987
+  },
+  {
+    "case_id": 58,
+    "width": 4,
+    "formula_log": 3.891820298110628,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 1.3322676295501878e-15,
+    "formula_overhead": 49.00000000000006,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 59,
+    "width": 2,
+    "formula_log": 1.7627471740390863,
+    "generated_log": 1.762747174039087,
+    "abs_error": 6.661338147750939e-16,
+    "formula_overhead": 5.828427124746192,
+    "generated_overhead": 5.828427124746196
+  },
+  {
+    "case_id": 60,
+    "width": 2,
+    "formula_log": 0.9287763004830324,
+    "generated_log": 0.9287763004830352,
+    "abs_error": 2.7755575615628914e-15,
+    "formula_overhead": 2.5314095968259993,
+    "generated_overhead": 2.531409596826006
+  },
+  {
+    "case_id": 61,
+    "width": 6,
+    "formula_log": 6.540180078180837,
+    "generated_log": 6.540180078180841,
+    "abs_error": 3.552713678800501e-15,
+    "formula_overhead": 692.4112549695432,
+    "generated_overhead": 692.4112549695456
+  },
+  {
+    "case_id": 62,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 63,
+    "width": 2,
+    "formula_log": 1.7627471740390863,
+    "generated_log": 1.762747174039087,
+    "abs_error": 6.661338147750939e-16,
+    "formula_overhead": 5.828427124746192,
+    "generated_overhead": 5.828427124746196
+  },
+  {
+    "case_id": 64,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 65,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 66,
+    "width": 2,
+    "formula_log": 2.19722457733622,
+    "generated_log": 2.1972245773362196,
+    "abs_error": 4.440892098500626e-16,
+    "formula_overhead": 9.000000000000005,
+    "generated_overhead": 9.0
+  },
+  {
+    "case_id": 67,
+    "width": 4,
+    "formula_log": 5.416100402204421,
+    "generated_log": 5.41610040220442,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 225.0000000000002,
+    "generated_overhead": 225.0
+  },
+  {
+    "case_id": 68,
+    "width": 6,
+    "formula_log": 5.964110668992826,
+    "generated_log": 5.9641106689928245,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 389.206740489004,
+    "generated_overhead": 389.2067404890032
+  },
+  {
+    "case_id": 69,
+    "width": 6,
+    "formula_log": 7.400461893542879,
+    "generated_log": 7.4004618935428885,
+    "abs_error": 9.769962616701378e-15,
+    "formula_overhead": 1636.7402551823407,
+    "generated_overhead": 1636.7402551823563
+  },
+  {
+    "case_id": 70,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 71,
+    "width": 4,
+    "formula_log": 3.891820298110628,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 1.3322676295501878e-15,
+    "formula_overhead": 49.00000000000006,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 72,
+    "width": 4,
+    "formula_log": 0.700281207367892,
+    "generated_log": 0.7002812073678929,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 2.0143190691977426,
+    "generated_overhead": 2.0143190691977444
+  },
+  {
+    "case_id": 73,
+    "width": 4,
+    "formula_log": 3.891820298110628,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 1.3322676295501878e-15,
+    "formula_overhead": 49.00000000000006,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 74,
+    "width": 6,
+    "formula_log": 5.964110668992826,
+    "generated_log": 5.9641106689928245,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 389.206740489004,
+    "generated_overhead": 389.2067404890032
+  },
+  {
+    "case_id": 75,
+    "width": 4,
+    "formula_log": 4.107905728754027,
+    "generated_log": 4.107905728754026,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 60.81921217352499,
+    "generated_overhead": 60.819212173524946
+  },
+  {
+    "case_id": 76,
+    "width": 6,
+    "formula_log": 5.039739967154427,
+    "generated_log": 5.039739967154436,
+    "abs_error": 8.881784197001252e-15,
+    "formula_overhead": 154.42985297028102,
+    "generated_overhead": 154.42985297028247
+  },
+  {
+    "case_id": 77,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 78,
+    "width": 4,
+    "formula_log": 6.8679744089702925,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 0.0,
+    "formula_overhead": 961.0,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 79,
+    "width": 4,
+    "formula_log": 2.8616178561804055,
+    "generated_log": 2.861617856180407,
+    "abs_error": 1.3322676295501878e-15,
+    "formula_overhead": 17.489800040594716,
+    "generated_overhead": 17.48980004059474
+  },
+  {
+    "case_id": 80,
+    "width": 4,
+    "formula_log": 4.107905728754027,
+    "generated_log": 4.107905728754026,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 60.81921217352499,
+    "generated_overhead": 60.819212173524946
+  },
+  {
+    "case_id": 81,
+    "width": 6,
+    "formula_log": 5.629946667233821,
+    "generated_log": 5.6299466672338285,
+    "abs_error": 7.105427357601002e-15,
+    "formula_overhead": 278.6472562077814,
+    "generated_overhead": 278.6472562077833
+  },
+  {
+    "case_id": 82,
+    "width": 4,
+    "formula_log": 5.416100402204421,
+    "generated_log": 5.41610040220442,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 225.0000000000002,
+    "generated_overhead": 225.0
+  },
+  {
+    "case_id": 83,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 84,
+    "width": 4,
+    "formula_log": 3.149041535158977,
+    "generated_log": 3.149041535158978,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 23.31370849898477,
+    "generated_overhead": 23.31370849898479
+  },
+  {
+    "case_id": 85,
+    "width": 6,
+    "formula_log": 7.964120896911333,
+    "generated_log": 7.964120896911339,
+    "abs_error": 6.217248937900877e-15,
+    "formula_overhead": 2875.899853874109,
+    "generated_overhead": 2875.8998538741275
+  },
+  {
+    "case_id": 86,
+    "width": 4,
+    "formula_log": 6.8679744089702925,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 0.0,
+    "formula_overhead": 961.0,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 87,
+    "width": 4,
+    "formula_log": 4.107905728754027,
+    "generated_log": 4.107905728754026,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 60.81921217352499,
+    "generated_overhead": 60.819212173524946
+  },
+  {
+    "case_id": 88,
+    "width": 4,
+    "formula_log": 4.473779625505811,
+    "generated_log": 4.47377962550581,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 87.68752346896022,
+    "generated_overhead": 87.68752346896014
+  },
+  {
+    "case_id": 89,
+    "width": 6,
+    "formula_log": 9.688374172917182,
+    "generated_log": 9.688374172917182,
+    "abs_error": 0.0,
+    "formula_overhead": 16128.999999999998,
+    "generated_overhead": 16129.0
+  },
+  {
+    "case_id": 90,
+    "width": 4,
+    "formula_log": 3.891820298110628,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 1.3322676295501878e-15,
+    "formula_overhead": 49.00000000000006,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 91,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 92,
+    "width": 6,
+    "formula_log": 8.286269452783067,
+    "generated_log": 8.286269452783065,
+    "abs_error": 1.7763568394002505e-15,
+    "formula_overhead": 3969.0000000000064,
+    "generated_overhead": 3969.0
+  },
+  {
+    "case_id": 93,
+    "width": 4,
+    "formula_log": 4.473779625505811,
+    "generated_log": 4.473779625505812,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 87.68752346896022,
+    "generated_overhead": 87.6875234689603
+  },
+  {
+    "case_id": 94,
+    "width": 4,
+    "formula_log": 6.8679744089702925,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 0.0,
+    "formula_overhead": 961.0,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 95,
+    "width": 2,
+    "formula_log": 3.8918202981106265,
+    "generated_log": 3.8918202981106265,
+    "abs_error": 0.0,
+    "formula_overhead": 48.99999999999999,
+    "generated_overhead": 49.0
+  },
+  {
+    "case_id": 96,
+    "width": 4,
+    "formula_log": 5.416100402204421,
+    "generated_log": 5.41610040220442,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 225.0000000000002,
+    "generated_overhead": 225.0
+  },
+  {
+    "case_id": 97,
+    "width": 6,
+    "formula_log": 5.964110668992827,
+    "generated_log": 5.964110668992824,
+    "abs_error": 3.552713678800501e-15,
+    "formula_overhead": 389.20674048900435,
+    "generated_overhead": 389.2067404890028
+  },
+  {
+    "case_id": 98,
+    "width": 6,
+    "formula_log": 6.867974408970293,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 8.881784197001252e-16,
+    "formula_overhead": 961.0000000000009,
+    "generated_overhead": 961.0
+  },
+  {
+    "case_id": 99,
+    "width": 4,
+    "formula_log": 6.8679744089702925,
+    "generated_log": 6.8679744089702925,
+    "abs_error": 0.0,
+    "formula_overhead": 961.0,
+    "generated_overhead": 961.0
+  }
+]

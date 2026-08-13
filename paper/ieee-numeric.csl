@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text">
+  <info>
+    <title>Minimal IEEE Numeric</title>
+    <id>https://certicut.local/styles/ieee-numeric</id>
+    <updated>2026-08-12T00:00:00+00:00</updated>
+  </info>
+  <citation>
+    <layout delimiter=", ">
+      <group prefix="[" suffix="]">
+        <text variable="citation-number"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography>
+    <layout>
+      <text variable="citation-number" prefix="[" suffix="]"/>
+      <names variable="author" prefix=" "><name initialize-with=". "/></names>
+      <text variable="title" prefix=", "/>
+      <text variable="container-title" prefix=", " font-style="italic"/>
+      <text variable="volume" prefix=", vol. "/>
+      <text variable="page" prefix=", pp. "/>
+      <date variable="issued" prefix=", "><date-part name="year"/></date>
+      <text value="."/>
+    </layout>
+  </bibliography>
+</style>

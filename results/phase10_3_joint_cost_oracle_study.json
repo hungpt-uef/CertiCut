@@ -1,0 +1,211 @@
+[
+  {
+    "case": "cx_cx_chain_left",
+    "block_qubits": [
+      0,
+      1,
+      2
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 2.1972245773362196,
+    "independent_overhead": 9.000000000000002,
+    "schmidt_log_surrogate": 0.6931471805599453,
+    "schmidt_rank": 2,
+    "surrogate_minus_independent": -1.5040773967762742,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "cx_cx_chain_right",
+    "block_qubits": [
+      0,
+      1,
+      2
+    ],
+    "partition_a": [
+      0,
+      1
+    ],
+    "independent_log_overhead": 2.1972245773362196,
+    "independent_overhead": 9.000000000000002,
+    "schmidt_log_surrogate": 0.6931471805599453,
+    "schmidt_rank": 2,
+    "surrogate_minus_independent": -1.5040773967762742,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "iswap_iswap_chain",
+    "block_qubits": [
+      0,
+      1,
+      2
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 3.8918202981106265,
+    "independent_overhead": 48.99999999999999,
+    "schmidt_log_surrogate": 1.3862943611198906,
+    "schmidt_rank": 4,
+    "surrogate_minus_independent": -2.505525936990736,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "cx_iswap_chain",
+    "block_qubits": [
+      0,
+      1,
+      2
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 2.1972245773362196,
+    "independent_overhead": 9.000000000000002,
+    "schmidt_log_surrogate": 0.6931471805599453,
+    "schmidt_rank": 2,
+    "surrogate_minus_independent": -1.5040773967762742,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "rzz_cx_chain",
+    "block_qubits": [
+      0,
+      1,
+      2
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 1.7627471740390863,
+    "independent_overhead": 5.828427124746192,
+    "schmidt_log_surrogate": 0.6931471805599453,
+    "schmidt_rank": 2,
+    "surrogate_minus_independent": -1.069599993479141,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "cz_rzz_chain",
+    "block_qubits": [
+      0,
+      1,
+      2
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 2.1972245773362196,
+    "independent_overhead": 9.000000000000002,
+    "schmidt_log_surrogate": 0.6931471805599453,
+    "schmidt_rank": 2,
+    "surrogate_minus_independent": -1.5040773967762742,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "parallel_cx",
+    "block_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "partition_a": [
+      0,
+      2
+    ],
+    "independent_log_overhead": 4.394449154672439,
+    "independent_overhead": 81.00000000000003,
+    "schmidt_log_surrogate": 1.3862943611198906,
+    "schmidt_rank": 4,
+    "surrogate_minus_independent": -3.0081547935525483,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "repeated_cx",
+    "block_qubits": [
+      0,
+      1
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 4.394449154672439,
+    "independent_overhead": 81.00000000000003,
+    "schmidt_log_surrogate": 0.0,
+    "schmidt_rank": 1,
+    "surrogate_minus_independent": -4.394449154672439,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "rzz_zero_cx",
+    "block_qubits": [
+      0,
+      1,
+      2
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 0.0,
+    "independent_overhead": 1.0,
+    "schmidt_log_surrogate": 0.0,
+    "schmidt_rank": 1,
+    "surrogate_minus_independent": 0.0,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "rzz_epsilon",
+    "block_qubits": [
+      0,
+      1
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 0.36408775864636095,
+    "independent_overhead": 1.4392005109048285,
+    "schmidt_log_surrogate": 0.6931471805599453,
+    "schmidt_rank": 2,
+    "surrogate_minus_independent": 0.32905942191358434,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  },
+  {
+    "case": "cx_cz_parallel",
+    "block_qubits": [
+      0,
+      1
+    ],
+    "partition_a": [
+      0
+    ],
+    "independent_log_overhead": 4.394449154672439,
+    "independent_overhead": 81.00000000000003,
+    "schmidt_log_surrogate": 0.6931471805599453,
+    "schmidt_rank": 2,
+    "surrogate_minus_independent": -3.7013019741124937,
+    "independent_executable": true,
+    "theory_available": false,
+    "theory_status": "unimplemented_theory"
+  }
+]

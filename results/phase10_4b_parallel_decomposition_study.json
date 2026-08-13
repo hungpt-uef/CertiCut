@@ -1,0 +1,189 @@
+[
+  {
+    "block_id": "single_cx",
+    "partition_a": [
+      0
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 2,
+    "outer_qpd_term_count": 4,
+    "coefficient_l1_norm_gamma": 3.0,
+    "sampling_overhead_gamma_squared": 9.0,
+    "log_sampling_overhead": 2.1972245773362196,
+    "composite_kak_reconstruction_error": 1.648590642099866e-16,
+    "algebraic_reconstruction_error": 1.9159602537787392e-15,
+    "algebraically_verified": true,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "single_cz",
+    "partition_a": [
+      0
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 2,
+    "outer_qpd_term_count": 4,
+    "coefficient_l1_norm_gamma": 3.0,
+    "sampling_overhead_gamma_squared": 9.0,
+    "log_sampling_overhead": 2.1972245773362196,
+    "composite_kak_reconstruction_error": 2.827452688516325e-16,
+    "algebraic_reconstruction_error": 1.3069821874900495e-15,
+    "algebraically_verified": true,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "single_rzz",
+    "partition_a": [
+      0
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 2,
+    "outer_qpd_term_count": 4,
+    "coefficient_l1_norm_gamma": 2.4142135623730963,
+    "sampling_overhead_gamma_squared": 5.828427124746196,
+    "log_sampling_overhead": 1.762747174039087,
+    "composite_kak_reconstruction_error": 8.08254562088053e-16,
+    "algebraic_reconstruction_error": 3.3337235038654806e-16,
+    "algebraically_verified": true,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "single_iswap",
+    "partition_a": [
+      0
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 4,
+    "outer_qpd_term_count": 16,
+    "coefficient_l1_norm_gamma": 7.0,
+    "sampling_overhead_gamma_squared": 49.0,
+    "log_sampling_overhead": 3.8918202981106265,
+    "composite_kak_reconstruction_error": 2.1211504774498136e-16,
+    "algebraic_reconstruction_error": 6.191697631706734e-16,
+    "algebraically_verified": true,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "parallel_cx_2",
+    "partition_a": [
+      0,
+      1
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 4,
+    "outer_qpd_term_count": 16,
+    "coefficient_l1_norm_gamma": 7.0,
+    "sampling_overhead_gamma_squared": 49.0,
+    "log_sampling_overhead": 3.8918202981106265,
+    "composite_kak_reconstruction_error": 7.0892107637357e-16,
+    "algebraic_reconstruction_error": 4.6066638353400715e-15,
+    "algebraically_verified": true,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "parallel_cx_3",
+    "partition_a": [
+      0,
+      1,
+      2
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 8,
+    "outer_qpd_term_count": 64,
+    "coefficient_l1_norm_gamma": 15.0,
+    "sampling_overhead_gamma_squared": 225.0,
+    "log_sampling_overhead": 5.41610040220442,
+    "composite_kak_reconstruction_error": 8.737457191725183e-15,
+    "algebraic_reconstruction_error": null,
+    "algebraically_verified": false,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "parallel_iswap_2",
+    "partition_a": [
+      0,
+      1
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 16,
+    "outer_qpd_term_count": 256,
+    "coefficient_l1_norm_gamma": 31.0,
+    "sampling_overhead_gamma_squared": 961.0,
+    "log_sampling_overhead": 6.8679744089702925,
+    "composite_kak_reconstruction_error": 6.927648449883946e-16,
+    "algebraic_reconstruction_error": 1.9273738616375953e-15,
+    "algebraically_verified": true,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "parallel_mixed_cx_rzz",
+    "partition_a": [
+      0,
+      1
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 4,
+    "outer_qpd_term_count": 16,
+    "coefficient_l1_norm_gamma": 5.8284271247461925,
+    "sampling_overhead_gamma_squared": 33.97056274847717,
+    "log_sampling_overhead": 3.525494348078173,
+    "composite_kak_reconstruction_error": 3.1931689092643623e-15,
+    "algebraic_reconstruction_error": 1.1853196591462584e-14,
+    "algebraically_verified": true,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "parallel_weak_rzz",
+    "partition_a": [
+      0,
+      1
+    ],
+    "theorem_applicable": true,
+    "parallel_tensor_product_verified": true,
+    "reason": "verified common-layer tensor product of pairwise-disjoint numeric two-qubit unitaries",
+    "composite_term_count": 4,
+    "outer_qpd_term_count": 16,
+    "coefficient_l1_norm_gamma": 1.4192670887460699,
+    "sampling_overhead_gamma_squared": 2.0143190691977444,
+    "log_sampling_overhead": 0.7002812073678929,
+    "composite_kak_reconstruction_error": 1.067812132095416e-15,
+    "algebraic_reconstruction_error": 2.3147879745497145e-15,
+    "algebraically_verified": true,
+    "interference_ancilla_requirement": 1,
+    "operationally_executable": false
+  },
+  {
+    "block_id": "illegal_temporal_overlap",
+    "partition_a": [
+      0,
+      2
+    ],
+    "theorem_applicable": false,
+    "parallel_tensor_product_verified": false,
+    "reason": "parallel tensor-product region requires one common circuit layer"
+  }
+]

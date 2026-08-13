@@ -1,0 +1,12 @@
+{
+  "experiment": "E6_algorithm_derived_heterogeneous_qpd_audit",
+  "artifact": "results/phase11_3_algorithm_heterogeneous_audit.json",
+  "artifact_sha256": "75b63992b616121b89622d6a1b8e865b2b2c4457b818c6c8aac784de0da1a008",
+  "versions": {
+    "qiskit": "2.5.1",
+    "mqt_bench": "2.2.2",
+    "qiskit_addon_cutting": "0.10.0"
+  },
+  "representation_policy": "algorithm_semantic_2q_preserving",
+  "decision": "E6_FULL_RELEVANCE_PASS"
+}

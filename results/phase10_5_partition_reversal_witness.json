@@ -1,0 +1,141 @@
+{
+  "num_qubits": 6,
+  "seed": 29,
+  "depth": 3,
+  "instructions": [
+    {
+      "name": "iswap",
+      "qubits": [
+        5,
+        1
+      ],
+      "params": []
+    },
+    {
+      "name": "cx",
+      "qubits": [
+        0,
+        3
+      ],
+      "params": []
+    },
+    {
+      "name": "cx",
+      "qubits": [
+        4,
+        2
+      ],
+      "params": []
+    },
+    {
+      "name": "cx",
+      "qubits": [
+        3,
+        4
+      ],
+      "params": []
+    },
+    {
+      "name": "rzz",
+      "qubits": [
+        2,
+        1
+      ],
+      "params": [
+        0.3
+      ]
+    },
+    {
+      "name": "iswap",
+      "qubits": [
+        0,
+        5
+      ],
+      "params": []
+    },
+    {
+      "name": "rzz",
+      "qubits": [
+        0,
+        4
+      ],
+      "params": [
+        0.7853981633974483
+      ]
+    },
+    {
+      "name": "rzz",
+      "qubits": [
+        2,
+        5
+      ],
+      "params": [
+        0.7853981633974483
+      ]
+    },
+    {
+      "name": "iswap",
+      "qubits": [
+        3,
+        1
+      ],
+      "params": []
+    }
+  ],
+  "independent_opt_partition": [
+    0,
+    1,
+    1,
+    0,
+    0,
+    1
+  ],
+  "pj_opt_partition": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    0
+  ],
+  "independent_opt": {
+    "independent_log_cost": 9.980865173557474,
+    "parallel_joint_log_cost": 9.980865173557474,
+    "independent_overhead": 21609.000000000025,
+    "parallel_joint_overhead": 21609.000000000025,
+    "cut_gate_count": 3,
+    "crossed_by_layer": [
+      [
+        2
+      ],
+      [
+        5
+      ],
+      [
+        8
+      ]
+    ]
+  },
+  "pj_opt": {
+    "independent_log_cost": 10.543315524008051,
+    "parallel_joint_log_cost": 9.336403318804477,
+    "independent_overhead": 37923.09317102401,
+    "parallel_joint_overhead": 11343.53569995141,
+    "cut_gate_count": 5,
+    "crossed_by_layer": [
+      [
+        1
+      ],
+      [
+        4
+      ],
+      [
+        6,
+        7,
+        8
+      ]
+    ]
+  },
+  "pj_regret_log": 0.644461854752997,
+  "pj_regret_factor": 1.9049616073489846
+}

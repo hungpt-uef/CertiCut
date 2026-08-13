@@ -1,0 +1,2058 @@
+{
+  "records": [
+    {
+      "family": "nearest_neighbor",
+      "num_qubits": 8,
+      "K": 2,
+      "capacities": [
+        4,
+        4
+      ],
+      "status": "optimal",
+      "partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "fragment_sizes": [
+        4,
+        4
+      ],
+      "log_gamma": 2.1972245773362196,
+      "gamma": 9.000000000000002,
+      "certificate": {
+        "lower_bound_log": 2.1972245773362196,
+        "upper_bound_log": 2.1972245773362196,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 2.1972245773362196,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 1,
+      "runtime_s": 0.011973100015893579,
+      "log_interval": {
+        "lower": "2.1972245773362193827904904738450514092949811156454989034693886672749885864372178",
+        "upper": "2.1972245773362193827904904738450514092949811156454989034693886672749885864372180",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 10,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.1005033585350145
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 10,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.1005033585350145
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 10,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.1005033585350145
+        }
+      }
+    },
+    {
+      "family": "nearest_neighbor",
+      "num_qubits": 8,
+      "K": 3,
+      "capacities": [
+        3,
+        3,
+        2
+      ],
+      "status": "optimal",
+      "partition": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "fragment_sizes": [
+        3,
+        3,
+        2
+      ],
+      "log_gamma": 6.591673732008658,
+      "gamma": 729.0000000000001,
+      "certificate": {
+        "lower_bound_log": 6.591673732008658,
+        "upper_bound_log": 6.591673732008658,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 6.591673732008658,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 1,
+      "runtime_s": 0.016925400123000145,
+      "log_interval": {
+        "lower": "6.5916737320086581483714714215351542278849433469364967104081660018249657593116534",
+        "upper": "6.5916737320086581483714714215351542278849433469364967104081660018249657593116540",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                1
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 6,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.060302015121008704
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                1
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 6,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.060302015121008704
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                1
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 6,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.060302015121008704
+        }
+      }
+    },
+    {
+      "family": "nearest_neighbor",
+      "num_qubits": 10,
+      "K": 2,
+      "capacities": [
+        5,
+        5
+      ],
+      "status": "optimal",
+      "partition": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fragment_sizes": [
+        5,
+        5
+      ],
+      "log_gamma": 4.394449154672439,
+      "gamma": 81.00000000000003,
+      "certificate": {
+        "lower_bound_log": 4.394449154672439,
+        "upper_bound_log": 4.394449154672439,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 4.394449154672439,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 1,
+      "runtime_s": 0.012293300125747919,
+      "log_interval": {
+        "lower": "4.3944491546724387655809809476901028185899622312909978069387773345499771728744356",
+        "upper": "4.3944491546724387655809809476901028185899622312909978069387773345499771728744360",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 12,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.12060403024201741
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 12,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.12060403024201741
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 12,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.12060403024201741
+        }
+      }
+    },
+    {
+      "family": "nearest_neighbor",
+      "num_qubits": 10,
+      "K": 3,
+      "capacities": [
+        4,
+        3,
+        3
+      ],
+      "status": "optimal",
+      "partition": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "fragment_sizes": [
+        4,
+        3,
+        3
+      ],
+      "log_gamma": 6.591673732008658,
+      "gamma": 729.0000000000001,
+      "certificate": {
+        "lower_bound_log": 6.591673732008658,
+        "upper_bound_log": 6.591673732008658,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 6.591673732008658,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 1,
+      "runtime_s": 0.06127439998090267,
+      "log_interval": {
+        "lower": "6.5916737320086581483714714215351542278849433469364967104081660018249657593116534",
+        "upper": "6.5916737320086581483714714215351542278849433469364967104081660018249657593116540",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                4,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 11,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.11055369438851595
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                4,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 11,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.11055369438851595
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 5,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                4,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            }
+          ],
+          "total_two_qubit_gates": 11,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.11055369438851595
+        }
+      }
+    },
+    {
+      "family": "community",
+      "num_qubits": 8,
+      "K": 2,
+      "capacities": [
+        4,
+        4
+      ],
+      "status": "optimal",
+      "partition": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "fragment_sizes": [
+        4,
+        4
+      ],
+      "log_gamma": 4.394449154672439,
+      "gamma": 81.00000000000003,
+      "certificate": {
+        "lower_bound_log": 4.394449154672439,
+        "upper_bound_log": 4.394449154672439,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 4.394449154672439,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 1,
+      "runtime_s": 0.01430779998190701,
+      "log_interval": {
+        "lower": "4.3944491546724387655809809476901028185899622312909978069387773345499771728744356",
+        "upper": "4.3944491546724387655809809476901028185899622312909978069387773345499771728744360",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 8,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 8,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            }
+          ],
+          "total_two_qubit_gates": 16,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 7,
+          "negative_log_success_surrogate": 0.1608053736560232
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 14,
+              "routing_added_two_qubit_gates": 6,
+              "mapped_depth": 13
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 8,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            }
+          ],
+          "total_two_qubit_gates": 22,
+          "total_routing_added_two_qubit_gates": 6,
+          "maximum_depth": 13,
+          "negative_log_success_surrogate": 0.2211073887770319
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 14,
+              "routing_added_two_qubit_gates": 6,
+              "mapped_depth": 13
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 8,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            }
+          ],
+          "total_two_qubit_gates": 22,
+          "total_routing_added_two_qubit_gates": 6,
+          "maximum_depth": 13,
+          "negative_log_success_surrogate": 0.2211073887770319
+        }
+      }
+    },
+    {
+      "family": "community",
+      "num_qubits": 8,
+      "K": 3,
+      "capacities": [
+        3,
+        3,
+        2
+      ],
+      "status": "optimal",
+      "partition": [
+        2,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fragment_sizes": [
+        3,
+        3,
+        2
+      ],
+      "log_gamma": 10.986122886681098,
+      "gamma": 59049.00000000008,
+      "certificate": {
+        "lower_bound_log": 10.986122886681098,
+        "upper_bound_log": 10.986122886681098,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 10.986122886681098,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 1,
+      "runtime_s": 0.018018800066784024,
+      "log_interval": {
+        "lower": "10.986122886681096913952452369225257046474905578227494517346943336374942932186089",
+        "upper": "10.986122886681096913952452369225257046474905578227494517346943336374942932186091",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 6
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 7,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                4
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 13,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 7,
+          "negative_log_success_surrogate": 0.13065436609551886
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 6
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 13,
+              "routing_added_two_qubit_gates": 6,
+              "mapped_depth": 13
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                4
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 19,
+          "total_routing_added_two_qubit_gates": 6,
+          "maximum_depth": 13,
+          "negative_log_success_surrogate": 0.19095638121652755
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 6
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                2,
+                3
+              ],
+              "mapped_two_qubit_gates": 13,
+              "routing_added_two_qubit_gates": 6,
+              "mapped_depth": 13
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                4
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 19,
+          "total_routing_added_two_qubit_gates": 6,
+          "maximum_depth": 13,
+          "negative_log_success_surrogate": 0.19095638121652755
+        }
+      }
+    },
+    {
+      "family": "community",
+      "num_qubits": 10,
+      "K": 2,
+      "capacities": [
+        5,
+        5
+      ],
+      "status": "optimal",
+      "partition": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fragment_sizes": [
+        5,
+        5
+      ],
+      "log_gamma": 4.394449154672439,
+      "gamma": 81.00000000000003,
+      "certificate": {
+        "lower_bound_log": 4.394449154672439,
+        "upper_bound_log": 4.394449154672439,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 4.394449154672439,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 1,
+      "runtime_s": 0.0219501000829041,
+      "log_interval": {
+        "lower": "4.3944491546724387655809809476901028185899622312909978069387773345499771728744356",
+        "upper": "4.3944491546724387655809809476901028185899622312909978069387773345499771728744360",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 8,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 6
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 4
+            }
+          ],
+          "total_two_qubit_gates": 14,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 6,
+          "negative_log_success_surrogate": 0.1407047019490203
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 20,
+              "routing_added_two_qubit_gates": 10,
+              "mapped_depth": 13
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 12,
+              "routing_added_two_qubit_gates": 2,
+              "mapped_depth": 7
+            }
+          ],
+          "total_two_qubit_gates": 32,
+          "total_routing_added_two_qubit_gates": 12,
+          "maximum_depth": 13,
+          "negative_log_success_surrogate": 0.3216107473120464
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 14,
+              "routing_added_two_qubit_gates": 4,
+              "mapped_depth": 10
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "mapped_two_qubit_gates": 9,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            }
+          ],
+          "total_two_qubit_gates": 23,
+          "total_routing_added_two_qubit_gates": 4,
+          "maximum_depth": 10,
+          "negative_log_success_surrogate": 0.23115772463053336
+        }
+      }
+    },
+    {
+      "family": "community",
+      "num_qubits": 10,
+      "K": 3,
+      "capacities": [
+        4,
+        3,
+        3
+      ],
+      "status": "optimal",
+      "partition": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        1
+      ],
+      "fragment_sizes": [
+        4,
+        3,
+        3
+      ],
+      "log_gamma": 15.380572041353538,
+      "gamma": 4782969.000000012,
+      "certificate": {
+        "lower_bound_log": 15.380572041353537,
+        "upper_bound_log": 15.380572041353537,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 15.380572041353537,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 5,
+      "runtime_s": 0.1620492001529783,
+      "log_interval": {
+        "lower": "15.380572041353535679533433316915359865064867809518492324285720670924920105060523",
+        "upper": "15.380572041353535679533433316915359865064867809518492324285720670924920105060527",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "mapped_two_qubit_gates": 4,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                5,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                3,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 1,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 1
+            }
+          ],
+          "total_two_qubit_gates": 7,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 3,
+          "negative_log_success_surrogate": 0.07035235097451015
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "mapped_two_qubit_gates": 7,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 6
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                5,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                3,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 1,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 1
+            }
+          ],
+          "total_two_qubit_gates": 10,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 6,
+          "negative_log_success_surrogate": 0.1005033585350145
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "mapped_two_qubit_gates": 7,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 6
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                5,
+                8,
+                9
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                3,
+                6,
+                7
+              ],
+              "mapped_two_qubit_gates": 1,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 1
+            }
+          ],
+          "total_two_qubit_gates": 10,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 6,
+          "negative_log_success_surrogate": 0.1005033585350145
+        }
+      }
+    },
+    {
+      "family": "random",
+      "num_qubits": 8,
+      "K": 2,
+      "capacities": [
+        4,
+        4
+      ],
+      "status": "optimal",
+      "partition": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "fragment_sizes": [
+        4,
+        4
+      ],
+      "log_gamma": 13.183347464017316,
+      "gamma": 531441.0000000001,
+      "certificate": {
+        "lower_bound_log": 13.183347464017316,
+        "upper_bound_log": 13.183347464017316,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 13.183347464017316,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 3,
+      "runtime_s": 0.05069160019047558,
+      "log_interval": {
+        "lower": "13.183347464017316296742942843070308455769886693872993420816332003649931518623306",
+        "upper": "13.183347464017316296742942843070308455769886693872993420816332003649931518623309",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                4,
+                7
+              ],
+              "mapped_two_qubit_gates": 3,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 3
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                2,
+                3,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 7,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            }
+          ],
+          "total_two_qubit_gates": 10,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 7,
+          "negative_log_success_surrogate": 0.1005033585350145
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                4,
+                7
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 3,
+              "mapped_depth": 5
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                2,
+                3,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 13,
+              "routing_added_two_qubit_gates": 6,
+              "mapped_depth": 13
+            }
+          ],
+          "total_two_qubit_gates": 19,
+          "total_routing_added_two_qubit_gates": 9,
+          "maximum_depth": 13,
+          "negative_log_success_surrogate": 0.19095638121652755
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                1,
+                4,
+                7
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 3,
+              "mapped_depth": 5
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                2,
+                3,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 13,
+              "routing_added_two_qubit_gates": 6,
+              "mapped_depth": 13
+            }
+          ],
+          "total_two_qubit_gates": 19,
+          "total_routing_added_two_qubit_gates": 9,
+          "maximum_depth": 13,
+          "negative_log_success_surrogate": 0.19095638121652755
+        }
+      }
+    },
+    {
+      "family": "random",
+      "num_qubits": 8,
+      "K": 3,
+      "capacities": [
+        3,
+        3,
+        2
+      ],
+      "status": "optimal",
+      "partition": [
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "fragment_sizes": [
+        3,
+        3,
+        2
+      ],
+      "log_gamma": 17.577796618689757,
+      "gamma": 43046721.00000006,
+      "certificate": {
+        "lower_bound_log": 17.577796618689757,
+        "upper_bound_log": 17.577796618689757,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 17.577796618689757,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 1,
+      "runtime_s": 0.017567100003361702,
+      "log_interval": {
+        "lower": "17.577796618689755062323923790760411274359848925163991227755109338199908691497740",
+        "upper": "17.577796618689755062323923790760411274359848925163991227755109338199908691497745",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                3,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 6
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                4,
+                7
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                2
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 8,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 6,
+          "negative_log_success_surrogate": 0.0804026868280116
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                3,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 9,
+              "routing_added_two_qubit_gates": 3,
+              "mapped_depth": 9
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                4,
+                7
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                2
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 11,
+          "total_routing_added_two_qubit_gates": 3,
+          "maximum_depth": 9,
+          "negative_log_success_surrogate": 0.11055369438851595
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                3,
+                5,
+                6
+              ],
+              "mapped_two_qubit_gates": 9,
+              "routing_added_two_qubit_gates": 3,
+              "mapped_depth": 9
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                4,
+                7
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                0,
+                2
+              ],
+              "mapped_two_qubit_gates": 0,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 0
+            }
+          ],
+          "total_two_qubit_gates": 11,
+          "total_routing_added_two_qubit_gates": 3,
+          "maximum_depth": 9,
+          "negative_log_success_surrogate": 0.11055369438851595
+        }
+      }
+    },
+    {
+      "family": "random",
+      "num_qubits": 10,
+      "K": 2,
+      "capacities": [
+        5,
+        5
+      ],
+      "status": "optimal",
+      "partition": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "fragment_sizes": [
+        5,
+        5
+      ],
+      "log_gamma": 8.788898309344878,
+      "gamma": 6561.000000000005,
+      "certificate": {
+        "lower_bound_log": 8.788898309344878,
+        "upper_bound_log": 8.788898309344878,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 8.788898309344878,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 3,
+      "runtime_s": 0.08472710009664297,
+      "log_interval": {
+        "lower": "8.7888983093448775311619618953802056371799244625819956138775546690999543457488712",
+        "upper": "8.7888983093448775311619618953802056371799244625819956138775546690999543457488720",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                2,
+                3,
+                6,
+                9
+              ],
+              "mapped_two_qubit_gates": 8,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                4,
+                5,
+                7,
+                8
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 4
+            }
+          ],
+          "total_two_qubit_gates": 14,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 7,
+          "negative_log_success_surrogate": 0.1407047019490203
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                2,
+                3,
+                6,
+                9
+              ],
+              "mapped_two_qubit_gates": 12,
+              "routing_added_two_qubit_gates": 4,
+              "mapped_depth": 11
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                4,
+                5,
+                7,
+                8
+              ],
+              "mapped_two_qubit_gates": 12,
+              "routing_added_two_qubit_gates": 4,
+              "mapped_depth": 7
+            }
+          ],
+          "total_two_qubit_gates": 24,
+          "total_routing_added_two_qubit_gates": 8,
+          "maximum_depth": 11,
+          "negative_log_success_surrogate": 0.24120806048403481
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                2,
+                3,
+                6,
+                9
+              ],
+              "mapped_two_qubit_gates": 11,
+              "routing_added_two_qubit_gates": 3,
+              "mapped_depth": 9
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                4,
+                5,
+                7,
+                8
+              ],
+              "mapped_two_qubit_gates": 6,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 4
+            }
+          ],
+          "total_two_qubit_gates": 17,
+          "total_routing_added_two_qubit_gates": 3,
+          "maximum_depth": 9,
+          "negative_log_success_surrogate": 0.17085570950952467
+        }
+      }
+    },
+    {
+      "family": "random",
+      "num_qubits": 10,
+      "K": 3,
+      "capacities": [
+        4,
+        3,
+        3
+      ],
+      "status": "optimal",
+      "partition": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "fragment_sizes": [
+        4,
+        3,
+        3
+      ],
+      "log_gamma": 17.577796618689757,
+      "gamma": 43046721.00000006,
+      "certificate": {
+        "lower_bound_log": 17.577796618689757,
+        "upper_bound_log": 17.577796618689757,
+        "additive_log_gap": 0.0,
+        "overhead_factor_bound": 1.0,
+        "bound_closed": true,
+        "proven_optimal": true,
+        "certificate_kind": "solver_tolerance",
+        "numerical_safety_margin_log": 0.0,
+        "conservative_lower_bound_log": 17.577796618689757,
+        "conservative_additive_log_gap": 0.0,
+        "conservative_overhead_factor_bound": 1.0,
+        "formal_numerical_proof": false
+      },
+      "nodes": 7,
+      "runtime_s": 0.17584160016849637,
+      "log_interval": {
+        "lower": "17.577796618689755062323923790760411274359848925163991227755109338199908691497740",
+        "upper": "17.577796618689755062323923790760411274359848925163991227755109338199908691497745",
+        "precision": 80
+      },
+      "routing": {
+        "all_to_all": {
+          "topology": "all_to_all",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "mapped_two_qubit_gates": 7,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 7
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                3,
+                7
+              ],
+              "mapped_two_qubit_gates": 1,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 1
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                4,
+                5,
+                8
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            }
+          ],
+          "total_two_qubit_gates": 10,
+          "total_routing_added_two_qubit_gates": 0,
+          "maximum_depth": 7,
+          "negative_log_success_surrogate": 0.1005033585350145
+        },
+        "line": {
+          "topology": "line",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "mapped_two_qubit_gates": 11,
+              "routing_added_two_qubit_gates": 4,
+              "mapped_depth": 11
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                3,
+                7
+              ],
+              "mapped_two_qubit_gates": 1,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 1
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                4,
+                5,
+                8
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            }
+          ],
+          "total_two_qubit_gates": 14,
+          "total_routing_added_two_qubit_gates": 4,
+          "maximum_depth": 11,
+          "negative_log_success_surrogate": 0.1407047019490203
+        },
+        "grid": {
+          "topology": "grid",
+          "fragments": [
+            {
+              "fragment": 0,
+              "logical_qubits": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "mapped_two_qubit_gates": 13,
+              "routing_added_two_qubit_gates": 6,
+              "mapped_depth": 13
+            },
+            {
+              "fragment": 1,
+              "logical_qubits": [
+                1,
+                3,
+                7
+              ],
+              "mapped_two_qubit_gates": 1,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 1
+            },
+            {
+              "fragment": 2,
+              "logical_qubits": [
+                4,
+                5,
+                8
+              ],
+              "mapped_two_qubit_gates": 2,
+              "routing_added_two_qubit_gates": 0,
+              "mapped_depth": 2
+            }
+          ],
+          "total_two_qubit_gates": 16,
+          "total_routing_added_two_qubit_gates": 6,
+          "maximum_depth": 13,
+          "negative_log_success_surrogate": 0.1608053736560232
+        }
+      }
+    }
+  ],
+  "controlled_noise_scenarios": {
+    "low": {
+      "two_qubit_error": 0.001,
+      "noise_instructions": [
+        "cx",
+        "ecr",
+        "id",
+        "measure",
+        "rz",
+        "sx",
+        "x"
+      ],
+      "all_z_evaluation": {
+        "shots": 4096,
+        "exact_z_expectation": 1.0,
+        "noisy_z_expectation": 0.70703125,
+        "absolute_error": 0.29296875
+      }
+    },
+    "medium": {
+      "two_qubit_error": 0.005,
+      "noise_instructions": [
+        "cx",
+        "ecr",
+        "id",
+        "measure",
+        "rz",
+        "sx",
+        "x"
+      ],
+      "all_z_evaluation": {
+        "shots": 4096,
+        "exact_z_expectation": 1.0,
+        "noisy_z_expectation": 0.65576171875,
+        "absolute_error": 0.34423828125
+      }
+    },
+    "high": {
+      "two_qubit_error": 0.01,
+      "noise_instructions": [
+        "cx",
+        "ecr",
+        "id",
+        "measure",
+        "rz",
+        "sx",
+        "x"
+      ],
+      "all_z_evaluation": {
+        "shots": 4096,
+        "exact_z_expectation": 1.0,
+        "noisy_z_expectation": 0.60205078125,
+        "absolute_error": 0.39794921875
+      }
+    },
+    "severe": {
+      "two_qubit_error": 0.02,
+      "noise_instructions": [
+        "cx",
+        "ecr",
+        "id",
+        "measure",
+        "rz",
+        "sx",
+        "x"
+      ],
+      "all_z_evaluation": {
+        "shots": 4096,
+        "exact_z_expectation": 1.0,
+        "noisy_z_expectation": 0.49072265625,
+        "absolute_error": 0.50927734375
+      }
+    }
+  }
+}

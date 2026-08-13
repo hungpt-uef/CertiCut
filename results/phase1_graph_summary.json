@@ -1,0 +1,218 @@
+{
+  "graph": {
+    "num_qubits": 6,
+    "nodes": [
+      {
+        "qubit": 0,
+        "degree": 1,
+        "weighted_degree": 2.1972245773362196,
+        "two_qubit_gate_count": 1,
+        "first_active_depth": 1,
+        "last_active_depth": 1
+      },
+      {
+        "qubit": 1,
+        "degree": 3,
+        "weighted_degree": 6.591673732008658,
+        "two_qubit_gate_count": 3,
+        "first_active_depth": 1,
+        "last_active_depth": 3
+      },
+      {
+        "qubit": 2,
+        "degree": 2,
+        "weighted_degree": 4.394449154672439,
+        "two_qubit_gate_count": 2,
+        "first_active_depth": 2,
+        "last_active_depth": 3
+      },
+      {
+        "qubit": 3,
+        "degree": 2,
+        "weighted_degree": 4.394449154672439,
+        "two_qubit_gate_count": 2,
+        "first_active_depth": 1,
+        "last_active_depth": 3
+      },
+      {
+        "qubit": 4,
+        "degree": 3,
+        "weighted_degree": 6.591673732008658,
+        "two_qubit_gate_count": 3,
+        "first_active_depth": 1,
+        "last_active_depth": 3
+      },
+      {
+        "qubit": 5,
+        "degree": 1,
+        "weighted_degree": 2.1972245773362196,
+        "two_qubit_gate_count": 1,
+        "first_active_depth": 2,
+        "last_active_depth": 2
+      }
+    ],
+    "edges": [
+      {
+        "u": 0,
+        "v": 1,
+        "gate_count": 1,
+        "gate_type_counts": {
+          "cx": 1
+        },
+        "instruction_indices": [
+          0
+        ],
+        "depths": [
+          1
+        ],
+        "first_depth": 1,
+        "last_depth": 1,
+        "qpd_log_cost": 2.1972245773362196,
+        "gates": [
+          {
+            "instruction_index": 0,
+            "layer_depth": 1,
+            "gate_type": "cx",
+            "control": 0,
+            "target": 1
+          }
+        ]
+      },
+      {
+        "u": 1,
+        "v": 2,
+        "gate_count": 1,
+        "gate_type_counts": {
+          "cx": 1
+        },
+        "instruction_indices": [
+          1
+        ],
+        "depths": [
+          2
+        ],
+        "first_depth": 2,
+        "last_depth": 2,
+        "qpd_log_cost": 2.1972245773362196,
+        "gates": [
+          {
+            "instruction_index": 1,
+            "layer_depth": 2,
+            "gate_type": "cx",
+            "control": 1,
+            "target": 2
+          }
+        ]
+      },
+      {
+        "u": 1,
+        "v": 4,
+        "gate_count": 1,
+        "gate_type_counts": {
+          "cx": 1
+        },
+        "instruction_indices": [
+          4
+        ],
+        "depths": [
+          3
+        ],
+        "first_depth": 3,
+        "last_depth": 3,
+        "qpd_log_cost": 2.1972245773362196,
+        "gates": [
+          {
+            "instruction_index": 4,
+            "layer_depth": 3,
+            "gate_type": "cx",
+            "control": 1,
+            "target": 4
+          }
+        ]
+      },
+      {
+        "u": 2,
+        "v": 3,
+        "gate_count": 1,
+        "gate_type_counts": {
+          "cx": 1
+        },
+        "instruction_indices": [
+          5
+        ],
+        "depths": [
+          3
+        ],
+        "first_depth": 3,
+        "last_depth": 3,
+        "qpd_log_cost": 2.1972245773362196,
+        "gates": [
+          {
+            "instruction_index": 5,
+            "layer_depth": 3,
+            "gate_type": "cx",
+            "control": 2,
+            "target": 3
+          }
+        ]
+      },
+      {
+        "u": 3,
+        "v": 4,
+        "gate_count": 1,
+        "gate_type_counts": {
+          "cx": 1
+        },
+        "instruction_indices": [
+          2
+        ],
+        "depths": [
+          1
+        ],
+        "first_depth": 1,
+        "last_depth": 1,
+        "qpd_log_cost": 2.1972245773362196,
+        "gates": [
+          {
+            "instruction_index": 2,
+            "layer_depth": 1,
+            "gate_type": "cx",
+            "control": 3,
+            "target": 4
+          }
+        ]
+      },
+      {
+        "u": 4,
+        "v": 5,
+        "gate_count": 1,
+        "gate_type_counts": {
+          "cx": 1
+        },
+        "instruction_indices": [
+          3
+        ],
+        "depths": [
+          2
+        ],
+        "first_depth": 2,
+        "last_depth": 2,
+        "qpd_log_cost": 2.1972245773362196,
+        "gates": [
+          {
+            "instruction_index": 3,
+            "layer_depth": 2,
+            "gate_type": "cx",
+            "control": 4,
+            "target": 5
+          }
+        ]
+      }
+    ]
+  },
+  "objective_equivalence": {
+    "qmax": 3,
+    "valid_partition_count": 10,
+    "all_partitions_match": true
+  }
+}

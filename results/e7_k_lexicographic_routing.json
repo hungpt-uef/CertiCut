@@ -1,0 +1,251 @@
+[
+  {
+    "family": "random_matching",
+    "num_qubits": 20,
+    "K": 2,
+    "capacities": [
+      10,
+      10
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 17.342930003848743,
+    "sampling_gamma": 34036022.39219502,
+    "routing_at_sampling_optimum": 208.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 17.342930003848743,
+    "lexicographic_gamma": 34036022.39219502,
+    "lexicographic_routing": 208.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 0.7507802001200616
+  },
+  {
+    "family": "random_matching",
+    "num_qubits": 20,
+    "K": 3,
+    "capacities": [
+      7,
+      7,
+      6
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 27.10183019993234,
+    "sampling_gamma": 589081393251.231,
+    "routing_at_sampling_optimum": 164.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 27.10183019993234,
+    "lexicographic_gamma": 589081393251.231,
+    "lexicographic_routing": 164.00000000000006,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 3.136256600031629
+  },
+  {
+    "family": "random_matching",
+    "num_qubits": 32,
+    "K": 2,
+    "capacities": [
+      16,
+      16
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 26.284247351781428,
+    "sampling_gamma": 260077981485.17548,
+    "routing_at_sampling_optimum": 539.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 26.284247351781428,
+    "lexicographic_gamma": 260077981485.17548,
+    "lexicographic_routing": 539.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 2.7683512999210507
+  },
+  {
+    "family": "random_matching",
+    "num_qubits": 32,
+    "K": 4,
+    "capacities": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "sampling_status": "timelimit",
+    "sampling_log_gamma": 47.029270434546135,
+    "sampling_gamma": 2.657985685045084e+20,
+    "routing_at_sampling_optimum": 447.0,
+    "lexicographic_status": "timelimit",
+    "lexicographic_log_gamma": null,
+    "lexicographic_gamma": null,
+    "lexicographic_routing": null,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": null,
+    "runtime_s": 20.96609460003674
+  },
+  {
+    "family": "community_matching",
+    "num_qubits": 20,
+    "K": 2,
+    "capacities": [
+      10,
+      10
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 10.00182487695385,
+    "sampling_gamma": 22066.698082933057,
+    "routing_at_sampling_optimum": 68.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 10.00182487695385,
+    "lexicographic_gamma": 22066.698082933057,
+    "lexicographic_routing": 68.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 0.37856189999729395
+  },
+  {
+    "family": "community_matching",
+    "num_qubits": 20,
+    "K": 3,
+    "capacities": [
+      7,
+      7,
+      6
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 17.274778550584063,
+    "sampling_gamma": 31793694.77528508,
+    "routing_at_sampling_optimum": 68.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 17.274778550584063,
+    "lexicographic_gamma": 31793694.77528508,
+    "lexicographic_routing": 68.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 1.0972927999682724
+  },
+  {
+    "family": "community_matching",
+    "num_qubits": 32,
+    "K": 2,
+    "capacities": [
+      16,
+      16
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 10.193377599380739,
+    "sampling_gamma": 26725.611033688398,
+    "routing_at_sampling_optimum": 165.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 10.193377599380739,
+    "lexicographic_gamma": 26725.611033688398,
+    "lexicographic_routing": 165.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 0.6714278999716043
+  },
+  {
+    "family": "community_matching",
+    "num_qubits": 32,
+    "K": 4,
+    "capacities": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 24.002755189122077,
+    "sampling_gamma": 26562205303.740242,
+    "routing_at_sampling_optimum": 179.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 24.002755189122077,
+    "lexicographic_gamma": 26562205303.740242,
+    "lexicographic_routing": 179.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 9.048033099854365
+  },
+  {
+    "family": "dense_shuffled",
+    "num_qubits": 20,
+    "K": 2,
+    "capacities": [
+      10,
+      10
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 41.92452356882654,
+    "sampling_gamma": 1.6128324112170473e+18,
+    "routing_at_sampling_optimum": 229.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 41.92452356882654,
+    "lexicographic_gamma": 1.6128324112170473e+18,
+    "lexicographic_routing": 229.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 2.106383200036362
+  },
+  {
+    "family": "dense_shuffled",
+    "num_qubits": 20,
+    "K": 3,
+    "capacities": [
+      7,
+      7,
+      6
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 58.070643137124755,
+    "sampling_gamma": 1.6586695618798946e+25,
+    "routing_at_sampling_optimum": 182.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 58.070643137124755,
+    "lexicographic_gamma": 1.6586695618798946e+25,
+    "lexicographic_routing": 182.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 10.56945320009254
+  },
+  {
+    "family": "dense_shuffled",
+    "num_qubits": 32,
+    "K": 2,
+    "capacities": [
+      16,
+      16
+    ],
+    "sampling_status": "optimal",
+    "sampling_log_gamma": 53.00297210686,
+    "sampling_gamma": 1.0444756279030359e+23,
+    "routing_at_sampling_optimum": 749.0,
+    "lexicographic_status": "optimal",
+    "lexicographic_log_gamma": 53.00297210686,
+    "lexicographic_gamma": 1.0444756279030359e+23,
+    "lexicographic_routing": 749.0,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": 1.0,
+    "runtime_s": 6.540558600099757
+  },
+  {
+    "family": "dense_shuffled",
+    "num_qubits": 32,
+    "K": 4,
+    "capacities": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "sampling_status": "timelimit",
+    "sampling_log_gamma": 94.86740228845106,
+    "sampling_gamma": 1.5863146182389176e+41,
+    "routing_at_sampling_optimum": 495.0,
+    "lexicographic_status": "timelimit",
+    "lexicographic_log_gamma": null,
+    "lexicographic_gamma": null,
+    "lexicographic_routing": null,
+    "allowed_gamma_factor": 1.05,
+    "actual_gamma_factor": null,
+    "runtime_s": 20.962023600004613
+  }
+]

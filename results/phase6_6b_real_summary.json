@@ -1,0 +1,88 @@
+{
+  "E2": {
+    "records": 25,
+    "statuses": {
+      "optimal": 25
+    },
+    "by_size": {
+      "8": {
+        "records": 5,
+        "optimal": 5,
+        "median_end_to_end_s": 0.7991920000640675,
+        "median_optimizer_s": 0.007223299937322736,
+        "median_peak_rss_mb": 156.807168
+      },
+      "12": {
+        "records": 5,
+        "optimal": 5,
+        "median_end_to_end_s": 0.7688420999329537,
+        "median_optimizer_s": 0.01916910009458661,
+        "median_peak_rss_mb": 157.442048
+      },
+      "16": {
+        "records": 5,
+        "optimal": 5,
+        "median_end_to_end_s": 0.7564683000091463,
+        "median_optimizer_s": 0.03332300006877631,
+        "median_peak_rss_mb": 159.21152
+      },
+      "20": {
+        "records": 5,
+        "optimal": 5,
+        "median_end_to_end_s": 0.8156204000115395,
+        "median_optimizer_s": 0.10856800002511591,
+        "median_peak_rss_mb": 161.554432
+      },
+      "24": {
+        "records": 5,
+        "optimal": 5,
+        "median_end_to_end_s": 0.9388753999955952,
+        "median_optimizer_s": 0.16324709996115416,
+        "median_peak_rss_mb": 163.241984
+      }
+    }
+  },
+  "E3": {
+    "records": 15,
+    "statuses": {
+      "optimal": 15
+    },
+    "by_size": {
+      "8": {
+        "records": 3,
+        "optimal": 3,
+        "median_end_to_end_s": 0.026161800022237003,
+        "median_optimizer_s": 0.00861560006160289,
+        "median_peak_rss_mb": 107.610112
+      },
+      "12": {
+        "records": 3,
+        "optimal": 3,
+        "median_end_to_end_s": 0.03045439999550581,
+        "median_optimizer_s": 0.01144410006236285,
+        "median_peak_rss_mb": 108.486656
+      },
+      "16": {
+        "records": 3,
+        "optimal": 3,
+        "median_end_to_end_s": 0.05165779998060316,
+        "median_optimizer_s": 0.024841399979777634,
+        "median_peak_rss_mb": 110.268416
+      },
+      "20": {
+        "records": 3,
+        "optimal": 3,
+        "median_end_to_end_s": 0.09340289991814643,
+        "median_optimizer_s": 0.07171279995236546,
+        "median_peak_rss_mb": 111.382528
+      },
+      "24": {
+        "records": 3,
+        "optimal": 3,
+        "median_end_to_end_s": 0.14780680008698255,
+        "median_optimizer_s": 0.12528520007617772,
+        "median_peak_rss_mb": 113.496064
+      }
+    }
+  }
+}

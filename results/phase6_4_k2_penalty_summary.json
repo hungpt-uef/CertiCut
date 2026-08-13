@@ -1,0 +1,39 @@
+{
+  "source_records": 60,
+  "qiskit_minimum_reached": 24,
+  "overlap_proven_records": 10,
+  "overlap_proof_invariant_violations": 0,
+  "overlap_proof_matches": 10,
+  "proven_nonoverlap_records": 14,
+  "restriction_penalty": {
+    "records": 24,
+    "factor_one_count": 24,
+    "median_factor": 1.0,
+    "p90_factor": 1.0,
+    "max_factor": 1.000000000000007,
+    "positive_penalty_count": 0
+  },
+  "by_family": {
+    "bv": {
+      "records": 14,
+      "factor_one_count": 14,
+      "positive_penalty_count": 0,
+      "median_factor": 1.0,
+      "max_factor": 1.0
+    },
+    "qaoa": {
+      "records": 2,
+      "factor_one_count": 2,
+      "positive_penalty_count": 0,
+      "median_factor": 1.0000000000000036,
+      "max_factor": 1.000000000000007
+    },
+    "vqe_real_amp": {
+      "records": 8,
+      "factor_one_count": 8,
+      "positive_penalty_count": 0,
+      "median_factor": 1.0,
+      "max_factor": 1.0
+    }
+  }
+}

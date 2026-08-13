@@ -1,0 +1,44 @@
+{
+  "status": "optimal",
+  "num_fragments": 2,
+  "qmax": 3,
+  "exact_num_fragments": true,
+  "partition": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1
+  ],
+  "fragments": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      3,
+      4,
+      5
+    ]
+  ],
+  "cut_edges": [
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "cut_instruction_indices": [
+    4,
+    5
+  ],
+  "objective_log_cost": 4.394449154672439,
+  "gamma": 81.00000000000003,
+  "bruteforce_objective_log_cost": 4.394449154672439,
+  "matches_ground_truth": true
+}

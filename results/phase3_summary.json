@@ -1,0 +1,69 @@
+{
+  "status": "optimal",
+  "partition": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1
+  ],
+  "fragments": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      3,
+      4,
+      5
+    ]
+  ],
+  "cut_edges": [
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "cut_instruction_indices": [
+    4,
+    5
+  ],
+  "certificate": {
+    "lower_bound_log": 4.394449154672439,
+    "upper_bound_log": 4.394449154672439,
+    "additive_log_gap": 0.0,
+    "overhead_factor_bound": 1.0,
+    "proven_optimal": true
+  },
+  "expanded_nodes": 2,
+  "timeline": [
+    {
+      "expanded_nodes": 1,
+      "open_nodes": 1,
+      "node_depth": 0,
+      "node_lb": 1.3183347464017316,
+      "global_lb": 3.295836866004329,
+      "incumbent_ub": 4.394449154672439,
+      "additive_log_gap": 1.09861228866811,
+      "overhead_factor_bound": 3.000000000000001,
+      "event": "branch"
+    },
+    {
+      "expanded_nodes": 2,
+      "open_nodes": 0,
+      "node_depth": 1,
+      "node_lb": 3.295836866004329,
+      "global_lb": 4.394449154672439,
+      "incumbent_ub": 4.394449154672439,
+      "additive_log_gap": 0.0,
+      "overhead_factor_bound": 1.0,
+      "event": "branch"
+    }
+  ]
+}

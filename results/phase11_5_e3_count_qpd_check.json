@@ -1,0 +1,119 @@
+[
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "qaoa",
+    "num_qubits": 8,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "rzz"
+    ],
+    "minimum_cut_count": 12.0,
+    "best_qpd_log_at_minimum_cut": 26.366694928034637,
+    "qpd_optimum_log": 26.366694928034637,
+    "strict_regret": false
+  },
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "qaoa",
+    "num_qubits": 12,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "rzz"
+    ],
+    "minimum_cut_count": 26.0,
+    "best_qpd_log_at_minimum_cut": 57.127839010741695,
+    "qpd_optimum_log": 57.127839010741695,
+    "strict_regret": false
+  },
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "qaoa",
+    "num_qubits": 16,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "rzz"
+    ],
+    "minimum_cut_count": 36.0,
+    "best_qpd_log_at_minimum_cut": 79.1000847841039,
+    "qpd_optimum_log": 79.1000847841039,
+    "strict_regret": false
+  },
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "bv",
+    "num_qubits": 8,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "cz"
+    ],
+    "minimum_cut_count": 0,
+    "best_qpd_log_at_minimum_cut": 0,
+    "qpd_optimum_log": 0,
+    "strict_regret": false
+  },
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "bv",
+    "num_qubits": 12,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "cz"
+    ],
+    "minimum_cut_count": 0,
+    "best_qpd_log_at_minimum_cut": 0,
+    "qpd_optimum_log": 0,
+    "strict_regret": false
+  },
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "bv",
+    "num_qubits": 16,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "cz"
+    ],
+    "minimum_cut_count": 0,
+    "best_qpd_log_at_minimum_cut": 0,
+    "qpd_optimum_log": 0,
+    "strict_regret": false
+  },
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "vqe_real_amp",
+    "num_qubits": 8,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "cx"
+    ],
+    "minimum_cut_count": 3.0,
+    "best_qpd_log_at_minimum_cut": 6.591673732008658,
+    "qpd_optimum_log": 6.591673732008658,
+    "strict_regret": false
+  },
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "vqe_real_amp",
+    "num_qubits": 12,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "cx"
+    ],
+    "minimum_cut_count": 3.0,
+    "best_qpd_log_at_minimum_cut": 6.591673732008658,
+    "qpd_optimum_log": 6.591673732008658,
+    "strict_regret": false
+  },
+  {
+    "experiment": "E3_small_native_count_qpd_check",
+    "family": "vqe_real_amp",
+    "num_qubits": 16,
+    "cost_model": "qiskit_qpd_0.10.0_independent",
+    "two_qubit_gate_types": [
+      "cx"
+    ],
+    "minimum_cut_count": 3.0,
+    "best_qpd_log_at_minimum_cut": 6.591673732008658,
+    "qpd_optimum_log": 6.591673732008658,
+    "strict_regret": false
+  }
+]

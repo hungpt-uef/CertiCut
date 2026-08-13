@@ -1,0 +1,156 @@
+{
+  "experiment": "E7_heterogeneous_qpd_scaling_matched",
+  "records": 200,
+  "checkpoints": {
+    "2.0": {
+      "certicut": {
+        "records": 200,
+        "factor_le_1_01": 160,
+        "factor_le_1_10": 160,
+        "closed": 160,
+        "median_factor": 1.0,
+        "p90_factor": 62.12960765036114,
+        "median_ub_log": 13.672377440401295,
+        "median_lb_log": 13.382958252473436,
+        "median_nodes": 1.0,
+        "median_lp_iterations": null
+      },
+      "g0_basic": {
+        "records": 200,
+        "factor_le_1_01": 199,
+        "factor_le_1_10": 199,
+        "closed": 199,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.451109705738116,
+        "median_lb_log": 13.451109705738116,
+        "median_nodes": 3.0,
+        "median_lp_iterations": 850.0
+      },
+      "g1_cardinality": {
+        "records": 200,
+        "factor_le_1_01": 111,
+        "factor_le_1_10": 111,
+        "closed": 111,
+        "median_factor": 1.0,
+        "p90_factor": 2449478880218.922,
+        "median_ub_log": 15.217885912791818,
+        "median_lb_log": 11.253885128401894,
+        "median_nodes": 1.0,
+        "median_lp_iterations": 9134.0
+      },
+      "g2_b2s": {
+        "records": 200,
+        "factor_le_1_01": 108,
+        "factor_le_1_10": 108,
+        "closed": 108,
+        "median_factor": 1.0,
+        "p90_factor": 1.7374352294020888e+16,
+        "median_ub_log": 15.217885912791814,
+        "median_lb_log": 7.293913377026593,
+        "median_nodes": 1.0,
+        "median_lp_iterations": 2119.5
+      }
+    },
+    "10.0": {
+      "certicut": {
+        "records": 200,
+        "factor_le_1_01": 184,
+        "factor_le_1_10": 184,
+        "closed": 184,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.451109705738116,
+        "median_lb_log": 13.451109705738116,
+        "median_nodes": 1.0,
+        "median_lp_iterations": null
+      },
+      "g0_basic": {
+        "records": 200,
+        "factor_le_1_01": 200,
+        "factor_le_1_10": 200,
+        "closed": 200,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.451109705738116,
+        "median_lb_log": 13.451109705738116,
+        "median_nodes": 3.0,
+        "median_lp_iterations": 850.0
+      },
+      "g1_cardinality": {
+        "records": 200,
+        "factor_le_1_01": 186,
+        "factor_le_1_10": 186,
+        "closed": 186,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.451109705738112,
+        "median_lb_log": 13.451109705738112,
+        "median_nodes": 5.0,
+        "median_lp_iterations": 11123.0
+      },
+      "g2_b2s": {
+        "records": 200,
+        "factor_le_1_01": 158,
+        "factor_le_1_10": 158,
+        "closed": 158,
+        "median_factor": 1.0,
+        "p90_factor": 345.7480674274551,
+        "median_ub_log": 13.589019859613092,
+        "median_lb_log": 11.879915254125917,
+        "median_nodes": 1.0,
+        "median_lp_iterations": 3970.5
+      }
+    },
+    "60.0": {
+      "certicut": {
+        "records": 200,
+        "factor_le_1_01": 199,
+        "factor_le_1_10": 199,
+        "closed": 199,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.451109705738116,
+        "median_lb_log": 13.451109705738116,
+        "median_nodes": 1.0,
+        "median_lp_iterations": null
+      },
+      "g0_basic": {
+        "records": 200,
+        "factor_le_1_01": 200,
+        "factor_le_1_10": 200,
+        "closed": 200,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.451109705738116,
+        "median_lb_log": 13.451109705738116,
+        "median_nodes": 3.0,
+        "median_lp_iterations": 850.0
+      },
+      "g1_cardinality": {
+        "records": 200,
+        "factor_le_1_01": 196,
+        "factor_le_1_10": 196,
+        "closed": 196,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.451109705738112,
+        "median_lb_log": 13.451109705738112,
+        "median_nodes": 5.0,
+        "median_lp_iterations": 11123.0
+      },
+      "g2_b2s": {
+        "records": 200,
+        "factor_le_1_01": 183,
+        "factor_le_1_10": 183,
+        "closed": 183,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.489214465385079,
+        "median_lb_log": 13.451109705738126,
+        "median_nodes": 1.0,
+        "median_lp_iterations": 3970.5
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+qiskit==2.5.1
+qiskit-ibm-runtime==0.48.0
+qiskit-addon-cutting==0.10.0
+qiskit-aer==0.17.2
+scipy==1.17.1
+pyscipopt>=5.7,<6
+kahip==3.25
+mqt.bench==2.2.2
+matplotlib==3.11.1
+pytest==8.4.2

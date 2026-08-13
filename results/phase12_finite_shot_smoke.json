@@ -1,0 +1,169 @@
+{
+  "experiment": "E8_finite_shot_equal_budget_reversal",
+  "records": [
+    {
+      "witness": {
+        "family": "community_matching",
+        "num_qubits": 12,
+        "seed": 3,
+        "regret_factor": 719.6551181206609
+      },
+      "comparison": {
+        "total_shots_per_seed": 256,
+        "qpd_samples_per_seed": 4,
+        "seeds": [
+          0,
+          1
+        ],
+        "plans": [
+          {
+            "partition": [
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "cut_instruction_indices": [
+              9,
+              0,
+              2,
+              8,
+              21,
+              20
+            ],
+            "optimizer_log_cost": 16.146119568298225,
+            "qpd_log_overhead": 16.146119568298225,
+            "qpd_overhead": 10284202.812047102,
+            "total_shots_per_seed": 256,
+            "qpd_samples_per_seed": 4,
+            "seeds": [
+              0,
+              1
+            ],
+            "trial_shot_totals": [
+              256,
+              256
+            ],
+            "trial_fragment_experiment_counts": [
+              {
+                "0": 8,
+                "1": 4
+              },
+              {
+                "0": 8,
+                "1": 4
+              }
+            ],
+            "observables": [
+              {
+                "observable": "ZZZZZZZZZZZZ",
+                "uncut_expectation": 1.0000000000000002,
+                "estimator_distribution": [
+                  -7.602420407591656,
+                  1118.7126899779985
+                ],
+                "estimator_mean": 555.5551347852034,
+                "bias": 554.5551347852034,
+                "rmse": 790.3656302543534,
+                "estimator_standard_deviation": 563.1575551927951
+              },
+              {
+                "observable": "XIIIIIIIIIII",
+                "uncut_expectation": 0.0,
+                "estimator_distribution": [
+                  423.91757272766534,
+                  -18.67551100125778
+                ],
+                "estimator_mean": 202.62103086320377,
+                "bias": 202.62103086320377,
+                "rmse": 300.0457324962926,
+                "estimator_standard_deviation": 221.29654186446157
+              }
+            ]
+          },
+          {
+            "partition": [
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "cut_instruction_indices": [
+              9,
+              16,
+              1,
+              21,
+              3,
+              12
+            ],
+            "optimizer_log_cost": 9.567347473656715,
+            "qpd_log_overhead": 9.567347473656715,
+            "qpd_overhead": 14290.460184461304,
+            "total_shots_per_seed": 256,
+            "qpd_samples_per_seed": 4,
+            "seeds": [
+              0,
+              1
+            ],
+            "trial_shot_totals": [
+              256,
+              256
+            ],
+            "trial_fragment_experiment_counts": [
+              {
+                "0": 8,
+                "1": 4
+              },
+              {
+                "0": 8,
+                "1": 4
+              }
+            ],
+            "observables": [
+              {
+                "observable": "ZZZZZZZZZZZZ",
+                "uncut_expectation": 1.0000000000000002,
+                "estimator_distribution": [
+                  -13.066898261007472,
+                  5.692510133508211
+                ],
+                "estimator_mean": -3.6871940637496303,
+                "bias": -4.68719406374963,
+                "rmse": 10.485639657136142,
+                "estimator_standard_deviation": 9.37970419725784
+              },
+              {
+                "observable": "XIIIIIIIIIII",
+                "uncut_expectation": 0.0,
+                "estimator_distribution": [
+                  -11.25564503670942,
+                  13.843149642849514
+                ],
+                "estimator_mean": 1.2937523030700468,
+                "bias": 1.2937523030700468,
+                "rmse": 12.61590934547974,
+                "estimator_standard_deviation": 12.549397339779468
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "experiment": "E7_heterogeneous_qpd_scaling_matched",
+  "records": 5,
+  "checkpoints": {
+    "0.05": {
+      "certicut": {
+        "records": 5,
+        "factor_le_1_01": 2,
+        "factor_le_1_10": 2,
+        "closed": 2,
+        "median_factor": 1.9584068267486232,
+        "p90_factor": 5.942273414001052,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 0,
+        "median_lp_iterations": null
+      },
+      "g0_basic": {
+        "records": 5,
+        "factor_le_1_01": 5,
+        "factor_le_1_10": 5,
+        "closed": 5,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 3,
+        "median_lp_iterations": 540
+      },
+      "g1_cardinality": {
+        "records": 5,
+        "factor_le_1_01": 3,
+        "factor_le_1_10": 3,
+        "closed": 3,
+        "median_factor": 1.0,
+        "p90_factor": 236.68371781965035,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 1,
+        "median_lp_iterations": 1286
+      },
+      "g2_b2s": {
+        "records": 5,
+        "factor_le_1_01": 3,
+        "factor_le_1_10": 3,
+        "closed": 3,
+        "median_factor": 1.0,
+        "p90_factor": 2.3743207794838668,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 1,
+        "median_lp_iterations": 806
+      }
+    },
+    "0.1": {
+      "certicut": {
+        "records": 5,
+        "factor_le_1_01": 3,
+        "factor_le_1_10": 3,
+        "closed": 3,
+        "median_factor": 1.000000000000032,
+        "p90_factor": 3.686908576102482,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 1,
+        "median_lp_iterations": null
+      },
+      "g0_basic": {
+        "records": 5,
+        "factor_le_1_01": 5,
+        "factor_le_1_10": 5,
+        "closed": 5,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 3,
+        "median_lp_iterations": 540
+      },
+      "g1_cardinality": {
+        "records": 5,
+        "factor_le_1_01": 3,
+        "factor_le_1_10": 3,
+        "closed": 3,
+        "median_factor": 1.0,
+        "p90_factor": 10.092976169966656,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 12.910075192598104,
+        "median_nodes": 3,
+        "median_lp_iterations": 4757
+      },
+      "g2_b2s": {
+        "records": 5,
+        "factor_le_1_01": 3,
+        "factor_le_1_10": 3,
+        "closed": 3,
+        "median_factor": 1.0,
+        "p90_factor": 2.3743207794838668,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 1,
+        "median_lp_iterations": 806
+      }
+    },
+    "0.2": {
+      "certicut": {
+        "records": 5,
+        "factor_le_1_01": 4,
+        "factor_le_1_10": 4,
+        "closed": 4,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 1,
+        "median_lp_iterations": null
+      },
+      "g0_basic": {
+        "records": 5,
+        "factor_le_1_01": 4,
+        "factor_le_1_10": 4,
+        "closed": 4,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 1,
+        "median_lp_iterations": 310
+      },
+      "g1_cardinality": {
+        "records": 5,
+        "factor_le_1_01": 4,
+        "factor_le_1_10": 4,
+        "closed": 4,
+        "median_factor": 1.0,
+        "p90_factor": 1.0,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 3,
+        "median_lp_iterations": 5314
+      },
+      "g2_b2s": {
+        "records": 5,
+        "factor_le_1_01": 3,
+        "factor_le_1_10": 3,
+        "closed": 3,
+        "median_factor": 1.0,
+        "p90_factor": 2.3743207794838668,
+        "median_ub_log": 13.527319225032022,
+        "median_lb_log": 13.527319225032022,
+        "median_nodes": 1,
+        "median_lp_iterations": 806
+      }
+    }
+  }
+}

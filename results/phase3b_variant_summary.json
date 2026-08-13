@@ -1,0 +1,277 @@
+{
+  "config": {
+    "instances_per_variant": 175,
+    "node_limit": 50,
+    "variants": [
+      "b0",
+      "b1_compact",
+      "b2_metric"
+    ]
+  },
+  "overall": {
+    "b0": {
+      "instances": 175,
+      "optimal": 147,
+      "node_limited": 28,
+      "median_root_lb": 4.394449154672439,
+      "median_root_factor": 57.766822420804395,
+      "median_nodes": 3.0,
+      "median_lp_variables": 50.0,
+      "median_lp_constraints": 104.0,
+      "median_lp_time_s": 0.015076700132340193,
+      "median_solve_time_s": 0.015198999899439514
+    },
+    "b1_compact": {
+      "instances": 175,
+      "optimal": 146,
+      "node_limited": 29,
+      "median_root_lb": 4.394449154672439,
+      "median_root_factor": 57.766822420804395,
+      "median_nodes": 4.0,
+      "median_lp_variables": 37.0,
+      "median_lp_constraints": 44.0,
+      "median_lp_time_s": 0.015666300198063254,
+      "median_solve_time_s": 0.01579089998267591
+    },
+    "b2_metric": {
+      "instances": 175,
+      "optimal": 175,
+      "node_limited": 0,
+      "median_root_lb": 8.788898309344878,
+      "median_root_factor": 1.0,
+      "median_nodes": 1.0,
+      "median_lp_variables": 105.0,
+      "median_lp_constraints": 1823.0,
+      "median_lp_time_s": 0.020893899956718087,
+      "median_solve_time_s": 0.020956799970008433
+    }
+  },
+  "b0_primal_dual_completed": {
+    "instances": 147,
+    "median_primal_factor": 1.0,
+    "median_dual_factor": 43.23587991005785,
+    "max_factor_decomposition_relative_error": 3.774758283725532e-15
+  },
+  "by_family": {
+    "random": {
+      "b0_primal_dual_completed": {
+        "instances": 25,
+        "median_primal_factor": 43046720.999999605,
+        "median_dual_factor": 2558.6386875032545,
+        "max_factor_decomposition_relative_error": 3.774758283725532e-15
+      },
+      "b0": {
+        "instances": 35,
+        "optimal": 25,
+        "node_limited": 10,
+        "median_root_lb": 4.625735952286778,
+        "median_root_factor": 3052620608339.343,
+        "median_nodes": 20.0,
+        "median_lp_variables": 51.0,
+        "median_lp_constraints": 110.0,
+        "median_lp_time_s": 0.047974299755878747,
+        "median_solve_time_s": 0.04827120003756136
+      },
+      "b1_compact": {
+        "instances": 35,
+        "optimal": 25,
+        "node_limited": 10,
+        "median_root_lb": 4.625735952286778,
+        "median_root_factor": 3052620608339.343,
+        "median_nodes": 21.0,
+        "median_lp_variables": 37.0,
+        "median_lp_constraints": 48.0,
+        "median_lp_time_s": 0.04257399996276945,
+        "median_solve_time_s": 0.04295609996188432
+      },
+      "b2_metric": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 13.183347464017318,
+        "median_root_factor": 43046721.000000216,
+        "median_nodes": 1.0,
+        "median_lp_variables": 105.0,
+        "median_lp_constraints": 1823.0,
+        "median_lp_time_s": 0.020893899956718087,
+        "median_solve_time_s": 0.020956799970008433
+      }
+    },
+    "nearest_neighbor": {
+      "b0_primal_dual_completed": {
+        "instances": 35,
+        "median_primal_factor": 1.0,
+        "median_dual_factor": 2.655264456214381,
+        "max_factor_decomposition_relative_error": 0.0
+      },
+      "b0": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 1.2817143367794612,
+        "median_root_factor": 2.655264456214381,
+        "median_nodes": 2.0,
+        "median_lp_variables": 41.0,
+        "median_lp_constraints": 70.0,
+        "median_lp_time_s": 0.01035289978608489,
+        "median_solve_time_s": 0.010433799936436117
+      },
+      "b1_compact": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 1.2817143367794614,
+        "median_root_factor": 2.6552644562143817,
+        "median_nodes": 3.0,
+        "median_lp_variables": 27.0,
+        "median_lp_constraints": 28.0,
+        "median_lp_time_s": 0.012644500122405589,
+        "median_solve_time_s": 0.012752000009641051
+      },
+      "b2_metric": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 2.1972245773362196,
+        "median_root_factor": 1.0,
+        "median_nodes": 1.0,
+        "median_lp_variables": 105.0,
+        "median_lp_constraints": 1823.0,
+        "median_lp_time_s": 0.025240899994969368,
+        "median_solve_time_s": 0.025296500069089234
+      }
+    },
+    "qaoa_ring": {
+      "b0_primal_dual_completed": {
+        "instances": 35,
+        "median_primal_factor": 1.0,
+        "median_dual_factor": 57.766822420804395,
+        "max_factor_decomposition_relative_error": 0.0
+      },
+      "b0": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 4.732483705031859,
+        "median_root_factor": 57.766822420804395,
+        "median_nodes": 2.0,
+        "median_lp_variables": 42.0,
+        "median_lp_constraints": 74.0,
+        "median_lp_time_s": 0.01237290003336966,
+        "median_solve_time_s": 0.01247049996163696
+      },
+      "b1_compact": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 4.732483705031859,
+        "median_root_factor": 57.766822420804395,
+        "median_nodes": 3.0,
+        "median_lp_variables": 28.0,
+        "median_lp_constraints": 30.0,
+        "median_lp_time_s": 0.011924999998882413,
+        "median_solve_time_s": 0.012018600013107061
+      },
+      "b2_metric": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 8.788898309344878,
+        "median_root_factor": 1.0,
+        "median_nodes": 1.0,
+        "median_lp_variables": 105.0,
+        "median_lp_constraints": 1823.0,
+        "median_lp_time_s": 0.018466299981810153,
+        "median_solve_time_s": 0.018516700016334653
+      }
+    },
+    "dense": {
+      "b0_primal_dual_completed": {
+        "instances": 17,
+        "median_primal_factor": 43046721.000000365,
+        "median_dual_factor": 494549230.49282336,
+        "max_factor_decomposition_relative_error": 3.552713678800501e-15
+      },
+      "b0": {
+        "instances": 35,
+        "optimal": 17,
+        "node_limited": 18,
+        "median_root_lb": 7.533341408009894,
+        "median_root_factor": 2.8305220248897384e+19,
+        "median_nodes": 50.0,
+        "median_lp_variables": 70.0,
+        "median_lp_constraints": 186.0,
+        "median_lp_time_s": 0.1435353996930644,
+        "median_solve_time_s": 0.1443431000225246
+      },
+      "b1_compact": {
+        "instances": 35,
+        "optimal": 16,
+        "node_limited": 19,
+        "median_root_lb": 7.533341408009897,
+        "median_root_factor": 2.830522024889759e+19,
+        "median_nodes": 50.0,
+        "median_lp_variables": 56.0,
+        "median_lp_constraints": 86.0,
+        "median_lp_time_s": 0.11677119950763881,
+        "median_solve_time_s": 0.11756020004395396
+      },
+      "b2_metric": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 30.761144082707066,
+        "median_root_factor": 80645621.37404193,
+        "median_nodes": 1.0,
+        "median_lp_variables": 105.0,
+        "median_lp_constraints": 1823.0,
+        "median_lp_time_s": 0.023700400022789836,
+        "median_solve_time_s": 0.023786599980667233
+      }
+    },
+    "community": {
+      "b0_primal_dual_completed": {
+        "instances": 35,
+        "median_primal_factor": 1.0,
+        "median_dual_factor": 1.0,
+        "max_factor_decomposition_relative_error": 0.0
+      },
+      "b0": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 4.394449154672439,
+        "median_root_factor": 1.0,
+        "median_nodes": 1.0,
+        "median_lp_variables": 52.0,
+        "median_lp_constraints": 114.0,
+        "median_lp_time_s": 0.0033822000259533525,
+        "median_solve_time_s": 0.003465499961748719
+      },
+      "b1_compact": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 4.394449154672439,
+        "median_root_factor": 1.0,
+        "median_nodes": 1.0,
+        "median_lp_variables": 38.0,
+        "median_lp_constraints": 50.0,
+        "median_lp_time_s": 0.0023870000150054693,
+        "median_solve_time_s": 0.0024654000299051404
+      },
+      "b2_metric": {
+        "instances": 35,
+        "optimal": 35,
+        "node_limited": 0,
+        "median_root_lb": 4.394449154672439,
+        "median_root_factor": 1.0,
+        "median_nodes": 1.0,
+        "median_lp_variables": 105.0,
+        "median_lp_constraints": 1823.0,
+        "median_lp_time_s": 0.014341800007969141,
+        "median_solve_time_s": 0.014398800092749298
+      }
+    }
+  }
+}

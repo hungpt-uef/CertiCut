@@ -1,0 +1,36 @@
+{
+  "experiment": "E8_finite_shot_equal_budget_reversal",
+  "frozen_at": "2026-08-12T14:53:00+07:00",
+  "status": "frozen_before_full_execution",
+  "question": "Under an equal finite execution budget, does lower modeled independent-QPD overhead correspond to lower empirical estimator error?",
+  "input": {
+    "e5_raw": "results/phase11_3_heterogeneous_qpd_nonzero_companion.jsonl",
+    "e5_raw_sha256": "37785F9DB75B9A150E14618A178D52376B92DFFE87024B32BF1218C58B4DEB1E",
+    "selection": [
+      {"case_id": "moderate_reversal", "family": "dense_shuffled", "num_qubits": 12, "seed": 2, "expected_regret_factor": 3.2671197885950507},
+      {"case_id": "strong_reversal", "family": "community_matching", "num_qubits": 12, "seed": 3, "expected_regret_factor": 719.6551181206609},
+      {"case_id": "no_reversal_control", "family": "ring_even_odd", "num_qubits": 12, "seed": 0, "expected_regret_factor": 1.0}
+    ]
+  },
+  "scope": {"partition": "static exact-balanced logical K=2", "cut_type": "gate-only", "qpd_model": "independent per-gate", "backend": "Qiskit Aer ideal simulator", "hardware_noise": "not modeled", "representation": "fixed generated instruction representation"},
+  "execution": {
+    "total_shots_per_seed": 4096,
+    "qpd_samples_per_seed": 16,
+    "seeds": {"start": 0, "stop_exclusive": 50},
+    "observables": ["ZZZZZZZZZZZZ", "XIIIIIIIIIII"],
+    "budget_policy": "Each plan receives exactly 4096 circuit shots per seed, distributed deterministically across that plan's generated fragment experiments.",
+    "randomness": "Each seed controls both Addon Cutting QPD sampling and Aer measurement sampling. Plans use the same seed list.",
+    "negative_control": "Count- and QPD-optimal plans coincide; equal output distributions are expected under fixed deterministic seeds.",
+    "no_protocol_changes_after_outcome_inspection": true
+  },
+  "planned_metrics": ["mean estimator", "bias", "empirical variance", "RMSE", "median absolute error", "paired bootstrap 95 percent interval for RMSE(count)-RMSE(QPD)", "actual shots", "generated subexperiment counts"],
+  "bootstrap": {"seed": 20260812, "replicates": 10000, "interval": "percentile 2.5--97.5"},
+  "software": {"python": "3.11.9", "qiskit": "2.5.1", "qiskit_addon_cutting": "0.10.0", "qiskit_aer": "0.17.2"},
+  "implementation_sha256": {
+    "scripts/run_phase12_finite_shot_reversals.py": "C03D85214C1FC9D3C7009F7B70287A94B7C8EF14277AC4EB7939BAA3705A6270",
+    "scripts/summarize_phase12_e8.py": "05418CB3AE88DC5BA26C807A50C8CD172911834B178A38F98CFBF949EA0CF91E",
+    "certicut/qiskit_bridge/operational.py": "6DD71AD82D83F2796F715AA1F07AAB55882F03280C9C561811ED960A9D7BAEF7",
+    "certicut/circuits/benchmarks.py": "C5A1BBD2653D6A69035B53777A56575564A4431C06CED625E91FCD07185E256D",
+    "requirements.txt": "6592E78CA78FF6C4CB7981554E092ADAA85B04F2EAE9133708AB0B974C8B7E9A"
+  }
+}

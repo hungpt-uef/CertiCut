@@ -1,0 +1,69 @@
+{
+  "experiment": "E5_heterogeneous_qpd_nonzero_companion",
+  "records": 120,
+  "target_records": 120,
+  "cost_model": "qiskit_qpd_0.10.0_independent",
+  "status_counts": {
+    "optimal": 120
+  },
+  "strict_reversals": 16,
+  "strict_reversal_fraction": 0.13333333333333333,
+  "count_optimum_qpd_regret_definition": "min_{P: count(P)=count*} J(P) - min_P J(P)",
+  "regret_factor": {
+    "median": 1.0,
+    "p90": 1.7469626867625558,
+    "maximum": 181.11466979677732
+  },
+  "strict_regret_factor": {
+    "median": 5.298825618614838,
+    "p90": 27.466907660465896,
+    "maximum": 181.11466979677732
+  },
+  "count_delta": {
+    "positive": 16,
+    "zero": 0,
+    "median": 1.0,
+    "maximum": 3.0
+  },
+  "gate_delta_totals": {
+    "cx": 11,
+    "cz": -1,
+    "iswap": -28,
+    "rzz(0.392699081699)": 17,
+    "rzz(0.785398163397)": 16,
+    "rzz(1.57079632679)": 4
+  },
+  "root_closed": 90,
+  "by_family": {
+    "community_matching": {
+      "records": 24,
+      "strict_reversals": 2,
+      "median_factor": 1.0,
+      "p90_factor": 1.0
+    },
+    "dense_shuffled": {
+      "records": 24,
+      "strict_reversals": 12,
+      "median_factor": 1.3734813433812718,
+      "p90_factor": 12.815416881107733
+    },
+    "random_matching": {
+      "records": 24,
+      "strict_reversals": 1,
+      "median_factor": 1.0,
+      "p90_factor": 1.0
+    },
+    "ring_even_odd": {
+      "records": 24,
+      "strict_reversals": 0,
+      "median_factor": 1.0,
+      "p90_factor": 1.0
+    },
+    "weighted_repeat": {
+      "records": 24,
+      "strict_reversals": 1,
+      "median_factor": 1.0,
+      "p90_factor": 1.0
+    }
+  }
+}

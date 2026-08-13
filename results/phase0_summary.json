@@ -1,0 +1,40 @@
+{
+  "manual_cnot_cuts": [
+    {
+      "cut_count": 1,
+      "qpd_overhead": 9.0,
+      "expected_overhead": 9.0,
+      "uncut_z_expectation": 0.9999999999999998,
+      "reconstructed_z_expectation": 0.9999999999999996,
+      "subexperiment_count_per_fragment": 6
+    },
+    {
+      "cut_count": 2,
+      "qpd_overhead": 81.0,
+      "expected_overhead": 81.0,
+      "uncut_z_expectation": 0.9999999999999996,
+      "reconstructed_z_expectation": 0.9999999999999988,
+      "subexperiment_count_per_fragment": 36
+    }
+  ],
+  "six_qubit_toy": {
+    "fragments": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        3,
+        4,
+        5
+      ]
+    ],
+    "cut_gate_indices": [
+      4,
+      5
+    ],
+    "gamma": 81.0,
+    "log_cost": 4.394449154672439
+  }
+}

@@ -1,0 +1,136 @@
+[
+  {
+    "circuit": "native_qaoa_rzz_n6",
+    "cost_model": "qiskit_qpd_0.10_independent",
+    "solution": {
+      "status": "optimal",
+      "num_fragments": 2,
+      "qmax": 3,
+      "exact_num_fragments": true,
+      "partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "fragments": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "cut_edges": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "cut_instruction_indices": [
+        13,
+        16
+      ],
+      "objective_log_cost": 3.5254943480781726,
+      "gamma": 33.97056274847716
+    },
+    "validation": {
+      "partition": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "cut_instruction_indices": [
+        13,
+        16
+      ],
+      "optimizer_log_cost": 3.5254943480781726,
+      "qpd_log_overhead": 3.5254943480781726,
+      "qpd_overhead": 33.97056274847716,
+      "uncut_expectation": 1.3877787807814457e-17,
+      "reconstructed_expectation": 0.0,
+      "absolute_error": 1.3877787807814457e-17,
+      "fragment_experiment_counts": {
+        "0": 36,
+        "1": 36
+      }
+    }
+  },
+  {
+    "circuit": "vqe_cx_n6",
+    "cost_model": "qiskit_qpd_0.10_independent",
+    "solution": {
+      "status": "optimal",
+      "num_fragments": 2,
+      "qmax": 3,
+      "exact_num_fragments": true,
+      "partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "fragments": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "cut_edges": [
+        [
+          2,
+          3
+        ]
+      ],
+      "cut_instruction_indices": [
+        8
+      ],
+      "objective_log_cost": 2.1972245773362196,
+      "gamma": 9.000000000000002
+    },
+    "validation": {
+      "partition": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "cut_instruction_indices": [
+        8
+      ],
+      "optimizer_log_cost": 2.1972245773362196,
+      "qpd_log_overhead": 2.1972245773362196,
+      "qpd_overhead": 9.000000000000002,
+      "uncut_expectation": 0.1844516432458702,
+      "reconstructed_expectation": 0.18445164324587027,
+      "absolute_error": 5.551115123125783e-17,
+      "fragment_experiment_counts": {
+        "0": 6,
+        "1": 6
+      }
+    }
+  }
+]

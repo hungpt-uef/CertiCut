@@ -1,0 +1,171 @@
+========================================================================
+E12: Representation-Induced Optimal-Placement Regret
+========================================================================
+
+--- Tier 2: Algorithm-derived MQT families ---
+  [qaoa n=4] unitary check: {'unitary_equivalence': True, 'max_deviation': 8.326672684688663e-17, 'global_phase': 1.0000000000000016}
+  [qaoa n=4 K=2] J_cx*=8.7889 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=1.0000 kappa(b->a)=2.0000 overlap=2/2x2 m_a=8.7889 m_b=4.3944 delta_l1=8.7889 parts=3 t=0.00s no reversal
+  [qaoa n=6] unitary check: {'unitary_equivalence': True, 'max_deviation': 1.3322676295501878e-15, 'global_phase': 1.0000000000000027}
+  [qaoa n=6 K=2] J_cx*=8.7889 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=1.1667 kappa(b->a)=2.3333 overlap=1/1x1 m_a=26.3667 m_b=13.1833 delta_l1=30.7611 parts=10 t=0.00s no reversal
+  [qaoa n=6 K=3] J_cx*=26.3667 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=3.5000 kappa(b->a)=7.0000 overlap=6/6x6 m_a=8.7889 m_b=4.3944 delta_l1=30.7611 parts=75 t=0.00s no reversal
+  [qaoa n=8] unitary check: {'unitary_equivalence': True, 'max_deviation': 6.661338147750939e-16, 'global_phase': 1.0000000000000007}
+  [qaoa n=8 K=2] J_cx*=52.7334 J_nat*=26.3667 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=7.0000 kappa(b->a)=14.0000 overlap=5/5x5 m_a=8.7889 m_b=4.3944 delta_l1=61.5223 parts=35 t=0.00s no reversal
+  [qaoa n=8 K=3] J_cx*=61.5223 J_nat*=30.7611 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=7.0000 kappa(b->a)=14.0000 overlap=13/13x13 m_a=8.7889 m_b=4.3944 delta_l1=61.5223 parts=770 t=0.01s no reversal
+  [qaoa n=10] unitary check: {'unitary_equivalence': True, 'max_deviation': 6.661338147750939e-16, 'global_phase': 1.0000000000000004}
+  [qaoa n=10 K=2] J_cx*=87.8890 J_nat*=43.9445 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=13.0000 kappa(b->a)=26.0000 overlap=2/2x2 m_a=8.7889 m_b=4.3944 delta_l1=114.2557 parts=126 t=0.01s no reversal
+  [qft n=4] unitary check: {'unitary_equivalence': True, 'max_deviation': 7.054771110717156e-16, 'global_phase': 0.9999999999999999}
+  [qft n=4 K=2] J_cx*=17.5778 J_nat*=5.7989 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=1.7860 kappa(b->a)=3.5250 overlap=1/1x1 m_a=13.1833 m_b=6.6798 delta_l1=23.5459 parts=3 t=0.00s no reversal
+  [qft n=6] unitary check: {'unitary_equivalence': True, 'max_deviation': 1.2925476458874946e-15, 'global_phase': 1.0}
+  [qft n=6 K=2] J_cx*=46.1417 J_nat*=13.1621 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=4.3825 kappa(b->a)=91.3828 overlap=2/6x2 m_a=13.1833 m_b=0.6322 delta_l1=57.7758 parts=10 t=0.01s no reversal
+  [qft n=6 K=3] J_cx*=52.7334 J_nat*=13.6316 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=26.2949 kappa(b->a)=34.9897 overlap=1/1x1 m_a=2.1972 m_b=1.6512 delta_l1=57.7758 parts=75 t=0.01s no reversal
+  [qft n=8] unitary check: {'unitary_equivalence': True, 'max_deviation': 1.5552881411233393e-15, 'global_phase': 1.0000000000000002}
+  [qft n=8 K=2] J_cx*=70.3112 J_nat*=12.5144 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=8.2799 kappa(b->a)=33.6822 overlap=1/3x1 m_a=13.1833 m_b=3.2408 delta_l1=109.1562 parts=35 t=0.01s no reversal
+  [qft n=8 K=3] J_cx*=87.8890 J_nat*=16.2315 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=49.6791 kappa(b->a)=70.0892 overlap=1/6x1 m_a=2.1972 m_b=1.5574 delta_l1=109.1562 parts=770 t=0.01s no reversal
+  [qft n=10] unitary check: {'unitary_equivalence': True, 'max_deviation': 1.1058410239771626e-15, 'global_phase': 1.0}
+  [qft n=10 K=2] J_cx*=116.4529 J_nat*=18.3208 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=13.5022 kappa(b->a)=87.3122 overlap=2/30x2 m_a=13.1833 m_b=2.0387 delta_l1=178.0048 parts=126 t=0.01s no reversal
+  [qpeexact n=4] unitary check: {'unitary_equivalence': True, 'max_deviation': 2.615845514788815e-16, 'global_phase': 1.0000000000000004}
+  [qpeexact n=4 K=2] J_cx*=13.1833 J_nat*=5.7227 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=6.1069 kappa(b->a)=12.5572 overlap=1/1x1 m_a=2.1972 m_b=1.0686 delta_l1=13.4182 parts=3 t=0.00s no reversal
+  [qpeexact n=6] unitary check: {'unitary_equivalence': True, 'max_deviation': 6.758026608159651e-16, 'global_phase': 1.0000000000000009}
+  [qpeexact n=6 K=2] J_cx*=35.1556 J_nat*=12.2134 R(cx->nat)=1.0937 R(nat->cx)=81.0000 kappa(a->b)=10.8130 kappa(b->a)=530.5716 overlap=0/1x1 m_a=4.3944 m_b=0.0896 delta_l1=47.5170 parts=10 t=0.00s REVERSAL(a->b R=1.0937) REVERSAL(b->a R=81.0000)
+  [qpeexact n=6 K=3] J_cx*=43.9445 J_nat*=14.3848 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=10.8130 kappa(b->a)=248.0621 overlap=1/3x1 m_a=4.3944 m_b=0.1916 delta_l1=47.5170 parts=75 t=0.00s no reversal
+  [qpeexact n=8] unitary check: {'unitary_equivalence': True, 'max_deviation': 1.5604456838505347e-15, 'global_phase': 1.000000000000002}
+  [qpeexact n=8 K=2] J_cx*=70.3112 J_nat*=18.6928 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=14.8925 kappa(b->a)=1072.5416 overlap=1/3x1 m_a=6.5917 m_b=0.0915 delta_l1=98.1666 parts=35 t=0.01s no reversal
+  [qpeexact n=8 K=3] J_cx*=83.4945 J_nat*=22.1819 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=22.3388 kappa(b->a)=195.4336 overlap=1/6x1 m_a=4.3944 m_b=0.5023 delta_l1=98.1666 parts=770 t=0.01s no reversal
+  [qpeexact n=10] unitary check: {'unitary_equivalence': True, 'max_deviation': 3.1092593595019602e-15, 'global_phase': 1.0000000000000029}
+  [qpeexact n=10 K=2] J_cx*=101.0723 J_nat*=21.3828 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=36.0143 kappa(b->a)=189.5647 overlap=1/1x1 m_a=4.3944 m_b=0.8349 delta_l1=158.2630 parts=126 t=0.01s no reversal
+  [bv n=4] unitary check: {'unitary_equivalence': True, 'max_deviation': 0.0, 'global_phase': 1.0000000000000004}
+  [bv n=4 K=2] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=3 t=0.00s no reversal
+  [bv n=6] unitary check: {'unitary_equivalence': True, 'max_deviation': 0.0, 'global_phase': 1.0000000000000004}
+  [bv n=6 K=2] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=10 t=0.00s no reversal
+  [bv n=6 K=3] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=3/3x3 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=75 t=0.00s no reversal
+  [bv n=8] unitary check: {'unitary_equivalence': True, 'max_deviation': 0.0, 'global_phase': 0.9999999999999991}
+  [bv n=8 K=2] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=35 t=0.00s no reversal
+  [bv n=8 K=3] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=7/7x7 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=770 t=0.00s no reversal
+  [bv n=10] unitary check: {'unitary_equivalence': True, 'max_deviation': 0.0, 'global_phase': 0.9999999999999988}
+  [bv n=10 K=2] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=126 t=0.00s no reversal
+  [grover n=4] unitary check: {'unitary_equivalence': True, 'max_deviation': 9.10399108240981e-16, 'global_phase': 0.9999999999999973}
+  [grover n=4 K=2] J_cx*=70.3112 J_nat*=70.3112 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.7413 kappa(b->a)=2.8659 overlap=1/1x1 m_a=8.7889 m_b=2.2734 delta_l1=6.5155 parts=3 t=0.01s no reversal
+  [grover n=6] unitary check: {'unitary_equivalence': True, 'max_deviation': 9.730121605621502e-15, 'global_phase': 0.9999999999999755}
+  [grover n=6 K=2] J_cx*=562.4895 J_nat*=493.0488 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=18.3335 kappa(b->a)=90.5208 overlap=1/3x1 m_a=17.5778 m_b=3.5601 delta_l1=322.2630 parts=10 t=0.05s no reversal
+  [grover n=6 K=3] J_cx*=650.3785 J_nat*=563.3600 R(cx->nat)=3433683820293166589019437400064.0000 R(nat->cx)=43046721.0000 kappa(a->b)=18.3335 kappa(b->a)=45.8026 overlap=0/1x1 m_a=17.5778 m_b=7.0359 delta_l1=322.2630 parts=75 t=0.05s REVERSAL(a->b R=3433683820293166589019437400064.0000) REVERSAL(b->a R=43046721.0000)
+  [grover n=8] unitary check: {'unitary_equivalence': True, 'max_deviation': 3.2320138855834895e-14, 'global_phase': 0.9999999999998892}
+  [grover n=8 K=2] J_cx*=2109.3356 J_nat*=2671.8251 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=14.7661 kappa(b->a)=7.3831 overlap=1/1x1 m_a=140.6224 m_b=281.2447 delta_l1=2076.4445 parts=35 t=0.25s no reversal
+  [grover n=8 K=3] J_cx*=2460.8915 J_nat*=2953.0698 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=29.5322 kappa(b->a)=14.7661 overlap=1/2x1 m_a=70.3112 m_b=140.6224 delta_l1=2076.4445 parts=770 t=0.27s no reversal
+  [grover n=10] unitary check: {'unitary_equivalence': True, 'max_deviation': 1.556047718313885e-13, 'global_phase': 0.9999999999992719}
+  [grover n=10 K=2] error: math range error
+  [vqe_real_amp n=4] unitary check: {'unitary_equivalence': True, 'max_deviation': 7.096894612394447e-16, 'global_phase': 1.0}
+  [vqe_real_amp n=4 K=2] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=6.5917 m_b=6.5917 delta_l1=0.0000 parts=3 t=0.00s no reversal
+  [vqe_real_amp n=6] unitary check: {'unitary_equivalence': True, 'max_deviation': 8.123482504797677e-16, 'global_phase': 0.9999999999999999}
+  [vqe_real_amp n=6 K=2] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=6.5917 m_b=6.5917 delta_l1=0.0000 parts=10 t=0.00s no reversal
+  [vqe_real_amp n=6 K=3] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=7/7x7 m_a=6.5917 m_b=6.5917 delta_l1=0.0000 parts=75 t=0.00s no reversal
+  [vqe_real_amp n=8] unitary check: {'unitary_equivalence': True, 'max_deviation': 1.252873750130995e-15, 'global_phase': 0.9999999999999999}
+  [vqe_real_amp n=8 K=2] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=6.5917 m_b=6.5917 delta_l1=0.0000 parts=35 t=0.00s no reversal
+  [vqe_real_amp n=8 K=3] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=12/12x12 m_a=6.5917 m_b=6.5917 delta_l1=0.0000 parts=770 t=0.00s no reversal
+  [vqe_real_amp n=10] unitary check: {'unitary_equivalence': True, 'max_deviation': 1.6629435214989421e-15, 'global_phase': 1.0}
+  [vqe_real_amp n=10 K=2] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=6.5917 m_b=6.5917 delta_l1=0.0000 parts=126 t=0.00s no reversal
+  [ghz n=4] unitary check: {'unitary_equivalence': True, 'max_deviation': 4.266421588589642e-17, 'global_phase': 1.0000000000000002}
+  [ghz n=4 K=2] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=3 t=0.00s no reversal
+  [ghz n=6] unitary check: {'unitary_equivalence': True, 'max_deviation': 4.266421588589642e-17, 'global_phase': 1.0000000000000002}
+  [ghz n=6 K=2] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=10 t=0.00s no reversal
+  [ghz n=6 K=3] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=7/7x7 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=75 t=0.00s no reversal
+  [ghz n=8] unitary check: {'unitary_equivalence': True, 'max_deviation': 0.0, 'global_phase': 1.0000000000000002}
+  [ghz n=8 K=2] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=35 t=0.00s no reversal
+  [ghz n=8 K=3] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=12/12x12 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=770 t=0.00s no reversal
+  [ghz n=10] unitary check: {'unitary_equivalence': True, 'max_deviation': 0.0, 'global_phase': 1.0000000000000002}
+  [ghz n=10 K=2] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=1/1x1 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=126 t=0.00s no reversal
+  [dj n=4] unitary check: {'unitary_equivalence': True, 'max_deviation': 4.2664215885896607e-17, 'global_phase': 1.0000000000000002}
+  [dj n=4 K=2] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=3/3x3 m_a=inf m_b=inf delta_l1=0.0000 parts=3 t=0.00s no reversal
+  [dj n=6] unitary check: {'unitary_equivalence': True, 'max_deviation': 2.237114317075708e-17, 'global_phase': 0.9999999999999998}
+  [dj n=6 K=2] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=10/10x10 m_a=inf m_b=inf delta_l1=0.0000 parts=10 t=0.00s no reversal
+  [dj n=6 K=3] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=30/30x30 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=75 t=0.00s no reversal
+  [dj n=8] unitary check: {'unitary_equivalence': True, 'max_deviation': 0.0, 'global_phase': 1.0000000000000002}
+  [dj n=8 K=2] J_cx*=8.7889 J_nat*=8.7889 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=35/35x35 m_a=inf m_b=inf delta_l1=0.0000 parts=35 t=0.00s no reversal
+  [dj n=8 K=3] J_cx*=8.7889 J_nat*=8.7889 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=245/245x245 m_a=2.1972 m_b=2.1972 delta_l1=0.0000 parts=770 t=0.05s no reversal
+  [dj n=10] unitary check: {'unitary_equivalence': True, 'max_deviation': 2.237114317075639e-17, 'global_phase': 0.9999999999999998}
+  [dj n=10 K=2] J_cx*=10.9861 J_nat*=10.9861 R(cx->nat)=1.0000 R(nat->cx)=1.0000 kappa(a->b)=0.0000 kappa(b->a)=0.0000 overlap=126/126x126 m_a=inf m_b=inf delta_l1=0.0000 parts=126 t=0.01s no reversal
+
+--- Tier 3: Medium instances (tie-safe two-stage SCIP) ---
+  [qaoa n=12 K=2 SCIP-TS] J_cx*=114.2557 J_nat*=57.1278 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=158.2002 disagree=0 t=0.75s no reversal [tau-stable]
+  [qaoa n=12 K=3 SCIP-TS] J_cx*=166.9891 J_nat*=83.4945 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=158.2002 disagree=0 t=2.07s no reversal [tau-stable]
+  [qaoa n=14 K=2 SCIP-TS] J_cx*=193.3558 J_nat*=96.6779 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=237.3003 disagree=0 t=2.29s no reversal [tau-stable]
+  [qaoa n=14 K=3 SCIP-TS] J_cx*=272.4558 J_nat*=136.2279 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=237.3003 disagree=0 t=8.97s no reversal [tau-stable]
+  [qaoa n=16 K=2 SCIP-TS] J_cx*=158.2002 J_nat*=79.1001 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=250.4836 disagree=0 t=1.82s no reversal [tau-stable]
+  [qaoa n=16 K=3 SCIP-TS] J_cx*=254.8781 J_nat*=127.4390 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=250.4836 disagree=0 t=6.47s no reversal [tau-stable]
+  [qft n=12 K=2 SCIP-TS] J_cx*=158.2002 J_nat*=16.1148 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=264.4037 disagree=0 t=1.21s no reversal [tau-stable]
+  [qft n=12 K=3 SCIP-TS] J_cx*=210.9336 J_nat*=26.1026 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=264.4037 disagree=8 t=3.77s no reversal [tau-stable]
+  [qft n=14 K=2 SCIP-TS] J_cx*=221.9197 J_nat*=20.9092 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=368.3735 disagree=0 t=2.64s no reversal [tau-stable]
+  [qft n=14 K=3 SCIP-TS] J_cx*=292.2309 J_nat*=31.9640 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=368.3735 disagree=0 t=11.27s no reversal [tau-stable]
+  [qft n=16 K=2 SCIP-TS] J_cx*=281.2447 J_nat*=17.8414 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=489.9194 disagree=0 t=5.24s no reversal [tau-stable]
+  [qft n=16 K=3 SCIP-TS] J_cx*=380.1199 J_nat*=33.6828 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=489.9194 disagree=0 t=21.63s no reversal [tau-stable]
+  [qpeexact n=12 K=2 SCIP-TS] J_cx*=153.8057 J_nat*=25.0300 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=243.7729 disagree=0 t=2.00s no reversal [tau-stable]
+  [qpeexact n=12 K=3 SCIP-TS] J_cx*=206.5391 J_nat*=37.4927 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=243.7729 disagree=8 t=5.10s no reversal [tau-stable]
+  [qpeexact n=14 K=2 SCIP-TS] J_cx*=202.1447 J_nat*=28.1900 R(cx->nat)=4.0293 R(nat->cx)=729.0000 delta_l1=338.9561 disagree=2 t=3.26s REVERSAL(a->b R=4.0293) REVERSAL(b->a R=729.0000) [tau-stable]
+  [qpeexact n=14 K=3 SCIP-TS] J_cx*=272.4558 J_nat*=38.2927 R(cx->nat)=27.4809 R(nat->cx)=81.0000 delta_l1=338.9561 disagree=6 t=13.29s REVERSAL(a->b R=27.4809) REVERSAL(b->a R=81.0000) [tau-stable]
+  [qpeexact n=16 K=2 SCIP-TS] J_cx*=281.2447 J_nat*=32.7558 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=465.0665 disagree=0 t=6.15s no reversal [tau-stable]
+  [qpeexact n=16 K=3 SCIP-TS] J_cx*=373.5282 J_nat*=48.5070 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=465.0665 disagree=0 t=27.94s no reversal [tau-stable]
+  [bv n=12 K=2 SCIP-TS] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [bv n=12 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.02s no reversal [tau-stable]
+  [bv n=14 K=2 SCIP-TS] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [bv n=14 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.05s no reversal [tau-stable]
+  [bv n=16 K=2 SCIP-TS] J_cx*=0.0000 J_nat*=0.0000 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.01s no reversal [tau-stable]
+  [bv n=16 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.05s no reversal [tau-stable]
+  [grover n=12 K=2 SCIP-TS] J_cx*=24301.3038 J_nat*=35682.9271 R(cx->nat)=inf R(nat->cx)=6265787483280030913907012680577566517431563881527386376994616770560.0000 delta_l1=39836.3242 disagree=6 t=1.98s REVERSAL(a->b R=inf) REVERSAL(b->a R=6265787483280030913907012680577566517431563881527386376994616770560.0000) [tau-stable]
+  [grover n=12 K=3 SCIP-TS] J_cx*=34760.0928 J_nat*=53525.0333 R(cx->nat)=inf R(nat->cx)=inf delta_l1=39836.3242 disagree=3 t=3.75s REVERSAL(a->b R=inf) REVERSAL(b->a R=inf) [tau-stable]
+  [grover n=14 K=2 SCIP-TS] J_cx*=66457.2546 J_nat*=111074.0968 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=128234.7473 disagree=0 t=5.53s no reversal [tau-stable]
+  [grover n=14 K=3 SCIP-TS] J_cx*=89233.6845 J_nat*=138530.6152 R(cx->nat)=inf R(nat->cx)=inf delta_l1=128234.7473 disagree=10 t=8.56s REVERSAL(a->b R=inf) REVERSAL(b->a R=inf) [tau-stable]
+  [grover n=16 K=2 SCIP-TS] J_cx*=162243.0628 J_nat*=263332.9711 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=371287.1724 disagree=0 t=14.61s no reversal [tau-stable]
+  [grover n=16 K=3 SCIP-TS] J_cx*=240244.5353 J_nat*=394375.4449 R(cx->nat)=inf R(nat->cx)=inf delta_l1=371287.1724 disagree=12 t=20.19s REVERSAL(a->b R=inf) REVERSAL(b->a R=inf) [tau-stable]
+  [vqe_real_amp n=12 K=2 SCIP-TS] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.06s no reversal [tau-stable]
+  [vqe_real_amp n=12 K=3 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.21s no reversal [tau-stable]
+  [vqe_real_amp n=14 K=2 SCIP-TS] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.06s no reversal [tau-stable]
+  [vqe_real_amp n=14 K=3 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.28s no reversal [tau-stable]
+  [vqe_real_amp n=16 K=2 SCIP-TS] J_cx*=6.5917 J_nat*=6.5917 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.07s no reversal [tau-stable]
+  [vqe_real_amp n=16 K=3 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.38s no reversal [tau-stable]
+  [ghz n=12 K=2 SCIP-TS] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.06s no reversal [tau-stable]
+  [ghz n=12 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.21s no reversal [tau-stable]
+  [ghz n=14 K=2 SCIP-TS] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.06s no reversal [tau-stable]
+  [ghz n=14 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.28s no reversal [tau-stable]
+  [ghz n=16 K=2 SCIP-TS] J_cx*=2.1972 J_nat*=2.1972 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.07s no reversal [tau-stable]
+  [ghz n=16 K=3 SCIP-TS] J_cx*=4.3944 J_nat*=4.3944 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.38s no reversal [tau-stable]
+  [dj n=12 K=2 SCIP-TS] J_cx*=13.1833 J_nat*=13.1833 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.38s no reversal [tau-stable]
+  [dj n=12 K=3 SCIP-TS] J_cx*=17.5778 J_nat*=17.5778 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.75s no reversal [tau-stable]
+  [dj n=14 K=2 SCIP-TS] J_cx*=15.3806 J_nat*=15.3806 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.42s no reversal [tau-stable]
+  [dj n=14 K=3 SCIP-TS] J_cx*=19.7750 J_nat*=19.7750 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.76s no reversal [tau-stable]
+  [dj n=16 K=2 SCIP-TS] J_cx*=17.5778 J_nat*=17.5778 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=0.48s no reversal [tau-stable]
+  [dj n=16 K=3 SCIP-TS] J_cx*=21.9722 J_nat*=21.9722 R(cx->nat)=1.0000 R(nat->cx)=1.0000 delta_l1=0.0000 disagree=0 t=1.03s no reversal [tau-stable]
+
+========================================================================
+SUMMARY
+========================================================================
+Total records: 96
+Valid (computed): 95 (exact: 47, scip: 48)
+Strict reversals (a->b): 8
+Strict reversals (b->a): 8
+Any reversal: 8/95
+Max R(cx->native): inf
+Max R(native->cx): inf
+
+Stability theorem verification (a->b direction):
+  kappa < 1 cases: 25
+  kappa < 1 AND R=1: 25 (theorem predicts all should be R=1)
+  [OK] Stability theorem CONFIRMED: all kappa<1 cases have R=1
+
+Per-family breakdown:
+  qaoa: 12 instances, 0 reversals, max R=1.0000
+  qft: 12 instances, 0 reversals, max R=1.0000
+  qpeexact: 12 instances, 3 reversals, max R=729.0000
+  bv: 12 instances, 0 reversals, max R=1.0000
+  grover: 11 instances, 5 reversals, max R=inf
+  vqe_real_amp: 12 instances, 0 reversals, max R=1.0000
+  ghz: 12 instances, 0 reversals, max R=1.0000
+  dj: 12 instances, 0 reversals, max R=1.0000
+
+Tau sensitivity (SCIP tier reversals):
+  qpeexact n=14 K=2: tau=1e-08: R_ab=4.0293 R_ba=729.0000 | tau=1e-09: R_ab=4.0293 R_ba=729.0000 | tau=1e-10: R_ab=4.0293 R_ba=729.0000
+  qpeexact n=14 K=3: tau=1e-08: R_ab=27.4809 R_ba=81.0000 | tau=1e-09: R_ab=27.4809 R_ba=81.0000 | tau=1e-10: R_ab=27.4809 R_ba=81.0000
+  grover n=12 K=2: tau=1e-08: R_ab=inf R_ba=6265787483280030913907012680577566517431563881527386376994616770560.0000 | tau=1e-09: R_ab=inf R_ba=6265787483280030913907012680577566517431563881527386376994616770560.0000 | tau=1e-10: R_ab=inf R_ba=6265787483280030913907012680577566517431563881527386376994616770560.0000
+  grover n=12 K=3: tau=1e-08: R_ab=inf R_ba=inf | tau=1e-09: R_ab=inf R_ba=inf | tau=1e-10: R_ab=inf R_ba=inf
+  grover n=14 K=3: tau=1e-08: R_ab=inf R_ba=inf | tau=1e-09: R_ab=inf R_ba=inf | tau=1e-10: R_ab=inf R_ba=inf
+  grover n=16 K=3: tau=1e-08: R_ab=inf R_ba=inf | tau=1e-09: R_ab=inf R_ba=inf | tau=1e-10: R_ab=inf R_ba=inf
+
+Results written to D:\GIT\certicut\results\e12_representation_placement_regret.json
