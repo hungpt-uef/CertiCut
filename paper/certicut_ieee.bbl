@@ -78,24 +78,6 @@ K.~Bestuzheva, P.~Beskrovny, L.~Eifler \emph{et~al.}, ``The {SCIP} optimization
   suite 8.0,'' \emph{ACM Transactions on Mathematical Software}, vol.~49,
   no.~2, pp. 11:1--11:47, 2023.
 
-\bibitem{farhi2014}
-\BIBentryALTinterwordspacing
-E.~Farhi, J.~Goldstone, and S.~Gutmann, ``A quantum approximate optimization
-  algorithm,'' \emph{arXiv preprint arXiv:1411.4028}, 2014. [Online].
-  Available: \url{https://arxiv.org/abs/1411.4028}
-\BIBentrySTDinterwordspacing
-
-\bibitem{peruzzo2014}
-A.~Peruzzo, J.~McClean, P.~Shadbolt, M.-H. Yung, X.-Q. Zhou, P.~J. Love,
-  A.~Aspuru-Guzik, and J.~L. O'Brien, ``A variational eigenvalue solver on a
-  photonic quantum processor,'' \emph{Nature Communications}, vol.~5, p. 4213,
-  2014.
-
-\bibitem{mcclean2016}
-J.~R. McClean, J.~Romero, R.~Babbush, and A.~Aspuru-Guzik, ``The theory of
-  variational hybrid quantum-classical algorithms,'' \emph{New Journal of
-  Physics}, vol.~18, no.~2, p. 023023, 2016.
-
 \bibitem{mitarai2021overhead}
 K.~Mitarai and K.~Fujii, ``Overhead for simulating a non-local channel with
   local channels by quasiprobability sampling,'' \emph{Quantum}, vol.~5, p.
@@ -145,6 +127,14 @@ S.~Brandhofer, I.~Polian, and K.~Krsulich, ``Optimal partitioning of quantum
 Y.~Idan, E.~Zahavi, E.~Mentovich, E.~Cohen, and S.~Zaks, ``Quantum circuit
   cutting: Complexity and optimization,'' 2026. [Online]. Available:
   \url{https://arxiv.org/abs/2604.23700}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tamura2026}
+\BIBentryALTinterwordspacing
+K.~Tamura, T.~Shirakawa, R.~Sato, T.~Imoto, and S.~Endo, ``Decomposition of
+  multi-qubit gates for circuit cutting,'' \emph{arXiv preprint
+  arXiv:2603.26278}, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2603.26278}
 \BIBentrySTDinterwordspacing
 
 \bibitem{burt2026}

@@ -353,7 +353,7 @@ All pass. Both representations implement the same unitary (up to global phase).
 
 2. **Grover n >= 10 exact tier**: overflow due to very large circuits (thousands of 2-qubit gates). Grover n=10 K=2 excluded from exact tier.
 
-3. **SCIP tie-safe tier** provides solver-tolerance tie-safe regret, not mathematically exact. The two-stage MIP constrains `J_a(P) <= J*_a + tau_opt + scip_feastol`. Sensitivity analysis across three tau values confirms stability.
+3. **SCIP tie-safe tier** evaluates true tie-safe regret via a two-stage lexicographic MIP ($J_a(P) \le J^*_a + \tau_{\mathrm{opt}}$). All reported SCIP reversals are solver-tolerance tie-safe reversals that remain invariant across $\tau_{\mathrm{opt}} \in \{10^{-8}, 10^{-9}, 10^{-10}\}$.
 
 4. **Collinearity effect** (QAOA): kappa bound is conservative for circuits with proportional weights. The positive-scaling corollary provides the tight characterization.
 

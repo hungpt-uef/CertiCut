@@ -1,62 +1,73 @@
 % Compile: pdflatex -interaction=nonstopmode -halt-on-error fig_certicut_architecture.tex
-\documentclass[tikz,border=2pt]{standalone}
+\documentclass[tikz,border=6pt]{standalone}
 \usepackage{amsmath,amssymb}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows.meta,positioning,calc}
 
 \begin{document}
 \begin{tikzpicture}[
   font=\sffamily,
   >=Latex,
-  flow/.style={-{Latex[length=1.7mm,width=1.25mm]}, line width=.7pt},
-  rail/.style={draw=black, line width=.7pt},
-  main/.style={draw=black, line width=.7pt, fill=white, align=center,
-    text width=76mm, minimum height=13mm, inner sep=2mm},
-  branch/.style={draw=black, line width=.7pt, fill=black!6, align=center,
-    text width=32mm, minimum height=19mm, inner sep=1.5mm},
-  output/.style={draw=black, fill=black, text=white, line width=.8pt,
-    align=center, text width=76mm, minimum height=14mm, inner sep=2mm}
+  arrow/.style={-{Latex[length=2mm,width=1.5mm]}, draw=black!80, line width=0.8pt},
+  topbox/.style={draw=black!80, fill=white, line width=0.8pt, align=center,
+    text width=78mm, inner sep=2.5mm},
+  repbox/.style={draw=black!80, fill=black!4, line width=0.8pt, align=center,
+    text width=37mm, minimum height=24mm, inner sep=2mm},
+  midbox/.style={draw=black!80, fill=black!10, line width=0.8pt, align=center,
+    text width=78mm, inner sep=2.5mm},
+  outbox/.style={draw=black!80, fill=white, line width=0.8pt, align=center,
+    text width=37mm, minimum height=28mm, inner sep=2mm}
 ]
 
-\node[font=\bfseries\large] (title) at (0,0) {CERTICUT Layered Workflow};
-\node[main] (circuit) at (0,-13mm) {
-  \textbf{Quantum circuit + fixed representation}\\[-1pt]
-  independent-QPD gate costs $\rho_g=\left(\sum_i\lvert a_{g,i}\rvert\right)^2$
-};
-\node[main] (graph) at (0,-31mm) {
-  \textbf{Core independent-QPD reduction}\\[-1pt]
-  $w_{ij}=\sum_{g\in G_{ij}}\log\rho_g$\\[-1pt]
-  \textbf{capacitated $K$-way graph partitioning}
-};
-\node[branch] (reference) at (-25mm,-53mm) {
-  \textbf{$K=2$ reference}\\[-1pt]
-  \textbf{B2S + H2 + B\&B}\\[-1pt]
-  \footnotesize structural ablation
-};
-\node[branch] (mip) at (25mm,-53mm) {
-  \textbf{Production backend}\\[-1pt]
-  \textbf{SCIP K-way MIP}\\[-1pt]
-  \footnotesize solver-tolerance primal/dual bounds
-};
-\node[output] (bounds) at (0,-76mm) {
-  \textbf{Solver-tolerance model-overhead factor}\\[-1pt]
-  $\mathrm{LB}\leq\mathrm{OPT}\leq\mathrm{UB}$ \quad $F=\exp\!\left(\mathrm{UB}-\mathrm{LB}\right)$
+% Title
+\node[font=\bfseries\large] (title) {CERTICUT Conceptual Model};
+
+% 1. Top node: Common Logical Problem
+\node[topbox, below=3mm of title] (logical) {
+  \textbf{Common Logical Problem}\\[2pt]
+  \small Same source circuit, logical wires, fragment capacities, and feasible placements
 };
 
-\coordinate (split) at (0,-40mm);
-\coordinate (splitleft) at (-25mm,-40mm);
-\coordinate (splitright) at (25mm,-40mm);
-\draw[flow] (circuit.south) -- (graph.north);
-\draw[rail] (graph.south) -- (split);
-\draw[rail] (splitleft) -- (splitright);
-\draw[flow] (splitleft) -- (reference.north);
-\draw[flow] (splitright) -- (mip.north);
+% 2. Middle tier: Representation A vs Representation B
+\node[repbox, anchor=north west] (repA) at ([yshift=-8mm]logical.south west) {
+  \textbf{Representation $a$}\\[2pt]
+  \small Gate decomposition\\[1pt]
+  \small QPD interaction weights $w^{(a)}$
+};
 
-\coordinate (merge) at (0,-66mm);
-\coordinate (mergeleft) at (-25mm,-66mm);
-\coordinate (mergeright) at (25mm,-66mm);
-\draw[rail] (reference.south) -- (mergeleft);
-\draw[rail] (mip.south) -- (mergeright);
-\draw[rail] (mergeleft) -- (mergeright);
-\draw[flow] (merge) -- (bounds.north);
+\node[repbox, anchor=north east] (repB) at ([yshift=-8mm]logical.south east) {
+  \textbf{Representation $b$}\\[2pt]
+  \small Equivalent decomposition\\[1pt]
+  \small QPD interaction weights $w^{(b)}$
+};
+
+% 3. Decision space node
+\node[midbox, anchor=north] (decision) at ([yshift=-8mm]$(repA.south)!0.5!(repB.south)$) {
+  \textbf{Shared Placement Decision Space}\\[2pt]
+  \small Optimize each weighted graph over the same feasible partitions; compare their optimal-placement sets tie-safely
+};
+
+% 4. Part I vs Part II Outcomes (equal minimum height 30mm)
+\node[outbox, anchor=north west, minimum height=31mm] (part1) at ([yshift=-8mm]decision.south west) {
+  \textbf{Part I: Anytime}\\[1pt]
+  \textbf{Overhead Bounds}\\[4pt]
+  \small Global MIP bounds quantify independent-QPD model overhead
+};
+
+\node[outbox, anchor=north east, minimum height=31mm] (part2) at ([yshift=-8mm]decision.south east) {
+  \textbf{Part II: Placement}\\[1pt]
+  \textbf{Stability}\\[4pt]
+  \small Regret quantifies changed decisions; margin conditions guarantee stability
+};
+
+% Arrows
+\draw[arrow] (logical.south) -- ++(0,-4mm) -| (repA.north);
+\draw[arrow] (logical.south) -- ++(0,-4mm) -| (repB.north);
+
+\draw[arrow] (repA.south) -- (repA.south |- decision.north);
+\draw[arrow] (repB.south) -- (repB.south |- decision.north);
+
+\draw[arrow] (decision.south) -- ++(0,-4mm) -| (part1.north);
+\draw[arrow] (decision.south) -- ++(0,-4mm) -| (part2.north);
+
 \end{tikzpicture}
 \end{document}
