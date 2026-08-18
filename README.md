@@ -71,7 +71,7 @@ CertiCut/
 │   ├── hardware/             # Hardware calibration and backend evaluation
 │   ├── optimization/         # SCIP core, B2S Branch-and-Bound, LP relaxations, B&B certificates
 │   └── qiskit_bridge/        # Operational shot reconstruction and Qiskit Addon Cutting bridge
-├── paper/                    # IEEE paper source files, figures, tables
+├── paper/                    # Paper source files, figures, tables
 ├── results/                  # Frozen execution outputs, summary reports, JSON metrics
 ├── tests/                    # Complete pytest suite (50+ unit tests)
 └── requirements.txt          # Package dependencies
@@ -122,7 +122,7 @@ records they produce are included here under `results/`.
 
 ## Paper & Documentation
 
-- **Paper Source & PDF**: Located in `paper/` (`certicut.tex`, `certicut.pdf`).
+- **Paper Source & PDF**: Located in `paper/` (`certicut_pra.tex`, `certicut_pra.pdf`).
 - **Artifact Versions**: Detailed software version audit in `paper/ARTIFACT_VERSIONS.md`.
 
 ---
@@ -133,9 +133,8 @@ If you use CertiCut in your research, please cite:
 
 ```bibtex
 @article{certicut2026,
-  title={CertiCut: Representation-Sensitive Capacitated Circuit Cutting with Anytime Resource Bounds},
+  title={Representation-Sensitive Quantum Circuit Cutting with Quasiprobability Resource Bounds},
   author={Phung Trong Hung and Huong Bui},
-  journal={IEEE Transactions on Quantum Engineering},
   year={2026}
 }
 ```

@@ -28,8 +28,8 @@
     "results/phase11_3_heterogeneous_qpd_nonzero_summary.json",
     "results/phase11_3_algorithm_heterogeneous_audit.json",
     "results/phase11_3_algorithm_heterogeneous_manifest.json",
-    "paper/certicut_ieee.tex",
-    "paper/certicut_ieee.pdf",
+    "paper/certicut_pra.tex",
+    "paper/certicut_pra.pdf",
     "paper/figures/fig_certicut_architecture.tex",
     "paper/figures/fig_certicut_architecture.pdf"
   ],
