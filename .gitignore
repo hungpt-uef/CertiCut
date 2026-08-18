@@ -52,6 +52,12 @@ texput.log
 *.blg
 *.bcf
 *.run.xml
+# REVTeX auto-generated bibliography notes file
+*Notes.bib
+# Stray per-page PDF screenshots from QA passes
+paper/check_page_*.png
+paper/page_*.png
+paper/p_*.png
 
 # Test cache
 .pytest_cache/

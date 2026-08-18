@@ -69,10 +69,12 @@
 \newcommand{\UB}{\mathrm{UB}}
 \newcommand{\gap}{\Delta}
 
-% Table fitting helpers (single- and full-width).
-\newcommand{\tabfit}[1]{\resizebox{\columnwidth}{!}{#1}}
-\newcommand{\tabfitscript}{\scriptsize}
-\newcommand{\tabfitstar}[1]{\resizebox{\linewidth}{!}{#1}}
+% Table sizing: use a single consistent, natural font size (\footnotesize)
+% instead of \resizebox, which would distort each table to a different scale.
+% REVTeX's default \tabcolsep is already compact, so it is left untouched.
+\newcommand{\tabfit}[1]{{\footnotesize #1}}
+\newcommand{\tabfitscript}{\relax}
+\newcommand{\tabfitstar}[1]{{\footnotesize #1}}
 
 \begin{document}
 
@@ -377,30 +379,11 @@ Single-solve SCIP evaluations initially reported six QFT reversals with $R$ up t
 
 Unweighted cut count can rank feasible plans incorrectly. Two iSWAP cuts have modeled overhead $49^2=2{,}401$, whereas three CNOT cuts cost $9^3=729$; the three-cut plan is cheaper. Likewise, two CS cuts cost $(3+2\sqrt{2})^2\approx33.97$, compared with $81$ for two CNOT cuts. Equation~\eqref{eq:weight} preserves these gate-dependent distinctions.
 
-We test this distinction under controlled heterogeneity on 120 deterministic circuits (five families, $n\in\{12,14,16\}$) using validated Qiskit costs for CX, CZ, iSWAP, and three nonzero $RZZ$ angles, with no unit-overhead operation. To avoid tie-breaking artifacts, we compare $\min_{P:\,c(P)=c^*}J(P)$, the best QPD objective among all minimum-cut partitions, with $\min_PJ(P)$; both values are obtained by exhaustive enumeration. This stronger regret is strict in $16/120$ cases ($13.3\%$), with conditional factor median $5.30$, 90th percentile $27.47$, and maximum $181.11$ (Table~\ref{tab:heterogeneous}). Every strict reversal requires more cuts under a QPD-optimal plan (median count increase one, maximum three). Across the 16 reversals, QPD-optimal plans cut 28 fewer iSWAP gates while accepting 47 additional lower-overhead gates.
-
-We then test whether this mechanism occurs without constructed gate palettes. A predeclared protocol fixes six algorithm-derived MQT~Bench families~\cite{mqtbench}, six even sizes, the eligibility criterion, and the decision rule before inspecting outcomes; it selectively expands only operations with arity above two, preserves numeric one- and two-qubit semantic operations, never transpiles to a target basis, and queries every retained two-qubit occurrence via \texttt{QPDBasis.from\_instruction}. The count objective $c(P)$ and QPD objective $J(P)$ define the tie-safe regret
-\begin{equation}
-  \Delta_{\mathrm{E6}} =
-  \min_{P:\,c(P)=c^*} J(P) - \min_P J(P),
-  \qquad c^* = \min_P c(P),
-  \label{eq:e6-regret}
-\end{equation}
-and a strict reversal requires $\Delta_{\mathrm{E6}}>10^{-10}$. Fixing qubit zero removes complementary-label symmetry, leaving $\binom{n-1}{n/2-1}$ balanced partitions, all of which are exhaustively evaluated (from 10 at $n=6$ through $6{,}435$ at $n=16$). All 36 circuits are eligible: none has an unsupported or unit-overhead two-qubit operation, and each has at least two positive QPD-cost classes. Exhaustive tie-safe enumeration finds six strict reversals: four among six Draper QFT adders and two among six exact-QPE circuits (Table~\ref{tab:e6-summary}). HHL, inexact QPE, QFT, and entangled QFT supply 24 negative results despite heterogeneous costs. Thus heterogeneity is necessary for the observed mechanism but is not sufficient to change the optimum.
-
-The largest observed witness is the Draper QFT adder at $n=16$: the best count-optimal plan has 36 cuts and $J=37.968133$, whereas the QPD-optimal plan has 42 cuts and $J=24.111328$, yielding a factor $1.042\times10^6$. The QPD plan avoids expensive $CP(\pi/2)$ and $CP(\pi)$ crossings by accepting more small-angle controlled phases (Table~\ref{tab:e6-draper}). Direct occurrence-level sums and independently aggregated pair weights agree within $10^{-10}$ for both plans in every reversal record. Figure~\ref{fig:draper-topology} makes the same Draper $n=16$ witness geometric: node colors encode the two fragments, while edge darkness encodes independent-QPD log weight; the count-optimal map severs fewer interactions but retains several high-$\rho$ controlled phases across the cut, whereas the QPD-optimal map accepts six additional crossings yet eliminates most expensive phase crossings. This is existence evidence on algorithm-derived benchmark circuits, not a prevalence estimate over workloads or a hardware-routing result.
-
-\begin{figure*}[tp]
-  \centering
-  \includegraphics[width=0.92\textwidth]{figures/fig_draper_n16_topology.pdf}
-  \caption{Draper QFT-adder interaction topology at $n=16$ under exact balanced bipartition. Left: count-optimal placement ($c^*=36$, $J\approx37.97$). Right: independent-QPD-optimal placement ($c=42$, $J\approx24.11$). Darker cut edges carry larger $\log\rho$; the QPD plan trades cut count for avoidance of high-overhead controlled phases.}
-  \label{fig:draper-topology}
-\end{figure*}
-
 \begin{table}[t]
 \centering
 \caption{Identity-free heterogeneous-QPD companion corpus. All costs come from Qiskit's independent-QPD registry.}
 \label{tab:heterogeneous}
+\tabfit{%
 \begin{tabular}{lr}
 \toprule
 \textbf{Metric} & \textbf{Value}\\
@@ -413,12 +396,25 @@ Avoided iSWAP cuts & 28\\
 Independent solver check closed & 120/120\\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
-\begin{table}[t]
+We test this distinction under controlled heterogeneity on 120 deterministic circuits (five families, $n\in\{12,14,16\}$) using validated Qiskit costs for CX, CZ, iSWAP, and three nonzero $RZZ$ angles, with no unit-overhead operation. To avoid tie-breaking artifacts, we compare $\min_{P:\,c(P)=c^*}J(P)$, the best QPD objective among all minimum-cut partitions, with $\min_PJ(P)$; both values are obtained by exhaustive enumeration. This stronger regret is strict in $16/120$ cases ($13.3\%$), with conditional factor median $5.30$, 90th percentile $27.47$, and maximum $181.11$ (Table~\ref{tab:heterogeneous}). Every strict reversal requires more cuts under a QPD-optimal plan (median count increase one, maximum three). Across the 16 reversals, QPD-optimal plans cut 28 fewer iSWAP gates while accepting 47 additional lower-overhead gates.
+
+We then test whether this mechanism occurs without constructed gate palettes. A predeclared protocol fixes six algorithm-derived MQT~Bench families~\cite{mqtbench}, six even sizes, the eligibility criterion, and the decision rule before inspecting outcomes; it selectively expands only operations with arity above two, preserves numeric one- and two-qubit semantic operations, never transpiles to a target basis, and queries every retained two-qubit occurrence via \texttt{QPDBasis.from\_instruction}. The count objective $c(P)$ and QPD objective $J(P)$ define the tie-safe regret
+\begin{equation}
+  \Delta_{\mathrm{E6}} =
+  \min_{P:\,c(P)=c^*} J(P) - \min_P J(P),
+  \qquad c^* = \min_P c(P),
+  \label{eq:e6-regret}
+\end{equation}
+and a strict reversal requires $\Delta_{\mathrm{E6}}>10^{-10}$. Fixing qubit zero removes complementary-label symmetry, leaving $\binom{n-1}{n/2-1}$ balanced partitions, all of which are exhaustively evaluated (from 10 at $n=6$ through $6{,}435$ at $n=16$). All 36 circuits are eligible: none has an unsupported or unit-overhead two-qubit operation, and each has at least two positive QPD-cost classes. Exhaustive tie-safe enumeration finds six strict reversals: four among six Draper QFT adders and two among six exact-QPE circuits (Table~\ref{tab:e6-summary}). HHL, inexact QPE, QFT, and entangled QFT supply 24 negative results despite heterogeneous costs. Thus heterogeneity is necessary for the observed mechanism but is not sufficient to change the optimum.
+
+\begin{table}[b]
 \centering
 \caption{Algorithm-derived MQT~Bench audit. ``Max factor'' is descriptive over six fixed sizes per family, not a population estimate.}
 \label{tab:e6-summary}
+\tabfit{%
 \begin{tabular}{lrrr}
 \toprule
 \textbf{Family} & \textbf{Eligible} & \textbf{Reversals} & \textbf{Max factor}\\
@@ -431,12 +427,23 @@ QFT & 6/6 & 0/6 & $1$\\
 Entangled QFT & 6/6 & 0/6 & $1$\\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
-\begin{table}[t]
+The largest observed witness is the Draper QFT adder at $n=16$: the best count-optimal plan has 36 cuts and $J=37.968133$, whereas the QPD-optimal plan has 42 cuts and $J=24.111328$, yielding a factor $1.042\times10^6$. The QPD plan avoids expensive $CP(\pi/2)$ and $CP(\pi)$ crossings by accepting more small-angle controlled phases (Table~\ref{tab:e6-draper}). Direct occurrence-level sums and independently aggregated pair weights agree within $10^{-10}$ for both plans in every reversal record. Figure~\ref{fig:draper-topology} makes the same Draper $n=16$ witness geometric: node colors encode the two fragments, while edge darkness encodes independent-QPD log weight; the count-optimal map severs fewer interactions but retains several high-$\rho$ controlled phases across the cut, whereas the QPD-optimal map accepts six additional crossings yet eliminates most expensive phase crossings. This is existence evidence on algorithm-derived benchmark circuits, not a prevalence estimate over workloads or a hardware-routing result.
+
+\begin{figure*}[tp]
+  \centering
+  \includegraphics[width=0.92\textwidth]{figures/fig_draper_n16_topology.pdf}
+  \caption{Draper QFT-adder interaction topology at $n=16$ under exact balanced bipartition. Left: count-optimal placement ($c^*=36$, $J\approx37.97$). Right: independent-QPD-optimal placement ($c=42$, $J\approx24.11$). Darker cut edges carry larger $\log\rho$; the QPD plan trades cut count for avoidance of high-overhead controlled phases.}
+  \label{fig:draper-topology}
+\end{figure*}
+
+\begin{table}[b]
 \centering
 \caption{Grouped nonzero-delta gate-class accounting for the Draper $n=16$ witness. The groups sum to $+6$ cuts and $J_{\rm QPD}^*-J_{\rm count}^*=-13.856805$; full per-angle accounting is in the reproducibility artifact.}
 \label{tab:e6-draper}
+\tabfit{%
 \begin{tabular}{lrrr}
 \toprule
 \textbf{CP angle class} & \textbf{Count} & \textbf{QPD} & $\boldsymbol{\Delta c}$\\
@@ -450,6 +457,7 @@ $\pi$ & 6 & 2 & $-4$\\
 Total & 28 & 34 & $+6$\\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \subsection{Capacitated $K$-way heterogeneous scaling}
@@ -461,12 +469,11 @@ The factors quantify why closure alone is insufficient. Across the three random-
 
 We further confirm that cut count is a poor proxy for sampling overhead at the placement level using matched-objective heuristics that solve the same fixed independent gate-QPD, exact-capacity $K$-way problem: greedy swap, a count-weighted pairwise Kernighan--Lin (KL) adaptation, QPD-weighted KL, and KaHIP-QPD with exact-capacity repair~\cite{kernighanlin1970,kahip}. One canonical evaluator recomputes $J$, fragment sizes, and cut occurrences for every method, and also re-evaluates each reported SCIP incumbent after decoding it to a discrete partition. On the 101 solver-tolerance-closed records (Table~\ref{tab:e9-heuristic}), KL-QPD matches the SCIP objective on 68 records with median $\log_{10}R=0$ and p90 $2.94$, whereas count-weighted KL matches only 23 with median $\log_{10}R=1.56$; the two differ only in objective semantics within one heuristic family, isolating the effect of optimizing overhead rather than count. All 144 partitions from every matched method satisfy exact capacities. We also apply the same native independent-QPD model to 36 algorithm-derived MQT~Bench circuits: SCIP closes 15 within 10~s, KL-QPD matches all 15 solver-tolerance-closed objectives, and the six Draper-adder records form the largest structured positive subset. Three VQE candidates are retained as explicit ingestion failures because their native two-qubit operations lack a Qiskit QPD basis. Thus the heuristic finding is not solely a synthetic-graph artifact.
 
-\begin{table}[t]
+\begin{table*}[tp]
 \centering
-\tabfitscript
 \caption{Capacitated $K$-way heterogeneous-QPD scaling, three fixed seeds per cell and a 10-s SCIP limit. ``Closed'' means solver-tolerance closure. Open records retain finite factors, including $10^{44.84}$ at random-matching $n=60,K=4$; this fixed matrix is not a workload-prevalence estimate.}
 \label{tab:e9-kway}
-\tabfit{%
+\tabfitstar{%
 \begin{tabular}{lccc}
 \toprule
 \textbf{Family} & \textbf{Closed} & \textbf{All-seed closure frontier} & \textbf{Boundary}\\
@@ -479,7 +486,7 @@ Total & 101/144 & $n=60,K=3$ & family/seed dependent\\
 \bottomrule
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 \begin{table*}[tp]
 \centering
@@ -488,12 +495,12 @@ Total & 101/144 & $n=60,K=3$ & family/seed dependent\\
 \tabfitstar{%
 \begin{tabular}{lrrrrrr}
 \toprule
-\textbf{Method} & \textbf{Feasible} & \textbf{SCIP-obj. match / closed} & \textbf{Med. $\Delta J$} & \textbf{Med. $\log_{10}R$} & \textbf{p90 $\log_{10}R$} & \textbf{Med. time}\\
+\textbf{Method} & \textbf{Feasible} & \textbf{Match / closed} & \textbf{Med. $\Delta J$} & \textbf{Med. $\log_{10}R$} & \textbf{p90 $\log_{10}R$} & \textbf{Med. time}\\
 \midrule
 Greedy swap & 144/144 & 23/101 & 3.33 & 1.45 & 10.52 & 0.100 s\\
-Count-weighted KL & 144/144 & 23/101 & 3.59 & 1.56 & 5.01 & 0.100 s\\
+Count-KL & 144/144 & 23/101 & 3.59 & 1.56 & 5.01 & 0.100 s\\
 KL-QPD & 144/144 & 68/101 & 0.00 & 0.00 & 2.94 & 0.100 s\\
-KaHIP-QPD + repair & 144/144 & 51/101 & 0.00 & 0.00 & 1.47 & 5.89 s$^\dagger$\\
+KaHIP+repair & 144/144 & 51/101 & 0.00 & 0.00 & 1.47 & 5.89 s$^\dagger$\\
 \bottomrule
 \end{tabular}
 }
@@ -746,19 +753,19 @@ CP0 + C + T & 12/24 & 0.2848 & 3.8761 & 2.3222 s\\
 }
 \end{table}
 
-\begin{table}[b]
+\begin{table}[t]
 \centering
 \caption{Controlled ablation on 90 synthetic balanced instances under a 100-node budget. ``Closed'' means solver-tolerance gap at most $10^{-9}$. ``Node-lim.'' is a non-exclusive count.}
 \label{tab:ablation}
 \tabfit{%
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Configuration} & \textbf{Closed} & \textbf{Node-lim.} & \textbf{Med. nodes} & \textbf{Root / Tree (s)}\\
+\textbf{Config.} & \textbf{Closed} & \textbf{Node-lim.} & \textbf{Nodes} & \textbf{Root/Tree (s)}\\
 \midrule
-A0 + H0 (basic)   & 41/90 & 56 & 100 & 0.000\,/\,2.059\\
-A0 + H2            & 41/90 & 52 & 100 & 0.000\,/\,2.072\\
-B2S-root + H0       & 90/90 &  0 &   1 & 0.260\,/\,0.060\\
-B2S-root + H2       & 90/90 &  0 &   1 & 0.256\,/\,0.063\\
+A0 + H0   & 41/90 & 56 & 100 & 0.000 / 2.059\\
+A0 + H2            & 41/90 & 52 & 100 & 0.000 / 2.072\\
+B2S + H0       & 90/90 &  0 &   1 & 0.260 / 0.060\\
+B2S + H2       & 90/90 &  0 &   1 & 0.256 / 0.063\\
 \bottomrule
 \end{tabular}
 }
@@ -771,7 +778,7 @@ B2S-root + H2       & 90/90 &  0 &   1 & 0.256\,/\,0.063\\
 \tabfit{%
 \begin{tabular}{lccc}
 \toprule
-\textbf{Family} & \textbf{Solver-tol. closed} & \textbf{Med. time (s)} & \textbf{p90 time (s)}\\
+\textbf{Family} & \textbf{Closed} & \textbf{Med. time (s)} & \textbf{p90 time (s)}\\
 \midrule
 Community        & 10/10 &  0.809 &  1.186\\
 Nearest-neighbor & 10/10 &  1.646 &  1.764\\
@@ -801,7 +808,7 @@ To ground the word ``certificate'' in a rigorously verified setting, a small CX-
 
 Independently, a shot-free statevector reconstruction check (Table~\ref{tab:operational}) confirms that predicted and Qiskit-derived overheads agree at machine precision, validating the cost accounting used throughout.
 
-\begin{table}[h]
+\begin{table}[t]
 \centering
 \caption{Statevector reconstruction check. Predicted and Qiskit-derived overheads agree; ``Abs. error'' compares reconstructed and uncut observables.}
 \label{tab:operational}
@@ -817,9 +824,7 @@ VQE $n\!=\!6$, CX             & 1 & 9       & 9       & $5.55\!\times\!10^{-17}$
 }
 \end{table}
 
-Finally, we record the experiment-to-artifact map used by the reproducibility package (Table~\ref{tab:experiment-map}); the E-labels are artifact identifiers, not narrative units.
-
-\begin{table}[h]
+\begin{table}[b]
 \centering
 \caption{Experiment-to-artifact map. Primary narrative evidence is the count-versus-QPD, capacitated-scaling, and representation-regret studies; remaining rows are supporting context.}
 \label{tab:experiment-map}
@@ -843,7 +848,7 @@ Supp. & E12-D/E13/E15 & Root-bound profiles, restricted joint-QPD, interval enum
 }
 \end{table}
 
-\clearpage
+Finally, we record the experiment-to-artifact map used by the reproducibility package (Table~\ref{tab:experiment-map}); the E-labels are artifact identifiers, not narrative units.
 
 % ===================================================================
 % REFERENCES
