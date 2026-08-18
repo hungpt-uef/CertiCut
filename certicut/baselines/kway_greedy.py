@@ -6,6 +6,7 @@ from time import perf_counter
 from typing import Sequence
 
 from certicut.graph.interaction import InteractionGraph, graph_partition_objective
+from certicut.evaluation.canonical import evaluate_independent_qpd
 
 
 def solve_weighted_kway_greedy(
@@ -14,6 +15,7 @@ def solve_weighted_kway_greedy(
     capacities: Sequence[int],
     seed: int = 0,
     restarts: int = 4,
+    time_limit_s: float | None = None,
 ) -> tuple[tuple[int, ...], float, float]:
     """Return capacity-exact multistart greedy partition plus swap refinement.
 
@@ -25,14 +27,18 @@ def solve_weighted_kway_greedy(
         raise ValueError("capacities must be nonnegative and sum to graph width")
     if restarts < 1:
         raise ValueError("restarts must be positive")
+    if time_limit_s is not None and time_limit_s <= 0:
+        raise ValueError("time_limit_s must be positive")
     started = perf_counter()
+    deadline = None if time_limit_s is None else started + time_limit_s
     weighted_degree = {node.qubit: node.weighted_degree for node in graph.nodes}
     adjacency = [[] for _ in range(graph.num_qubits)]
     for edge in graph.edges:
         adjacency[edge.u].append((edge.v, edge.qpd_log_cost))
         adjacency[edge.v].append((edge.u, edge.qpd_log_cost))
     candidates = []
-    for restart in range(restarts):
+    restart = 0
+    while restart < restarts and (deadline is None or restart == 0 or perf_counter() < deadline):
         order = sorted(range(graph.num_qubits), key=lambda qubit: _order_key(qubit, weighted_degree[qubit], seed, restart))
         labels = [-1] * graph.num_qubits
         loads = [0] * len(targets)
@@ -48,9 +54,12 @@ def solve_weighted_kway_greedy(
             fragment = min(choices)[2]
             labels[qubit] = fragment
             loads[fragment] += 1
-        refined = _swap_refine(graph, tuple(labels), targets)
+        refined = _swap_refine(graph, tuple(labels), targets, deadline)
         candidates.append((graph_partition_objective(graph, refined), refined))
+        restart += 1
     objective, partition = min(candidates, key=lambda item: (item[0], item[1]))
+    # The public legacy tuple API remains; baseline suites use canonical evaluation.
+    evaluate_independent_qpd(graph, partition, targets)
     return partition, objective, perf_counter() - started
 
 
@@ -60,13 +69,20 @@ def _order_key(qubit: int, degree: float, seed: int, restart: int) -> tuple[floa
     return (-degree if restart % 2 == 0 else degree, mixed)
 
 
-def _swap_refine(graph: InteractionGraph, partition: tuple[int, ...], capacities: tuple[int, ...]) -> tuple[int, ...]:
+def _swap_refine(
+    graph: InteractionGraph,
+    partition: tuple[int, ...],
+    capacities: tuple[int, ...],
+    deadline: float | None = None,
+) -> tuple[int, ...]:
     labels = list(partition)
     while True:
         current = graph_partition_objective(graph, labels)
         best = (0.0, None, None)
         for first in range(graph.num_qubits):
             for second in range(first + 1, graph.num_qubits):
+                if deadline is not None and perf_counter() >= deadline:
+                    return tuple(labels)
                 if labels[first] == labels[second]:
                     continue
                 candidate = labels.copy()

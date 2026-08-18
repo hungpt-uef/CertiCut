@@ -45,3 +45,35 @@ texput.log
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# --- Submission cleanup (added for public release) ---
+# LaTeX bibliography + misc build outputs
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# Test cache
+.pytest_cache/
+
+# Paper build / QA scratch (kept local, not published)
+paper/build_*/
+paper/qa_*/
+paper/_backup_*/
+paper/final_submission/
+paper/*.txt
+paper/*_fixed.*
+paper/*_latest.*
+paper/*_recovery.*
+paper/*_restored.*
+paper/references_ieee_backup.bib
+paper/quantum_latest_audit-*.png
+paper/figures/*.txt
+
+# Stray built PDFs at repo root
+/certicut_*_ready.pdf
+/certicut_*_submission_ready.pdf
+/certicut_*_double_blind_ready.pdf
+
+# Smoke-test result snapshots
+results/upgrade_2026/e16_baseline_smoke*/

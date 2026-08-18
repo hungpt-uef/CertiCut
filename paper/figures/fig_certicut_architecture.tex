@@ -19,7 +19,7 @@
 ]
 
 % The upper rail fixes the object that must not change between representations.
-\node[font=\bfseries\normalsize] at (47,0) {CERTICUT: Representation to Certified Placement};
+\node[font=\bfseries\normalsize] at (47,0) {CERTICUT: Representation-Sensitive Placement with Resource Bounds};
 \draw[rounded corners=.8pt,draw=black!70,fill=black!4,line width=.5pt] (1,-4) rectangle (93,-14);
 \node[align=center,font=\bfseries\small] at (47,-8) {Fixed logical circuit and feasible placement space $\mathcal{F}$};
 \node[align=center,font=\scriptsize] at (47,-11.5) {Fixed $K$, capacities $(L_k,U_k)$, logical wires, and admissible fragment maps};
@@ -28,7 +28,7 @@
 \node[font=\bfseries\scriptsize,align=center] at (12,-20) {(a) Circuit $a$};
 \node[font=\bfseries\scriptsize,align=center] at (36,-20) {(b) Graph $G^{(a)}$};
 \node[font=\bfseries\scriptsize,align=center] at (60,-20) {(c) $K$-way partition};
-\node[font=\bfseries\scriptsize,align=center] at (84,-20) {(d) Certificate};
+\node[font=\bfseries\scriptsize,align=center] at (84,-20) {(d) Resource bound};
 \node[font=\bfseries\scriptsize,align=center] at (12,-57) {(e) Circuit $b$};
 \node[font=\bfseries\scriptsize,align=center] at (36,-57) {(f) Graph $G^{(b)}$};
 \node[font=\bfseries\scriptsize,align=center] at (60,-57) {(g) New partition};
@@ -126,7 +126,7 @@
 \draw[edge,line width=.7pt] (q1)--(q3);
 \draw[edge,line width=1.45pt] (q2)--(q3);
 \foreach \p in {q0,q1,q2,q3,q4} \node[node] at (\p) {};
-\node[font=\tiny,align=center,text width=29mm] at (60,-84) {$P_b^\star\ne P_a^\star$ can occur};
+\node[font=\tiny,align=center,text width=29mm] at (60,-84) {$\mathcal{A}_a\ne\mathcal{A}_b$ can occur};
 
 % (h) Two mathematical outcomes: regret or a sufficient stability condition.
 \node[font=\tiny\bfseries,align=center,text width=29mm] at (84,-65) {$A_a=\arg\min_P J_a(P)$\\$A_b=\arg\min_P J_b(P)$};

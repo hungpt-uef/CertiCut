@@ -19,6 +19,7 @@ class BaselineResult:
     fragment_sizes: tuple[int, ...]
     minimum_reached: bool | None
     notes: str
+    partition: tuple[int, ...] | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)

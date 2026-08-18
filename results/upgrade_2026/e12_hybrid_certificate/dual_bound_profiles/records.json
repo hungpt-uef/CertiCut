@@ -1,0 +1,974 @@
+[
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      14,
+      13,
+      13
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.84107240010053,
+    "nodes": 478,
+    "lp_iterations": 39982,
+    "lower_bound_log": 22.04908543856871,
+    "upper_bound_log": 43.11649043303905,
+    "log10_F": 9.149457737119475,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      14,
+      13,
+      13
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 30.0,
+    "status": "optimal",
+    "runtime_s": 27.479616600088775,
+    "nodes": 1540,
+    "lp_iterations": 116384,
+    "lower_bound_log": 39.65914753822557,
+    "upper_bound_log": 39.65914753822557,
+    "log10_F": 0.0,
+    "solver_closed": true,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      14,
+      13,
+      13
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 60.0,
+    "status": "optimal",
+    "runtime_s": 26.747934400103986,
+    "nodes": 1540,
+    "lp_iterations": 116384,
+    "lower_bound_log": 39.65914753822557,
+    "upper_bound_log": 39.65914753822557,
+    "log10_F": 0.0,
+    "solver_closed": true,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      14,
+      13,
+      13
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.647423199843615,
+    "nodes": 2,
+    "lp_iterations": 51311,
+    "lower_bound_log": 0.0,
+    "upper_bound_log": 95.89889204804663,
+    "log10_F": 41.64835963710229,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      14,
+      13,
+      13
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.98000089987181,
+    "nodes": 22,
+    "lp_iterations": 298239,
+    "lower_bound_log": 10.87120858556176,
+    "upper_bound_log": 64.1596880125716,
+    "log10_F": 23.142892564165333,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      14,
+      13,
+      13
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.97856290009804,
+    "nodes": 64,
+    "lp_iterations": 672961,
+    "lower_bound_log": 19.056599531422417,
+    "upper_bound_log": 50.7463175050512,
+    "log10_F": 13.76266964901728,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      10,
+      10,
+      10,
+      10
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.953362999949604,
+    "nodes": 75,
+    "lp_iterations": 21186,
+    "lower_bound_log": 17.00509158074638,
+    "upper_bound_log": 59.51425611099961,
+    "log10_F": 18.461495585806414,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      10,
+      10,
+      10,
+      10
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.973606299841776,
+    "nodes": 941,
+    "lp_iterations": 94800,
+    "lower_bound_log": 30.83669018999754,
+    "upper_bound_log": 51.78198747322172,
+    "log10_F": 9.096427031927432,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      10,
+      10,
+      10,
+      10
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.96645710011944,
+    "nodes": 1789,
+    "lp_iterations": 185073,
+    "lower_bound_log": 35.031064846710365,
+    "upper_bound_log": 49.15834355861759,
+    "log10_F": 6.135399188890585,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      10,
+      10,
+      10,
+      10
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.927085099974647,
+    "nodes": 1,
+    "lp_iterations": 59986,
+    "lower_bound_log": 8.30996140471883,
+    "upper_bound_log": 116.36325125172338,
+    "log10_F": 46.92694753204674,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      10,
+      10,
+      10,
+      10
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.954760200111195,
+    "nodes": 19,
+    "lp_iterations": 230752,
+    "lower_bound_log": 11.421272046406468,
+    "upper_bound_log": 81.19154188228542,
+    "log10_F": 30.300843190623123,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      10,
+      10,
+      10,
+      10
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.96728709992021,
+    "nodes": 55,
+    "lp_iterations": 493437,
+    "lower_bound_log": 16.728571636998087,
+    "upper_bound_log": 81.19154188228542,
+    "log10_F": 27.9959122646218,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.952097199857235,
+    "nodes": 13,
+    "lp_iterations": 15894,
+    "lower_bound_log": 18.39905077121489,
+    "upper_bound_log": 67.62993254475217,
+    "log10_F": 21.380700293478615,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.973444600123912,
+    "nodes": 478,
+    "lp_iterations": 67936,
+    "lower_bound_log": 26.24903503897633,
+    "upper_bound_log": 67.12730368819035,
+    "log10_F": 17.753206504112345,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.960041699931026,
+    "nodes": 1149,
+    "lp_iterations": 147645,
+    "lower_bound_log": 31.388242224335613,
+    "upper_bound_log": 63.86151351580375,
+    "log10_F": 14.102962531231894,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.957490100059658,
+    "nodes": 1,
+    "lp_iterations": 38673,
+    "lower_bound_log": 13.92153312158246,
+    "upper_bound_log": 143.01770241099146,
+    "log10_F": 56.06575395723837,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.95443889987655,
+    "nodes": 18,
+    "lp_iterations": 181828,
+    "lower_bound_log": 18.10178635478826,
+    "upper_bound_log": 83.4016680969888,
+    "log10_F": 28.359378309572595,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 40,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.95330339996144,
+    "nodes": 50,
+    "lp_iterations": 433661,
+    "lower_bound_log": 21.339833285392206,
+    "upper_bound_log": 79.79190616358748,
+    "log10_F": 25.385412706806935,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      20,
+      20,
+      20
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.9366421001032,
+    "nodes": 42,
+    "lp_iterations": 23763,
+    "lower_bound_log": 18.095991173183734,
+    "upper_bound_log": 79.06664896678859,
+    "log10_F": 26.479220237774083,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      20,
+      20,
+      20
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.963557600043714,
+    "nodes": 1104,
+    "lp_iterations": 102136,
+    "lower_bound_log": 33.247204134957144,
+    "upper_bound_log": 64.99823056411856,
+    "log10_F": 13.789295572949111,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      20,
+      20,
+      20
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.95971730002202,
+    "nodes": 1574,
+    "lp_iterations": 167064,
+    "lower_bound_log": 35.97615051720899,
+    "upper_bound_log": 63.54171595287647,
+    "log10_F": 11.971572959253393,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      20,
+      20,
+      20
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.776100900024176,
+    "nodes": 1,
+    "lp_iterations": 15901,
+    "lower_bound_log": 0.0,
+    "upper_bound_log": 149.32410328359944,
+    "log10_F": 64.85063407121848,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      20,
+      20,
+      20
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.94306190009229,
+    "nodes": 1,
+    "lp_iterations": 56873,
+    "lower_bound_log": 7.10745357974189,
+    "upper_bound_log": 149.32410328359944,
+    "log10_F": 61.763906201153056,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 3,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      20,
+      20,
+      20
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.92748169996776,
+    "nodes": 3,
+    "lp_iterations": 208541,
+    "lower_bound_log": 7.643240997750908,
+    "upper_bound_log": 149.32410328359944,
+    "log10_F": 61.53121668203856,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.944114599842578,
+    "nodes": 11,
+    "lp_iterations": 16499,
+    "lower_bound_log": 17.927444499996028,
+    "upper_bound_log": 120.28475268202214,
+    "log10_F": 44.45321412592451,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.95978289982304,
+    "nodes": 229,
+    "lp_iterations": 67784,
+    "lower_bound_log": 26.359019084872784,
+    "upper_bound_log": 78.44934026985666,
+    "log10_F": 22.622539051206555,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.93309190007858,
+    "nodes": 548,
+    "lp_iterations": 154550,
+    "lower_bound_log": 34.789533108961024,
+    "upper_bound_log": 76.61844164255291,
+    "log10_F": 18.166064160174795,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.934240800095722,
+    "nodes": 1,
+    "lp_iterations": 21929,
+    "lower_bound_log": 4.854419701329757,
+    "upper_bound_log": 159.739445860454,
+    "log10_F": 67.26571219034847,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.947200499940664,
+    "nodes": 1,
+    "lp_iterations": 93420,
+    "lower_bound_log": 12.524016630038883,
+    "upper_bound_log": 159.739445860454,
+    "log10_F": 63.93484856578796,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 4,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.934222100069746,
+    "nodes": 1,
+    "lp_iterations": 227470,
+    "lower_bound_log": 12.524016630038886,
+    "upper_bound_log": 159.739445860454,
+    "log10_F": 63.93484856578796,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.912042999872938,
+    "nodes": 4,
+    "lp_iterations": 22293,
+    "lower_bound_log": 18.691638477714037,
+    "upper_bound_log": 126.62962387570639,
+    "log10_F": 46.876871446101845,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.961052399827167,
+    "nodes": 129,
+    "lp_iterations": 67458,
+    "lower_bound_log": 22.588184140734086,
+    "upper_bound_log": 96.46967235787278,
+    "log10_F": 32.08632264750345,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "profile": "default",
+    "profile_options": {
+      "cross_pair_strengthening": false
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.10909810010344,
+    "nodes": 574,
+    "lp_iterations": 228069,
+    "lower_bound_log": 35.57258932827338,
+    "upper_bound_log": 89.00098575324063,
+    "log10_F": 23.2036577443027,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 10.0,
+    "status": "timelimit",
+    "runtime_s": 9.92942429985851,
+    "nodes": 1,
+    "lp_iterations": 18954,
+    "lower_bound_log": 1.6479184330021592,
+    "upper_bound_log": 201.1355372979843,
+    "log10_F": 86.63637208108078,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 30.0,
+    "status": "timelimit",
+    "runtime_s": 29.946745299967006,
+    "nodes": 1,
+    "lp_iterations": 59513,
+    "lower_bound_log": 10.361661123262287,
+    "upper_bound_log": 201.1355372979843,
+    "log10_F": 82.85204171397602,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  },
+  {
+    "experiment": "E12-D",
+    "n": 60,
+    "K": 5,
+    "seed": 0,
+    "generator_seed": 20260812,
+    "capacities": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "profile": "cardinality_root",
+    "profile_options": {
+      "cross_pair_strengthening": true
+    },
+    "budget_s": 60.0,
+    "status": "timelimit",
+    "runtime_s": 59.92913950001821,
+    "nodes": 1,
+    "lp_iterations": 151134,
+    "lower_bound_log": 12.428664217088777,
+    "upper_bound_log": 201.1355372979843,
+    "log10_F": 81.95435367625022,
+    "solver_closed": false,
+    "scip_version": "9.2.4"
+  }
+]

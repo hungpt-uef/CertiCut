@@ -1,0 +1,46 @@
+{
+  "experiment": "E16 matched-objective baseline suite",
+  "corpora": [
+    "E6",
+    "E9",
+    "E10"
+  ],
+  "methods": [
+    "Greedy-Swap",
+    "KL-count",
+    "KL-QPD",
+    "KaHIP-QPD+repair"
+  ],
+  "matched_objective": "fixed independent gate-QPD capacitated K-way partitioning",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "versions": {
+    "qiskit": "2.5.1",
+    "qiskit-addon-cutting": "0.10.0",
+    "kahip": "3.25",
+    "mqt.bench": "2.2.2",
+    "pyscipopt": "6.2.1"
+  },
+  "time_limit_s": 0.1,
+  "kahip_protocol": "KaHIP FAST has no native binding time limit; reported runtime includes native call, exact repair, and budgeted refinement. It is not wall-clock budget matched.",
+  "inputs": {
+    "E6": "75b63992b616121b89622d6a1b8e865b2b2c4457b818c6c8aac784de0da1a008",
+    "E9": "7b6a699371a42ee924596fb19870e86a0b8feabf2f42c5893989485ec7530231",
+    "E10": "55caffe4dd0b1acad5fe4e4531a05103b91e98e2c5b22e8e6b302ea8a4ba9937"
+  },
+  "outputs": {
+    "E6": {
+      "records": 144,
+      "sha256": "d92c7a52a04420e5d384733f58148ca0acbf50a83cac61a4a84cdc6adc862995"
+    },
+    "E9": {
+      "records": 576,
+      "sha256": "d0dfe05da98138f0aab77cca7992627ae713c7dd47169e07a793fdd4acbc3fbf"
+    },
+    "E10": {
+      "records": 144,
+      "sha256": "17b8eacf8119a44ed0211631ce54c1ef0912aa818dc967111e20d0f196410474"
+    }
+  },
+  "git_commit": "97fa94424f40e6cd73b4788a189d3a585eff7e21"
+}

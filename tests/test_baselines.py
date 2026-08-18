@@ -1,10 +1,10 @@
 from math import isclose, log
 
 from certicut.baselines.graph_heuristics import solve_graph_heuristic
-from certicut.baselines.kahip import _to_csr, solve_kahip
+from certicut.baselines.kahip import _to_csr, solve_kahip, solve_kahip_k
 from certicut.baselines.qiskit_cut_finder import find_gate_only_cuts, qiskit_track_b_record
 from certicut.circuits.phase0 import make_six_qubit_toy_circuit
-from certicut.graph.interaction import build_interaction_graph
+from certicut.graph.interaction import build_interaction_graph, graph_partition_objective
 from certicut.optimization.exact import solve_exact_partition
 
 
@@ -61,3 +61,39 @@ def test_kahip_enforces_even_and_odd_exact_balance() -> None:
         result = solve_kahip(build_interaction_graph(circuit), seed=0, mode="strong")
         assert result.status == "feasible"
         assert tuple(sorted(result.fragment_sizes)) == expected
+
+
+def test_kahip_k_repair_returns_exact_declared_capacity() -> None:
+    from qiskit import QuantumCircuit
+    circuit = QuantumCircuit(8)
+    for index in range(8):
+        circuit.cx(index, (index + 1) % 8)
+    graph = build_interaction_graph(circuit)
+    result = solve_kahip_k(graph, num_fragments=3, capacities=(3, 3, 2), seed=4, refinement_time_limit_s=0.1)
+    assert result.status == "feasible"
+    assert result.fragment_sizes == (3, 3, 2)
+    assert result.partition is not None
+    assert isclose(result.objective_log_cost or 0.0, graph_partition_objective(graph, result.partition), abs_tol=1e-10)
+
+
+def test_kahip_qpd_weight_scaling_preserves_edge_order() -> None:
+    from qiskit import QuantumCircuit
+    circuit = QuantumCircuit(4)
+    circuit.cx(0, 1)
+    circuit.iswap(2, 3)
+    graph = build_interaction_graph(circuit, cost_model="qiskit_qpd")
+    _, _, weights, _ = _to_csr(graph, qpd_weights=True, weight_scale=1_000_000)
+    assert min(weights) > 0
+    assert len(set(weights)) == 2
+
+
+def test_kahip_qpd_scaling_error_is_bounded_per_edge() -> None:
+    from qiskit import QuantumCircuit
+    circuit = QuantumCircuit(4)
+    circuit.rzz(0.37, 0, 1)
+    circuit.rzz(0.81, 2, 3)
+    graph = build_interaction_graph(circuit, cost_model="qiskit_qpd")
+    scale = 1_000_000
+    _, _, weights, _ = _to_csr(graph, qpd_weights=True, weight_scale=scale)
+    for edge, encoded in zip(graph.edges, weights[::2]):
+        assert abs(encoded / scale - edge.qpd_log_cost) <= 0.5 / scale + 1e-15

@@ -1,0 +1,197 @@
+[
+  {
+    "family": "random_matching",
+    "num_qubits": 6,
+    "K": 2,
+    "seed": 0,
+    "capacities": [
+      3,
+      3
+    ],
+    "direct_gate_log_cost": 10.627855002677872,
+    "graph_log_cost": 10.627855002677872,
+    "scip_log_cost": 10.627855002677872,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "random_matching",
+    "num_qubits": 8,
+    "K": 2,
+    "seed": 1,
+    "capacities": [
+      4,
+      4
+    ],
+    "direct_gate_log_cost": 11.253885128401896,
+    "graph_log_cost": 11.253885128401896,
+    "scip_log_cost": 11.253885128401896,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "random_matching",
+    "num_qubits": 8,
+    "K": 3,
+    "seed": 2,
+    "capacities": [
+      3,
+      3,
+      2
+    ],
+    "direct_gate_log_cost": 14.008988378197458,
+    "graph_log_cost": 14.008988378197458,
+    "scip_log_cost": 14.008988378197458,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "random_matching",
+    "num_qubits": 10,
+    "K": 2,
+    "seed": 0,
+    "capacities": [
+      5,
+      5
+    ],
+    "direct_gate_log_cost": 14.45152384752382,
+    "graph_log_cost": 14.45152384752382,
+    "scip_log_cost": 14.45152384752382,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "community_matching",
+    "num_qubits": 6,
+    "K": 2,
+    "seed": 0,
+    "capacities": [
+      3,
+      3
+    ],
+    "direct_gate_log_cost": 7.293913377026589,
+    "graph_log_cost": 7.293913377026589,
+    "scip_log_cost": 7.293913377026589,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "community_matching",
+    "num_qubits": 8,
+    "K": 2,
+    "seed": 1,
+    "capacities": [
+      4,
+      4
+    ],
+    "direct_gate_log_cost": 5.02853734642569,
+    "graph_log_cost": 5.02853734642569,
+    "scip_log_cost": 5.02853734642569,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "community_matching",
+    "num_qubits": 8,
+    "K": 3,
+    "seed": 2,
+    "capacities": [
+      3,
+      3,
+      2
+    ],
+    "direct_gate_log_cost": 13.817435655770568,
+    "graph_log_cost": 13.817435655770568,
+    "scip_log_cost": 13.817435655770568,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "community_matching",
+    "num_qubits": 10,
+    "K": 2,
+    "seed": 0,
+    "capacities": [
+      5,
+      5
+    ],
+    "direct_gate_log_cost": 4.394449154672439,
+    "graph_log_cost": 4.394449154672439,
+    "scip_log_cost": 4.394449154672439,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "weighted_repeat",
+    "num_qubits": 6,
+    "K": 2,
+    "seed": 0,
+    "capacities": [
+      3,
+      3
+    ],
+    "direct_gate_log_cost": 20.17424277293821,
+    "graph_log_cost": 20.17424277293821,
+    "scip_log_cost": 20.17424277293821,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "weighted_repeat",
+    "num_qubits": 8,
+    "K": 2,
+    "seed": 1,
+    "capacities": [
+      4,
+      4
+    ],
+    "direct_gate_log_cost": 19.616364100478865,
+    "graph_log_cost": 19.61636410047887,
+    "scip_log_cost": 19.61636410047887,
+    "direct_graph_abs_error": 3.552713678800501e-15,
+    "direct_scip_abs_error": 3.552713678800501e-15,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "weighted_repeat",
+    "num_qubits": 8,
+    "K": 3,
+    "seed": 2,
+    "capacities": [
+      3,
+      3,
+      2
+    ],
+    "direct_gate_log_cost": 20.042783437746774,
+    "graph_log_cost": 20.042783437746774,
+    "scip_log_cost": 20.042783437746774,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  },
+  {
+    "family": "weighted_repeat",
+    "num_qubits": 10,
+    "K": 2,
+    "seed": 0,
+    "capacities": [
+      5,
+      5
+    ],
+    "direct_gate_log_cost": 19.037525724623148,
+    "graph_log_cost": 19.037525724623148,
+    "scip_log_cost": 19.037525724623148,
+    "direct_graph_abs_error": 0.0,
+    "direct_scip_abs_error": 0.0,
+    "scip_status": "optimal"
+  }
+]
