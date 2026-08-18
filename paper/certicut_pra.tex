@@ -75,13 +75,14 @@
 \title{Representation-Sensitive Quantum Circuit Cutting with Quasiprobability Resource Bounds}
 
 \author{Phung Trong Hung}
-\email[Contact author: ]{phungtronghung0808@gmail.com}
+\email[Corresponding author: ]{phungtronghung0808@gmail.com}
 \affiliation{Faculty of Information Technology, Ho Chi Minh City University of Technology (HUTECH), Ho Chi Minh City, Vietnam}
 
 \author{Huong Bui}
+\email{bd.huong@hutech.edu.vn}
 \affiliation{Faculty of Information Technology, Ho Chi Minh City University of Technology (HUTECH), Ho Chi Minh City, Vietnam}
 
-\date{\today}
+% \date{\today} suppressed per submission guidelines
 
 % ===================================================================
 % ABSTRACT
@@ -320,7 +321,7 @@ Theorem~\ref{thm:gap} is an exact-arithmetic statement: in ideal mathematics, va
 \subsection{Computational protocol}
 \label{sec:protocol}
 
-All experiments use a frozen software and hardware protocol: Python~3.11.9, Qiskit~2.5.1, Qiskit Addon Cutting~0.10.0, Qiskit Aer~0.17.2, SciPy~1.17.1~\cite{scipy}, KaHIP~3.25~\cite{kahip}, MQT~Bench~2.2.2~\cite{mqtbench}, PySCIPOpt~6.2.1, and SCIP~10.0.2~\cite{scip}, on Windows~11 (build~26200) with an Intel Core i5-14400 (10 physical cores, 16 logical processors) and 31.69~GB RAM. Revision runners pin OpenMP, OpenBLAS, and MKL to one thread before numerical imports. The primary evidence corpus was frozen on August~11--12, 2026, and the predeclared validation and stress-test tracks on August~13--14, 2026; each track is versioned separately with its own raw records and SHA-256 manifest. As stated in Sec.~\ref{sec:num-semantics}, every reported optimization bound, factor, closure, and lexicographic outcome is a floating-point solver-tolerance quantity except for the interval tier of Appendix~\ref{app:verified}. The benchmark matrices are fixed designs rather than IID samples, so reported proportions are descriptive rather than population-prevalence estimates. Complete versions, seeds, solver tolerances, and integrity manifests are listed in Appendix~\ref{app:verified} and in the Data Availability statement. In accordance with APS policy on the use of AI tools, we disclose that generative AI assistants (Claude 3.7 Sonnet and OpenAI GPT-4o) were used to assist in implementing and debugging the experiment execution and analysis code; the authors directed the tools via task-specific prompts, independently reviewed, executed, and validated all resulting code against the exhaustive-enumeration and interval oracles described below, and all scientific claims, derivations, and conclusions are the authors' own.
+All experiments use a frozen software and hardware protocol: Python~3.11.9, Qiskit~2.5.1, Qiskit Addon Cutting~0.10.0, Qiskit Aer~0.17.2, SciPy~1.17.1~\cite{scipy}, KaHIP~3.25~\cite{kahip}, MQT~Bench~2.2.2~\cite{mqtbench}, PySCIPOpt~6.2.1, and SCIP~10.0.2~\cite{scip}, on Windows~11 (build~26200) with an Intel Core i5-14400 (10 physical cores, 16 logical processors) and 31.69~GB RAM. Revision runners pin OpenMP, OpenBLAS, and MKL to one thread before numerical imports. The primary evidence corpus was frozen on August~11--12, 2026, and the predeclared validation and stress-test tracks on August~13--14, 2026; each track is versioned separately with its own raw records and SHA-256 manifest. As stated in Sec.~\ref{sec:num-semantics}, every reported optimization bound, factor, closure, and lexicographic outcome is a floating-point solver-tolerance quantity except for the interval tier of Appendix~\ref{app:verified}. The benchmark matrices are fixed designs rather than IID samples, so reported proportions are descriptive rather than population-prevalence estimates. Complete versions, seeds, solver tolerances, and integrity manifests are listed in Appendix~\ref{app:verified} and in the Data Availability statement. In accordance with APS policy on the use of AI tools, we disclose that generative AI assistants (Claude and ChatGPT) were used to assist in implementing and debugging the experiment execution and analysis code; the authors directed the tools via task-specific prompts, independently reviewed, executed, and validated all resulting code against the exhaustive-enumeration and interval oracles described below, and all scientific claims, derivations, and conclusions are the authors' own.
 
 \subsection{Representation construction and semantic checks}
 \label{sec:rep-construction}
@@ -565,7 +566,7 @@ We have shown that semantically equivalent quantum-circuit representations can a
 % ===================================================================
 \begin{acknowledgments}
 The authors thank the maintainers of the open-source tools used in this work (Qiskit, Qiskit Addon Cutting, MQT~Bench, KaHIP, and SCIP) for enabling reproducible experimentation.
-In accordance with APS policy, the authors disclose that generative AI assistants (Claude 3.7 Sonnet and OpenAI GPT-4o) were used to assist in implementing and debugging experiment and analysis code; all code, results, and manuscript content were reviewed, verified, and validated by the authors, who take full responsibility for the work.
+In accordance with APS policy, the authors disclose that generative AI assistants (Claude and ChatGPT) were used to assist in implementing and debugging experiment and analysis code; all code, results, and manuscript content were reviewed, verified, and validated by the authors, who take full responsibility for the work.
 \end{acknowledgments}
 
 % ---------------------------------------------------------------
