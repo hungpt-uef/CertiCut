@@ -21,7 +21,7 @@
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
   pdftitle={CertiCut: Representation-Sensitive Circuit Cutting with Anytime Resource Bounds},
-  pdfauthor={Phung Trong Hung},
+  pdfauthor={Phung Trong Hung and Huong Bui},
   pdfsubject={Independent-QPD circuit-cutting optimization},
   pdfkeywords={quantum circuit cutting, quasiprobability decomposition, capacitated graph partitioning, mixed-integer programming}
 }
@@ -30,7 +30,7 @@
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
   pdftitle={CertiCut: Representation-Sensitive Capacitated Circuit Cutting with Anytime Resource Bounds},
-  pdfauthor={Phung Trong Hung},
+  pdfauthor={Phung Trong Hung and Huong Bui},
   pdfsubject={Independent-QPD circuit-cutting optimization},
   pdfkeywords={anytime optimization, capacitated graph partitioning, mixed-integer programming, quantum circuit cutting, quasiprobability decomposition}
 }
@@ -97,11 +97,13 @@
 \fi
 
 \ifdefined\quantumversion
-\author{Phung Trong Hung\\\texttt{phungtronghung0808@gmail.com}\\ORCID: \href{https://orcid.org/0009-0002-5257-6549}{0009-0002-5257-6549}}
+\author{Phung Trong Hung and Huong Bui\\Faculty of Information Technology, Ho Chi Minh City University of Technology (HUTECH), Ho Chi Minh City, Vietnam\\Corresponding author: \texttt{phungtronghung0808@gmail.com}\\ORCID: Phung Trong Hung \href{https://orcid.org/0009-0002-5257-6549}{0009-0002-5257-6549}; Huong Bui \href{https://orcid.org/0000-0003-4838-1538}{0000-0003-4838-1538}}
 \date{}
 \else
-\author{Phung~Trong~Hung%
-\thanks{P.~T.~Hung is with the Faculty of Information Technology, Ho Chi Minh City University of Technology (HUTECH), Ho Chi Minh City, Vietnam (e-mail: phungtronghung0808@gmail.com; ORCID: \href{https://orcid.org/0009-0002-5257-6549}{0009-0002-5257-6549}).}}
+\author{Phung~Trong~Hung and Huong~Bui%
+\thanks{P.~T.~Hung and H.~Bui are with the Faculty of Information Technology, Ho Chi Minh City University of Technology (HUTECH), Ho Chi Minh City, Vietnam.}%
+\thanks{Corresponding author: Phung Trong Hung (e-mail: phungtronghung0808@gmail.com).}%
+\thanks{ORCID: P.~T.~Hung \href{https://orcid.org/0009-0002-5257-6549}{0009-0002-5257-6549}; H.~Bui \href{https://orcid.org/0000-0003-4838-1538}{0000-0003-4838-1538}.}}
 \fi
 
 \begin{document}
@@ -750,7 +752,7 @@ The frozen manifest records software versions, solver tolerance, seeds, experime
 
 \ifdefined\quantumversion
 \subsection{Author Contributions}
-Phung Trong Hung conceived the \CertiCut{} framework, implemented the optimization and experimental pipeline, executed the experiments, prepared the manuscript, reviewed the artifacts, and approved the submitted version. All scientific claims, derivations, literature citations, experimental protocols, numerical results, software artifacts, and final manuscript text were independently verified and approved by the author.
+Phung Trong Hung conceived the \CertiCut{} framework, developed the mathematical formulation and software, designed and conducted the experiments, analyzed the results, and drafted the manuscript. Huong Bui contributed to methodological validation, interpretation of results, and critical revision of the manuscript. Both authors reviewed and approved the final manuscript.
 \fi
 
 \subsection{Conclusion}
@@ -762,7 +764,7 @@ Empirically, the same three pillars structure the evaluation: count-versus-QPD r
 \ifdefined\quantumversion
 \else
 \section*{Acknowledgment}
-The author thanks the maintainers of the open-source tools used in this work (Qiskit, Qiskit Addon Cutting, MQT~Bench, KaHIP, and SCIP) for enabling reproducible experimentation. All scientific claims, derivations, literature citations, experimental protocols, numerical results, software artifacts, and the final manuscript text were independently verified and approved by the author, who takes full responsibility for the content.
+The authors thank the maintainers of the open-source tools used in this work (Qiskit, Qiskit Addon Cutting, MQT~Bench, KaHIP, and SCIP) for enabling reproducible experimentation. All authors reviewed and approved the final manuscript and take responsibility for its content.
 \fi
 
 % ===================================================================
