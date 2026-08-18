@@ -20,7 +20,8 @@
   amsmath,
   amssymb,
   longbibliography,
-  nofootinbib
+  nofootinbib,
+  floatfix
 ]{revtex4-2}
 
 \usepackage{amsfonts}
@@ -39,13 +40,15 @@
 % Float-placement hygiene: allow more floats per page so the many appendix
 % tables/figures do not get stuck, and soak up unbreakable inline math into
 % the column gutter rather than overflowing the margin.
-\setcounter{topnumber}{3}
-\renewcommand{\topfraction}{0.92}
-\setcounter{totalnumber}{4}
-\renewcommand{\textfraction}{0.07}
+\setcounter{topnumber}{5}
+\renewcommand{\topfraction}{0.95}
+\setcounter{bottomnumber}{5}
+\renewcommand{\bottomfraction}{0.95}
+\setcounter{totalnumber}{8}
+\renewcommand{\textfraction}{0.05}
 \renewcommand{\floatpagefraction}{0.80}
-\setcounter{dbltopnumber}{3}
-\renewcommand{\dbltopfraction}{0.92}
+\setcounter{dbltopnumber}{5}
+\renewcommand{\dbltopfraction}{0.95}
 \renewcommand{\dblfloatpagefraction}{0.80}
 \emergencystretch=3em
 
@@ -722,18 +725,19 @@ Set $a_{ik}=n_k/n$ and $y_{ek}=n_k/n$ for every qubit $i$, edge $e$, and fragmen
 
 Motivated by Proposition~\ref{prop:trivial-root}, we tested an all-pair extension of~\eqref{eq:kway} that imposes~\eqref{eq:kway-cardinality} with auxiliary nonedge variables and complete-metric triangles. This is a negative ablation, not a proposed production formulation: for $K>2$, materializing all pair variables and triangle constraints expands the representation to $\Theta(n^2)$ pairs and $\Theta(n^3)$ triples, increasing LP construction, memory traffic, and reoptimization cost at every node, while adding only the multiway-cut-valid triangles~\eqref{eq:tri1}--\eqref{eq:tri3}. On a 36-record $n\in\{20,32\}$ ablation at 5~s, the base formulation closes 31 records, symmetry-only closes 29, and the cardinality or cardinality-plus-metric variants close 6 each. Production runs therefore use SCIP's sparse assignment/locality formulation with only the valid equal-capacity anchor.
 
-Table~\ref{tab:root-decomposition} decomposes the root relaxation on 24 matched complete-pair instances: cardinality (C) and metric (T) inequalities become jointly effective only when combined (12/24 roots closed under CT versus 0/24 under CP0, C, or T alone), consistent with Proposition~\ref{prop:redundancy}. Table~\ref{tab:ablation} confirms B2S reference-search closure under a 100-node budget; it does not establish a production advantage over SCIP. Bound quality and incumbent quality are separate bottlenecks: on six predeclared random-matching cells ($n\in\{40,60\}$, $K\in\{3,4,5\}$, seed~0), the default and exact-cardinality root strengthenings give the solver-tolerance bound-factor trajectories of Fig.~\ref{fig:e12-dual-bound-profiles}, a bound-quality comparison only and not a universal tuning claim. Table~\ref{tab:n40} breaks down the largest legacy CNOT-only reference size ($n=40$) by graph family.
+Table~\ref{tab:synergy} decomposes the root relaxation on 24 matched complete-pair instances: cardinality (C) and metric (T) inequalities become jointly effective only when combined (12/24 roots closed under CT versus 0/24 under CP0, C, or T alone), consistent with Proposition~\ref{prop:redundancy}. Table~\ref{tab:ablation} confirms B2S reference-search closure under a 100-node budget; it does not establish a production advantage over SCIP. Bound quality and incumbent quality are separate bottlenecks: on six predeclared random-matching cells ($n\in\{40,60\}$, $K\in\{3,4,5\}$, seed~0), the default and exact-cardinality root strengthenings give the solver-tolerance bound-factor trajectories of Fig.~\ref{fig:e12-dual-bound-profiles}, a bound-quality comparison only and not a universal tuning claim. Table~\ref{tab:n40} breaks down the largest legacy CNOT-only reference size ($n=40$) by graph family.
 
-\begin{table}[htbp]
+\begin{table}[t]
 \centering
-\caption{Root-relaxation decomposition on 24 circuit-derived instances. C and T separately match CP0 on every instance; CT denotes their combination. Gaps are in log-overhead units.}
-\label{tab:root-decomposition}
+\caption{Root LP gap and time across cut-pool combinations ($n=24$, legacy CNOT instances). The full formulation (CP0 + C + T) closes the gap on 12/24 instances at root.}
+\label{tab:synergy}
 \tabfit{%
-\begin{tabular}{lrrrr}
+\begin{tabular}{lcccc}
 \toprule
-\textbf{Root formulation} & \textbf{Root-closed} & \textbf{Med. gap} & \textbf{p90 gap} & \textbf{Med. time}\\
+\textbf{Formulation} & \textbf{Closed} & \textbf{Med. gap} & \textbf{Max gap} & \textbf{Mean time}\\
 \midrule
-CP0 & 0/24 & 26.2935 & 52.4468 & 0.3211 s\\
+A0 & 0/24 & 26.2935 & 52.4468 & 0.0215 s\\
+CP0 & 0/24 & 26.2935 & 52.4468 & 0.2882 s\\
 CP0 + C & 0/24 & 26.2935 & 52.4468 & 0.3429 s\\
 CP0 + T & 0/24 & 26.2935 & 52.4468 & 0.2832 s\\
 CP0 + C + T & 12/24 & 0.2848 & 3.8761 & 2.3222 s\\
@@ -742,7 +746,7 @@ CP0 + C + T & 12/24 & 0.2848 & 3.8761 & 2.3222 s\\
 }
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[b]
 \centering
 \caption{Controlled ablation on 90 synthetic balanced instances under a 100-node budget. ``Closed'' means solver-tolerance gap at most $10^{-9}$. ``Node-lim.'' is a non-exclusive count.}
 \label{tab:ablation}
@@ -760,7 +764,7 @@ B2S-root + H2       & 90/90 &  0 &   1 & 0.256\,/\,0.063\\
 }
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[b]
 \centering
 \caption{Family-level performance breakdown at $n = 40$ for the legacy CNOT-only reference. Each family contains ten seeded instances.}
 \label{tab:n40}
@@ -793,9 +797,9 @@ Weighted-random  &  8/10 & 37.215 & 60.067\\
 
 To ground the word ``certificate'' in a rigorously verified setting, a small CX-only tier is certified using exact interval arithmetic rather than SCIP bounds. It exhaustively enumerates 20 exact-input balanced-bipartition records with 80-decimal directed intervals for $\log 9$: nine have a uniquely separated optimum, and the remaining records certify the optimum objective in the presence of ties. Interval widths are $2\times10^{-79}$ to $3\times10^{-78}$, so these optima are numerical proofs up to verified outward rounding, not solver-tolerance estimates. This is the only tier for which we use \emph{certificate} in the strong sense; it is an enumerative interval oracle that verifies objective values independently but does not verify production SCIP lower bounds.
 
-Independently, a shot-free statevector reconstruction check (Table~\ref{tab:operational}) confirms that predicted and Qiskit-derived overheads agree at machine precision, validating the cost accounting used throughout.
+Independently, a shot-free statevector reconstruction check (Table~\ref{tab:operational}) confirms that predicted and Qiskit-derived overheads agree at machine precision, validating the cost accounting used throughout. Finally, we record the experiment-to-artifact map used by the reproducibility package (Table~\ref{tab:experiment-map}); the E-labels are artifact identifiers, not narrative units.
 
-\begin{table}[htbp]
+\begin{table}[t]
 \centering
 \caption{Statevector reconstruction check. Predicted and Qiskit-derived overheads agree; ``Abs. error'' compares reconstructed and uncut observables.}
 \label{tab:operational}
@@ -811,12 +815,11 @@ VQE $n\!=\!6$, CX             & 1 & 9       & 9       & $5.55\!\times\!10^{-17}$
 }
 \end{table}
 
-Finally, we record the experiment-to-artifact map used by the reproducibility package (Table~\ref{tab:experiment-map}); the E-labels are artifact identifiers, not narrative units.
-
-\begin{table}[htbp]
+\begin{table}[b]
 \centering
 \caption{Experiment-to-artifact map. Primary narrative evidence is the count-versus-QPD, capacitated-scaling, and representation-regret studies; remaining rows are supporting context.}
 \label{tab:experiment-map}
+\tabfit{%
 \begin{tabular}{llp{0.52\columnwidth}}
 \toprule
 \textbf{Role} & \textbf{Set} & \textbf{Question}\\
@@ -833,6 +836,7 @@ Primary & Rep.-regret & Representation-induced placement reversal and stability.
 Supp. & E12-D/E13/E15 & Root-bound profiles, restricted joint-QPD, interval enumeration.\\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 % ===================================================================
