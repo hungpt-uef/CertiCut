@@ -1,13 +1,5 @@
 ﻿\pdfoutput=1
-\ifdefined\quantumversion
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\newenvironment{IEEEkeywords}{\par\noindent\textbf{Keywords: }}{\par}
-\newcommand{\appendices}{\appendix}
-\setlength{\emergencystretch}{3em}
-\else
 \documentclass[journal]{IEEEtran}
-\fi
 
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{booktabs}
@@ -17,15 +9,6 @@
 \usepackage{multirow}
 \usepackage{url}
 \usepackage{xcolor}
-\ifdefined\quantumversion
-\usepackage[hidelinks]{hyperref}
-\hypersetup{
-  pdftitle={CertiCut: Representation-Sensitive Circuit Cutting with Anytime Resource Bounds},
-  pdfauthor={Phung Trong Hung and Huong Bui},
-  pdfsubject={Independent-QPD circuit-cutting optimization},
-  pdfkeywords={quantum circuit cutting, quasiprobability decomposition, capacitated graph partitioning, mixed-integer programming}
-}
-\else
 \usepackage{cite}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -35,16 +18,10 @@
   pdfkeywords={anytime optimization, capacitated graph partitioning, mixed-integer programming, quantum circuit cutting, quasiprobability decomposition}
 }
 \usepackage{balance}
-\fi
 
 % Omit proof-ending boxes; they were mistaken for missing-glyph squares.
 \renewcommand{\qedsymbol}{}
 
-\ifdefined\quantumversion
-% The article class draws itemize bullets from TS1, which falls back to a
-% bitmap (Type 3) font here; use a math bullet instead.
-\renewcommand{\labelitemi}{\ensuremath{\bullet}}
-\else
 % Two-column float hygiene: let text share pages with floats and avoid
 % near-empty deferred-float pages.
 \setcounter{topnumber}{3}
@@ -52,59 +29,27 @@
 \setcounter{totalnumber}{4}
 \renewcommand{\textfraction}{0.08}
 \renewcommand{\floatpagefraction}{0.85}
-\fi
 
-\ifdefined\quantumversion
-% Single-column layout: uniform footnotesize table bodies, centered captions,
-% and wide tables shrunk only when they would overrun the text width.
-\usepackage[justification=centering]{caption}
-\let\origtabular\tabular
-\let\origendtabular\endtabular
-\renewenvironment{tabular}{\footnotesize\origtabular}{\origendtabular}
-\newsavebox{\tabfitbox}
-\newcommand{\tabfit}[1]{%
-  {\sbox{\tabfitbox}{#1}%
-   \ifdim\wd\tabfitbox>\columnwidth
-     \resizebox{\columnwidth}{!}{\usebox{\tabfitbox}}%
-   \else
-     \usebox{\tabfitbox}%
-   \fi}}
-\newcommand{\tabfitscript}{}
-\else
 \newcommand{\tabfit}[1]{\resizebox{\columnwidth}{!}{#1}}
 \newcommand{\tabfitscript}{\scriptsize}
-\fi
 % Full-width tables (used inside table*): scale to the full line width so the
 % text stays large enough to read comfortably.
 \newcommand{\tabfitstar}[1]{\resizebox{\linewidth}{!}{#1}}
 
 \graphicspath{{figures/}}
 
-\ifdefined\quantumversion
-\newcommand{\CertiCut}{CertiCut}
-\else
 \newcommand{\CertiCut}{\textsc{CertiCut}}
-\fi
 \newcommand{\OPT}{\mathrm{OPT}}
 \newcommand{\LB}{\mathrm{LB}}
 \newcommand{\UB}{\mathrm{UB}}
 \newcommand{\gap}{\Delta}
 
-\ifdefined\quantumversion
-\title{CertiCut: Representation-Sensitive Circuit Cutting with Anytime Resource Bounds}
-\else
 \title{CertiCut: Representation-Sensitive Capacitated Circuit Cutting with Anytime Resource Bounds}
-\fi
 
-\ifdefined\quantumversion
-\author{Phung Trong Hung and Huong Bui\\Faculty of Information Technology, Ho Chi Minh City University of Technology (HUTECH), Ho Chi Minh City, Vietnam\\E-mail: \texttt{phungtronghung0808@gmail.com} (corresponding), \texttt{bd.huong@hutech.edu.vn}\\ORCID: Phung Trong Hung \href{https://orcid.org/0009-0002-5257-6549}{0009-0002-5257-6549}; Huong Bui \href{https://orcid.org/0000-0003-4838-1538}{0000-0003-4838-1538}}
-\date{}
-\else
 \author{Phung~Trong~Hung and Huong~Bui%
 \thanks{P.~T.~Hung and H.~Bui are with the Faculty of Information Technology, Ho Chi Minh City University of Technology (HUTECH), Ho Chi Minh City, Vietnam (e-mail: phungtronghung0808@gmail.com; bd.huong@hutech.edu.vn).}%
 \thanks{Corresponding author: Phung Trong Hung.}%
 \thanks{ORCID: P.~T.~Hung \href{https://orcid.org/0009-0002-5257-6549}{0009-0002-5257-6549}; H.~Bui \href{https://orcid.org/0000-0003-4838-1538}{0000-0003-4838-1538}.}}
-\fi
 
 \begin{document}
 \maketitle
@@ -116,13 +61,9 @@
 Semantically equivalent circuit representations can induce different optimal cut placements under an independent quasiprobability decomposition (QPD) cost model. We introduce \CertiCut{}, a framework for representation-sensitive circuit cutting, together with a tie-safe set-level regret metric that avoids false positives from arbitrary optimizer-selected ties, and prove perturbation-based stability and positive-scaling invariance. Semantic checks up to global phase and a two-stage lexicographic mixed-integer programming (MIP) protocol identify seven strict placement reversals on quantum phase estimation (QPE) and Grover circuits while eliminating six apparent quantum Fourier transform (QFT) reversals; the headline QPE witness exhibits a tie-safe placement-regret factor of $R=729$, whereas the Grover cases are retained only as extreme mathematical stress tests of the metric at non-physical overhead. \CertiCut{} instantiates this analysis through an exact capacitated $K$-way formulation under a fixed independent gate-QPD cost registry---the model deployed by Qiskit Addon Cutting, so that exact optimization yields decisions actionable in current reconstruction pipelines---reduced to log-domain weighted graph partitioning. In exact arithmetic, valid global bounds imply $\Gamma(P_{\mathrm{inc}})/\Gamma^*\le\exp(\UB-\LB)$; a small CX-only tier carries verified interval-arithmetic certificates, whereas production bounds and closure decisions are floating-point, solver-tolerance quantities and the medium-tier reversals are robust across a $\tau_{\mathrm{opt}}$ sweep rather than independently certified. On a frozen heterogeneous benchmark, the SCIP mixed-integer solver closes 101/144 instances with $n\le60$ and $K\le5$ within 10~s. At a matched 0.1-s heuristic budget, QPD-weighted Kernighan--Lin matches the solver-tolerance-closed SCIP objective on 68/101 records, whereas count-weighted Kernighan--Lin (KL) has median modeled regret $10^{1.56}\approx36\times$. The largest exhaustively enumerated count-versus-QPD witness exhibits $1.04\times10^6$ modeled-overhead regret. \CertiCut{} thus makes representation-sensitive cutting decisions and their stated-model resource risk auditable.
 \end{abstract}
 
-\ifdefined\quantumversion
-\textbf{Keywords:} anytime optimization; capacitated graph partitioning; mixed-integer programming; quantum circuit cutting; quasiprobability decomposition
-\else
 \begin{IEEEkeywords}
 anytime optimization, capacitated graph partitioning, mixed-integer programming, quantum circuit cutting, quasiprobability decomposition
 \end{IEEEkeywords}
-\fi
 
 % ===================================================================
 % I. INTRODUCTION
@@ -289,7 +230,7 @@ The basic reference LP, denoted A0, uses one-hot assignment variables on qubits 
 
 \subsection{B2S Reference and Negative Ablation}
 
-B2S is retained as a $K=2$ reference ablation, not the proposed $K$-way backend. It lifts A0 to the complete pair space, imposes the full XOR hull~\eqref{eq:xor}, and adds two families of valid constraints. To isolate the added families independently of this representation change, \ifdefined\quantumversion Sec.~5\else Sec.~V\fi{} compares them against a complete-pair baseline, denoted CP0.
+B2S is retained as a $K=2$ reference ablation, not the proposed $K$-way backend. It lifts A0 to the complete pair space, imposes the full XOR hull~\eqref{eq:xor}, and adds two families of valid constraints. To isolate the added families independently of this representation change, Sec.~V compares them against a complete-pair baseline, denoted CP0.
 
 \textit{Balanced-cut cardinality.} Equality~\eqref{eq:cardinality} fixes the total cut mass over all qubit pairs.
 
@@ -750,31 +691,19 @@ The core formulation is restricted to gate-cut partitions under a fixed circuit 
 
 The frozen manifest records software versions, solver tolerance, seeds, experiment counts, and SHA-256 hashes. Reproducing the reported numbers requires this protocol; changing the solver stack requires regenerating the evidence.
 
-\ifdefined\quantumversion
-\subsection{Author Contributions}
-Phung Trong Hung conceived the \CertiCut{} framework, developed the mathematical formulation and software, designed and conducted the experiments, analyzed the results, and drafted the manuscript. Huong Bui contributed to methodological validation, interpretation of results, and critical revision of the manuscript. Both authors reviewed and approved the final manuscript.
-\fi
-
 \subsection{Conclusion}
 
 This work organizes capacitated circuit-cutting optimization around three pillars rather than a new graph-partitioning algorithm. First---and most distinctively---semantically equivalent circuit representations can alter the optimal fragment placement itself. We establish an upper bound on representation regret, prove that a perturbation $\|\delta\|_1$ smaller than the primary optimality margin $m_a$ guarantees optimal-partition containment, and prove a positive-scaling invariance corollary explaining QAOA stability. Partitioning orbitopes remove redundant fragment-label permutations but cannot remove distinct primary-optimal partitions with different cut-indicator vectors; tie-safe regret therefore requires a second lexicographic optimization. With explicitly pinned SCIP feasibility tolerances, that protocol confirms placement reversals on QPE and Grover circuits---QPE being the operationally relevant witness ($R=729$), Grover a non-physical stress test---and rules out single-solve false positives on QFT. Second, static capacitated $K$-way gate cutting under independent per-gate QPD reduces exactly to log-domain weighted graph partitioning. Third, that reduction yields backend-independent resource bounds: in exact arithmetic, any valid primal/lower-bound pair $(\UB,\LB)$ guarantees $\Gamma_{\mathrm{inc}}/\Gamma^* \le \exp(\UB-\LB)$.
 
 Empirically, the same three pillars structure the evaluation: count-versus-QPD reversals (including the Draper $n=16$ topology witness), anytime solver-tolerance resource bounds with a transparent $K$-way backend boundary (101/144 E9 closures within 10~s), and representation sensitivity whose headline is a QPE placement-regret factor of $R=729$. We reserve the word \emph{certificate} in its strong sense for a small CX-only tier verified by exact interval enumeration; all production bounds are reported explicitly as solver-tolerance quantities, and we optimize the deployed independent gate-QPD model exactly rather than approximating a stronger one, quantifying the resulting model gap instead of hiding it. \CertiCut{} provides a rigorous formulation, resource-interpretable anytime-bound semantics, and a reproducibility artifact for independent-QPD circuit-cutting optimization.
 
-\ifdefined\quantumversion
-\else
 \section*{Acknowledgment}
 The authors thank the maintainers of the open-source tools used in this work (Qiskit, Qiskit Addon Cutting, MQT~Bench, KaHIP, and SCIP) for enabling reproducible experimentation. All authors reviewed and approved the final manuscript and take responsibility for its content.
-\fi
 
 % ===================================================================
 % APPENDICES
 % ===================================================================
-\ifdefined\quantumversion
-\appendix
-\else
 \appendices
-\fi
 
 \section{Family-Level Results for Legacy E1 B2S Reference at $n = 40$}
 \phantomsection
@@ -866,15 +795,12 @@ We evaluate $F$ in the log domain to avoid overflow. ``Closed'' means a solver-r
 % ===================================================================
 % REFERENCES (final element of the paper)
 % ===================================================================
-\ifdefined\quantumversion
-\else
 % No \balance here: the final reference entries should flow down the left
 % column of the last page instead of being split across both columns.
 \makeatletter
 \renewcommand{\IEEEbibitemsep}{0pt}
 \apptocmd{\thebibliography}{\small\setlength{\itemsep}{0pt}}{}{}
 \makeatother
-\fi
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 

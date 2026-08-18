@@ -86,3 +86,6 @@ paper/certicut_quantum.*
 
 # Local submission deliverables (PDF + ZIPs), not part of the repo
 submission/
+
+# Research reports kept local, out of the public repo
+docs/
