@@ -73,8 +73,7 @@ CertiCut/
 │   └── qiskit_bridge/        # Operational shot reconstruction and Qiskit Addon Cutting bridge
 ├── docs/                     # Detailed research reports for all project phases
 ├── paper/                    # IEEE paper source files, figures, tables, claims audit
-├── results/                  # Execution outputs, summary reports, JSON metrics
-├── scripts/                  # Experiment runners and evaluation scripts
+├── results/                  # Frozen execution outputs, summary reports, JSON metrics
 ├── tests/                    # Complete pytest suite (50+ unit tests)
 └── requirements.txt          # Package dependencies
 ```
@@ -113,19 +112,12 @@ print(f"Certified Overhead Factor F <= {result.factor_bound:.4f}")
 print(f"Partition Assignment: {result.assignment}")
 ```
 
-### 3. Running Benchmark Experiments
+### 3. Reproducing the Experiments
 
-Execute experiment scripts located in `scripts/`:
-
-- **Run E12 Representation Placement Regret**:
-  ```bash
-  python scripts/run_e12_representation_placement_regret.py
-  ```
-
-- **Summarize E9 $K$-Way Replicated Scaling**:
-  ```bash
-  python scripts/summarize_e9_k_replicated.py
-  ```
+The experiment runners, figure generators, and SHA-256 manifests that reproduce
+every reported number are distributed in the reproducibility artifact
+accompanying the paper submission (not in this repository). The frozen raw
+records they produce are included here under `results/`.
 
 ---
 

@@ -77,3 +77,6 @@ paper/figures/*.txt
 
 # Smoke-test result snapshots
 results/upgrade_2026/e16_baseline_smoke*/
+
+# Research/paper-generation scripts kept local, out of the public repo
+scripts/
