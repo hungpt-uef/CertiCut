@@ -83,3 +83,6 @@ scripts/
 
 # Quantum-journal variant kept local (submitting to IEEE only)
 paper/certicut_quantum.*
+
+# Local submission deliverables (PDF + ZIPs), not part of the repo
+submission/
