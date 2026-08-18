@@ -20,7 +20,7 @@ This report responds to the supplied major-revision review. It distinguishes com
 
 | Priority | Issue | Status | Evidence / action |
 |---|---|---|---|
-| P0 | Floating-point certificate overclaim | Addressed framing; not formal verification | `certicut/optimization/certificate.py`; `paper/certicut_ieee.tex` |
+| P0 | Floating-point certificate overclaim | Addressed framing; not formal verification | `certicut/optimization/certificate.py`; `paper/certicut.tex` |
 | P0 | Conservative numerical lower bound | Partially addressed | Report has `numerical_safety_margin_log`, conservative LB/factor fields. Margin is declared, not independently verified. Directed rounding/rational LP verification remains required for a formal proof. |
 | P0 | Matched mature-MIP comparison | Full E7 complete | SCIP G0 closes 200/200 by 10 s, versus CERTICUT 184/200 at 10 s and 199/200 at 60 s. See `Phase_12_E7_Frozen_Heterogeneous_Scaling_Report.md`. |
 | P0 | Large heterogeneous scaling | Full E7 complete | 200 frozen heterogeneous-QPD records through n=40; no custom-solver superiority claim is supported. |
@@ -111,7 +111,7 @@ Run full E8:
 - `tests/test_final_protocol.py`
 - `tests/test_scip_checkpoint.py`
 - `tests/test_operational_finite_shots.py`
-- `paper/certicut_ieee.tex`
+- `paper/certicut.tex`
 - `paper/references.bib`
 - `requirements.txt`
 

@@ -123,7 +123,7 @@ records they produce are included here under `results/`.
 
 ## Paper & Documentation
 
-- **Paper Source & PDF**: Located in `paper/` (`certicut_ieee.tex`, `certicut_ieee.pdf`).
+- **Paper Source & PDF**: Located in `paper/` (`certicut.tex`, `certicut.pdf`).
 - **Claims Audit**: Defined in `paper/claims.md`.
 - **Phase Reports**: Detailed VI/English technical reports for Phases 0 through 12 are available in `docs/reports/`.
 - **Artifact Versions**: Detailed software version audit in `paper/ARTIFACT_VERSIONS.md`.
