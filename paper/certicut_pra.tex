@@ -27,6 +27,7 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{booktabs}
+\usepackage{placeins}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -792,14 +793,16 @@ Weighted-random  &  8/10 & 37.215 & 60.067\\
   \label{fig:e12-dual-bound-profiles}
 \end{figure}
 
+\FloatBarrier
+
 \section{Verified interval tier and reconstruction check}
 \label{app:verified}
 
 To ground the word ``certificate'' in a rigorously verified setting, a small CX-only tier is certified using exact interval arithmetic rather than SCIP bounds. It exhaustively enumerates 20 exact-input balanced-bipartition records with 80-decimal directed intervals for $\log 9$: nine have a uniquely separated optimum, and the remaining records certify the optimum objective in the presence of ties. Interval widths are $2\times10^{-79}$ to $3\times10^{-78}$, so these optima are numerical proofs up to verified outward rounding, not solver-tolerance estimates. This is the only tier for which we use \emph{certificate} in the strong sense; it is an enumerative interval oracle that verifies objective values independently but does not verify production SCIP lower bounds.
 
-Independently, a shot-free statevector reconstruction check (Table~\ref{tab:operational}) confirms that predicted and Qiskit-derived overheads agree at machine precision, validating the cost accounting used throughout. Finally, we record the experiment-to-artifact map used by the reproducibility package (Table~\ref{tab:experiment-map}); the E-labels are artifact identifiers, not narrative units.
+Independently, a shot-free statevector reconstruction check (Table~\ref{tab:operational}) confirms that predicted and Qiskit-derived overheads agree at machine precision, validating the cost accounting used throughout.
 
-\begin{table}[t]
+\begin{table}[h]
 \centering
 \caption{Statevector reconstruction check. Predicted and Qiskit-derived overheads agree; ``Abs. error'' compares reconstructed and uncut observables.}
 \label{tab:operational}
@@ -815,7 +818,9 @@ VQE $n\!=\!6$, CX             & 1 & 9       & 9       & $5.55\!\times\!10^{-17}$
 }
 \end{table}
 
-\begin{table}[b]
+Finally, we record the experiment-to-artifact map used by the reproducibility package (Table~\ref{tab:experiment-map}); the E-labels are artifact identifiers, not narrative units.
+
+\begin{table}[h]
 \centering
 \caption{Experiment-to-artifact map. Primary narrative evidence is the count-versus-QPD, capacitated-scaling, and representation-regret studies; remaining rows are supporting context.}
 \label{tab:experiment-map}
@@ -838,6 +843,8 @@ Supp. & E12-D/E13/E15 & Root-bound profiles, restricted joint-QPD, interval enum
 \end{tabular}
 }
 \end{table}
+
+\clearpage
 
 % ===================================================================
 % REFERENCES
