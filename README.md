@@ -136,8 +136,8 @@ If you use CertiCut in your research, please cite:
 
 ```bibtex
 @article{certicut2026,
-  title={CertiCut: Certified Anytime Optimization for Sampling-Aware Quantum Circuit Cutting via Polyhedral Relaxations},
-  author={Hung Pung},
+  title={CertiCut: Representation-Sensitive Capacitated Circuit Cutting with Anytime Resource Bounds},
+  author={Phung Trong Hung and Huong Bui},
   journal={IEEE Transactions on Quantum Engineering},
   year={2026}
 }
