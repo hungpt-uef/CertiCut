@@ -82,7 +82,13 @@
 \email{bd.huong@hutech.edu.vn}
 \affiliation{Faculty of Information Technology, Ho Chi Minh City University of Technology (HUTECH), Ho Chi Minh City, Vietnam}
 
-% \date{\today} suppressed per submission guidelines
+\date{}
+
+% ===================================================================
+% MSC2020 CLASSIFICATION
+% ===================================================================
+% MSC 2020: 05C85 (Graph algorithms), 68Q25 (Analysis of algorithms and problem complexity), 
+%           90C11 (Mixed integer programming), 81P68 (Quantum computation and quantum information)
 
 % ===================================================================
 % ABSTRACT
@@ -99,7 +105,7 @@ Semantically equivalent quantum circuits can induce different gate-level quasipr
 \section{Introduction}
 \label{sec:intro}
 
-Near-term quantum processors remain limited in qubit count, fidelity, and connectivity~\cite{preskill2018}. Circuit cutting mitigates the width constraint by decomposing a circuit into smaller, independently executable fragments and recovering the target observable through classical post-processing~\cite{peng2020,bravyi2016,tang2021}. This decomposition is not free: every severed two-qubit interaction contributes a gate-dependent quasiprobability sampling factor, and these factors multiply across cuts. Minimizing the number of cuts therefore need not minimize the resulting sampling overhead.
+Near-term quantum processors remain limited in qubit count, fidelity, and connectivity~\cite{preskill2018}. Circuit cutting mitigates the width constraint by decomposing a circuit into smaller, independently executable fragments and recovering the target observable through classical post-processing~\cite{peng2020,bravyi2016,tang2021}. This decomposition is not free: every severed two-qubit interaction contributes a gate-dependent quasiprobability sampling factor, and these factors multiply across cuts. Cutting an interaction graph with non-uniform log-domain edge weights is fundamentally distinct from unweighted graph bisection or uniform cut-counting: minimizing the number of cuts does not minimize the resulting sampling overhead, because different gate types incur radically different quasiprobability penalties.
 
 A quantum circuit does not possess a unique gate-level representation. Compilation, basis translation, and native-gate decomposition each produce semantically equivalent circuits---identical unitaries up to a global phase---whose two-qubit interaction structure, and hence whose gate-level quasiprobability costs, generally differ. This exposes a question that is invisible at the level of cut counting: holding the logical circuit and its feasible partition space fixed, can a semantically equivalent \emph{representation} change \emph{which} placement of cuts is optimal, and by how much does a placement that is optimal for one representation inflate the sampling overhead when it is transported to another? A naive comparison that solves each representation once and cross-evaluates the two selected optima can report such an effect spuriously whenever the optimizer chooses arbitrarily among tied optima. Distinguishing a genuine representation-induced reversal from a tie-breaking artifact therefore requires comparing optimal-placement \emph{sets}, not individual optima.
 
@@ -114,7 +120,7 @@ We address both questions within a single framework, which we call \CertiCut{}, 
   \label{fig:architecture}
 \end{figure*}
 
-\CertiCut{} contributes three linked circuit-cutting results: (i)~a representation-placement theory built on tie-safe regret, margin stability, and positive-scaling invariance; (ii)~resource-semantic bounds $\Gamma_{\mathrm{inc}}/\Gamma^*\le\exp(\UB-\LB)$; and (iii)~an exact capacitated $K$-way independent-QPD reduction to a log-domain graph MIP. These results belong together because the MIP instantiates a set-level decision problem, while global bounds put representation-specific decisions on a common resource scale without conflating a solver-selected tie with a true reversal. Weighted graph partitioning, branch and bound, capacities, cardinality identities, and metric inequalities are established machinery~\cite{deza1997,lawler1966,kaibel2008}; our claim is the representation-placement analysis and its resource semantics, not a new generic partitioning algorithm.
+\CertiCut{} contributes three linked results: (i)~a representation-placement theory built on tie-safe regret, margin stability, and positive-scaling invariance; (ii)~resource-semantic bounds $\Gamma_{\mathrm{inc}}/\Gamma^*\le\exp(\UB-\LB)$; and (iii)~an exact reduction of capacitated $K$-way independent-QPD cutting to a log-domain weighted graph partitioning problem. From a discrete-mathematical and graph-theoretic standpoint, this reduction establishes a new class of capacitated weighted graph partitioning models where edge weights exhibit representation-dependent structure rather than being static input constants. These results belong together because the MIP instantiates a set-level decision problem, while global bounds put representation-specific decisions on a common resource scale without conflating a solver-selected tie with a true reversal. Weighted graph partitioning, branch and bound, capacities, cardinality identities, and metric inequalities are established machinery~\cite{deza1997,lawler1966,kaibel2008}; our claim is the representation-placement analysis and its resource semantics, not a new generic partitioning algorithm.
 
 This work therefore makes three primary contributions:
 \begin{enumerate}
@@ -226,10 +232,10 @@ For any $P\in\mathcal{A}_a$ and $Q\in\mathcal{F}\setminus\mathcal{A}_a$, $J_a(Q)
 Defining $\kappa_{a\to b}=\|\delta\|_1/m_a$, the condition $\kappa_{a\to b}<1$ is a sufficient condition for placement stability.
 
 \begin{corollary}[Positive-scaling invariance]\label{cor:scaling}
-If $w^{(b)}=c\,w^{(a)}$ for $c>0$, then $\mathcal{A}_a=\mathcal{A}_b$ and $R_{a\to b}=R_{b\to a}=1$.
+If $w^{(b)}=c\,w^{(a)}$ for all edges in the common edge universe with scalar multiplier $c>0$, then the hierarchical objective ranking of all feasible partitions across $\mathcal{F}$ is strictly preserved. Consequently, the optimal-partition sets coincide, $\mathcal{A}_a=\mathcal{A}_b$, and $R_{a\to b}=R_{b\to a}=1$.
 \end{corollary}
 \begin{proof}
-For any $P\in\mathcal{F}$, $J_b(P)=c\,J_a(P)$. Since $c>0$, the scalar multiplier preserves the exact partition-objective ordering, so $\arg\min J_a=\arg\min J_b$ and $R_{a\to b}=R_{b\to a}=1$.
+For any partition $P\in\mathcal{F}$, the objective evaluates to $J_b(P)=\sum_e w_e^{(b)}z_e(P)=c\sum_e w_e^{(a)}z_e(P)=c\,J_a(P)$. Because $c>0$, the transformation is a strictly monotonic order-preserving bijection on the objective values across $\mathcal{F}$. Thus $J_a(P)\le J_a(Q)\iff J_b(P)\le J_b(Q)$ for all $P,Q\in\mathcal{F}$, which guarantees $\arg\min_{P\in\mathcal{F}} J_a(P)=\arg\min_{P\in\mathcal{F}} J_b(P)$, i.e., $\mathcal{A}_a=\mathcal{A}_b$, immediately yielding $R_{a\to b}=R_{b\to a}=1$.
 \end{proof}
 
 \subsection{Tie-safe evaluation protocol, orbitopes, and tolerances}
@@ -237,7 +243,7 @@ For any $P\in\mathcal{F}$, $J_b(P)=c\,J_a(P)$. Since $c>0$, the scalar multiplie
 
 Label-permutation symmetry is endemic to assignment formulations of partitioning. SCIP~10.0.2 can impose partitioning-orbitope constraints that keep only lexicographically maximal fragment-label matrices under the symmetric group acting on columns~\cite{kaibel2008}. These constraints address fragment-label symmetry: renaming fragments permutes assignment columns but leaves every cut-indicator vector $z(P)$ unchanged. Orbitopes remove redundant fragment-label permutations, but they cannot eliminate distinct primary-optimal partitions having different cut-indicator vectors. Consequently, a single MIP solve that returns one $a$-optimum and evaluates it under $b$ can report a spurious positive $\Delta_{a\to b}$ whenever another $a$-optimum would have been jointly optimal under $b$. Symmetry breaking therefore does not replace the second lexicographic optimization required to evaluate tie-safe regret. Stage~1 computes $J_a^*$ and $J_b^*$; Stage~2 minimizes $J_b(P)$ subject to $J_a(P)\le J_a^*+\tau_{\mathrm{opt}}$, and the reverse direction yields $\Delta_{b\to a}$. Thus Stage~2 is not merely a numerical tie-break: up to the declared lexicographic tolerance $\tau_{\mathrm{opt}}$, it implements the set-level optimization underlying the definition of $\Delta_{a\to b}$.
 
-The lexicographic tolerance $\tau_{\mathrm{opt}}$ is not an arbitrary soft margin. It must sit strictly above the solver's internal numerical feasibility/integrality tolerances while remaining far below any relevant modeled log-overhead separation on the studied instances. Writing $\varepsilon_{\mathrm{SCIP}}$ for SCIP's effective feasibility/integrality tolerance (in SCIP both the constraint-feasibility and integrality checks are governed by \texttt{numerics/feastol}), we require
+The lexicographic tolerance $\tau_{\mathrm{opt}}$ is not an arbitrary soft margin. It represents a mandatory mathematical separation boundary designed to prevent solver floating-point feasibility and integrality noise from interfering with the structural identification of the optimal solution set. Writing $\varepsilon_{\mathrm{SCIP}}$ for SCIP's effective feasibility/integrality tolerance (in SCIP both the constraint-feasibility and integrality checks are governed by \texttt{numerics/feastol}), we require
 \begin{equation}
   \varepsilon_{\mathrm{SCIP}}
   \;\ll\;
@@ -246,7 +252,7 @@ The lexicographic tolerance $\tau_{\mathrm{opt}}$ is not an arbitrary soft margi
   \min\bigl\{m_a,\,m_b,\,1\bigr\}
   \label{eq:tau-hierarchy}
 \end{equation}
-whenever the relevant optimality margins are finite. The left-hand separation is enforced directly by the pinned \texttt{numerics/feastol} value. The right-hand separation is not independently verified in exact arithmetic on the medium tier; robustness there is assessed by the three-value $\tau_{\mathrm{opt}}$ sweep. For the representation-regret rerun, every Stage-1 and Stage-2 SCIP model explicitly pins \texttt{numerics/feastol}$=10^{-12}$, so the sweep $\tau_{\mathrm{opt}}\in\{10^{-8},10^{-9},10^{-10}\}$ satisfies the left-hand separation. The sweep checks numerical robustness of the tolerance-defined lexicographic formulation; it does not by itself establish conclusions for an exact real-arithmetic decision problem. Exhaustive enumeration is used for $n\le10$; the lexicographic MIP covers $n\in\{12,14,16\}$ under PySCIPOpt~6.2.1 and Qiskit~2.5.1 / Addon Cutting~0.10.0.
+whenever the relevant optimality margins are finite. The left-hand separation is enforced directly by the pinned \texttt{numerics/feastol} value. The right-hand separation is not independently verified in exact arithmetic on the medium tier; sweeping the declared values $\tau_{\mathrm{opt}}\in\{10^{-8},10^{-9},10^{-10}\}$ explicitly checks the numerical robustness and stability of the lexicographic MIP formulation across orders of magnitude, but does not replace an exact real-arithmetic decision proof for medium-scale instances. For the representation-regret rerun, every Stage-1 and Stage-2 SCIP model explicitly pins \texttt{numerics/feastol}$=10^{-12}$, so the sweep $\tau_{\mathrm{opt}}\in\{10^{-8},10^{-9},10^{-10}\}$ satisfies the left-hand separation. Exhaustive enumeration is used for $n\le10$; the lexicographic MIP covers $n\in\{12,14,16\}$ under PySCIPOpt~6.2.1 and Qiskit~2.5.1 / Addon Cutting~0.10.0.
 
 % ===================================================================
 % IV. OPTIMIZATION AND BOUNDS
@@ -278,7 +284,7 @@ For any $K\geq2$ and feasible capacities, the objective of~\eqref{eq:kway} equal
 The assignment/locality constraints set $z_e=1$ exactly when the endpoints of aggregate edge $e$ are in different fragments. Equation~\eqref{eq:weight} sums the log overhead of every gate occurrence in $G_e$. Regrouping~\eqref{eq:objective} by edge yields $\sum_e w_ez_e$.
 \end{proof}
 
-Problem~\eqref{eq:kway} is NP-hard because exact-balanced weighted bisection is its $K=2$ special case.
+This equivalence formalizes the reduction from independent $K$-way gate cutting to Capacitated Weighted Graph Partitioning (CWGP) in the logarithmic domain. In graph-theoretic terms, each representation choice induces a distinct edge-weighted interaction graph $G=(V, E, w^{(r)})$ on the shared vertex set $V$, providing a concrete setting where the underlying optimization instance is governed by representation-dependent graph weightings. Problem~\eqref{eq:kway} is NP-hard because exact-balanced weighted bisection is its $K=2$ special case.
 
 \subsection{Fixed-capacity cardinality identity}
 
