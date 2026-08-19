@@ -1,0 +1,770 @@
+{
+  "summary": {
+    "scip_version": 10.0,
+    "pyscipopt_version": "6.2.1",
+    "baseline_feastol": 1e-06,
+    "tight_feastol": 1e-09,
+    "time_limit_s": 10.0,
+    "seed": 0,
+    "cells": 24,
+    "classification_match_arms": 23,
+    "classification_match_frozen": 24,
+    "closed_in_both_arms": 17,
+    "max_objective_drift_closed_both": 0.0,
+    "classification_flips": [
+      {
+        "family": "weighted_repeat",
+        "n": 60,
+        "K": 4,
+        "baseline": "optimal",
+        "tight": "timelimit"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "family": "random_matching",
+      "num_qubits": 20,
+      "K": 2,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 17.342930003848743,
+        "lower_bound_log": 17.342930003848707,
+        "upper_bound_log": 17.342930003848707,
+        "factor": 1.0,
+        "nodes": 14,
+        "runtime_s": 0.5432766000158153
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 17.342930003848743,
+        "lower_bound_log": 17.342930003848707,
+        "upper_bound_log": 17.342930003848707,
+        "factor": 1.0,
+        "nodes": 14,
+        "runtime_s": 0.5919704000116326
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 17.342930003848743,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "random_matching",
+      "num_qubits": 20,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 33.57816072880802,
+        "lower_bound_log": 33.578160728808015,
+        "upper_bound_log": 33.578160728808015,
+        "factor": 1.0,
+        "nodes": 417,
+        "runtime_s": 6.734354899992468
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 33.57816072880802,
+        "lower_bound_log": 33.578160728808015,
+        "upper_bound_log": 33.578160728808015,
+        "factor": 1.0,
+        "nodes": 417,
+        "runtime_s": 6.664622400014196
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 33.57816072880802,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "random_matching",
+      "num_qubits": 32,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 38.40708728677759,
+        "lower_bound_log": 22.774878400104797,
+        "upper_bound_log": 38.40708728677754,
+        "factor": 6151514.604849472,
+        "nodes": 374,
+        "runtime_s": 9.497625099989818
+      },
+      "tight_1e9": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 38.40708728677759,
+        "lower_bound_log": 22.810392040757662,
+        "upper_bound_log": 38.40708728677754,
+        "factor": 5936885.61154004,
+        "nodes": 395,
+        "runtime_s": 9.941726399993058
+      },
+      "frozen_status": "timelimit",
+      "frozen_objective_log_cost": 38.40708728677759,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "random_matching",
+      "num_qubits": 40,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 57.78858477241544,
+        "lower_bound_log": 8.396490865966342,
+        "upper_bound_log": 57.788584772415334,
+        "factor": 2.8230192086118155e+21,
+        "nodes": 41,
+        "runtime_s": 9.95458790002158
+      },
+      "tight_1e9": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 41.42189471226473,
+        "lower_bound_log": 17.723132767250206,
+        "upper_bound_log": 41.421894712264645,
+        "factor": 19599344230.868988,
+        "nodes": 196,
+        "runtime_s": 9.947362899984
+      },
+      "frozen_status": "timelimit",
+      "frozen_objective_log_cost": 41.66481939313497,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 16.36669006015071
+    },
+    {
+      "family": "random_matching",
+      "num_qubits": 40,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 56.88673433894141,
+        "lower_bound_log": 17.01243751191066,
+        "upper_bound_log": 56.88673433894131,
+        "factor": 2.075807523922652e+17,
+        "nodes": 62,
+        "runtime_s": 9.974669500021264
+      },
+      "tight_1e9": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 57.794822829374745,
+        "lower_bound_log": 17.01243751191066,
+        "upper_bound_log": 57.79482282937464,
+        "factor": 5.147127214281517e+17,
+        "nodes": 39,
+        "runtime_s": 9.956811100011691
+      },
+      "frozen_status": "timelimit",
+      "frozen_objective_log_cost": 56.88673433894141,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.908088490433336
+    },
+    {
+      "family": "random_matching",
+      "num_qubits": 60,
+      "K": 2,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 39.95732203499341,
+        "lower_bound_log": 39.95732203499307,
+        "upper_bound_log": 39.95732203499307,
+        "factor": 1.0,
+        "nodes": 414,
+        "runtime_s": 6.396546000003582
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 39.95732203499341,
+        "lower_bound_log": 39.95732203499307,
+        "upper_bound_log": 39.95732203499307,
+        "factor": 1.0,
+        "nodes": 404,
+        "runtime_s": 7.3778435999993235
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 39.95732203499341,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "random_matching",
+      "num_qubits": 60,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 71.05437981268597,
+        "lower_bound_log": 19.76833471243475,
+        "upper_bound_log": 71.05437981268562,
+        "factor": 1.8760585392380587e+22,
+        "nodes": 35,
+        "runtime_s": 9.142659000004642
+      },
+      "tight_1e9": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 70.2616345253856,
+        "lower_bound_log": 19.843833704282957,
+        "upper_bound_log": 70.26163452538526,
+        "factor": 7.873588009286117e+21,
+        "nodes": 36,
+        "runtime_s": 9.969123999995645
+      },
+      "frozen_status": "timelimit",
+      "frozen_objective_log_cost": 71.05437981268597,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.7927452873003631
+    },
+    {
+      "family": "random_matching",
+      "num_qubits": 60,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 119.62346672991357,
+        "lower_bound_log": 19.511696325905632,
+        "upper_bound_log": 119.62346672991325,
+        "factor": 3.0060033484840654e+43,
+        "nodes": 8,
+        "runtime_s": 9.956277699995553
+      },
+      "tight_1e9": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 119.62346672991357,
+        "lower_bound_log": 19.511696325905632,
+        "upper_bound_log": 119.62346672991325,
+        "factor": 3.0060033484840654e+43,
+        "nodes": 9,
+        "runtime_s": 9.968895099998917
+      },
+      "frozen_status": "timelimit",
+      "frozen_objective_log_cost": 119.62346672991357,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "community_matching",
+      "num_qubits": 20,
+      "K": 2,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 10.00182487695385,
+        "lower_bound_log": 10.001824876953847,
+        "upper_bound_log": 10.001824876953847,
+        "factor": 1.0,
+        "nodes": 1,
+        "runtime_s": 0.15341160001116805
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 10.00182487695385,
+        "lower_bound_log": 10.001824876953847,
+        "upper_bound_log": 10.001824876953847,
+        "factor": 1.0,
+        "nodes": 1,
+        "runtime_s": 0.15372899998328649
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 10.00182487695385,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "community_matching",
+      "num_qubits": 20,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 24.087022774445213,
+        "lower_bound_log": 24.087022774445224,
+        "upper_bound_log": 24.087022774445224,
+        "factor": 1.0,
+        "nodes": 29,
+        "runtime_s": 1.2173225000151433
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 24.087022774445213,
+        "lower_bound_log": 24.087022774445224,
+        "upper_bound_log": 24.087022774445224,
+        "factor": 1.0,
+        "nodes": 29,
+        "runtime_s": 1.263208599993959
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 24.087022774445213,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "community_matching",
+      "num_qubits": 32,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 15.724543802368242,
+        "lower_bound_log": 15.724543802368203,
+        "upper_bound_log": 15.724543802368203,
+        "factor": 1.0,
+        "nodes": 36,
+        "runtime_s": 1.4666440000000875
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 15.724543802368242,
+        "lower_bound_log": 15.724543802368203,
+        "upper_bound_log": 15.724543802368203,
+        "factor": 1.0,
+        "nodes": 36,
+        "runtime_s": 1.4164077000168618
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 15.724543802368242,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "community_matching",
+      "num_qubits": 40,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 18.624008024722393,
+        "lower_bound_log": 18.624008024722343,
+        "upper_bound_log": 18.624008024722343,
+        "factor": 1.0,
+        "nodes": 30,
+        "runtime_s": 2.026287099986803
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 18.624008024722393,
+        "lower_bound_log": 18.624008024722343,
+        "upper_bound_log": 18.624008024722343,
+        "factor": 1.0,
+        "nodes": 30,
+        "runtime_s": 2.082307500008028
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 18.624008024722393,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "community_matching",
+      "num_qubits": 40,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 26.109474124175865,
+        "lower_bound_log": 26.109474124175833,
+        "upper_bound_log": 26.109474124175833,
+        "factor": 1.0,
+        "nodes": 56,
+        "runtime_s": 5.05396550000296
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 26.109474124175865,
+        "lower_bound_log": 26.109474124175833,
+        "upper_bound_log": 26.109474124175833,
+        "factor": 1.0,
+        "nodes": 56,
+        "runtime_s": 4.7695857000071555
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 26.109474124175865,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "community_matching",
+      "num_qubits": 60,
+      "K": 2,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 11.696420597728256,
+        "lower_bound_log": 11.696420597728036,
+        "upper_bound_log": 11.696420597728036,
+        "factor": 1.0,
+        "nodes": 3,
+        "runtime_s": 0.41241779999108985
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 11.696420597728256,
+        "lower_bound_log": 11.696420597728036,
+        "upper_bound_log": 11.696420597728036,
+        "factor": 1.0,
+        "nodes": 3,
+        "runtime_s": 0.43033180001657456
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 11.696420597728256,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "community_matching",
+      "num_qubits": 60,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 25.147530303466365,
+        "lower_bound_log": 25.147530303466198,
+        "upper_bound_log": 25.147530303466198,
+        "factor": 1.0,
+        "nodes": 218,
+        "runtime_s": 6.946873300010338
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 25.147530303466365,
+        "lower_bound_log": 25.147530303466198,
+        "upper_bound_log": 25.147530303466198,
+        "factor": 1.0,
+        "nodes": 118,
+        "runtime_s": 5.537259000004269
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 25.147530303466365,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "community_matching",
+      "num_qubits": 60,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 39.156518681663826,
+        "lower_bound_log": 17.845829774434463,
+        "upper_bound_log": 39.15651868166364,
+        "factor": 1799345648.6516893,
+        "nodes": 69,
+        "runtime_s": 9.839999199990416
+      },
+      "tight_1e9": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 39.156518681663826,
+        "lower_bound_log": 17.845829774434463,
+        "upper_bound_log": 39.15651868166364,
+        "factor": 1799345648.6516893,
+        "nodes": 69,
+        "runtime_s": 9.961697699996876
+      },
+      "frozen_status": "timelimit",
+      "frozen_objective_log_cost": 39.156518681663826,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "weighted_repeat",
+      "num_qubits": 20,
+      "K": 2,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 16.84030114728693,
+        "lower_bound_log": 16.84030114728688,
+        "upper_bound_log": 16.84030114728688,
+        "factor": 1.0,
+        "nodes": 3,
+        "runtime_s": 0.1360374000214506
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 16.84030114728693,
+        "lower_bound_log": 16.84030114728688,
+        "upper_bound_log": 16.84030114728688,
+        "factor": 1.0,
+        "nodes": 5,
+        "runtime_s": 0.1378201000043191
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 16.84030114728693,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "weighted_repeat",
+      "num_qubits": 20,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 47.24317734599077,
+        "lower_bound_log": 47.24317734599077,
+        "upper_bound_log": 47.24317734599077,
+        "factor": 1.0,
+        "nodes": 19,
+        "runtime_s": 0.9044220999930985
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 47.24317734599077,
+        "lower_bound_log": 47.24317734599077,
+        "upper_bound_log": 47.24317734599077,
+        "factor": 1.0,
+        "nodes": 19,
+        "runtime_s": 0.916631200001575
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 47.24317734599077,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "weighted_repeat",
+      "num_qubits": 32,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 25.42958866817569,
+        "lower_bound_log": 25.42958866817574,
+        "upper_bound_log": 25.42958866817574,
+        "factor": 1.0,
+        "nodes": 13,
+        "runtime_s": 0.9684050000214484
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 25.42958866817569,
+        "lower_bound_log": 25.42958866817574,
+        "upper_bound_log": 25.42958866817574,
+        "factor": 1.0,
+        "nodes": 13,
+        "runtime_s": 0.9590141999942716
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 25.42958866817569,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "weighted_repeat",
+      "num_qubits": 40,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 22.72973523427766,
+        "lower_bound_log": 22.729735234277598,
+        "upper_bound_log": 22.729735234277598,
+        "factor": 1.0,
+        "nodes": 18,
+        "runtime_s": 1.7335040000034496
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 22.72973523427766,
+        "lower_bound_log": 22.729735234277598,
+        "upper_bound_log": 22.729735234277598,
+        "factor": 1.0,
+        "nodes": 18,
+        "runtime_s": 1.6985442000150215
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 22.72973523427766,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "weighted_repeat",
+      "num_qubits": 40,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 39.71439735412317,
+        "lower_bound_log": 39.71439735412298,
+        "upper_bound_log": 39.71439735412298,
+        "factor": 1.0,
+        "nodes": 27,
+        "runtime_s": 2.546199999982491
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 39.71439735412317,
+        "lower_bound_log": 39.71439735412309,
+        "upper_bound_log": 39.71439735412309,
+        "factor": 1.0,
+        "nodes": 43,
+        "runtime_s": 3.3200923000113107
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 39.71439735412317,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "weighted_repeat",
+      "num_qubits": 60,
+      "K": 2,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 16.716899878124718,
+        "lower_bound_log": 16.716899878125105,
+        "upper_bound_log": 16.716899878125105,
+        "factor": 1.0,
+        "nodes": 7,
+        "runtime_s": 0.1835774999926798
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 16.716899878124718,
+        "lower_bound_log": 16.71689987812465,
+        "upper_bound_log": 16.71689987812465,
+        "factor": 1.0,
+        "nodes": 9,
+        "runtime_s": 0.27489530001184903
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 16.716899878124718,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "weighted_repeat",
+      "num_qubits": 60,
+      "K": 3,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 28.094186275688823,
+        "lower_bound_log": 28.094186275688685,
+        "upper_bound_log": 28.094186275688685,
+        "factor": 1.0,
+        "nodes": 30,
+        "runtime_s": 2.064303299994208
+      },
+      "tight_1e9": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 28.094186275688823,
+        "lower_bound_log": 28.094186275688685,
+        "upper_bound_log": 28.094186275688685,
+        "factor": 1.0,
+        "nodes": 30,
+        "runtime_s": 2.0308041000098456
+      },
+      "frozen_status": "optimal",
+      "frozen_objective_log_cost": 28.094186275688823,
+      "classification_match_arms": true,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    },
+    {
+      "family": "weighted_repeat",
+      "num_qubits": 60,
+      "K": 4,
+      "seed": 0,
+      "baseline_1e6": {
+        "status": "optimal",
+        "closed": true,
+        "objective_log_cost": 39.09642529442838,
+        "lower_bound_log": 39.09642529442806,
+        "upper_bound_log": 39.09642529442806,
+        "factor": 1.0,
+        "nodes": 266,
+        "runtime_s": 9.646721700002672
+      },
+      "tight_1e9": {
+        "status": "timelimit",
+        "closed": false,
+        "objective_log_cost": 39.09642529442838,
+        "lower_bound_log": 29.990945782794483,
+        "upper_bound_log": 39.096425294428286,
+        "factor": 9004.498021475607,
+        "nodes": 226,
+        "runtime_s": 9.197731499996735
+      },
+      "frozen_status": "timelimit",
+      "frozen_objective_log_cost": 50.08254818110947,
+      "classification_match_arms": false,
+      "classification_match_frozen": true,
+      "objective_drift": 0.0
+    }
+  ]
+}
