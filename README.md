@@ -1,140 +1,91 @@
 # CertiCut
 
-**CertiCut** is a research prototype and optimization framework for sampling-aware quantum circuit cutting. It optimizes quasiprobability decomposition (QPD) sampling overhead via log-domain polyhedral relaxations, Branch-and-Bound, and MILP formulations.
+Reference implementation and reproducibility materials for **Representation Dependence of Optimal Cut Placement in Quasiprobability Circuit Cutting**.
 
----
+CertiCut studies a specific question in quasiprobability-based circuit cutting: when two gate-level circuits implement the same logical unitary, can the representation change which fragment placement minimizes the modeled sampling overhead?
 
-## Key Features
+The repository contains the optimization model, representation-comparison code, experiment runners, result records, figures, and manuscript source used in the study.
 
-- **Exact & Relaxed Optimization**:
-  - Exact MILP formulations for $K$-way balanced circuit partitioning under independent QPD gate costs.
-  - Polyhedral strengthening using B2S (Balanced Cut Cardinality & Triangle Inequalities) for root LP relaxations.
-  - Best-Bound Branch-and-Bound solver returning solver-tolerance anytime certificates ($\text{LB} \le \text{OPT} \le \text{UB}$).
-  - Benchmark SCIP MIP integration for fast baseline solving and heterogeneous-QPD scaling checks.
+## Main scientific components
 
-- **Sampling-Aware & Gate-Dependent Objectives**:
-  - Converts gate-level QPD sampling overhead factors ($\rho_g$) into log-domain edge weights ($w_{ij} = \log \rho_g$) on an interaction graph.
-  - Native representation sensitivity analysis (evaluating gate representations like CX, CS, iSWAP, RZZ).
-  - Parallel & Joint QPD cost models and operational shot reconstruction pipelines.
+- Independent gate-level QPD objective using Qiskit Addon Cutting 0.10.0.
+- Capacitated `K`-way weighted graph-partitioning formulation in the log-overhead domain.
+- Set-level cross-representation regret that compares complete optimal-placement sets.
+- Exhaustive evaluation for small instances and two-stage SCIP evaluation for larger instances.
+- Semantic-equivalence checks for paired circuit representations.
+- Separate interval-arithmetic verification for a small CX-only tier.
 
-- **Reproducible Benchmarking & Auditing**:
-  - Fully automated synthetic generator (CNOT-only, varying topologies, $n=16 \dots 60$, $K=2 \dots 5$).
-  - MQT Bench real circuit ingestion and Qiskit Addon Cutting (0.10.0) integration.
-  - Comprehensive unit test suite (`pytest`) covering core algorithms, relaxations, and SCIP integration.
+The primary representation result is distinct from backend performance: the central question is whether a semantics-preserving representation change alters the optimal cut-placement set.
 
----
+## Repository layout
 
-## System Requirements
-
-- **Python**: `3.11.9`
-- **SCIP / PySCIPOpt**: SCIP `10.0.2` & `PySCIPOpt 6.2.1`
-- **Qiskit Stack**: `qiskit 2.5.1`, `qiskit-addon-cutting 0.10.0`
-- **Operating System**: Windows / Linux / macOS
-
----
-
-## Installation
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/hungpt-uef/CertiCut.git
-   cd CertiCut
-   ```
-
-2. **Set Up Python Environment**:
-   It is recommended to use Python 3.11:
-   ```bash
-   python -m venv venv
-   # On Windows:
-   .\venv\Scripts\activate
-   # On Linux/macOS:
-   source venv/bin/activate
-   ```
-
-3. **Install Dependencies**:
-   Ensure SCIP (10.0.2) is installed on your system system-wide or via conda/wheels, then install PySCIPOpt and remaining packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
----
-
-## Project Structure
-
-```
-CertiCut/
-├── certicut/                 # Core Python package
-│   ├── benchmark/            # Benchmark schemas, isolated runners, checkpoints
-│   ├── circuits/             # Circuit ingestion, MQT bench loaders, synthetics
-│   ├── costs/                # QPD gate-cost calculations (independent, joint, parallel)
-│   ├── graph/                # Hypergraph, interaction graph, feature extraction
-│   ├── hardware/             # Hardware calibration and backend evaluation
-│   ├── optimization/         # SCIP core, B2S Branch-and-Bound, LP relaxations, B&B certificates
-│   └── qiskit_bridge/        # Operational shot reconstruction and Qiskit Addon Cutting bridge
-├── paper/                    # Paper source files, figures, tables
-├── results/                  # Frozen execution outputs, summary reports, JSON metrics
-├── tests/                    # Complete pytest suite (50+ unit tests)
-└── requirements.txt          # Package dependencies
+```text
+certicut/             Core Python package
+scripts/              Selected final experiment/analysis runners
+results/              Raw and summarized experiment outputs
+paper/                LaTeX manuscript, figures, and references
+tests/                Unit and regression tests
+requirements.txt      Direct reproducibility dependencies
+requirements-lock.txt Fully resolved clean-environment lock
 ```
 
----
+## Environment
 
-## Usage
+The manuscript reports the following core versions:
 
-### 1. Running Unit Tests
+```text
+Python                 3.11.9
+Qiskit                 2.5.1
+Qiskit Addon Cutting   0.10.0
+Qiskit Aer             0.17.2
+PySCIPOpt              6.2.1
+SCIP                    10.0.2
+MQT Bench               2.2.2
+KaHIP                   3.25
+```
 
-Run the full test suite to verify solver integration, LP strengthening, and QPD cost oracles:
+Create a fresh environment before reproducing results:
+
 ```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 pytest
 ```
 
-### 2. Basic Python API Example
+## Manuscript
 
-Partition a circuit graph into 2 balanced fragments using CertiCut:
+Current source and compiled PDF:
 
-```python
-from certicut.graph.interaction import InteractionGraph
-from certicut.optimization.bnb import solve_certicut_bnb
-
-# Construct interaction graph with log-QPD gate weights
-graph = InteractionGraph(num_qubits=8)
-# Add CNOT / two-qubit gate interactions
-graph.add_edge(0, 1, log_qpd_cost=0.7)
-graph.add_edge(1, 2, log_qpd_cost=0.5)
-
-# Solve with CertiCut Branch-and-Bound
-result = solve_certicut_bnb(graph, time_limit=10.0)
-
-print(f"Optimal / Best LP Upper Bound: {result.ub}")
-print(f"Global Lower Bound: {result.lb}")
-print(f"Certified Overhead Factor F <= {result.factor_bound:.4f}")
-print(f"Partition Assignment: {result.assignment}")
+```text
+paper/certicut.tex
+paper/certicut.pdf
 ```
 
-### 3. Reproducing the Experiments
+The manuscript distinguishes exact mathematical statements from floating-point optimization results. Public result records are retained in this repository; the archived data release contains the corresponding reproducibility materials, including experiment scripts and solver settings.
 
-The experiment runners, figure generators, and SHA-256 manifests that reproduce
-every reported number are distributed in the reproducibility artifact
-accompanying the paper submission (not in this repository). The frozen raw
-records they produce are included here under `results/`.
+## Data release
 
----
+Archived data and software materials are available on Zenodo:
 
-## Paper & Documentation
+**DOI:** `10.5281/zenodo.22005561`
 
-- **Paper Source & PDF**: Located in `paper/` (`certicut_pra.tex`, `certicut_pra.pdf`).
-- **Artifact Versions**: Detailed software version audit in `paper/ARTIFACT_VERSIONS.md`.
+## Reproducing experiments
 
----
+Result files used by the manuscript are stored under `results/`. The final representation-regret runner is included as `scripts/run_e12_representation_placement_regret.py`; the broader experiment suite is distributed with the Zenodo data release. Use `requirements-lock.txt` for the exact resolved Python environment and the software versions, seeds, and solver settings stated by each runner.
 
 ## Citation
 
-If you use CertiCut in your research, please cite:
-
 ```bibtex
 @article{certicut2026,
-  title={Representation-Sensitive Quantum Circuit Cutting with Quasiprobability Resource Bounds},
-  author={Phung Trong Hung and Huong Bui},
-  year={2026}
+  title  = {Representation Dependence of Optimal Cut Placement in Quasiprobability Circuit Cutting},
+  author = {Phung Trong Hung and Huong Bui},
+  year   = {2026}
 }
 ```
+
+## Scope
+
+The primary optimization model covers gate cuts with independent per-gate QPD costs on a fixed logical wire set and fixed capacity constraints. Wire cutting, hardware routing, hardware noise, and general joint-QPD optimization are outside that primary model.

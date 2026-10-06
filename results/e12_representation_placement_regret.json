@@ -4036,8 +4036,152 @@
     "n": 10,
     "K": 2,
     "tier": "exact",
-    "status": "computation_error",
-    "error": "OverflowError('math range error')"
+    "J_a_star": 7470.563562943134,
+    "J_b_star": 11355.256615673627,
+    "delta_a_to_b": 448.23381377659643,
+    "delta_b_to_a": 1494.1127125886424,
+    "R_a_to_b": 4.628837403224316e+194,
+    "R_b_to_a": Infinity,
+    "argmin_a_count": 1,
+    "argmin_b_count": 1,
+    "optimum_overlap_count": 0,
+    "has_shared_optimum": false,
+    "min_assignment_disagreement": 4,
+    "margin_a": 821.7619919237595,
+    "margin_b": 448.23381377659643,
+    "weight_perturbation_l1": 10684.14498474602,
+    "kappa_a_to_b": 13.001507845032169,
+    "kappa_b_to_a": 23.83609771589229,
+    "regret_bound": Infinity,
+    "strict_reversal_a_to_b": true,
+    "strict_reversal_b_to_a": true,
+    "rep_partition_a": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "rep_partition_b": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "representation_a": "cx_normalized",
+    "representation_b": "native_qpd",
+    "two_qubit_count_a": 8874,
+    "two_qubit_count_b": 13022,
+    "gate_types_a": [
+      "cx"
+    ],
+    "gate_types_b": [
+      "crz",
+      "cx"
+    ],
+    "source_fingerprint": "53b85c505dfb84d99da79b7e2727294630492a71816d53bda9468bcec1fbb742",
+    "partition_count": 126,
+    "runtime_s": 0.436875900002633,
+    "unitary_verification": {
+      "unitary_equivalence": "by_construction",
+      "method": "common deterministic MQT source; CX representation from Qiskit semantics-preserving basis translation with coupling_map=None; native representation from recursive operation definitions with identical wire indices",
+      "source_fingerprint": "53b85c505dfb84d99da79b7e2727294630492a71816d53bda9468bcec1fbb742",
+      "routing": false,
+      "audit_passed": true
+    },
+    "audit_a": {
+      "source": "MQTBench==2.2.2",
+      "representation": "cx_normalized",
+      "source_fingerprint": "53b85c505dfb84d99da79b7e2727294630492a71816d53bda9468bcec1fbb742",
+      "cost_model": "qiskit_qpd_0.10_independent",
+      "parameter_binding": "all_source_parameters=pi/4",
+      "family": "grover",
+      "num_qubits": 10,
+      "transpile_basis": [
+        "rz",
+        "sx",
+        "x",
+        "cx"
+      ],
+      "optimization_level": 1,
+      "seed_transpiler": 0,
+      "original_depth": 18,
+      "original_ops": {
+        "Q": 17,
+        "h": 9,
+        "x": 1
+      },
+      "original_two_qubit_count": 0,
+      "transpiled_two_qubit_count": 8874,
+      "transpiled_depth": 18579,
+      "transpiled_ops": {
+        "cx": 8874,
+        "rz": 13822,
+        "sx": 3375
+      },
+      "cx_count": 8874,
+      "two_qubit_gate_types": [
+        "cx"
+      ],
+      "unsupported_two_qubit_gates": [],
+      "circuit_fingerprint": "056c2455ad535824c8370de21f7ea9fdfe2ec48e7486e4916b426fe55aea4c3e",
+      "audit_passed": true
+    },
+    "audit_b": {
+      "source": "MQTBench==2.2.2",
+      "representation": "native_qpd",
+      "source_fingerprint": "53b85c505dfb84d99da79b7e2727294630492a71816d53bda9468bcec1fbb742",
+      "cost_model": "qiskit_qpd_0.10_independent",
+      "parameter_binding": "all_source_parameters=pi/4",
+      "family": "grover",
+      "num_qubits": 10,
+      "transpile_basis": [
+        "rz",
+        "sx",
+        "x",
+        "cx"
+      ],
+      "optimization_level": 1,
+      "seed_transpiler": 0,
+      "original_depth": 18,
+      "original_ops": {
+        "Q": 17,
+        "h": 9,
+        "x": 1
+      },
+      "original_two_qubit_count": 0,
+      "transpiled_two_qubit_count": 13022,
+      "transpiled_depth": 23242,
+      "transpiled_ops": {
+        "crz": 34,
+        "cx": 12988,
+        "h": 4871,
+        "p": 4114,
+        "rz": 1020,
+        "t": 5576,
+        "tdg": 4760,
+        "x": 307
+      },
+      "cx_count": 12988,
+      "two_qubit_gate_types": [
+        "crz",
+        "cx"
+      ],
+      "unsupported_two_qubit_gates": [],
+      "circuit_fingerprint": "609bf1474fb9891773931296cbf174e5c4c64aac493a9cea5484a9c1891e9ae8",
+      "audit_passed": true
+    }
   },
   {
     "family": "vqe_real_amp",

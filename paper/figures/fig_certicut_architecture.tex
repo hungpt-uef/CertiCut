@@ -1,7 +1,7 @@
 % Compile: pdflatex -interaction=nonstopmode -halt-on-error fig_certicut_architecture.tex
 \documentclass[tikz,border=2pt]{standalone}
 \usepackage{amsmath,amssymb}
-\usetikzlibrary{arrows.meta,calc,decorations.pathreplacing}
+\usetikzlibrary{arrows.meta,calc}
 \newcommand{\LB}{\mathrm{LB}}
 \newcommand{\UB}{\mathrm{UB}}
 
@@ -11,139 +11,114 @@
   arrow/.style={-{Latex[length=1.5mm,width=1.1mm]},draw=black!70,line width=.55pt},
   panel/.style={draw=black!55,rounded corners=.8pt,line width=.45pt},
   wire/.style={draw=black!65,line width=.45pt},
-  node/.style={circle,draw=black!80,fill=white,minimum size=2.5mm,inner sep=0pt,line width=.5pt},
+  qnode/.style={circle,draw=black!80,fill=white,minimum size=2.8mm,inner sep=0pt,line width=.5pt},
+  target/.style={circle,draw=black!80,fill=white,minimum size=2.4mm,inner sep=0pt,line width=.5pt},
   edge/.style={draw=black!75,line cap=round},
-  fragone/.style={draw=black!50,fill=black!4,rounded corners=.8pt,line width=.4pt},
-  fragtwo/.style={draw=black!50,fill=black!12,rounded corners=.8pt,line width=.4pt},
-  fragthree/.style={draw=black!50,fill=black!20,rounded corners=.8pt,line width=.4pt}
+  fragone/.style={draw=black!55,fill=black!4,rounded corners=.8pt,line width=.45pt},
+  fragtwo/.style={draw=black!55,fill=black!13,rounded corners=.8pt,line width=.45pt}
 ]
 
-% The upper rail fixes the object that must not change between representations.
-\node[font=\bfseries\normalsize] at (47,0) {CERTICUT: Representation-Sensitive Placement with Resource Bounds};
-\draw[rounded corners=.8pt,draw=black!70,fill=black!4,line width=.5pt] (1,-4) rectangle (93,-14);
-\node[align=center,font=\bfseries\small] at (47,-8) {Fixed logical circuit and feasible placement space $\mathcal{F}$};
-\node[align=center,font=\scriptsize] at (47,-11.5) {Fixed $K$, capacities $(L_k,U_k)$, logical wires, and admissible fragment maps};
+% The scientific invariant: same unitary and same feasible placement space.
+\node[font=\bfseries\normalsize] at (47,0) {Semantics-preserving representation change and cut placement};
+\draw[rounded corners=.8pt,draw=black!70,fill=black!4,line width=.5pt] (1,-4) rectangle (93,-15);
+\node[align=center,font=\bfseries\small] at (47,-8) {Same logical unitary $U$ and feasible placement space $\mathcal{F}$};
+\node[align=center,font=\scriptsize] at (47,-12) {$R_{ZZ}^{01}(\theta)=\mathrm{CX}_{01}\,[I\!\otimes\!R_Z(\theta)]\,\mathrm{CX}_{01}$; fixed $K$, capacities, logical wires, and fragment maps};
 
-% Panel labels share a single baseline; fixed-width nodes prevent overlap.
-\node[font=\bfseries\scriptsize,align=center] at (12,-20) {(a) Circuit $a$};
-\node[font=\bfseries\scriptsize,align=center] at (36,-20) {(b) Graph $G^{(a)}$};
-\node[font=\bfseries\scriptsize,align=center] at (60,-20) {(c) $K$-way partition};
-\node[font=\bfseries\scriptsize,align=center] at (84,-20) {(d) Resource bound};
-\node[font=\bfseries\scriptsize,align=center] at (12,-57) {(e) Circuit $b$};
-\node[font=\bfseries\scriptsize,align=center] at (36,-57) {(f) Graph $G^{(b)}$};
-\node[font=\bfseries\scriptsize,align=center] at (60,-57) {(g) New partition};
-\node[font=\bfseries\scriptsize,align=center] at (84,-57) {(h) Sensitivity};
+% Panel frames and compact in-panel labels. Long headings are left to the caption.
+\foreach \x in {2,26,50,74} \draw[panel] (\x,-21) rectangle ++(20,-32);
+\foreach \x in {2,26,50,74} \draw[panel] (\x,-57) rectangle ++(20,-34);
+\node[font=\bfseries\scriptsize,anchor=north west] at (2.8,-21.7) {(a)};
+\node[font=\bfseries\scriptsize,anchor=north west] at (26.8,-21.7) {(b)};
+\node[font=\bfseries\scriptsize,anchor=north west] at (50.8,-21.7) {(c)};
+\node[font=\bfseries\scriptsize,anchor=north west] at (74.8,-21.7) {(d)};
+\node[font=\bfseries\scriptsize,anchor=north west] at (2.8,-57.7) {(e)};
+\node[font=\bfseries\scriptsize,anchor=north west] at (26.8,-57.7) {(f)};
+\node[font=\bfseries\scriptsize,anchor=north west] at (50.8,-57.7) {(g)};
+\node[font=\bfseries\scriptsize,anchor=north west] at (74.8,-57.7) {(h)};
 
-% Upper row panels.
-\foreach \x in {2,26,50,74} \draw[panel] (\x,-23) rectangle ++(20,-27);
+% Helper: four circuit wires in each circuit panel.
+\foreach \yy/\q in {-29/{q_0},-34/{q_1},-39/{q_2},-44/{q_3}}
+  \draw[wire] (4,\yy) -- (20,\yy) node[anchor=west,font=\tiny] {$\q$};
 
-% (a) A small circuit representation with heterogeneous gate costs.
-\foreach \yy/\q in {-28/{q_0},-33/{q_1},-38/{q_2},-43/{q_3}}
-  \draw[wire] (5,\yy) -- (19,\yy) node[anchor=west,font=\tiny] {$\q$};
-\draw[fill=black!18,draw=black!65,line width=.4pt] (9,-30) rectangle (11,-31);
-\draw[fill=black!75] (10,-33) circle (.8mm);
-\draw[wire] (10,-30.5) -- (10,-33);
-\node[font=\tiny,anchor=south,fill=white,inner sep=.35pt] at (10,-29.5) {$\mathrm{CX}$};
-\draw[fill=black!18,draw=black!65,line width=.4pt] (14,-39.5) rectangle (16,-40.5);
-\draw[fill=black!75] (15,-43) circle (.8mm);
-\draw[wire] (15,-40) -- (15,-43);
-\node[font=\tiny,anchor=south,fill=white,inner sep=.35pt] at (15,-39) {$RZZ$};
-\node[font=\tiny,align=center,text width=29mm] at (12,-47) {$\rho_{\rm CX}=9$; $\rho_{RZZ}$ depends on $\theta$};
+% (a) Native circuit: RZZ(theta) on 0--1, CX on 1--2, RZZ(phi) on 2--3.
+\draw[wire] (7,-29)--(7,-34); \fill[black!75] (7,-29) circle (.65mm); \fill[black!75] (7,-34) circle (.65mm);
+\node[font=\tiny,anchor=south,fill=white,inner sep=.3pt] at (7,-28.3) {$R_{ZZ}(\theta)$};
+\fill[black!75] (12,-34) circle (.7mm); \draw[wire] (12,-34)--(12,-39); \node[target,font=\tiny] at (12,-39) {$+$};
+\node[font=\tiny,anchor=south,fill=white,inner sep=.3pt] at (12,-33.3) {CX};
+\draw[wire] (17,-39)--(17,-44); \fill[black!75] (17,-39) circle (.65mm); \fill[black!75] (17,-44) circle (.65mm);
+\node[font=\tiny,anchor=south,fill=white,inner sep=.3pt] at (17,-38.3) {$R_{ZZ}(\phi)$};
+\node[font=\tiny,align=center,text width=29mm] at (12,-49) {native $w_{01}^{(a)}=\log\rho_{RZZ(\theta)}$};
 
-% (b) Weighted graph, edge width equals log-QPD weight.
-\coordinate (a0) at (30,-29); \coordinate (a1) at (40,-30);
-\coordinate (a2) at (31,-42); \coordinate (a3) at (41,-43);
-\draw[edge,line width=.6pt] (a0)--(a1);
-\draw[edge,line width=1.7pt] (a0)--(a2);
-\draw[edge,line width=.55pt] (a1)--(a2);
-\draw[edge,line width=1.25pt] (a1)--(a3);
-\draw[edge,line width=.8pt] (a2)--(a3);
-\foreach \p/\n in {a0/0,a1/1,a2/2,a3/3} \node[node,font=\tiny] at (\p) {\n};
-\node[font=\tiny,align=center,text width=29mm] at (36,-47) {$w_{ij}^{(a)}=\sum_{g\in G_{ij}}\log\rho_g$};
+% (b) Exact interaction topology for (a): a 4-node chain.
+\coordinate (a0) at (29,-30); \coordinate (a1) at (34,-36); \coordinate (a2) at (39,-42); \coordinate (a3) at (44,-48);
+\draw[edge,line width=.55pt] (a0)--(a1);
+\draw[edge,line width=1.25pt] (a1)--(a2);
+\draw[edge,line width=.70pt] (a2)--(a3);
+\foreach \p/\n in {a0/0,a1/1,a2/2,a3/3} \node[qnode,font=\tiny] at (\p) {\n};
+\node[font=\tiny,align=center,text width=29mm] at (36,-50) {$w_{12}=\log 9$; $w_{23}=\log\rho_{RZZ(\phi)}$};
 
-% (c) Same graph, now visibly partitioned under capacity constraints.
-\draw[fragone] (52,-27) rectangle (59,-36.5);
-\draw[fragtwo] (61,-27) rectangle (68,-36.5);
-\draw[fragthree] (56,-38.5) rectangle (65,-43);
-\coordinate (p0) at (55,-29.5); \coordinate (p1) at (65,-29.5);
-\coordinate (p2) at (55,-34); \coordinate (p3) at (65,-34); \coordinate (p4) at (60.5,-41);
-\draw[edge,line width=.7pt] (p0)--(p2);
-\draw[edge,line width=1.7pt] (p0)--(p1);
-\draw[edge,line width=1.15pt] (p1)--(p3);
-\draw[edge,line width=.55pt] (p2)--(p4);
-\draw[edge,line width=1.25pt] (p3)--(p4);
-\foreach \p in {p0,p1,p2,p3,p4} \node[node] at (\p) {};
-\node[font=\tiny,align=center,text width=29mm] at (60,-45.5) {$L_k\leq |F_k|\leq U_k$};
-\node[font=\tiny,align=center,text width=29mm] at (60,-48) {$\min_{P\in\mathcal F} J_a(P)$};
+% (c) A valid balanced K=2 optimum for sufficiently small theta, phi.
+\draw[fragone] (52.5,-28) rectangle (58,-45.5);
+\draw[fragtwo] (61,-28) rectangle (67.5,-45.5);
+\node[qnode,font=\tiny] at (55.25,-32) {0}; \node[qnode,font=\tiny] at (55.25,-41.5) {3};
+\node[qnode,font=\tiny] at (64.25,-32) {1}; \node[qnode,font=\tiny] at (64.25,-41.5) {2};
+\node[font=\tiny] at (55.25,-47.5) {$F_1=\{0,3\}$};
+\node[font=\tiny] at (64.25,-47.5) {$F_2=\{1,2\}$};
+\node[font=\tiny,align=center,text width=30mm] at (60,-50) {$w_{01}^{(a)}+w_{23}<w_{12}$};
 
-% (d) Bound bar maps a solver gap directly to resource risk.
-\draw[draw=black!70,line width=.7pt] (77,-36) -- (91,-36);
-\draw[draw=black!70,line width=.5pt] (77,-34.8)--(77,-37.2) (91,-34.8)--(91,-37.2);
-\fill[black!45] (84,-36) circle (.7mm);
-\fill[black!70] (89,-36) -- (90,-34.7) -- (91,-36) -- cycle;
-\node[font=\tiny,anchor=north,fill=white,inner sep=.5pt] at (77,-38.7) {$\LB$};
-\node[font=\tiny,anchor=north,fill=white,inner sep=.5pt] at (90,-38.7) {$\UB$};
-\node[font=\tiny,anchor=south,fill=white,inner sep=.5pt,text=black!60] at (84,-34.6) {unknown $J^\star$};
-\node[font=\tiny,anchor=north] at (83.5,-40.7) {$\UB-\LB$};
+% (d) Solver gap translated into the modeled overhead ratio.
+\draw[draw=black!70,line width=.7pt] (77,-37) -- (91,-37);
+\draw[draw=black!70,line width=.5pt] (77,-35.8)--(77,-38.2) (91,-35.8)--(91,-38.2);
+\fill[black!45] (84,-37) circle (.7mm); \fill[black!70] (89,-37) -- (90,-35.7) -- (91,-37) -- cycle;
+\node[font=\tiny,anchor=north,fill=white,inner sep=.5pt] at (77,-39.7) {$\LB$};
+\node[font=\tiny,anchor=north,fill=white,inner sep=.5pt] at (90,-39.7) {$\UB$};
+\node[font=\tiny,anchor=south,fill=white,inner sep=.5pt,text=black!60] at (84,-35.6) {unknown $J^\star$};
 \node[font=\scriptsize,align=center,text width=29mm] at (84,-45) {$\Gamma_{\rm inc}/\Gamma^\star\leq e^{\UB-\LB}$};
-\node[font=\tiny,align=center,text width=29mm] at (84,-48) {safe solver boundary};
+\node[font=\tiny,align=center,text width=29mm] at (84,-49) {for any valid global $\LB,\UB$};
 
-% Lower row panels.
-\foreach \x in {2,26,50,74} \draw[panel] (\x,-60) rectangle ++(20,-27);
+% Lower circuit wires.
+\foreach \yy/\q in {-67/{q_0},-72/{q_1},-77/{q_2},-82/{q_3}}
+  \draw[wire] (4,\yy) -- (20,\yy) node[anchor=west,font=\tiny] {$\q$};
 
-% (e) Equivalent representation: same wires, alternative gate decomposition.
-\foreach \yy/\q in {-65/{q_0},-70/{q_1},-75/{q_2},-80/{q_3}}
-  \draw[wire] (5,\yy) -- (19,\yy) node[anchor=west,font=\tiny] {$\q$};
-\draw[fill=black!18,draw=black!65,line width=.4pt] (8,-67) rectangle (10,-68);
-\draw[fill=black!75] (9,-70) circle (.8mm);
-\draw[wire] (9,-67.5) -- (9,-70);
-\node[font=\tiny,anchor=south,fill=white,inner sep=.35pt] at (9,-66.5) {$RZZ$};
-\draw[fill=black!18,draw=black!65,line width=.4pt] (14,-77) rectangle (16,-78);
-\draw[fill=black!75] (15,-80) circle (.8mm);
-\draw[wire] (15,-77.5) -- (15,-80);
-\node[font=\tiny,anchor=south,fill=white,inner sep=.35pt] at (15,-76.5) {$\mathrm{CX}$};
-\node[font=\tiny,align=center,text width=29mm] at (12,-84) {same logical action; different $\rho_g$};
+% (e) Semantics-preserving decomposition of only RZZ(theta): CX-RZ-CX.
+\fill[black!75] (6,-67) circle (.7mm); \draw[wire] (6,-67)--(6,-72); \node[target,font=\tiny] at (6,-72) {$+$};
+\draw[fill=white,draw=black!65,line width=.4pt] (8.2,-73.1) rectangle (10.2,-70.9);
+\node[font=\tiny] at (9.2,-72) {$R_Z$};
+\fill[black!75] (12,-67) circle (.7mm); \draw[wire] (12,-67)--(12,-72); \node[target,font=\tiny] at (12,-72) {$+$};
+\fill[black!75] (15,-72) circle (.7mm); \draw[wire] (15,-72)--(15,-77); \node[target,font=\tiny] at (15,-77) {$+$};
+\draw[wire] (18,-77)--(18,-82); \fill[black!75] (18,-77) circle (.65mm); \fill[black!75] (18,-82) circle (.65mm);
+\node[font=\tiny,anchor=south,fill=white,inner sep=.25pt] at (18,-76.3) {$R_{ZZ}(\phi)$};
+\node[font=\tiny,align=center,text width=29mm] at (12,-87) {$U_b=U_a$ exactly; $w_{01}^{(b)}=2\log9$};
 
-% (f) Same topology, altered edge thickness makes the perturbation visible.
-\coordinate (b0) at (30,-66); \coordinate (b1) at (40,-67);
-\coordinate (b2) at (31,-79); \coordinate (b3) at (41,-80);
-\draw[edge,line width=1.7pt] (b0)--(b1);
-\draw[edge,line width=.55pt] (b0)--(b2);
-\draw[edge,line width=.55pt] (b1)--(b2);
-\draw[edge,line width=.7pt] (b1)--(b3);
-\draw[edge,line width=1.55pt] (b2)--(b3);
-\foreach \p/\n in {b0/0,b1/1,b2/2,b3/3} \node[node,font=\tiny] at (\p) {\n};
-\node[font=\tiny,align=center,text width=29mm] at (36,-84) {common edge universe; $w^{(b)}\ne w^{(a)}$};
+% (f) Same edge universe, changed weight on edge 0--1 only.
+\coordinate (b0) at (29,-68); \coordinate (b1) at (34,-74); \coordinate (b2) at (39,-80); \coordinate (b3) at (44,-86);
+\draw[edge,line width=2.0pt] (b0)--(b1);
+\draw[edge,line width=1.25pt] (b1)--(b2);
+\draw[edge,line width=.70pt] (b2)--(b3);
+\foreach \p/\n in {b0/0,b1/1,b2/2,b3/3} \node[qnode,font=\tiny] at (\p) {\n};
+\node[font=\tiny,align=center,text width=29mm] at (36,-88) {same $E$; only the representation-dependent weight changes};
 
-% (g) The optimum can change although the feasible partition space is unchanged.
-\draw[fragone] (52,-65) rectangle (57.5,-81);
-\draw[fragtwo] (59.5,-65) rectangle (68,-73);
-\draw[fragthree] (59.5,-75) rectangle (68,-81);
-\coordinate (q0) at (54.5,-68); \coordinate (q1) at (62,-68);
-\coordinate (q2) at (54.5,-77); \coordinate (q3) at (65,-77); \coordinate (q4) at (62,-78.5);
-\draw[edge,line width=1.4pt] (q0)--(q1);
-\draw[edge,line width=.55pt] (q0)--(q2);
-\draw[edge,line width=.7pt] (q1)--(q3);
-\draw[edge,line width=1.45pt] (q2)--(q3);
-\foreach \p in {q0,q1,q2,q3,q4} \node[node] at (\p) {};
-\node[font=\tiny,align=center,text width=29mm] at (60,-84) {$\mathcal{A}_a\ne\mathcal{A}_b$ can occur};
+% (g) The balanced optimum flips for the displayed weight ordering.
+\draw[fragone] (52.5,-66) rectangle (67.5,-73.5);
+\draw[fragtwo] (52.5,-77) rectangle (67.5,-84.5);
+\node[qnode,font=\tiny] at (56,-69.8) {0}; \node[qnode,font=\tiny] at (64,-69.8) {1};
+\node[qnode,font=\tiny] at (56,-80.8) {2}; \node[qnode,font=\tiny] at (64,-80.8) {3};
+\node[font=\tiny] at (60,-75) {$F_1=\{0,1\}$};
+\node[font=\tiny] at (60,-86) {$F_2=\{2,3\}$};
+\node[font=\tiny,align=center,text width=29mm] at (60,-88.5) {$w_{12}<w_{01}^{(b)}+w_{23}$};
 
-% (h) Two mathematical outcomes: regret or a sufficient stability condition.
-\node[font=\tiny\bfseries,align=center,text width=29mm] at (84,-65) {$A_a=\arg\min_P J_a(P)$\\$A_b=\arg\min_P J_b(P)$};
-\node[font=\scriptsize\bfseries] at (84,-73) {Reversal / regret};
-\node[font=\tiny,align=center,text width=29mm] at (84,-76) {$\Delta_{a\to b}>0\quad\Rightarrow\quad R_{a\to b}>1$};
-\node[font=\scriptsize\bfseries] at (84,-81.5) {Stability};
-\node[font=\tiny] at (84,-83.5) {$m_a>\lVert\delta\rVert_1$};
-\node[font=\tiny] at (84,-85.5) {$A_b\subseteq A_a$};
+% (h) Set-level comparison, not arbitrary solver-selected representatives.
+\node[font=\tiny\bfseries,align=center,text width=29mm] at (84,-67) {$\mathcal A_a=\arg\min_P J_a(P)$\\$\mathcal A_b=\arg\min_P J_b(P)$};
+\node[font=\scriptsize\bfseries] at (84,-75) {Set-level regret};
+\node[font=\tiny,align=center,text width=29mm] at (84,-78) {$\Delta_{a\to b}=\min_{P\in\mathcal A_a}J_b(P)-J_b^\star$};
+\node[font=\scriptsize\bfseries] at (84,-83) {Stability};
+\node[font=\tiny] at (84,-85.5) {$m_a>\lVert\delta\rVert_1\;\Rightarrow\;\mathcal A_b\subseteq\mathcal A_a$};
+\node[font=\tiny,align=center,text width=29mm] at (84,-88.5) {accounts for multiple optima};
 
-% Reading direction and explicit representation link.
-\draw[arrow] (22,-36.5) -- (25.5,-36.5);
-\draw[arrow] (46,-36.5) -- (49.5,-36.5);
-\draw[arrow] (70,-36.5) -- (73.5,-36.5);
-\draw[arrow] (22,-73.5) -- (25.5,-73.5);
-\draw[arrow] (46,-73.5) -- (49.5,-73.5);
-\draw[arrow] (70,-73.5) -- (73.5,-73.5);
+% Reading direction.
+\draw[arrow] (22,-38) -- (25.5,-38); \draw[arrow] (46,-38) -- (49.5,-38); \draw[arrow] (70,-38) -- (73.5,-38);
+\draw[arrow] (22,-76) -- (25.5,-76); \draw[arrow] (46,-76) -- (49.5,-76); \draw[arrow] (70,-76) -- (73.5,-76);
 
-\node[font=\tiny,align=center,text=black!70] at (47,-91) {Edge width denotes $\log\rho$; node set and feasible placement space remain fixed across representations.};
+\node[font=\tiny,align=center,text=black!70] at (47,-94) {Schematic four-qubit witness: the gate identity is exact; edge width denotes independent-QPD log cost.};
 \end{tikzpicture}
 \end{document}
