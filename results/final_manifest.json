@@ -1,62 +1,68 @@
 {
-  "frozen_at": "2026-08-12",
-  "git_commit": null,
-  "git_note": "workspace is not a git repository",
+  "manifest_schema": "certicut-release-v2",
+  "generated_at_utc": "2026-10-06T07:02:22.706740+00:00",
+  "manuscript_title": "Representation Dependence of Optimal Cut Placement in Quasiprobability Circuit Cutting",
+  "source_git_commit": "61c75d5f2e6c96f9ae9227eaf7216c80719586b5",
+  "source_commit_note": "All scientific code, manuscript, corrected E12 data, tests, and dependency lock are contained in this commit. This manifest is metadata generated from that source commit.",
   "python": "3.11.9",
-  "os": "Windows-11-Education-10.0.26200-64-bit",
-  "machine": {
-    "cpu": "Intel(R) Core(TM) i5-14400",
-    "physical_cores": 10,
-    "logical_processors": 16,
-    "ram_gb": 31.69,
-    "blas_thread_limits": {
-      "OMP_NUM_THREADS": null,
-      "OPENBLAS_NUM_THREADS": null,
-      "MKL_NUM_THREADS": null
-    }
-  },
+  "platform": "Windows-10-10.0.26200-SP0",
   "versions": {
     "qiskit": "2.5.1",
     "qiskit_addon_cutting": "0.10.0",
+    "qiskit_aer": "0.17.2",
     "scipy": "1.17.1",
+    "pyscipopt": "6.2.1",
     "kahip": "3.25",
     "mqt_bench": "2.2.2",
     "matplotlib": "3.11.1",
-    "pyscipopt": "6.2.1",
-    "scip": "10.0"
+    "pytest": "8.4.2",
+    "scip": "10.0.2"
   },
-  "cost_model": "qiskit_qpd_0.10_independent",
-  "solver_tolerance": 1e-09,
-  "safe_deadline": "soft requested deadline; return only after completed safe LP or B&B boundary; actual event time is recorded",
-  "random_seeds": {
-    "synthetic": "manifested per raw instance",
-    "bootstrap": 20260811
+  "validation": {
+    "pytest": {
+      "passed": 140,
+      "failed": 0,
+      "command": ".venv\\Scripts\\python.exe -m pytest -q"
+    },
+    "latex_build": "pdflatex -> bibtex -> pdflatex -> pdflatex",
+    "latex_log_qa": "no matches for undefined, multiply defined, float is stuck, Overfull, or LaTeX Warning",
+    "pdf_pages": 15
   },
-  "raw_result_sha256": {
-    "phase6_2_track_a_records.jsonl": "9e48ae0926e59ae73e08487e2cbe30309e5942504d213a63ea7b2e706926f7e8",
-    "phase6_2_checkpoints.jsonl": "9de7ac080b697bc6d402e744916d65c54a62962e39f6b213938d84045da744d8",
-    "phase6_2_summary.json": "e855246baa402e31d7543dafa05820b46ef42bbf69a3706a195bf4bad1c4cbd4",
-    "phase6_4_track_b_records.jsonl": "4a3de3e63ac63365e6841df9107ec865d3fd5041f377c2989fe444c972b725e2",
-    "phase6_4_k2_penalty_summary.json": "5b6ee36c4d0a582a9a17724f6edf5300e00537f7358faee1206213b6229d5bf9",
-    "phase6_5b_representation_comparison.json": "841bcbd9a194de36b8ee4842b08148a52233fc23d3ed49fb8068b989ef531485",
-    "phase6_6b_e1_certicut.jsonl": "720c483094d41ec3f09fe5c06d55f92d510bcd7ae61ee256990eae3ef443d436",
-    "phase6_6b_e1_wallclock_checkpoints.jsonl": "224b51346e8e48b3b9c0f5c8953145f0215f2ef32f5493f64d08f8adf44416a8",
-    "phase6_6b_e1_summary.json": "7d3b4031855338ac9ab552be262fc740f20808e5801f34f67dfd7def4de0ac7e",
-    "phase6_6b_e2_real_cx.jsonl": "07b0d25ef20bb9fae98746234d660f1f73d4c00dd9808716e18579bb71953654",
-    "phase6_6b_e3_native_qpd.jsonl": "44b9fc9beb94499fba9cf57ec33af769c3d4986a31aa67d700b84dfa19d749a6",
-    "phase7_operational_validation.json": "fc536154c1b902e3e9bb42864e52a886c7b6758c65a47489b17044ede0def555",
-    "phase11_3_heterogeneous_qpd_nonzero_companion.jsonl": "37785f9db75b9a150e14618a178d52376b92dffe87024b32bf1218c58b4deb1e",
-    "phase11_3_heterogeneous_qpd_nonzero_summary.json": "a2b4f014ba7ca1a5befc105df5e203d93f54af699dcb83fcd62b39d41066d213",
-    "phase11_5_e3_count_qpd_check.json": "6fc753552b811dce672ec1d16bc80b9d719d2396ad6df3ee24a6d2780eba9ba9",
-    "phase11_3_algorithm_heterogeneous_audit.json": "75b63992b616121b89622d6a1b8e865b2b2c4457b818c6c8aac784de0da1a008"
+  "canonical_e12": {
+    "paired_records": 96,
+    "records_per_family": 12,
+    "set_level_changes": 8,
+    "changes_by_family": {
+      "qpeexact": 3,
+      "grover": 5
+    },
+    "grover_n10_k2_repaired_record": {
+      "delta_cx_to_native": 448.23381377659643,
+      "delta_native_to_cx": 1494.1127125886424,
+      "note": "Original post-processing overflow in exp(delta) was repaired; log-domain delta remains canonical and multiplicative factors saturate to infinity beyond floating-point range."
+    },
+    "qpe_n14_k2_witness": {
+      "delta_native_to_cx": 6.591673732008616,
+      "R_native_to_cx": 728.999999999969
+    },
+    "qft_set_level_changes": 0
   },
-  "experiments": {
-    "E1": "420 synthetic Track A-CX instances",
-    "E2": "25 real CX-normalized instances",
-    "E3": "15 native-QPD instances",
-    "E4": "60 Qiskit practical-Qmax records",
-    "E5": "120 identity-free heterogeneous-QPD exact-balanced companion instances",
-    "E3_small_check": "9 native MQT Bench count-versus-QPD exact checks",
-    "E6": "36 predeclared algorithm-derived MQT Bench heterogeneous-QPD exact-balanced records"
+  "file_sha256": {
+    "README.md": "c2f89e614e14c768061c11f7422d89813ce9034b6c24704aaac7b38bea163181",
+    "CITATION.cff": "9df8d1e1da04753f09f2ecd786a78abb3cc3e0cf63edc5402b67f81d0cc960e2",
+    "requirements.txt": "24cefc0b0b9aba94abcf5f525f7eb6f16c7e8112efa798f9eb9cb19e87d29c92",
+    "requirements-lock.txt": "936f362e3918b2f254b442dd72b5f38d5fa36650cc60ca7f488999603b25b4ee",
+    "paper/certicut.tex": "5337cc4fda7a3622294e3dfc7a0862521cfedb3e2ede618e6874bdf521d0f003",
+    "paper/certicut.pdf": "447fc97813480182bb97796319b5ccd72e68d78ec90468aa86f1c393358560ea",
+    "paper/figures/fig_certicut_architecture.tex": "5e5e3f4671183308e9776b7d9d0c81185ed094d079c33ca909cb465cb9c898f9",
+    "paper/figures/fig_certicut_architecture.pdf": "fe24204834aa2777bc078a258a648997205289d776658c9d856e77daa52d3e0f",
+    "scripts/run_e12_representation_placement_regret.py": "df56cc797da5b8e5f6f9f55b0fab32b4063b516389ece7c54e295c7b9cfc604c",
+    "tests/test_release_e12_regression.py": "62895f3cf0d14279198057c641ebad39ec5531516a22652fe547fb6aea1e1cf8",
+    "results/e12_representation_placement_regret.json": "5bdbde7931c7f9342e703c25a2b012a233135e6c5ec5483f4052f8395aff93f5",
+    "results/e12_representation_placement_regret_feastol_1e-12.json": "465c932c1d45fd386207c30d5bf94e28de41da1596b6ccc2028220b009e1a3f1",
+    "results/e9_k_heterogeneous_scaling_replicated_summary.json": "2f4dd1f438096b6f5b604da36bdf833d5da5c584ff76aa29960538230d20bae7",
+    "results/phase11_3_heterogeneous_qpd_nonzero_summary.json": "a2b4f014ba7ca1a5befc105df5e203d93f54af699dcb83fcd62b39d41066d213",
+    "results/phase12_e8_finite_shot_summary.json": "48db707f2d722ef20be4feac264f4d93d7f1651501cfd83b53a677c5837a7c71",
+    "results/phase10_5_partition_reversal_witness.json": "f2ec1392c29b3d9416e77c8f59d24d0f9f2a40903b7fea59f6d8f24f46c24a4c"
   }
 }
