@@ -1,9 +1,10 @@
 {
-  "manifest_schema": "certicut-release-v2",
-  "generated_at_utc": "2026-10-06T07:02:22.706740+00:00",
+  "manifest_schema": "certicut-release-v3",
+  "generated_at_utc": "2026-10-07T06:45:50.872863+00:00",
   "manuscript_title": "Representation Dependence of Optimal Cut Placement in Quasiprobability Circuit Cutting",
-  "source_git_commit": "61c75d5f2e6c96f9ae9227eaf7216c80719586b5",
-  "source_commit_note": "All scientific code, manuscript, corrected E12 data, tests, and dependency lock are contained in this commit. This manifest is metadata generated from that source commit.",
+  "source_git_commit": "a0bcc46223ee7ea67052750c67ab09531d98711b",
+  "source_tree_clean": true,
+  "source_tree_changes": [],
   "python": "3.11.9",
   "platform": "Windows-10-10.0.26200-SP0",
   "versions": {
@@ -14,55 +15,114 @@
     "pyscipopt": "6.2.1",
     "kahip": "3.25",
     "mqt_bench": "2.2.2",
+    "mqt_qcec": "3.10.0",
+    "mqt_core": "3.10.1",
+    "nanobind_backend": "1.0.0",
     "matplotlib": "3.11.1",
     "pytest": "8.4.2",
     "scip": "10.0.2"
   },
   "validation": {
     "pytest": {
-      "passed": 140,
-      "failed": 0,
-      "command": ".venv\\Scripts\\python.exe -m pytest -q"
+      "passed": 175,
+      "failed": 0
     },
     "latex_build": "pdflatex -> bibtex -> pdflatex -> pdflatex",
-    "latex_log_qa": "no matches for undefined, multiply defined, float is stuck, Overfull, or LaTeX Warning",
-    "pdf_pages": 15
+    "pdf_pages": 15,
+    "environment_check": "reproducibility/verify_environment.py"
   },
   "canonical_e12": {
+    "schema": "certicut-e12-summary-v1",
+    "canonical_result": "results/e12_representation_placement_regret.json",
+    "capacity_policy": {
+      "name": "symmetric_near_balanced_v1",
+      "lower": "floor(n/K)",
+      "upper": "ceil(n/K)"
+    },
     "paired_records": 96,
-    "records_per_family": 12,
+    "records_per_family": {
+      "bv": 12,
+      "dj": 12,
+      "ghz": 12,
+      "grover": 12,
+      "qaoa": 12,
+      "qft": 12,
+      "qpeexact": 12,
+      "vqe_real_amp": 12
+    },
     "set_level_changes": 8,
     "changes_by_family": {
-      "qpeexact": 3,
-      "grover": 5
+      "grover": 5,
+      "qpeexact": 3
     },
-    "grover_n10_k2_repaired_record": {
-      "delta_cx_to_native": 448.23381377659643,
-      "delta_native_to_cx": 1494.1127125886424,
-      "note": "Original post-processing overflow in exp(delta) was repaired; log-domain delta remains canonical and multiplicative factors saturate to infinity beyond floating-point range."
-    },
-    "qpe_n14_k2_witness": {
+    "qpe_n14_k2": {
+      "delta_cx_to_native": 1.3935970723363695,
       "delta_native_to_cx": 6.591673732008616,
-      "R_native_to_cx": 728.999999999969
+      "R_cx_to_native": 4.029317764156574,
+      "R_native_to_cx": 728.999999999969,
+      "semantic_check": {
+        "unitary_equivalence": true,
+        "method": "mqt_qcec",
+        "equivalence_criterion": "equivalent_up_to_global_phase",
+        "mqt_qcec_version": "3.10.0",
+        "runtime_s": 0.16116289999627043
+      }
     },
-    "qft_set_level_changes": 0
+    "stability_check": {
+      "kappa_lt_1": 25,
+      "kappa_lt_1_and_R1": 25
+    }
   },
   "file_sha256": {
-    "README.md": "c2f89e614e14c768061c11f7422d89813ce9034b6c24704aaac7b38bea163181",
-    "CITATION.cff": "9df8d1e1da04753f09f2ecd786a78abb3cc3e0cf63edc5402b67f81d0cc960e2",
-    "requirements.txt": "24cefc0b0b9aba94abcf5f525f7eb6f16c7e8112efa798f9eb9cb19e87d29c92",
-    "requirements-lock.txt": "936f362e3918b2f254b442dd72b5f38d5fa36650cc60ca7f488999603b25b4ee",
-    "paper/certicut.tex": "5337cc4fda7a3622294e3dfc7a0862521cfedb3e2ede618e6874bdf521d0f003",
-    "paper/certicut.pdf": "447fc97813480182bb97796319b5ccd72e68d78ec90468aa86f1c393358560ea",
-    "paper/figures/fig_certicut_architecture.tex": "5e5e3f4671183308e9776b7d9d0c81185ed094d079c33ca909cb465cb9c898f9",
-    "paper/figures/fig_certicut_architecture.pdf": "fe24204834aa2777bc078a258a648997205289d776658c9d856e77daa52d3e0f",
-    "scripts/run_e12_representation_placement_regret.py": "df56cc797da5b8e5f6f9f55b0fab32b4063b516389ece7c54e295c7b9cfc604c",
-    "tests/test_release_e12_regression.py": "62895f3cf0d14279198057c641ebad39ec5531516a22652fe547fb6aea1e1cf8",
-    "results/e12_representation_placement_regret.json": "5bdbde7931c7f9342e703c25a2b012a233135e6c5ec5483f4052f8395aff93f5",
-    "results/e12_representation_placement_regret_feastol_1e-12.json": "465c932c1d45fd386207c30d5bf94e28de41da1596b6ccc2028220b009e1a3f1",
-    "results/e9_k_heterogeneous_scaling_replicated_summary.json": "2f4dd1f438096b6f5b604da36bdf833d5da5c584ff76aa29960538230d20bae7",
+    ".gitignore": "56e0a1211c2a9d4dbe1ad92baa76a25c6057e7c3f1dad58cf345cc8ef563ecb3",
+    "README.md": "b5d3251eb5abb86ee5bb6e4b8ecb7767bc57d5181223a277dd4d0c38d1fa67dc",
+    "CITATION.cff": "82b92ce1c427e3751171ad9efadba0a375330118b4476b2075cad6d4a8a9065d",
+    "requirements.txt": "e3878725a92119090238aa81ca8716e746083a81b53cbbe60b56d922a9e21656",
+    "requirements-lock.txt": "d38f484548c15fdc0c1383aefb2c3c5fbbbc9f45cdf4ae878585166d39e6dfab",
+    "reproducibility/ENVIRONMENT.md": "c168533103d3a7c8559d70d3385c84fd243ddf91d352b574d85d859cf4db7976",
+    "reproducibility/verify_environment.py": "92ae938dfd157161f65ccfb2a639c7c514b8f48ef0e4a7ceb71fd63a73af653c",
+    "results/README.md": "f2a14ae07f362b50449df6759afb9e255ddf957fdb35e886d2d5dc152af68998",
+    "results/legacy/README.md": "7c1f0d886c7354f2dae3014983915ce8c8962ee1098c49acb18ae31edcb2533f",
+    "paper/ARTIFACT_VERSIONS.md": "8ddc3ab84819fed3115a548cd88f4370e73ad3b9089f9e66351076c79ad33e47",
+    "certicut/circuits/ingestion.py": "46c24e76ed5c523847aba0ff97e3761959b751c66c14b11096101c88cd7c93d8",
+    "certicut/costs/qpd.py": "46bccc0ea2c56647795598b762c10685e8aeb6bf6af58019f73703f6eccf70af",
+    "certicut/graph/interaction.py": "2e51e6eb913cea04c44400636fe4e34f9712f7da2284efdd089127859fc5b8f8",
+    "certicut/optimization/exact.py": "9732ca27fbf6215bcc1687fa6271bcba30bd0da6e9d9a129249c9676a8dfdf65",
+    "certicut/optimization/k_partition.py": "6812d82462ed1a120a271314afdbfa17711b6f33700659fd7d001e9987d2fc98",
+    "certicut/optimization/pj_regret.py": "ef7f57b7b2d61a74f6e87e65f118e7a5d88ac9533fd21887dd805759f93af84c",
+    "scripts/run_e12_representation_placement_regret.py": "ea8c47eddda0ae3b277f2f2ebcb87437dd56ab56bdffb6014502a3e5ec1899ba",
+    "scripts/generate_e12_summary.py": "4d737bcfa5d96d03220af4afb365b8b6fe4d90f952f5199698b572af891c3440",
+    "scripts/reproduce_e12.py": "ced5fd2791fbc2868502d0ad71e9ac768b4f9cb8503b2a058870ce04ecf98e69",
+    "scripts/audit_qft_single_solution_ties.py": "022edf462e665ef8e5fae4cf9e6ab5347bc2037dcbb7f1fc740c11c656efef90",
+    "scripts/audit_qft_exact_sets.py": "931ab603ab8e88d1b035a3b5eaade64598195d2ccbeeb4d5667b222ea202b3a8",
+    "scripts/audit_qpe14_exact.py": "cdc4ffb4d4bc23028003a6a1e46ab97f000332534f406e66b238fde2e7482288",
+    "tests/test_ingestion.py": "d799f89022eb0a6f95903341ac1d4825d2b1dcaffadb16fc8cde90d968e30439",
+    "tests/test_release_e12_regression.py": "3b3e62b76a3f322dac97034299fff2c82d28c3cbee0ff0a90aab41d9101becd4",
+    "tests/test_e12_solver_consistency.py": "fbd2706c836f99fd4d4f07fc833581d98a55295e70263cda8da0b482893553f3",
+    "tests/test_qft_tie_audit.py": "1a3b2cfd796c50f78a40c5e5cfb7ca37f6ea0c02064c87ca02d25be4e8241af7",
+    "tests/test_qft_exact_set_audit.py": "e53e2a24e690a7d3ea1fee724c774447a50f1566792605f71d3d0f972e19b221",
+    "tests/test_qpe14_exact_audit.py": "1f16842bc1884afdd52b9a3daf65bb19bc398dad1e2e48a843caa7d3b55c750a",
+    "tests/test_qcec_criterion_parsing.py": "94626a425c0a1c55f60e8fb5412c65835b8178c9aadf46868627f1d0332fb60c",
+    "tests/test_manuscript_qpd_cost_claims.py": "b42821a976b3de9f26c1aa768df43c13ed9b5f333d595c5bac08691393633d02",
+    "tests/test_manuscript_qaoa_scaling_claim.py": "98dae095603ed4c6c924f29e70e69feff9f7fe905aa872f11603569533eced89",
+    "tests/test_manuscript_supporting_claims.py": "16c777fd46f95ec49a3a4db8d2fe9114f123f3a6758e1d7da63f4854bacfebcc",
+    "results/e12_representation_placement_regret.json": "fcd56109ecc8f75e3e74f3fe87fecad9cf8db9d0092fec059a6a277cae9badb9",
+    "results/e12_canonical_summary.json": "b5b746bc0202f2d9c9675bc492f7bee916c51b4ee4ea1dc301ee1d1866a808cc",
+    "results/e12_qft_single_solution_tie_audit.json": "812824be9134025a308082ce9858abb6377fc5d2db577c3c4ac337ba4d45e071",
+    "results/e12_qft_exact_set_audit.json": "811c64dae824bb76404f7e1cfd9c546d36ff5737d1ba4e1bbbb428f7d9d3abc5",
+    "results/e12_qpe14_exhaustive_audit.json": "ae6e97856f8019fae76cc53545b103745059b2479402fab5ccf203376b9d0031",
     "results/phase11_3_heterogeneous_qpd_nonzero_summary.json": "a2b4f014ba7ca1a5befc105df5e203d93f54af699dcb83fcd62b39d41066d213",
+    "results/phase11_3_algorithm_heterogeneous_audit.json": "75b63992b616121b89622d6a1b8e865b2b2c4457b818c6c8aac784de0da1a008",
+    "results/phase12_e7_heterogeneous_scaling_summary.json": "a751a7e45496948f340f7d9940e44919cba3542da8cad01cba40ec2dbd7c5f28",
+    "results/e9_k_heterogeneous_scaling_replicated_summary.json": "2f4dd1f438096b6f5b604da36bdf833d5da5c584ff76aa29960538230d20bae7",
+    "results/upgrade_2026/e16_baseline_suite/summary.json": "8db814bf481c1c67157c50f0c6c2557b3b9c70530e679ea80f988b3bd3091468",
     "results/phase12_e8_finite_shot_summary.json": "48db707f2d722ef20be4feac264f4d93d7f1651501cfd83b53a677c5837a7c71",
-    "results/phase10_5_partition_reversal_witness.json": "f2ec1392c29b3d9416e77c8f59d24d0f9f2a40903b7fea59f6d8f24f46c24a4c"
+    "results/e11_exact_model_regret.json": "837a9319de57e9761338b6fda16cded86cc9559f19f206c5fb634c1b28d3498c",
+    "paper/certicut.tex": "bab75c6d8ad2b223459da79e40e4314507f0da6126b024f4f134531b03450e09",
+    "paper/references.bib": "8d5a0e8bb433b4638882adacbb19c14a22442a633077a20eb57e74a55e414b14",
+    "paper/certicut.pdf": "d39f99afe94e32bfa5b58a9e50ad83c72a0e0e6c3c8632007f6e6145a1de93a4",
+    "paper/figures/fig_certicut_architecture.tex": "d86015e6af1cb26ea35e1b38cdb77c3a6801ba9e572fe5f2854d345f7a221071",
+    "paper/figures/fig_certicut_architecture.pdf": "5e49b0e70b030d0012967c6c4af129f68a3810711ff3300b85ef3b9c7fb41aae",
+    "paper/tables/e12_regret_rows.tex": "5da897ecfca728406eaf5086e450d76535e1cb0f36f89a157fc5c3686c4cb942"
   }
 }
