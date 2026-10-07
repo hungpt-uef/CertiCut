@@ -99,9 +99,9 @@ The manuscript distinguishes exact model-level propositions from floating-point 
 
 ## Archived release
 
-Zenodo DOI: `10.5281/zenodo.22005561` (v1.0.0, prior manuscript version).
+Revision-specific Zenodo record: `10.5281/zenodo.23205464` (CertiCut v2.0.0, 2026-10-07).
 
-The corrected October 2026 manuscript uses a revision-specific data/code package prepared locally for deposition as a new Zenodo version. Until that archival version is published, the DOI above should be treated as provenance for the prior release rather than as the exact evidence bundle for the current revision.
+The stable Zenodo concept DOI for the CertiCut release series is `10.5281/zenodo.21991465`. The earlier record `10.5281/zenodo.22005561` corresponds to v1.0.0 and is retained only as historical provenance.
 
 `results/final_manifest.json` records the source commit, reference environment, canonical E12 summary, validation status, and SHA-256 hashes of release-critical files.
 

@@ -57,7 +57,7 @@ The claimed contribution is narrower: two complete semantics-preserving represen
 
 ## 7. arXiv and archived release
 
-The submission package now includes a clean arXiv source bundle. The previous Zenodo DOI (10.5281/zenodo.22005561) is explicitly identified as a prior release rather than as the exact evidence bundle for the revised paper. A revision-specific archive containing the corrected canonical data, tests, and integrity manifest is prepared for deposition as a new Zenodo version.
+The submission package now includes a clean arXiv source bundle. The revision-specific software/data archive is publicly available as CertiCut v2.0.0 at Zenodo DOI 10.5281/zenodo.23205464; it contains the corrected canonical data, exhaustive audits, regression tests, and integrity manifest. The earlier DOI 10.5281/zenodo.22005561 is retained only as historical provenance for v1.0.0.
 
 ## 8. Summary of the scientific revision
 

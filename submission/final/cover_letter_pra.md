@@ -12,7 +12,7 @@ The revision also addresses the presentation and reproducibility concerns raised
 
 The authors are responsible for all scientific content and conclusions. The manuscript contains a transparent disclosure of the use of generative AI tools for implementation/debugging assistance, language editing, structural revision, and schematic-layout assistance.
 
-A prior software/data release is available at Zenodo DOI 10.5281/zenodo.22005561. A revision-specific archive containing the corrected canonical data, tests, and integrity manifest is prepared for deposition and will be cited by its version-specific record in the final resubmission metadata.
+The revision-specific software/data archive is publicly available as CertiCut v2.0.0 at Zenodo DOI 10.5281/zenodo.23205464. It contains the canonical data, exhaustive audits, regression tests, and integrity manifest supporting this revision.
 
 Thank you for your consideration.
 
