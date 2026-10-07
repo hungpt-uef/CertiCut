@@ -76,8 +76,7 @@ def solve_scip_k_partition(
     ``y[e, k]`` is one iff both endpoints of edge ``e`` occupy fragment ``k``;
     therefore ``z[e] + sum_k(y[e, k]) == 1`` exactly identifies a cut edge.
     Default capacities require every fragment and permit near-balanced sizes.
-    Pass explicit bounds for heterogeneous devices or empty fragments. For exact
-    Equal exact capacities fix qubit zero in fragment zero to remove equivalent
+    Pass explicit bounds for heterogeneous devices or empty fragments. Equal exact capacities fix qubit zero in fragment zero to remove equivalent
     label permutations. Optional all-pair cardinality and metric extensions are
     valid but dense; they are disabled by default after their ablation showed
     poor end-to-end behavior at the E9 scale.

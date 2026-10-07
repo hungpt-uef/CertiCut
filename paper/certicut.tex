@@ -2,10 +2,10 @@
 % CertiCut --- Physical Review A (Regular Article) version
 % REVTeX 4.2, aps/pra, two-column reprint layout.
 %
-% The underlying science, theorems, and data are unchanged; the narrative
-% is reordered so that the representation-sensitivity question and the
-% quasiprobability resource semantics lead, with solver/backend and
-% polyhedral engineering moved to the appendices.
+% Revision focused on the representation-sensitivity question and the
+% quasiprobability resource semantics. Solver/backend and polyhedral
+% engineering are retained as supporting appendices; numerical claims are
+% synchronized with the canonical release records.
 %
 % Section selection (submission form): A-2E Quantum Information Science.
 % PhySH concepts (submission form, not typeset here):
@@ -62,7 +62,6 @@
 % Theorem-like environments (plain style: bold header, italic body),
 % independent counters so Theorem/Proposition/Corollary each number 1,2,...
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{corollary}{Corollary}
 % Suppress the QED box (kept from the source: it was mistaken for a
@@ -105,7 +104,7 @@
 % ABSTRACT
 % ===================================================================
 \begin{abstract}
-Circuit cutting assigns a sampling cost to two-qubit interactions that cross fragment boundaries. Two gate-level representations of the same logical circuit can be unitary-equivalent while inducing different interaction costs, so the placement that minimizes cutting overhead need not remain optimal after a representation change. A direct comparison of one optimizer-returned solution from each representation is unreliable when either problem has multiple optima. We therefore compare complete optimal-placement sets and define the cross-representation regret as the excess log-overhead, in a target representation, of the best placement that was optimal in the source representation. We prove an $\ell_1$ perturbation bound, a sufficient stability condition, and invariance under positive rescaling of all interaction weights. On semantically verified quantum phase-estimation benchmarks, the optimal placement changes under representation conversion; an $n=14$ instance gives an overhead ratio $R=729$. Conversely, six apparent quantum-Fourier-transform reversals disappear when the full optimal sets are compared. For a fixed representation, the independent gate-level quasiprobability-decomposition (QPD) objective reduces exactly to capacitated weighted graph partitioning in the log domain, allowing standard global optimization bounds to be expressed directly as multiplicative overhead bounds. These results show that circuit representation can change the resource-optimal cut placement even when the logical unitary and feasible fragment space are unchanged.
+Circuit cutting incurs a sampling overhead when two-qubit interactions cross fragment boundaries. Different gate-level representations can implement the same logical unitary while assigning different quasiprobability-decomposition (QPD) costs to those interactions. We ask whether this representation choice alone can change which feasible partition minimizes the modeled cutting overhead. A complication is degeneracy: when several partitions are optimal, comparing one solver-returned partition from each representation can falsely suggest that the optimum changed. We therefore compare the optimal sets themselves by evaluating, in a target representation, the best partition among those that are optimal in the source representation. The resulting cross-representation regret is zero exactly when the two optimal sets overlap. We derive simple perturbation and stability bounds for this quantity. On quantum phase-estimation benchmarks, an $n=14$, $K=2$ pair gives a genuine modeled-overhead ratio $R=729$; exhaustive enumeration of all 1,716 balanced bipartitions confirms unique, disjoint optima, and MQT QCEC independently verifies the circuit equivalence up to global phase. By contrast, six apparent quantum-Fourier-transform changes from single solver outputs disappear under the set-level comparison, and exhaustive enumeration confirms a shared optimum in every case. For a fixed representation, the independent gate-level QPD objective is exactly a capacitated weighted graph-partitioning objective in the log domain. Thus a semantics-preserving representation change can alter the resource-optimal cut placement even when the logical unitary and feasible fragment space are fixed.
 \end{abstract}
 
 \maketitle
@@ -120,20 +119,20 @@ Near-term quantum processors remain limited in qubit count, fidelity, and connec
 
 The same logical circuit can also have several gate-level representations. Basis translation or decomposition can preserve the unitary up to global phase while changing the two-qubit gates that appear on each pair of logical wires. Under a gate-dependent QPD model, the corresponding interaction weights therefore change. The question studied here is whether that change can move the resource-minimizing cut placement when the logical wires, fragment count, and capacity constraints are held fixed.
 
-There is a subtle degeneracy issue. If representation $a$ has several optimal placements, a solver may return one that is suboptimal under representation $b$ even though another $a$-optimal placement is also optimal under $b$. Comparing one returned solution from each representation can therefore create a false representation effect. We avoid this by comparing the complete optimal-placement sets. Section~\ref{sec:rep} defines the resulting cross-representation regret, proves an $\ell_1$ perturbation bound and a sufficient stability condition, and identifies positive rescaling of all interaction weights as an invariant case.
+There is a subtle degeneracy issue. If representation $a$ has several optimal placements, a solver may return one that is suboptimal under representation $b$ even though another $a$-optimal placement is also optimal under $b$. Comparing one returned solution from each representation can therefore create a false representation effect. We avoid this by optimizing over the source-optimal region rather than using one arbitrary returned placement. Section~\ref{sec:rep} defines the resulting cross-representation regret, derives an $\ell_1$ perturbation bound and a sufficient stability condition, and identifies positive rescaling of all interaction weights as an invariant case.
 
 \begin{figure*}[tp]
   \centering
   \includegraphics[width=0.86\textwidth]{fig_certicut_architecture.pdf}
-  \caption{A four-qubit example of the mechanism studied in this work. Panels (a)--(d) show representation $a$, its weighted interaction graph, an optimal balanced bipartition, and the translation of valid log-objective bounds into an overhead ratio. Panels (e)--(h) replace $R_{ZZ}^{01}(\theta)$ by the exact identity $\mathrm{CX}_{01}[I\otimes R_Z(\theta)]\mathrm{CX}_{01}$. The logical unitary, logical wires, and feasible partition space are unchanged, while the independent-QPD weight on edge $(0,1)$ changes from $\log\rho_{RZZ(\theta)}$ to $2\log 9$. For the displayed edge-weight ordering, this changes the optimal balanced bipartition. Panel (h) shows the set-level comparison used to avoid arbitrary optimizer tie breaking.}
+  \caption{A four-qubit example of the mechanism studied in this work. Panels (a)--(d) show representation $a$, its weighted interaction graph, an optimal balanced bipartition, and the translation of valid log-objective bounds into an overhead ratio. The displayed instance fixes $\theta=\phi=\pi/16$, for which Qiskit Addon Cutting gives $\log\rho_{RZZ(\pi/16)}\approx0.659$ and $\log\rho_{\mathrm{CX}}=\log9\approx2.197$. Panels (e)--(h) replace $R_{ZZ}^{01}(\theta)$ by the exact identity $\mathrm{CX}_{01}[I\otimes R_Z(\theta)]\mathrm{CX}_{01}$. The logical unitary, logical wires, and feasible partition space are unchanged, while the independent-QPD weight on edge $(0,1)$ increases from approximately $0.659$ to $2\log9\approx4.394$. Consequently the three balanced bipartitions can be checked directly: the optimum changes from $\{0,3\}|\{1,2\}$ to $\{0,1\}|\{2,3\}$. Panel (h) shows the set-level comparison used to avoid arbitrary optimizer tie breaking. ChatGPT (OpenAI, GPT-5.6~Sol) assisted with schematic layout revision; the authors specified and verified the circuit identity, graph weights, partitions, labels, and final LaTeX figure.}
   \label{fig:architecture}
 \end{figure*}
 
-The numerical study verifies semantic equivalence before comparing representations. Exact-QPE benchmarks contain strict placement changes, including an $n=14$ instance for which transporting a native-QPD-optimal placement to the CX-normalized representation increases the modeled overhead by a factor of $729$. In contrast, six large QFT regrets obtained by comparing one solver-selected optimum from each representation vanish when the complete optimal sets are compared. These two outcomes provide positive and negative tests of the same set-level criterion.
+The numerical study records a semantic check before comparing representations, with the check method stored alongside each result. Exact-QPE benchmarks contain strict placement changes, including an $n=14$, $K=2$ instance for which transporting a native-QPD-optimal placement to the CX-normalized representation increases the modeled overhead by a factor of $729$. An independent exhaustive audit of all 1,716 balanced bipartitions finds one optimum under each representation and zero overlap between the two argmin sets. The second $n=14$ QPE change, at $K=3$, is likewise confirmed by exhaustive enumeration of 126,126 near-balanced partitions; together with the exact $n=6$, $K=2$ record, all three QPE changes therefore have exhaustive support. In contrast, six large QFT regrets obtained by comparing one solver-selected optimum from each representation vanish under the set-level cross-evaluation; exhaustive enumeration of all six corresponding feasible spaces independently confirms a shared optimum in every case. These two outcomes provide positive and negative tests of the same set-level criterion.
 
 For a fixed representation, the independent gate-level QPD objective is a capacitated weighted graph-partitioning problem in the log domain. This reduction supplies the optimization model used in the experiments and gives a direct interpretation of valid global lower and upper bounds: if $\LB\leq\OPT\leq\UB$, then the incumbent overhead is at most $\exp(\UB-\LB)$ times the modeled optimum. The graph-partitioning and mixed-integer machinery itself is standard~\cite{deza1997,lawler1966,kaibel2008}.
 
-Our question differs from work that searches a richer cut space for a fixed circuit. Brandhofer \emph{et al.}~\cite{brandhofer2024} optimize mixed gate and wire cuts, Nakamura \emph{et al.}~\cite{nakamura2025} study scalable multi-fragment partitioning and sampling bounds, and Fr{\"o}hler \emph{et al.}~\cite{frohler2026} consider gate, wire, and joint gate-group cuts. Here the fragment space is fixed and the circuit representation changes. The primary cost model is the independent gate-level QPD model implemented by Qiskit Addon Cutting~0.10.0~\cite{qiskitcutting}; joint decompositions, wire cuts, routing, hardware noise, and end-to-end device execution are outside that optimization model. Supporting tests of model sensitivity, finite-shot behavior, backend performance, and interval verification are separated from the central representation result.
+Our question differs from work that searches a richer cut space for a fixed circuit. Brandhofer \emph{et al.}~\cite{brandhofer2024} optimize mixed gate and wire cuts, Nakamura \emph{et al.}~\cite{nakamura2025} study scalable multi-fragment partitioning and sampling bounds, and Fr{\"o}hler \emph{et al.}~\cite{frohler2026} consider gate, wire, and joint gate-group cuts. Here the fragment space is fixed and the circuit representation changes. The primary cost model is the independent gate-level QPD model implemented by Qiskit Addon Cutting~0.10.0~\cite{qiskitcutting}.
 
 % ===================================================================
 % II. MODEL
@@ -182,6 +181,9 @@ Every $g\in G_{ij}$ is cut exactly when $f(i)\neq f(j)$. Regrouping the gate-lev
 
 For the semantics-preserving transformations considered here, basis translation and native-gate decomposition produce circuits implementing the same unitary up to global phase while altering the two-qubit interaction multigraph, and hence the weights~\eqref{eq:weight}. Let $a$ and $b$ be two semantically equivalent representations of the same logical circuit on the same logical wire set $V$, with interaction edge sets $E_a$ and $E_b$. We define the common edge universe $E=E_a\cup E_b$ and zero-pad the log-weights, $w^{(a)}_e=0$ for $e\notin E_a$ and $w^{(b)}_e=0$ for $e\notin E_b$, so that both representations are compared over a single feasible partition space. Because the paired representations share the same logical wire set and declared capacity constraints, the same partition map is feasible for both within the supported independent-QPD model; only the induced interaction weights change. Section~\ref{sec:rep} makes precise the sense in which a change from $a$ to $b$ can move the optimal placement.
 
+
+The four-qubit construction in Fig.~\ref{fig:architecture} gives an analytic example. Set $\theta=\phi=\pi/16$, write $x=\log\rho_{RZZ(\pi/16)}\approx0.658867$ and $c=\log9\approx2.197225$, and impose a balanced $K=2$ partition. There are only three unlabeled bipartitions. In representation $a$, $\{0,3\}|\{1,2\}$ cuts the two $RZZ$ edges and has cost $2x\approx1.317735<c$, while $\{0,1\}|\{2,3\}$ cuts only the central CX edge and has cost $c$; the third bipartition cuts all three edges. After replacing $R_{ZZ}^{01}(\theta)$ by the exactly equivalent $\mathrm{CX}_{01}[I\otimes R_Z(\theta)]\mathrm{CX}_{01}$, the $(0,1)$ weight becomes $2c$, so the first partition costs $2c+x\approx5.053317$ whereas the second remains at $c$. The unique optimum therefore changes although the logical unitary and feasible partition set are unchanged.
+
 % ===================================================================
 % III. REPRESENTATION THEORY
 % ===================================================================
@@ -209,13 +211,13 @@ For any common feasible partition space $\mathcal{F}$, $0\le\Delta_{a\to b}\le\|
 Let $P_a\in\arg\min_{P\in\mathcal{A}_a}J_b(P)$ and $P_b\in\mathcal{A}_b$. Then $J_b(P_a)-J_b(P_b)=[J_a(P_a)-J_a(P_b)]+\delta^\top[z(P_a)-z(P_b)]$. Because $P_a$ is $J_a$-optimal, $J_a(P_a)-J_a(P_b)\le0$. Since $\|z(P_a)-z(P_b)\|_\infty\le1$, we obtain $\Delta_{a\to b}\le|\delta^\top[z(P_a)-z(P_b)]|\le\|\delta\|_1$.
 \end{proof}
 
-\subsection{Stability theorem and scaling invariance}
+\subsection{Stability and scaling invariance}
 
 Let $m_a=\min_{P\in\mathcal{F}\setminus\mathcal{A}_a}[J_a(P)-J_a^*]$ denote the optimality margin of representation $a$, with the convention $m_a=+\infty$ if $\mathcal{F}\setminus\mathcal{A}_a=\emptyset$. Define $m_b$ analogously for representation $b$.
 
-\begin{theorem}[Representation stability]\label{thm:stability}
+\begin{proposition}[Sufficient representation stability]\label{prop:stability}
 If $m_a>\|\delta\|_1$, then $\mathcal{A}_b\subseteq\mathcal{A}_a$, and consequently $R_{a\to b}=1$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 For any $P\in\mathcal{A}_a$ and $Q\in\mathcal{F}\setminus\mathcal{A}_a$, $J_a(Q)-J_a(P)\ge m_a$. The perturbation changes the objective difference by at most $|\delta^\top[z(Q)-z(P)]|\le\|\delta\|_1$. If $m_a>\|\delta\|_1$, then $J_b(Q)-J_b(P)\ge m_a-\|\delta\|_1>0$, so no non-optimal partition $Q\notin\mathcal{A}_a$ can achieve a smaller or equal $J_b$ objective than $P$. Thus $\mathcal{A}_b\subseteq\mathcal{A}_a$, guaranteeing $R_{a\to b}=1$.
 \end{proof}
@@ -232,14 +234,21 @@ For any partition $P\in\mathcal{F}$, the objective evaluates to $J_b(P)=\sum_e w
 \subsection{Set-level evaluation}
 \label{sec:set-eval}
 
-Fragment labels are symmetric: permuting label names leaves the physical partition and the cut-indicator vector $z(P)$ unchanged. Symmetry breaking can remove these duplicate labelings, but it does not remove distinct optimal partitions with different cut vectors. We therefore evaluate~\eqref{eq:regret} with two optimization stages. Stage~1 obtains $J_a^*$ and $J_b^*$. Stage~2 minimizes $J_b(P)$ subject to $J_a(P)\le J_a^*+\tau_{\mathrm{opt}}$; exchanging $a$ and $b$ gives the reverse direction.
+Fragment labels are symmetric: permuting label names leaves the physical partition and the cut-indicator vector $z(P)$ unchanged. Symmetry breaking can remove these duplicate labelings, but it does not remove distinct optimal partitions with different cut vectors. All representation-regret experiments use one symmetric near-balanced capacity policy,
+\begin{equation}
+  L_k=\left\lfloor\frac{n}{K}\right\rfloor,\qquad
+  U_k=\left\lceil\frac{n}{K}\right\rceil
+  \quad (k=1,\ldots,K),
+  \label{eq:e12-capacity-policy}
+\end{equation}
+for both exhaustive enumeration and SCIP. Thus $K=2$ is exactly balanced for the even sizes studied, while $K=3$ admits only the near-balanced load permutations implied by Eq.~\eqref{eq:e12-capacity-policy}. We evaluate~\eqref{eq:regret} with two optimization stages. Stage~1 obtains $J_a^*$ and $J_b^*$. Stage~2 minimizes $J_b(P)$ subject to $J_a(P)\le J_a^*+\tau_{\mathrm{opt}}$; exchanging $a$ and $b$ gives the reverse direction.
 
 For finite optimality margins, exact set identification requires
 \begin{equation}
   0 < \tau_{\mathrm{opt}} < \min\{m_a,\,m_b\}.
   \label{eq:tau-hierarchy}
 \end{equation}
-The numerical implementation also chooses $\tau_{\mathrm{opt}}$ above the solver feasibility scale and any residual Stage-1 objective gap. We use exhaustive enumeration for $n\le10$ and a lexicographic SCIP solve for $n\in\{12,14,16\}$. The reported representation conclusions are unchanged for $\tau_{\mathrm{opt}}\in\{10^{-8},10^{-9},10^{-10}\}$; solver settings and tolerance checks are given in Sec.~\ref{sec:protocol} and the archived data.
+The numerical implementation also chooses $\tau_{\mathrm{opt}}$ above the solver feasibility scale and any residual Stage-1 objective gap. We use exhaustive enumeration for $n\le10$ and a lexicographic SCIP solve for $n\in\{12,14,16\}$. The reported representation conclusions are unchanged for $\tau_{\mathrm{opt}}\in\{10^{-7},10^{-8},10^{-9}\}$; solver settings and tolerance checks are given in Sec.~\ref{sec:protocol} and the archived data.
 
 % ===================================================================
 % IV. OPTIMIZATION AND BOUNDS
@@ -286,14 +295,14 @@ complete-graph pairs. This is a structural identity, not a constraint for lower/
 
 \subsection{Gap-to-overhead resource bounds}
 
-\begin{theorem}[Gap-to-overhead translation, exact arithmetic]\label{thm:gap}
+\begin{proposition}[Gap-to-overhead translation, exact arithmetic]\label{prop:gap}
 For any $K\geq2$, feasible capacity bounds, and optimization backend, if $\LB\leq\OPT\leq\UB$, where $\UB=J(P_{\mathrm{inc}})$ for a feasible incumbent of~\eqref{eq:kway}, then
 \begin{equation}
   \frac{\Gamma(P_{\mathrm{inc}})}{\Gamma^*}
   = \exp(\UB-\OPT) \leq \exp(\UB-\LB).
   \label{eq:gap-translation}
 \end{equation}
-\end{theorem}
+\end{proposition}
 \begin{proof}
 Equation~\eqref{eq:objective} gives $\Gamma(P)=\exp(J(P))$. Since $\OPT\geq\LB$, exponentiation yields~\eqref{eq:gap-translation}.
 \end{proof}
@@ -303,7 +312,7 @@ This result depends on the specified independent-QPD objective and on valid glob
 \subsection{Numerical interpretation}
 \label{sec:num-semantics}
 
-Theorem~\ref{thm:gap} is an exact statement about valid lower and upper bounds. Experimental MIP quantities are computed in floating-point arithmetic and are interpreted at the stated solver tolerances. The representation experiments use \texttt{numerics/feastol}$=10^{-12}$, while the broader scaling experiments use their reported SCIP settings and objective-gap criteria. Appendix~\ref{app:verified} provides a separate small CX-only interval-arithmetic check. Full numerical settings are archived with the released data.
+Proposition~\ref{prop:gap} is an exact statement about valid lower and upper bounds. Experimental MIP quantities are computed in floating-point arithmetic and are interpreted at the stated solver tolerances. The representation experiments use \texttt{numerics/feastol}$=10^{-10}$, while the broader scaling experiments use their reported SCIP settings and objective-gap criteria. Appendix~\ref{app:verified} provides a separate small CX-only decimal interval-enclosure check. Full numerical settings are archived with the released data.
 
 % ===================================================================
 % V. RESULTS
@@ -314,39 +323,41 @@ Theorem~\ref{thm:gap} is an exact statement about valid lower and upper bounds. 
 \subsection{Computational protocol}
 \label{sec:protocol}
 
-Experiments use Python~3.11.9, Qiskit~2.5.1, Qiskit Addon Cutting~0.10.0, Qiskit Aer~0.17.2, SciPy~1.17.1~\cite{scipy}, KaHIP~3.25~\cite{kahip}, MQT~Bench~2.2.2~\cite{mqtbench}, PySCIPOpt~6.2.1, and SCIP~10.0.2~\cite{scip}. Runs were performed on Windows~11 with an Intel Core i5-14400 and 31.69~GB RAM, with numerical libraries pinned to one thread. Raw records, seeds, solver settings, software versions, and SHA-256 manifests are archived in the Zenodo data release cited below. Reported proportions summarize this benchmark design and are not population estimates.
+Experiments use Python~3.11.9, Qiskit~2.5.1, Qiskit Addon Cutting~0.10.0, Qiskit Aer~0.17.2, SciPy~1.17.1~\cite{scipy}, KaHIP~3.25~\cite{kahip}, MQT~Bench~2.2.2~\cite{mqtbench}, MQT~QCEC~3.10.0~\cite{burgholzer2021qcec}, PySCIPOpt~6.2.1, and SCIP~10.0.2~\cite{scip}. Runs were performed on Windows~11 with an Intel Core i5-14400 and 31.69~GB RAM, with numerical libraries pinned to one thread. Raw records, seeds, solver settings, software versions, and SHA-256 manifests are included in the revision-specific release package described in the Data availability statement; the cited Zenodo v1.0.0 record corresponds to the prior manuscript version. Reported proportions summarize this benchmark design and are not population estimates.
 
-Generative AI tools Claude (Anthropic, Opus~4.8 model family) and ChatGPT (OpenAI, GPT-5.6~Sol model family) assisted with implementation and debugging of experiment and analysis code. The authors directed the tasks, executed the resulting code, and checked the relevant outputs against exhaustive enumeration and interval-arithmetic tests. Scientific claims, derivations, and conclusions remain the responsibility of the authors.
+Generative AI tools Claude (Anthropic, Opus~4.8 model family) and ChatGPT (OpenAI, GPT-5.6~Sol model family) assisted with implementation and debugging of experiment and analysis code. The authors directed the tasks, executed the resulting code, and checked the relevant outputs against exhaustive enumeration, solver-consistency tests, and numerical regression tests. Scientific claims, derivations, and conclusions remain the responsibility of the authors.
 
 \subsection{Representation construction and semantic checks}
 \label{sec:rep-construction}
 
-Each pair is generated from the same logical source circuit and retains the same logical wire set $V$ without ancillas. The CX-normalized representation is produced with Qiskit's basis $\{\texttt{rz},\texttt{sx},\texttt{x},\texttt{cx}\}$, optimization level~1, and transpiler seed~0. The native-QPD representation recursively expands unsupported composite operations while retaining supported native two-qubit gates. Both constructions use \texttt{coupling\_map=None}, so no routing transformation is introduced.
+Each pair is generated from the same logical source circuit and retains the same logical wire set $V$ without ancillas. Any symbolic source parameters are bound to the fixed value $\pi/4$ before either representation is constructed; the study therefore evaluates fixed benchmark instances rather than a parameter sweep. The CX-normalized representation is produced with Qiskit's basis $\{\texttt{rz},\texttt{sx},\texttt{x},\texttt{cx}\}$, optimization level~1, and transpiler seed~0. The native-QPD representation recursively expands unsupported composite operations while retaining supported native two-qubit gates. Both constructions use \texttt{coupling\_map=None}, so no routing transformation is introduced.
 
-For tractable small pairs, we construct both Qiskit \texttt{Operator} matrices and compare them up to global phase with tolerance $10^{-6}$; the largest observed deviation is $3.23\times10^{-14}$. For larger QPE, QAOA, and QFT pairs at $n\in\{12,14\}$, equivalence is checked with dense miters when tractable and QCEC~\cite{peham2022zx_equivalence} otherwise. Deep Grover pairs, including the $n=10$ exact-placement case, are verified compositionally: both representations share the same deterministic source fingerprint and wire order, routing and dynamic operations are absent, the native representation recursively expands operation definitions, and the CX representation uses Qiskit's semantics-preserving basis translation. These checks establish that the compared representations implement the same logical computation under the stated construction protocol.
+The source fingerprint is parameter-sensitive: it hashes the ordered instruction names, wire indices, numeric parameters, circuit dimensions, and global phase. Semantic checks are then performed independently of that provenance record where computationally practical. Small pairs are compared as Qiskit \texttt{Operator} matrices up to global phase. For the medium QAOA, QFT, and exact-QPE pairs at $n\in\{12,14,16\}$, MQT~QCEC~3.10.0 verifies equivalence up to global phase using its equivalence-checking pipeline~\cite{burgholzer2021qcec}; this includes the $n=14$ QPE main witness. The $n=10$ Grover exact-placement witness is checked by applying both circuits to deterministic Haar-random statevectors and comparing the outputs up to global phase; this fixed-seed check is probabilistic rather than a formal proof. For the deepest medium Grover pairs, the release records instead retain construction provenance: the two representations originate from the same parameter-sensitive source fingerprint and wire order, routing and dynamic operations are absent, the native representation recursively expands operation definitions, and the CX representation uses Qiskit's semantics-preserving basis translation. The result records state the verification method used for every pair.
 
 \subsection{Representation-induced placement reversals}
 \label{sec:results-reversals}
 
-Table~\ref{tab:e12_regret} summarizes 96 paired representation records. Eight records have disjoint optimal-placement sets: three exact-QPE cases and five highly expanded Grover cases. The clearest QPE witness occurs at $n=14$, $K=2$, where $\Delta_{\mathrm{native}\to\mathrm{CX}}=6.5917$ and $R=729$. Thus every native-QPD-optimal placement is more expensive in the CX-normalized representation than the CX optimum by the same modeled overhead ratio. The QPE conclusion is unchanged across the tested $\tau_{\mathrm{opt}}$ values.
+Table~\ref{tab:e12_regret} summarizes 96 paired representation records. Three exact-QPE records have disjoint optimal-placement sets and independent semantic checks. The clearest witness occurs at $n=14$, $K=2$, where $\Delta_{\mathrm{native}\to\mathrm{CX}}=6.5917$ and $R=729$. Although this record is also solved by the medium-tier SCIP pipeline, an independent exhaustive enumeration of all 1,716 balanced bipartitions gives the same objectives and regrets, with one optimum in each representation and no overlap between the argmin sets. The $n=14$, $K=3$ QPE change is also reproduced by exhaustive enumeration of 126,126 near-balanced partitions, and the remaining QPE change is already in the exact $n=6$, $K=2$ tier. Thus all three QPE changes have exhaustive support. Five additional highly expanded Grover records have positive set-level regret at the stated solver tolerances under the recorded construction provenance; because those representations are much larger and the deepest pairs are not independently equivalence-checked, we treat them as supporting stress cases in Appendix~\ref{app:grover} rather than as the primary evidence. The SCIP conclusions are unchanged across the tested $\tau_{\mathrm{opt}}$ values.
 
-QAOA provides a contrasting invariant case. Its CX-normalized interaction weights are a uniform positive rescaling of the native $RZZ$ weights, so Corollary~\ref{cor:scaling} predicts the observed $R=1$ for every tested size. Among exhaustive records satisfying $\kappa<1$, all 25 also satisfy $R=1$ as required by Theorem~\ref{thm:stability}. The extreme Grover cases are reported separately in Appendix~\ref{app:grover} because their representation expansion produces overhead scales far outside executable regimes.
+For the fixed-$\pi/4$ QAOA benchmark instances, the CX-normalized interaction weights are a uniform positive rescaling of the native $RZZ$ weights, so Corollary~\ref{cor:scaling} predicts the observed $R=1$ for every tested size. Among exhaustive records satisfying $\kappa<1$, all 25 also satisfy $R=1$ as required by Proposition~\ref{prop:stability}. The extreme Grover cases are reported separately in Appendix~\ref{app:grover} because their representation expansion produces overhead scales far outside executable regimes.
 
 \begin{table*}[tp]
 \centering
-\caption{Cross-representation placement regret across 96 paired records ($\Delta$ in natural-log overhead units). Records with $n\le10$ are exhaustive; larger records use the two-stage SCIP evaluation of Sec.~\ref{sec:set-eval}. Row-level conclusions are unchanged across the tested $\tau_{\mathrm{opt}}$ values. Extreme Grover magnitudes are deferred to Appendix~\ref{app:grover}.}
+\caption{Cross-representation placement regret across 96 paired records ($\Delta$ in natural-log overhead units). Records with $n\le10$ are exhaustive; larger records use the two-stage SCIP evaluation of Sec.~\ref{sec:set-eval}. Independent exhaustive audits additionally cover both $n=14$ QPE records and all six QFT records at $n\in\{12,14,16\}$, $K\in\{2,3\}$. Row-level SCIP conclusions are unchanged across the tested $\tau_{\mathrm{opt}}$ values. Extreme Grover magnitudes are deferred to Appendix~\ref{app:grover}.}
 \label{tab:e12_regret}
 \tabfitstar{%
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccc@{}}
 \toprule
 \textbf{Family} & \textbf{Records} & \textbf{Set-level changes} & \textbf{Max $\Delta_{\mathrm{CX}\to\mathrm{native}}$} & \textbf{Max $\Delta_{\mathrm{native}\to\mathrm{CX}}$}\\
 \midrule
-QAOA          & 12 & 0 & 0.0 & 0.0\\
-QFT           & 12 & 0 & 0.0 & 0.0\\
-QPE-exact     & 12 & 3 (25\%) & 3.31 & 6.59 ($\log_{10}\!R\!=\!2.86$)\\
-Grover        & 12 & 5 (42\%) & Appendix~\ref{app:grover} & Appendix~\ref{app:grover}\\
-BV            & 12 & 0 & 0.0 & 0.0\\
-Controls (VQE, GHZ, DJ) & 36 & 0 & 0.0 & 0.0\\
+% BEGIN GENERATED E12 ROWS
+QAOA                          & 12 & 0 & 0.0 & 0.0\\
+QFT                           & 12 & 0 & 0.0 & 0.0\\
+QPE-exact                     & 12 & 3 (25\%) & 3.31 & 6.59 ($\log_{10}\!R\!=\!2.86$)\\
+Grover                        & 12 & 5 (42\%) & Appendix~\ref{app:grover} & Appendix~\ref{app:grover}\\
+BV                            & 12 & 0 & 0.0 & 0.0\\
+Controls (VQE, GHZ, DJ)       & 36 & 0 & 0.0 & 0.0\\
+% END GENERATED E12 ROWS
 \bottomrule
 \end{tabular*}
 }
@@ -355,20 +366,7 @@ Controls (VQE, GHZ, DJ) & 36 & 0 & 0.0 & 0.0\\
 \subsection{Elimination of false-positive QFT reversals}
 \label{sec:results-qft}
 
-Comparing one SCIP solution from each representation initially produced six apparent QFT placement changes, with a largest cross-evaluated ratio of $27{,}741$. The two-stage calculation gives $\Delta=0$ and $R=1$ in all six cases. Each case has at least one CX-optimal placement that is also native-optimal, so the apparent change comes from which member of a degenerate optimal set the solver returned. This directly demonstrates why representation sensitivity must be evaluated at the level of optimal sets.
-
-\subsection{Gate-dependent costs versus cut count}
-
-The independent-QPD objective can rank placements differently from unweighted cut count because different two-qubit gates have different sampling factors. Controlled and algorithm-derived examples are reported in Appendix~\ref{app:countqpd}; they support the use of weighted interaction costs but are separate from the representation-sensitivity result.
-
-\subsection{Optimization behavior beyond bisection}
-\label{sec:results-kway}
-
-The capacitated formulation was also evaluated for $K\le5$ and $n\le60$. Under a 10-s SCIP limit, 101 of 144 heterogeneous-QPD runs reached the stated objective-gap criterion. Closure depends strongly on graph family, fragment count, and size; open instances can retain large multiplicative bound factors. Detailed closure matrices, heuristic baselines, and width--overhead plots are reported in Appendix~\ref{app:scaling}. These experiments characterize the computational behavior of the formulation and are separate from the representation-sensitivity claim.
-
-\subsection{Model sensitivity and finite-shot checks}
-
-A restricted joint-decomposition experiment tests whether changing the cost model can change the preferred placement, and a three-instance ideal-simulator study compares modeled overhead with finite-shot error. Their definitions and results are given in Appendix~\ref{app:scope}.
+On the reference SCIP run, comparing one returned solution from each representation produced six apparent QFT placement changes, with a largest cross-evaluated ratio of $27{,}741$. The two-stage calculation gives $\Delta=0$ and $R=1$ in all six cases. We independently exhaustively enumerated the same six feasible spaces at $n\in\{12,14,16\}$ and $K\in\{2,3\}$, including $1{,}009{,}008$ near-balanced partitions for $n=16,K=3$; every case has a nonempty intersection between the CX and native argmin sets. Thus the apparent changes are produced by the particular degenerate optimum returned by each single solve, rather than by disjoint optimal-placement sets.
 
 % ===================================================================
 % VI. RELATED WORK
@@ -376,9 +374,11 @@ A restricted joint-decomposition experiment tests whether changing the cost mode
 \section{Related work}
 \label{sec:related}
 
-Circuit cutting based on quasiprobability decompositions traces to work on simulating larger circuits with smaller quantum devices and on virtual nonlocal gates~\cite{peng2020,bravyi2016,mitarai2021,mitarai2021overhead}. CutQC couples partition selection with classical recombination~\cite{tang2021}, and Qiskit Addon Cutting provides gate-level QPD experiment generation and reconstruction~\cite{qiskitcutting}. More recent work lowers sampling cost through joint decompositions, classical communication, and alternative gate- or wire-cut constructions~\cite{piveteau2022,ufrecht2024,schmitt2025,piveteau2024,piveteau2025sideinfo,brenner2025,harrowlowe2025}.
+Circuit cutting based on quasiprobability decompositions traces to work on simulating larger circuits with smaller quantum devices and on virtual nonlocal gates~\cite{peng2020,bravyi2016,mitarai2021,mitarai2021overhead}. CutQC couples partition selection with classical recombination~\cite{tang2021}, and Qiskit Addon Cutting provides gate-level QPD experiment generation and reconstruction~\cite{qiskitcutting}. Sampling and reconstruction overhead have subsequently been reduced through improved QPDs, randomized measurements, joint decompositions, classical communication, commuting-group wire cuts, online pruning of reconstruction terms, and overhead-constrained knitting~\cite{piveteau2022,lowe2023,ufrecht2023,ufrecht2024,schmitt2025,piveteau2024,piveteau2025sideinfo,brenner2025,li2024,golden2023,gentinetta2024,carrera2024,shotqc2024,harrowlowe2025}. Hart~\cite{hart2026} further characterizes optimal two-qubit gate-cutting cost through nonlocality descriptors, reinforcing that gate-cutting cost itself is gate dependent.
 
-Automatic cut-placement methods typically optimize the cut choice for a fixed circuit. Brandhofer \emph{et al.}~\cite{brandhofer2024} optimize mixed gate and wire cuts, Nakamura \emph{et al.}~\cite{nakamura2025} study scalable multi-fragment partitioning and sampling bounds, and Fr{\"o}hler \emph{et al.}~\cite{frohler2026} consider gate, wire, and joint gate-group cuts. Hardware- and routing-aware methods address additional execution constraints~\cite{mosaiqc2026,tw2s2026,pal2026noise,burt2026}. Tamura \emph{et al.}~\cite{tamura2026} adapt gate decompositions to chosen cut locations. The present study fixes the logical wire set and feasible fragment space and instead asks whether a semantics-preserving representation change alters the optimal-placement set. The graph-partitioning and branch-and-bound tools used to answer that question are standard optimization machinery~\cite{deza1997,lawler1966,kaibel2008}.
+Automatic cut-placement methods typically optimize the cut choice for a fixed circuit. Brandhofer \emph{et al.}~\cite{brandhofer2024} optimize sampling-aware gate and wire cuts, Nakamura \emph{et al.}~\cite{nakamura2025} study scalable multi-fragment partitioning and sampling bounds, and Idan \emph{et al.}~\cite{idan2026} analyze circuit-cutting complexity and combinatorial optimization. ScaleQC and FitCut address scalable automatic cutting and distributed execution~\cite{scaleqc2022,fitcut2024}; Circuit Folding exploits modular graph structure~\cite{circuitfolding2025}; Fr{\"o}hler \emph{et al.} consider gate, wire, and joint gate-group cuts~\cite{frohler2026}; and Eslaminia and Le Beux jointly optimize cut count and routed-subcircuit depth~\cite{eslaminia2026}. Hardware-aware methods such as MOSAIQC and TW2S incorporate mixed cut types, routing, hardware structure, or noise non-uniformity~\cite{mosaiqc2026,tw2s2026,pal2026noise}. CutReg makes sampling overhead an adaptive regularizer during QML optimization~\cite{cutreg2025}. These studies make clear that cut placement and cutting overhead are already active optimization targets; our contribution is not a new general-purpose placement algorithm.
+
+Decomposition-aware cutting also predates the present study. Lian \emph{et al.}~\cite{lian2023hmc} use virtual two-qubit decomposition to reduce the minimum cut count in QFT circuits, while Tamura \emph{et al.}~\cite{tamura2026} choose multi-qubit decompositions conditioned on a selected partition boundary to lower sampling overhead. These works establish that decomposition can materially affect a cutting strategy; they do not evaluate whether two complete equivalent representations induce different QPD-weighted argmin sets over the same feasible partition maps. Outside circuit cutting, semantics-preserving circuit rewrites have also been used to reduce inter-QPU communication cost in distributed compilation~\cite{mengoni2026}. Our narrower question fixes the logical wire set, fragment count, capacity family, and independent-QPD resource model, treats two semantics-preserving complete gate-level representations as alternative inputs, and compares their full optimal-placement sets so that optimizer tie breaking cannot create a false change. We therefore do not claim the first use of decomposition to improve circuit cutting, nor a new generic graph-partitioning algorithm; the optimization machinery is standard~\cite{deza1997,lawler1966,kaibel2008}.
 
 % ===================================================================
 % VII. DISCUSSION AND LIMITATIONS
@@ -386,9 +386,11 @@ Automatic cut-placement methods typically optimize the cut choice for a fixed ci
 \section{Discussion and limitations}
 \label{sec:discussion}
 
-The QPE and QFT results show complementary sides of representation sensitivity: a representation change can move the optimal-placement set, while a comparison based on one returned optimum can also create a false change when the optimum is degenerate. Proposition~\ref{prop:regret-bound}, Theorem~\ref{thm:stability}, and Corollary~\ref{cor:scaling} give simple conditions that bound or exclude such changes.
+The QPE and QFT results show complementary sides of representation sensitivity: a representation change can move the optimal-placement set, while a comparison based on one returned optimum can also create a false change when the optimum is degenerate. The central object is therefore the argmin set under a fixed feasible partition space and resource model; the set-level cross-evaluation distinguishes a genuine representation-induced change in that set from solver selection among degenerate optima. Proposition~\ref{prop:regret-bound}, Proposition~\ref{prop:stability}, and Corollary~\ref{cor:scaling} give simple perturbation diagnostics that bound or exclude such changes. These inequalities are elementary sensitivity consequences rather than a claim of new generic optimization theory; their purpose here is to make the representation effect testable for the circuit-cutting objective.
 
-The study is confined to gate cuts under the independent per-gate QPD model on a fixed logical wire set and fixed capacity constraints. Wire cuts, routing, hardware noise, and general joint decompositions are not part of that primary optimization problem; the restricted joint experiment in Appendix~\ref{app:scope} illustrates that changing the resource model can also change the preferred placement. Numerical MIP results use the stated solver tolerances, while Appendix~\ref{app:verified} provides an independent interval-arithmetic check on a small CX-only tier. The benchmark collections are fixed test sets, so reported frequencies describe those sets rather than a workload distribution.
+Changing the gate list can change absolute QPD cost without changing the minimizing partition. The controls make this distinction explicit: QAOA preserves the argmin set because its interaction weights rescale uniformly, while QFT changes the weight pattern substantially yet retains at least one shared optimum in every tested medium case. The QPE examples therefore identify decision-level representation dependence rather than merely a change in numerical overhead.
+
+The study is confined to gate cuts under the independent per-gate QPD model on a fixed logical wire set and fixed capacity constraints. Wire cuts, routing, hardware noise, and general joint decompositions are not part of that primary optimization problem; the restricted joint experiment in Appendix~\ref{app:scope} illustrates that changing the resource model can also change the preferred placement. Numerical MIP results use the stated solver tolerances, while Appendix~\ref{app:verified} provides a separate decimal interval-enclosure sanity check on a small CX-only calculation. The benchmark collections are fixed test sets, so reported frequencies describe those sets rather than a workload distribution.
 
 % ===================================================================
 % VIII. CONCLUSION
@@ -396,7 +398,7 @@ The study is confined to gate cuts under the independent per-gate QPD model on a
 \section{Conclusion}
 \label{sec:conclusion}
 
-Semantically equivalent gate representations can induce different resource-optimal cut placements under an independent-QPD cost model. The set-level regret in Eq.~\eqref{eq:regret} separates such changes from degeneracy in the optimizer's returned solution: the QPE benchmark gives a genuine $R=729$ change, whereas six apparent QFT changes reduce to $R=1$ when complete optimal sets are compared. The perturbation and stability results quantify when representation changes can or cannot alter that decision. For a fixed representation, the same QPD objective is exactly a capacitated weighted graph-partitioning problem in the log domain, with global optimization gaps translating directly into multiplicative modeled-overhead bounds. Circuit representation should therefore be treated as part of the resource model when evaluating or optimizing cut placement.
+Semantically equivalent gate representations can induce different resource-optimal cut placements under an independent-QPD cost model. The set-level regret in Eq.~\eqref{eq:regret} separates such changes from degeneracy in the optimizer's returned solution: the QPE benchmark gives a genuine $R=729$ change, whereas six apparent QFT changes reduce to $R=1$ under the set-level cross-evaluation. The perturbation and stability results quantify when representation changes can or cannot alter that decision. For a fixed representation, the same QPD objective is exactly a capacitated weighted graph-partitioning problem in the log domain, with global optimization gaps translating directly into multiplicative modeled-overhead bounds. Circuit representation should therefore be treated as part of the resource model when evaluating or optimizing cut placement.
 
 % ===================================================================
 % BACK MATTER
@@ -409,7 +411,7 @@ The authors thank the maintainers of the open-source tools used in this work (Qi
 Phung Trong Hung: conceptualization, methodology, software, formal analysis, investigation, visualization, and writing---original draft. Huong Bui: supervision and writing---review and editing. Both authors reviewed and approved the final manuscript and take responsibility for its content.
 
 \section*{Data availability}
-The data and software that support the findings of this study---including the reference implementation, archived raw records, experiment scripts, solver configurations, and integrity manifests---are openly available in Zenodo~\cite{certicut_zenodo}.
+A prior version of the software and data is archived at Zenodo~\cite{certicut_zenodo}. A revision-specific archive containing the corrected canonical representation data, exhaustive audits, regression tests, and integrity manifest has been prepared for deposition as a new Zenodo version. The final resubmission will cite that version-specific record; the release manifest records the source revision and SHA-256 hashes of the manuscript-critical files.
 
 % ===================================================================
 % APPENDICES
@@ -419,7 +421,7 @@ The data and software that support the findings of this study---including the re
 \section{Optimization backends and reference implementation}
 \label{app:backend}
 
-This appendix records the optimization backends behind the results of Sec.~\ref{sec:results}. The scientific claims of the paper do not depend on which backend supplies the valid bounds required by Theorem~\ref{thm:gap}; we retain a specialized reference search only as an independent algorithmic reference and, on the evaluated corpus, an off-the-shelf MIP solver outperforms it.
+This appendix records the optimization backends behind the results of Sec.~\ref{sec:results}. The scientific claims of the paper do not depend on which backend supplies the valid bounds required by Proposition~\ref{prop:gap}; we retain a specialized reference search only as an independent algorithmic reference and, on the evaluated corpus, an off-the-shelf MIP solver outperforms it.
 
 \subsection{Validation oracles and relaxations}
 
@@ -459,12 +461,12 @@ In exact arithmetic, every reference-search safe stopping boundary satisfies $\L
 Feasibility of the incumbent gives $\OPT\leq\UB$. Every unexplored feasible solution belongs to a frontier subtree whose LP value lower-bounds all integral completions in that subtree. Equation~\eqref{eq:global-lb} therefore gives $\LB\leq\OPT$.
 \end{proof}
 
-Experimental deadlines are soft: the reference optimizer stops only at a safe boundary, and we report the actual boundary time. Together with Theorem~\ref{thm:gap}, Proposition~\ref{prop:safe-boundary} supplies the exact-arithmetic premise for the anytime resource bound $\Gamma_{\mathrm{inc}}/\Gamma^*\le\exp(\UB-\LB)$; in practice every reported bound uses floating-point HiGHS or SCIP output and is a solver-tolerance quantity (Sec.~\ref{sec:num-semantics}). Figure~\ref{alg:certicut} states the full anytime search. Two greedy incumbents seed the search: H0 assigns vertices by descending weighted-degree greedy insertion with first-improving single swaps, while H2 adds a spectral (Fiedler) initialization and best-improving Kernighan--Lin swaps; neither establishes a lower bound.
+Experimental deadlines are soft: the reference optimizer stops only at a safe boundary, and we report the actual boundary time. Together with Proposition~\ref{prop:gap}, Proposition~\ref{prop:safe-boundary} supplies the exact-arithmetic premise for the anytime resource bound $\Gamma_{\mathrm{inc}}/\Gamma^*\le\exp(\UB-\LB)$; in practice every reported bound uses floating-point HiGHS or SCIP output and is a solver-tolerance quantity (Sec.~\ref{sec:num-semantics}). Figure~\ref{alg:certicut} states the full anytime search. Two greedy incumbents seed the search: H0 assigns vertices by descending weighted-degree greedy insertion with first-improving single swaps, while H2 adds a spectral (Fiedler) initialization and best-improving Kernighan--Lin swaps; neither establishes a lower bound.
 
-\begin{figure}[tbp]
+\begin{figure*}[t]
 \centering
-\fbox{\begin{minipage}{\dimexpr\columnwidth-2\fboxsep-2\fboxrule\relax}
-\small
+\fbox{\begin{minipage}{0.92\textwidth}
+\footnotesize
 Algorithm: Reference best-bound search\medskip\\
 \textbf{Input:} QPD-weighted interaction graph $G$, capacity $q_{\max} = n/2$, soft deadline $T$.\smallskip\\
 \textbf{Step 1.} Compute initial feasible partition and upper bound: $(P_{\mathrm{inc}}, \UB) \leftarrow \textsc{H2}(G)$.\smallskip\\
@@ -481,7 +483,7 @@ Algorithm: Reference best-bound search\medskip\\
 \end{minipage}}
 \caption{Reference best-bound search for exact-balanced $K\!=\!2$ partitioning.}
 \label{alg:certicut}
-\end{figure}
+\end{figure*}
 
 \subsection{Mature MIP is the strongest evaluated backend}
 
@@ -512,7 +514,7 @@ This appendix records the $K=2$ polyhedral strengthenings and the negative ablat
 
 \subsection{Balanced-cut cardinality and metric inequalities}
 
-The B2S reference lifts A0 to the complete pair space, imposes the full XOR hull~\eqref{eq:xor}, and adds two families of valid constraints. \emph{Balanced-cut cardinality}: the identity $\sum_{i<j}x_{ij}=n^2/4$ from~\eqref{eq:balanced} fixes the total cut mass. \emph{Metric inequalities}: for each triple $(i,j,k)$, the cut polytope satisfies~\cite{deza1997}
+The B2S reference lifts A0 to the complete pair space, imposes the full XOR hull~\eqref{eq:xor}, and adds two families of valid constraints. Balanced-cut cardinality: the identity $\sum_{i<j}x_{ij}=n^2/4$ from~\eqref{eq:balanced} fixes the total cut mass. Metric inequalities: for each triple $(i,j,k)$, the cut polytope satisfies~\cite{deza1997}
 \begin{align}
   x_{ij} - x_{ik} - x_{jk} &\leq 0, \label{eq:tri1}\\
   x_{ik} - x_{ij} - x_{jk} &\leq 0, \label{eq:tri2}\\
@@ -546,7 +548,7 @@ Set $a_{ik}=n_k/n$ and $y_{ek}=n_k/n$ for every qubit $i$, edge $e$, and fragmen
 
 Motivated by Proposition~\ref{prop:trivial-root}, we tested an all-pair extension of~\eqref{eq:kway} that imposes~\eqref{eq:kway-cardinality} with auxiliary nonedge variables and complete-metric triangles. This is a negative ablation, not a proposed production formulation: for $K>2$, materializing all pair variables and triangle constraints expands the representation to $\Theta(n^2)$ pairs and $\Theta(n^3)$ triples, increasing LP construction, memory traffic, and reoptimization cost at every node, while adding only the multiway-cut-valid triangles~\eqref{eq:tri1}--\eqref{eq:tri3}. On a 36-record $n\in\{20,32\}$ ablation at 5~s, the base formulation closes 31 records, symmetry-only closes 29, and the cardinality or cardinality-plus-metric variants close 6 each. Production runs therefore use SCIP's sparse assignment/locality formulation with only the valid equal-capacity anchor.
 
-Table~\ref{tab:synergy} decomposes the root relaxation on 24 matched complete-pair instances: cardinality (C) and metric (T) inequalities become jointly effective only when combined (12/24 roots closed under CT versus 0/24 under CP0, C, or T alone), consistent with Proposition~\ref{prop:redundancy}. Table~\ref{tab:ablation} confirms B2S reference-search closure under a 100-node budget; it does not establish a production advantage over SCIP. Bound quality and incumbent quality are separate bottlenecks: on six selected random-matching cells ($n\in\{40,60\}$, $K\in\{3,4,5\}$, seed~0), the default and exact-cardinality root strengthenings give the solver-tolerance bound-factor trajectories of Fig.~\ref{fig:e12-dual-bound-profiles}, a bound-quality comparison only and not a universal tuning claim. Table~\ref{tab:n40} breaks down the largest legacy CNOT-only reference size ($n=40$) by graph family.
+Table~\ref{tab:synergy} decomposes the root relaxation on 24 matched complete-pair instances: cardinality (C) and metric (T) inequalities become jointly effective only when combined (12/24 roots closed under CT versus 0/24 under CP0, C, or T alone), consistent with Proposition~\ref{prop:redundancy}. Table~\ref{tab:ablation} confirms B2S reference-search closure under a 100-node budget; it does not establish a production advantage over SCIP. Table~\ref{tab:n40} breaks down the largest legacy CNOT-only reference size ($n=40$) by graph family.
 
 \begin{table}[tbp]
 \centering
@@ -605,13 +607,7 @@ Weighted-random  &  8/10 & 37.215 & 60.067\\
 \end{tabular*}
 }
 \end{table}
-
-\begin{figure*}[tp]
-  \centering
-  \includegraphics[width=0.85\textwidth]{fig_e12_dual_bound_profiles.pdf}
-  \caption{Solver-tolerance bound-factor trajectories on representative random-matching cells. Lower values indicate tighter solver-tolerance bounds; each point is an independent bounded SCIP run.}
-  \label{fig:e12-dual-bound-profiles}
-\end{figure*}
+\FloatBarrier
 
 \section{Gate-dependent costs versus cut count}
 \label{app:countqpd}
@@ -621,27 +617,7 @@ Weighted-random  &  8/10 & 37.215 & 60.067\\
 
 Unweighted cut count can rank feasible plans incorrectly. Two iSWAP cuts have modeled overhead $49^2=2{,}401$, whereas three CNOT cuts cost $9^3=729$; the three-cut plan is cheaper. Likewise, two CS cuts cost $(3+2\sqrt{2})^2\approx33.97$, compared with $81$ for two CNOT cuts. Equation~\eqref{eq:weight} preserves these gate-dependent distinctions.
 
-\begin{table}[tbp]
-\centering
-\caption{Identity-free heterogeneous-QPD companion corpus. All costs come from Qiskit's independent-QPD registry.}
-\label{tab:heterogeneous}
-\tabfit{%
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lr@{}}
-\toprule
-\textbf{Metric} & \textbf{Value}\\
-\midrule
-Instances & 120 (5 families; $n\in\{12,14,16\}$)\\
-Strict reversals & 16 (13.3\%)\\
-Median / p90 factor & $5.30\times$ / $27.47\times$\\
-Extra cuts, median / max & 1 / 3\\
-Avoided iSWAP cuts & 28\\
-Independent solver check closed & 120/120\\
-\bottomrule
-\end{tabular*}
-}
-\end{table}
-
-We test this distinction under controlled heterogeneity on 120 deterministic circuits (five families, $n\in\{12,14,16\}$) using validated Qiskit costs for CX, CZ, iSWAP, and three nonzero $RZZ$ angles, with no unit-overhead operation. To avoid tie-breaking artifacts, we compare $\min_{P:\,c(P)=c^*}J(P)$, the best QPD objective among all minimum-cut partitions, with $\min_PJ(P)$; both values are obtained by exhaustive enumeration. This stronger regret is strict in $16/120$ cases ($13.3\%$), with conditional factor median $5.30$, 90th percentile $27.47$, and maximum $181.11$ (Table~\ref{tab:heterogeneous}). Every strict reversal requires more cuts under a QPD-optimal plan (median count increase one, maximum three). Across the 16 reversals, QPD-optimal plans cut 28 fewer iSWAP gates while accepting 47 additional lower-overhead gates.
+We test this distinction under controlled heterogeneity on 120 deterministic circuits (five families, $n\in\{12,14,16\}$) using validated Qiskit costs for CX, CZ, iSWAP, and three nonzero $RZZ$ angles, with no unit-overhead operation. To avoid tie-breaking artifacts, we compare $\min_{P:\,c(P)=c^*}J(P)$, the best QPD objective among all minimum-cut partitions, with $\min_PJ(P)$; both values are obtained by exhaustive enumeration. This stronger regret is strict in $16/120$ cases ($13.3\%$), with conditional factor median $5.30$, 90th percentile $27.47$, and maximum $181.11$ . Every strict reversal requires more cuts under a QPD-optimal plan (median count increase one, maximum three). Across the 16 reversals, QPD-optimal plans cut 28 fewer iSWAP gates while accepting 47 additional lower-overhead gates.
 
 We then test whether this mechanism occurs without constructed gate palettes. The algorithm-derived study uses six MQT~Bench families~\cite{mqtbench}, six even sizes, the eligibility criterion, and the decision rule before inspecting outcomes; it selectively expands only operations with arity above two, preserves numeric one- and two-qubit semantic operations, never transpiles to a target basis, and queries every retained two-qubit occurrence via \texttt{QPDBasis.from\_instruction}. The count objective $c(P)$ and QPD objective $J(P)$ define the set-level regret
 \begin{equation}
@@ -674,12 +650,12 @@ Entangled QFT & 6/6 & 0/6 & $1$\\
 
 The largest observed witness is the Draper QFT adder at $n=16$: the best count-optimal plan has 36 cuts and $J=37.968133$, whereas the QPD-optimal plan has 42 cuts and $J=24.111328$, yielding a factor $1.042\times10^6$. The QPD plan avoids expensive $CP(\pi/2)$ and $CP(\pi)$ crossings by accepting more small-angle controlled phases (Table~\ref{tab:e6-draper}). Direct occurrence-level sums and independently aggregated pair weights agree within $10^{-10}$ for both plans in every reversal record. Figure~\ref{fig:draper-topology} makes the same Draper $n=16$ witness geometric: node colors encode the two fragments, while edge darkness encodes independent-QPD log weight; the count-optimal map severs fewer interactions but retains several high-$\rho$ controlled phases across the cut, whereas the QPD-optimal map accepts six additional crossings yet eliminates most expensive phase crossings. This is existence evidence on algorithm-derived benchmark circuits, not a prevalence estimate over workloads or a hardware-routing result.
 
-\begin{figure*}[tp]
+\begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.85\textwidth]{fig_draper_n16_topology.pdf}
+  \includegraphics[width=\columnwidth]{fig_draper_n16_topology.pdf}
   \caption{Draper QFT-adder interaction topology at $n=16$ under exact balanced bipartition. Left: count-optimal placement ($c^*=36$, $J\approx37.97$). Right: independent-QPD-optimal placement ($c=42$, $J\approx24.11$). Darker cut edges carry larger $\log\rho$; the QPD plan trades cut count for avoidance of high-overhead controlled phases.}
   \label{fig:draper-topology}
-\end{figure*}
+\end{figure}
 
 \begin{table}[tbp]
 \centering
@@ -705,7 +681,7 @@ Total & 28 & 34 & $+6$\\
 \section{Extreme Grover representation cases}
 \label{app:grover}
 
-Five Grover records have disjoint optimal-placement sets under the two representations. These cases also exhibit very large representation expansion and correspondingly large modeled log-overheads, so they are not used as operational examples in the main text. The exact $n=10$, $K=2$ case has $\Delta_{\mathrm{CX}\to\mathrm{native}}=448.23$ and $\Delta_{\mathrm{native}\to\mathrm{CX}}=1494.11$; multiplicative factors are therefore reported in the log domain when direct exponentiation exceeds floating-point range. The largest case, at $n=16$ and $K=3$, has $\Delta_{\mathrm{CX}\to\mathrm{native}}=9984.19$ ($\log_{10}R=4336.1$), with $234{,}300$ and $395{,}044$ two-qubit gate occurrences in the CX-normalized and native representations, respectively. The corresponding optimum log-objectives are $J_a^*=240244.5$ and $J_b^*=394375.4$, while $\|\delta\|_1=371287.2$. The regret is therefore about $2.7\%$ of the total interaction-weight perturbation. We report $\log_{10}R=\Delta/\ln 10$ directly for these cases to avoid numerical overflow. The $n=16$, $K=2$ Grover record is also present and has $R=1$ under the set-level comparison.
+Five Grover records have positive set-level regret at the stated solver tolerances under the two representations. These cases also exhibit very large representation expansion and correspondingly large modeled log-overheads, so they are not used as operational examples in the main text. The exact $n=10$, $K=2$ case has $\Delta_{\mathrm{CX}\to\mathrm{native}}=448.23$ and $\Delta_{\mathrm{native}\to\mathrm{CX}}=1494.11$; multiplicative factors are therefore reported in the log domain when direct exponentiation exceeds floating-point range. The largest case, at $n=16$ and $K=3$, has $\Delta_{\mathrm{CX}\to\mathrm{native}}=9984.19$ ($\log_{10}R=4336.1$), with $234{,}300$ and $395{,}044$ two-qubit gate occurrences in the CX-normalized and native representations, respectively. The corresponding optimum log-objectives are $J_a^*=240244.5$ and $J_b^*=394375.4$, while $\|\delta\|_1=371287.2$. The regret is therefore about $2.7\%$ of the total interaction-weight perturbation. We report $\log_{10}R=\Delta/\ln 10$ directly for these cases to avoid numerical overflow. The $n=16$, $K=2$ Grover record is also present and has $R=1$ under the set-level comparison.
 
 \section{Additional optimization scaling results}
 \label{app:scaling}
@@ -750,25 +726,27 @@ KaHIP+repair & 144/144 & 51/101 & 0.00 & 0.00 & 1.47 & 5.89 s$^\dagger$\\
 }
 \end{table*}
 
-We evaluate the core formulation~\eqref{eq:kway} beyond bisection on a heterogeneous-QPD benchmark of 144 runs (three fixed seeds per family--size--$K$ cell, $n\le60$, $K\le5$, 10-s SCIP limit). Table~\ref{tab:e9-kway} and Fig.~\ref{fig:e9-closure} summarize all runs, including open cases. SCIP reaches solver-tolerance closure on $101/144$ runs. The boundary is strongly graph- and seed-dependent: community matching and weighted repeat close all three seeds through $(K,n)=(3,60)$ and $(4,40)$, whereas random matching is the hard family---all three $K=2,n=60$ runs close, but every $K\geq3,n\geq40$ run remains open.
+We evaluate the core formulation~\eqref{eq:kway} beyond bisection on a heterogeneous-QPD benchmark of 144 runs (three fixed seeds per family--size--$K$ cell, $n\le60$, $K\le5$, 10-s SCIP limit). Table~\ref{tab:e9-kway} and Fig.~\ref{fig:e9-scaling}(a) summarize all runs, including open cases. SCIP reaches solver-tolerance closure on $101/144$ runs. The boundary is strongly graph- and seed-dependent: community matching and weighted repeat close all three seeds through $(K,n)=(3,60)$ and $(4,40)$, whereas random matching is the hard family---all three $K=2,n=60$ runs close, but every $K\geq3,n\geq40$ run remains open.
 
-The factors quantify why closure alone is insufficient. Across the three random-matching $n=32,K=5$ runs, the median open factor is $10^{15.47}$; at $n=60,K=4$ it is $10^{43.48}$. The latter is deliberately prominent: it is an extreme resource-risk bound, not a near-optimality result. These values state that the corresponding incumbents carry no useful solver-tolerance multiplicative overhead guarantee at this deadline, and their explicit reporting prevents an unproven incumbent from being presented as an optimum. Thus this study establishes a practical baseline and a transparent computational boundary, not universal large-$K$ scalability. A tighter-tolerance sensitivity rerun of 24 matched seed-0 instances spanning 24 benchmark cells at \texttt{numerics/feastol}$=10^{-9}$ (SCIP~10.0.2, seed~0) leaves every closed/open classification unchanged relative to the original \texttt{feastol}$=10^{-6}$ runs and reproduces each jointly closed log-objective with no observed difference at the recorded numerical precision, confirming that within this sensitivity subset all classifications are stable under the tighter feasibility tolerance. The exact-capacity comparison also expresses the fragment-width/overhead tradeoff directly: increasing $K$ reduces the maximum fragment size while generally forcing more independent-QPD boundaries (Fig.~\ref{fig:e9-pareto}).
+Open cases can have very weak multiplicative bounds at the 10-s deadline. For random matching, the median open factor is $10^{15.47}$ at $n=32,K=5$ and $10^{43.48}$ at $n=60,K=4$. We use these runs only to characterize the computational boundary of this supporting benchmark. A 24-cell seed-0 sensitivity rerun at \texttt{numerics/feastol}$=10^{-9}$ preserves every closed/open classification from the original \texttt{feastol}$=10^{-6}$ runs and reproduces the jointly closed objectives at the recorded precision. Figure~\ref{fig:e9-scaling}(b) shows the corresponding fragment-width/overhead tradeoff: larger $K$ reduces maximum fragment width while generally introducing more independent-QPD boundaries.
 
 We further confirm that cut count is a poor proxy for sampling overhead at the placement level using matched-objective heuristics that solve the same fixed independent gate-QPD, exact-capacity $K$-way problem: greedy swap, a count-weighted pairwise Kernighan--Lin (KL) adaptation, QPD-weighted KL, and KaHIP-QPD with exact-capacity repair~\cite{kernighanlin1970,kahip}. One canonical evaluator recomputes $J$, fragment sizes, and cut occurrences for every method, and also re-evaluates each reported SCIP incumbent after decoding it to a discrete partition. On the 101 solver-tolerance-closed records (Table~\ref{tab:e9-heuristic}), KL-QPD matches the SCIP objective on 68 records with median $\log_{10}R=0$ and p90 $2.94$, whereas count-weighted KL matches only 23 with median $\log_{10}R=1.56$; the two differ only in objective semantics within one heuristic family, isolating the effect of optimizing overhead rather than count. All 144 partitions from every matched method satisfy exact capacities. We also apply the same native independent-QPD model to 36 algorithm-derived MQT~Bench circuits: SCIP closes 15 within 10~s, KL-QPD matches all 15 solver-tolerance-closed objectives, and the six Draper-adder records form the largest structured positive subset. Three VQE candidates are retained as explicit ingestion failures because their native two-qubit operations lack a Qiskit QPD basis. Thus the heuristic finding is not solely a synthetic-graph artifact.
 
-\begin{figure*}[tp]
+\begin{figure*}[t]
   \centering
-  \includegraphics[width=0.85\textwidth]{fig_e9_closure_heatmap.pdf}
-  \caption{Solver-tolerance closure counts under a 10-s SCIP limit. Each heatmap cell reports closed runs out of three fixed seeds. The boundary depends materially on graph family, $K$, and seed.}
-  \label{fig:e9-closure}
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \textbf{(a)}\\[-1mm]
+    \includegraphics[width=\linewidth]{fig_e9_closure_heatmap.pdf}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \textbf{(b)}\\[-1mm]
+    \includegraphics[width=\linewidth]{fig_e9_width_overhead_pareto.pdf}
+  \end{minipage}
+  \caption{Supporting $K$-way scaling views. (a) Solver-tolerance closure counts under a 10-s SCIP limit; each heatmap cell reports closed runs out of three fixed seeds. (b) Width--overhead tradeoff restricted to cells closed for all three seeds; marker and fill conventions distinguish $K$ and graph family. These plots summarize the supporting scaling study and are not used in the representation-sensitivity claims.}
+  \label{fig:e9-scaling}
 \end{figure*}
-
-\begin{figure}[tbp]
-  \centering
-  \includegraphics[width=\columnwidth]{fig_e9_width_overhead_pareto.pdf}
-  \caption{Width--overhead tradeoff restricted to cells closed for all three seeds. Colors denote families, with distinct fill treatments (filled, open, gray-filled) so that families remain distinguishable in grayscale; markers denote $K$. Each point is the median solver-tolerance-closed log-objective $J$ for its cell.}
-  \label{fig:e9-pareto}
-\end{figure}
 
 \section{Resource-model sensitivity and finite-shot tests}
 \label{app:scope}
@@ -776,19 +754,17 @@ We further confirm that cut count is a poor proxy for sampling overhead at the p
 \subsection{Sensitivity to the quasiprobability resource model}
 \label{sec:results-joint}
 
-Independent QPD is a declared cut-cost model, not an assertion that stronger joint decompositions preserve placements. We therefore test whether the optimal placement can itself depend on the assumed resource model. Under a restricted library of pairwise-disjoint same-layer gate groups, a controlled six-qubit witness makes the independent-QPD-optimal placement $1.90496\times$ worse than the restricted-joint optimum when both are evaluated under the restricted parallel-joint semantics: a model-induced placement reversal exists. This is the resource-model analogue of the representation reversals of Sec.~\ref{sec:results-reversals}---there the interaction weights change because the gate-level representation changes; here they change because the assumed decomposition changes---and it shows that the placement decision is a function of the declared resource model as well as of the circuit.
-
-We then test algorithm-derived native-QPD circuits under the same restricted pair library. The joint-aware MIP matches exhaustive enumeration on all 17 records with $n\le12$ and finds no strict independent-to-joint reversal in that subset, despite eligible saving opportunities. The experiment is limited to this restricted pair library; general joint-QPD-aware partitioning, together with wire-cut and hybrid gate/wire models, remains future work~\cite{schmitt2025,ufrecht2024,brenner2025}.
+We also test dependence on the resource model itself. Under a restricted library of pairwise-disjoint same-layer gate groups, a controlled six-qubit instance makes the independent-QPD-optimal placement $1.90496\times$ more expensive than the restricted-joint optimum when both are evaluated with the restricted parallel-joint cost. This establishes an existence example in which changing the decomposition model changes the preferred placement. General joint-QPD-aware partitioning, wire cuts, and hybrid gate/wire models remain outside the primary model studied here~\cite{schmitt2025,ufrecht2024,brenner2025}.
 
 \subsection{Finite-shot scope}
 \label{sec:results-shot}
 
-A final study fixes an equal total ideal-Aer shot budget on three $n=12$ witnesses. The strong $719.66\times$ modeled reversal reduces RMSE for both observables, whereas a moderate $3.27\times$ reversal is mixed and a no-reversal control is identical under shared seeds. Hence independent-QPD overhead can be operationally informative but is not claimed as a universal finite-shot RMSE predictor. Full witness identities, signed-estimator behavior, and bootstrap intervals remain in the artifact. This study evaluates finite-shot behavior in an ideal-simulator implementation rather than modeling it.
+A final study uses equal ideal-Aer shot budgets on three $n=12$ instances. The $719.66\times$ modeled reversal reduces RMSE for both tested observables, the $3.27\times$ case gives mixed RMSE changes, and the no-reversal control is identical under shared seeds. These runs provide a limited operational check rather than a calibration of finite-shot RMSE from the independent-QPD objective; the archived records include the witness identities and bootstrap intervals.
 
-\section{Verified interval tier and reconstruction check}
+\section{Decimal interval-enclosure and reconstruction checks}
 \label{app:verified}
 
-To ground the word ``certificate'' in a rigorously verified setting, a small CX-only tier is certified using exact interval arithmetic rather than SCIP bounds. It exhaustively enumerates 20 exact-input balanced-bipartition records with 80-decimal directed intervals for $\log 9$: nine have a uniquely separated optimum, and the remaining records certify the optimum objective in the presence of ties. Interval widths are $2\times10^{-79}$ to $3\times10^{-78}$, so these optima are numerical proofs up to verified outward rounding, not solver-tolerance estimates. This is the only tier for which we use certificate in the strong sense; it is an enumerative interval oracle that verifies objective values independently but does not verify production SCIP lower bounds.
+As a numerical cross-check separate from the SCIP runs, we evaluate small CX-only log-overheads with 80-digit directed decimal rounding. With $\rho=9$ represented exactly, the resulting intervals enclose a higher-precision Decimal evaluation of the same expression. This check exercises the log-overhead reporting path; it does not verify the floating-point SCIP lower bounds.
 
 Independently, a shot-free statevector reconstruction check (Table~\ref{tab:operational}) confirms that predicted and Qiskit-derived overheads agree at machine precision, validating the cost accounting used throughout.
 
@@ -808,7 +784,6 @@ VQE $n\!=\!6$, CX             & 1 & 9       & 9       & $5.55\!\times\!10^{-17}$
 }
 \end{table}
 
-\FloatBarrier
 
 % ===================================================================
 % REFERENCES

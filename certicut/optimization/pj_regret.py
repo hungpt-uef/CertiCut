@@ -1,4 +1,4 @@
-"""Tie-safe exhaustive independent-versus-parallel-joint model-regret oracle.
+"""Set-level exhaustive independent-versus-parallel-joint model-regret oracle.
 
 The supported joint model is deliberately narrow: the Schmitt--Piveteau--
 Sutter parallel-layer policy for exact-balanced K=2 partitions only.
@@ -40,7 +40,7 @@ class PJModelRegretResult:
 
 
 def exhaustive_pj_model_regret(circuit: QuantumCircuit, *, tolerance: float = 1e-10) -> PJModelRegretResult:
-    """Compute the exact tie-safe decision regret for a balanced K=2 circuit.
+    """Compute the exact set-level decision regret for a balanced K=2 circuit.
 
     ``min_{P in argmin I} J(P)`` avoids attributing arbitrary independent-model
     tie breaking to the QPD model. Global label symmetry is already removed by

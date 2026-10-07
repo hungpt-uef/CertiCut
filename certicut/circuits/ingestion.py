@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import Counter
 from dataclasses import asdict, dataclass
 from hashlib import sha256
+import json
 from math import pi
 from typing import Any
 
@@ -146,9 +147,39 @@ def _two_qubit_count(circuit: QuantumCircuit) -> int:
     return sum(instruction.operation.num_qubits == 2 for instruction in circuit.data)
 
 
+def _canonical_parameter(value: Any) -> dict[str, str]:
+    """Return a deterministic, parameter-sensitive JSON representation."""
+    try:
+        numeric = complex(value)
+    except Exception:
+        return {"kind": "repr", "value": repr(value)}
+    if abs(numeric.imag) <= 1e-15:
+        return {"kind": "real", "value": format(numeric.real, ".17g")}
+    return {
+        "kind": "complex",
+        "real": format(numeric.real, ".17g"),
+        "imag": format(numeric.imag, ".17g"),
+    }
+
+
 def _fingerprint(circuit: QuantumCircuit) -> str:
-    payload = "\n".join(
-        f"{instruction.operation.name}:{','.join(str(circuit.find_bit(qubit).index) for qubit in instruction.qubits)}"
-        for instruction in circuit.data
-    )
-    return sha256(payload.encode("utf-8")).hexdigest()
+    """Hash circuit semantics-relevant structure, including numeric parameters."""
+    payload = {
+        "schema": "certicut-circuit-fingerprint-v2",
+        "num_qubits": circuit.num_qubits,
+        "num_clbits": circuit.num_clbits,
+        "global_phase": _canonical_parameter(circuit.global_phase),
+        "instructions": [
+            {
+                "name": instruction.operation.name,
+                "num_qubits": instruction.operation.num_qubits,
+                "num_clbits": instruction.operation.num_clbits,
+                "qubits": [circuit.find_bit(q).index for q in instruction.qubits],
+                "clbits": [circuit.find_bit(c).index for c in instruction.clbits],
+                "params": [_canonical_parameter(v) for v in instruction.operation.params],
+            }
+            for instruction in circuit.data
+        ],
+    }
+    encoded = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+    return sha256(encoded.encode("utf-8")).hexdigest()

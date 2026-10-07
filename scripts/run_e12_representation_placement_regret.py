@@ -23,16 +23,18 @@ import json
 import os
 import sys
 from dataclasses import asdict, dataclass
-from itertools import combinations
-from math import exp, inf, isfinite, log
+from itertools import permutations
+from math import exp, inf, isfinite
 from pathlib import Path
 from time import perf_counter
-from typing import Sequence
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from qiskit import QuantumCircuit
 
 from certicut.circuits.ingestion import ingest_mqt_pair
-from certicut.costs.qpd import QPDCostError, qpd_cost
 from certicut.graph.interaction import (
     InteractionGraph,
     build_interaction_graph,
@@ -40,10 +42,8 @@ from certicut.graph.interaction import (
 )
 from certicut.optimization.exact import _valid_partitions
 
-ROOT = Path(__file__).resolve().parents[1]
-
 TOLERANCE = 1e-10
-SCIP_FEASIBILITY_TOLERANCE = 1e-12
+SCIP_FEASIBILITY_TOLERANCE = 1e-10
 
 
 # ---------------------------------------------------------------------------
@@ -63,33 +63,33 @@ class RepresentationRegretResult:
     J_a_star: float
     J_b_star: float
 
-    # Tie-safe cross-representation regret
+    # Set-level cross-representation regret
     delta_a_to_b: float
     delta_b_to_a: float
     R_a_to_b: float
     R_b_to_a: float
 
     # Optimum set sizes
-    argmin_a_count: int
-    argmin_b_count: int
+    argmin_a_count: int | None
+    argmin_b_count: int | None
 
     # Optimum overlap
-    optimum_overlap_count: int  # |argmin_a ∩ argmin_b|
+    optimum_overlap_count: int | None  # |argmin_a ∩ argmin_b|
     has_shared_optimum: bool
 
     # Minimum assignment disagreement between argmin sets
     min_assignment_disagreement: int
 
     # Optimality margins
-    margin_a: float  # m_a
-    margin_b: float  # m_b
+    margin_a: float | None  # m_a
+    margin_b: float | None  # m_b
 
     # Perturbation L1 norm
     weight_perturbation_l1: float
 
     # Stability diagnostic κ
-    kappa_a_to_b: float  # ‖δ‖₁ / m_a
-    kappa_b_to_a: float  # ‖δ‖₁ / m_b
+    kappa_a_to_b: float | None  # ‖δ‖₁ / m_a
+    kappa_b_to_a: float | None  # ‖δ‖₁ / m_b
 
     # Theoretical bound
     regret_bound: float  # exp(‖δ‖₁)
@@ -113,6 +113,7 @@ class RepresentationRegretResult:
 
     partition_count: int
     runtime_s: float
+    solver_statuses: dict[str, str] | None = None
 
     def as_dict(self) -> dict:
         return asdict(self)
@@ -132,20 +133,39 @@ def _weight_perturbation_l1(
     return sum(abs(w_b.get(e, 0.0) - w_a.get(e, 0.0)) for e in all_edges)
 
 
+def _partition_disagreement_up_to_relabeling(
+    first: tuple[int, ...], second: tuple[int, ...], K: int
+) -> int:
+    """Hamming disagreement after the best fragment-label permutation."""
+    if len(first) != len(second):
+        raise ValueError("partition lengths differ")
+    return min(
+        sum(first[q] != perm[second[q]] for q in range(len(first)))
+        for perm in permutations(range(K))
+    )
+
+
+def _near_balanced_capacities(n: int, K: int) -> tuple[tuple[int, ...], tuple[int, ...]]:
+    """Symmetric near-balanced capacities used by every E12 solver tier."""
+    if K < 1 or K > n:
+        raise ValueError(f"invalid fragment count K={K} for n={n}")
+    lo = n // K
+    hi = (n + K - 1) // K
+    return (lo,) * K, (hi,) * K
+
+
 def _enumerate_partitions_general(
-    n: int, K: int, *, balanced: bool = True
+    n: int, K: int
 ) -> list[tuple[int, ...]]:
-    """Enumerate partitions for given K. For K=2 balanced, use symmetry reduction."""
-    if K == 2 and balanced and n % 2 == 0:
-        # Symmetry-reduced: q0 fixed to side 0
-        target = n // 2
-        return [
-            tuple(0 if q in (0, *rest) else 1 for q in range(n))
-            for rest in combinations(range(1, n), target - 1)
-        ]
-    # General K-way with capacity constraints
-    qmax = (n + K - 1) // K + 1  # generous upper bound
-    return list(_valid_partitions(n, K, qmax, exact_num_fragments=True))
+    """Enumerate canonical-label partitions satisfying the E12 capacity policy."""
+    lower, upper = _near_balanced_capacities(n, K)
+    candidates = _valid_partitions(n, K, max(upper), exact_num_fragments=True)
+    accepted: list[tuple[int, ...]] = []
+    for partition in candidates:
+        loads = tuple(partition.count(k) for k in range(K))
+        if all(lower[k] <= loads[k] <= upper[k] for k in range(K)):
+            accepted.append(partition)
+    return accepted
 
 
 def exhaustive_representation_regret(
@@ -162,7 +182,7 @@ def exhaustive_representation_regret(
     audit_a: dict | None = None,
     audit_b: dict | None = None,
 ) -> RepresentationRegretResult:
-    """Compute exact tie-safe representation-induced placement regret."""
+    """Compute exact set-level representation-induced placement regret."""
     started = perf_counter()
 
     graph_a = build_interaction_graph(circuit_a, cost_model="qiskit_qpd")
@@ -175,9 +195,8 @@ def exhaustive_representation_regret(
     w_b = _edge_weight_vector(graph_b)
     perturbation_l1 = _weight_perturbation_l1(w_a, w_b)
 
-    # Enumerate partitions
-    balanced = K == 2 and num_qubits % 2 == 0
-    partitions = _enumerate_partitions_general(num_qubits, K, balanced=balanced)
+    # Enumerate the same symmetric near-balanced capacity family used by SCIP.
+    partitions = _enumerate_partitions_general(num_qubits, K)
 
     if not partitions:
         raise ValueError(f"No valid partitions for n={num_qubits}, K={K}")
@@ -194,7 +213,7 @@ def exhaustive_representation_regret(
     J_a_star = min(scores_a)
     J_b_star = min(scores_b)
 
-    # argmin sets (tie-safe)
+    # argmin sets (set-level)
     argmin_a_indices = [
         i for i, s in enumerate(scores_a) if s <= J_a_star + TOLERANCE
     ]
@@ -209,7 +228,7 @@ def exhaustive_representation_regret(
     overlap = argmin_a_set & argmin_b_set
     has_shared = len(overlap) > 0
 
-    # Tie-safe cross-representation regret: Δ_{a→b} = min_{P ∈ argmin_a} J_b(P) − J_b*
+    # Set-level cross-representation regret: Δ_{a→b} = min_{P ∈ argmin_a} J_b(P) − J_b*
     delta_a_to_b = min(scores_b[i] for i in argmin_a_indices) - J_b_star
     delta_b_to_a = min(scores_a[i] for i in argmin_b_indices) - J_a_star
 
@@ -232,12 +251,9 @@ def exhaustive_representation_regret(
     # Theoretical regret bound
     regret_bound = exp(perturbation_l1) if perturbation_l1 < 700 else inf
 
-    # Minimum assignment disagreement
+    # Minimum assignment disagreement, invariant to fragment-label names.
     min_disagree = min(
-        sum(
-            partitions[i][q] != partitions[j][q]
-            for q in range(num_qubits)
-        )
+        _partition_disagreement_up_to_relabeling(partitions[i], partitions[j], K)
         for i in argmin_a_indices
         for j in argmin_b_indices
     )
@@ -306,10 +322,10 @@ def _solve_cross_representation_mip(
     feasibility_tolerance: float,
     time_limit_s: float,
 ) -> tuple[float | None, tuple[int, ...] | None, str]:
-    """Two-stage tie-safe MIP: minimize J_cross(P) subject to J_primary(P) <= J*_primary + tau_opt.
+    """Two-stage set-level MIP: minimize J_cross(P) subject to J_primary(P) <= J*_primary + tau_opt.
 
     This computes  min_{P in argmin_tau J_primary}  J_cross(P)
-    which is the tie-safe cross-representation cost.
+    which is the set-level cross-representation cost.
 
     Returns (cross_cost, partition, status).
     """
@@ -318,13 +334,29 @@ def _solve_cross_representation_mip(
     n = graph_primary.num_qubits
     K = num_fragments
 
-    if (
-        not graph_primary.edges
-        or all(abs(edge.qpd_log_cost) <= TOLERANCE for edge in graph_primary.edges)
-    ):
+    primary_zero = not graph_primary.edges or all(
+        abs(edge.qpd_log_cost) <= TOLERANCE for edge in graph_primary.edges
+    )
+    cross_zero = not graph_cross.edges or all(
+        abs(edge.qpd_log_cost) <= TOLERANCE for edge in graph_cross.edges
+    )
+    if primary_zero and cross_zero:
+        # Both objectives are identically zero.  Build a complete feasible
+        # near-balanced assignment (sum(lower) may be < n when n % K != 0).
+        loads = list(lower_capacities)
+        remaining = n - sum(loads)
+        for k in range(K):
+            if remaining <= 0:
+                break
+            room = upper_capacities[k] - loads[k]
+            take = min(room, remaining)
+            loads[k] += take
+            remaining -= take
+        if remaining != 0:
+            raise RuntimeError("capacity bounds do not admit a complete assignment")
         partition = tuple(
             fragment
-            for fragment, capacity in enumerate(lower_capacities)
+            for fragment, capacity in enumerate(loads)
             for _ in range(capacity)
         )
         return 0.0, partition, "trivial"
@@ -425,11 +457,11 @@ def scip_representation_regret(
     tau_opt: float = 1e-9,
     feasibility_tolerance: float = SCIP_FEASIBILITY_TOLERANCE,
 ) -> RepresentationRegretResult:
-    """Tie-safe two-stage SCIP regret for medium instances.
+    """Set-level two-stage SCIP regret for medium instances.
 
     Stage 1: Solve min J_a(P) and min J_b(P) independently.
-    Stage 2a: Solve min J_b(P) s.t. J_a(P) <= J*_a + tau_opt  (tie-safe a->b)
-    Stage 2b: Solve min J_a(P) s.t. J_b(P) <= J*_b + tau_opt  (tie-safe b->a)
+    Stage 2a: Solve min J_b(P) s.t. J_a(P) <= J*_a + tau_opt  (set-level a->b)
+    Stage 2b: Solve min J_a(P) s.t. J_b(P) <= J*_b + tau_opt  (set-level b->a)
 
     The same explicit SCIP feasibility tolerance is pinned in every stage.
     This ensures Delta_{a->b} = min_{P in argmin_tau J_a} J_b(P) - J*_b,
@@ -447,10 +479,7 @@ def scip_representation_regret(
     w_b = _edge_weight_vector(graph_b)
     perturbation_l1 = _weight_perturbation_l1(w_a, w_b)
 
-    lo = num_qubits // K
-    hi = (num_qubits + K - 1) // K
-    lower_caps = (lo,) * K
-    upper_caps = (hi,) * K
+    lower_caps, upper_caps = _near_balanced_capacities(num_qubits, K)
 
     # Stage 1: solve each representation independently
     result_a = solve_scip_k_partition(
@@ -468,6 +497,10 @@ def scip_representation_regret(
 
     if result_a.partition is None or result_b.partition is None:
         raise RuntimeError(f"SCIP failed: a={result_a.status}, b={result_b.status}")
+    if result_a.status != "optimal" or result_b.status != "optimal":
+        raise RuntimeError(
+            f"Stage-1 optimum not proven: a={result_a.status}, b={result_b.status}"
+        )
 
     # Recompute from the integral witnesses. SCIP's primal bound can be rounded
     # just below the discrete objective, which would make a tight Stage-2 budget
@@ -509,6 +542,11 @@ def scip_representation_regret(
         raise RuntimeError(
             f"Cross-MIP failed: a->b={status_a2}, b->a={status_b2}"
         )
+    allowed_stage2 = {"optimal", "trivial", "identical_objectives"}
+    if status_a2 not in allowed_stage2 or status_b2 not in allowed_stage2:
+        raise RuntimeError(
+            f"Stage-2 optimum not proven: a->b={status_a2}, b->a={status_b2}"
+        )
 
     delta_a_to_b = max(0.0, C_a_to_b - J_b_star)
     delta_b_to_a = max(0.0, C_b_to_a - J_a_star)
@@ -516,11 +554,8 @@ def scip_representation_regret(
     R_a_to_b = exp(delta_a_to_b) if delta_a_to_b < 700 else inf
     R_b_to_a = exp(delta_b_to_a) if delta_b_to_a < 700 else inf
 
-    # Disagreement between stage-2 cross partitions
-    disagree = sum(
-        P_a_cross[q] != P_b_cross[q]
-        for q in range(num_qubits)
-    )
+    # Disagreement between stage-2 cross partitions, invariant to label names.
+    disagree = _partition_disagreement_up_to_relabeling(P_a_cross, P_b_cross, K)
 
     two_q_a = sum(1 for inst in circuit_a.data if inst.operation.num_qubits == 2)
     two_q_b = sum(1 for inst in circuit_b.data if inst.operation.num_qubits == 2)
@@ -531,23 +566,23 @@ def scip_representation_regret(
         family=family,
         n=n or num_qubits,
         K=K,
-        tier="scip_tie_safe",
+        tier="scip_set_level",
         J_a_star=J_a_star,
         J_b_star=J_b_star,
         delta_a_to_b=delta_a_to_b,
         delta_b_to_a=delta_b_to_a,
         R_a_to_b=R_a_to_b,
         R_b_to_a=R_b_to_a,
-        argmin_a_count=-1,  # full argmin not enumerated
-        argmin_b_count=-1,
-        optimum_overlap_count=-1,  # not computable via solver
+        argmin_a_count=None,  # complete set not enumerated
+        argmin_b_count=None,
+        optimum_overlap_count=None,
         has_shared_optimum=delta_a_to_b <= TOLERANCE and delta_b_to_a <= TOLERANCE,
         min_assignment_disagreement=disagree,
-        margin_a=float("inf"),  # not computable without enumeration
-        margin_b=float("inf"),
+        margin_a=None,
+        margin_b=None,
         weight_perturbation_l1=perturbation_l1,
-        kappa_a_to_b=0.0,  # margin not computable
-        kappa_b_to_a=0.0,
+        kappa_a_to_b=None,
+        kappa_b_to_a=None,
         regret_bound=exp(perturbation_l1) if perturbation_l1 < 700 else inf,
         strict_reversal_a_to_b=delta_a_to_b > TOLERANCE,
         strict_reversal_b_to_a=delta_b_to_a > TOLERANCE,
@@ -562,6 +597,12 @@ def scip_representation_regret(
         source_fingerprint=source_fingerprint,
         partition_count=-1,
         runtime_s=perf_counter() - started,
+        solver_statuses={
+            "stage1_a": result_a.status,
+            "stage1_b": result_b.status,
+            "stage2_a_to_b": status_a2,
+            "stage2_b_to_a": status_b2,
+        },
     )
 
 
@@ -569,39 +610,115 @@ def scip_representation_regret(
 # Semantic verification
 # ---------------------------------------------------------------------------
 
+def _phase_aligned_max_error(vec_a, vec_b) -> float:
+    import numpy as np
+    pivot = int(np.argmax(np.abs(vec_b)))
+    if abs(vec_b[pivot]) == 0:
+        return float("inf")
+    phase = vec_a[pivot] / vec_b[pivot]
+    if abs(phase) == 0:
+        return float("inf")
+    phase /= abs(phase)
+    return float(np.max(np.abs(vec_a - phase * vec_b)))
+
+
 def _verify_unitary_equivalence(
     circuit_a: QuantumCircuit,
     circuit_b: QuantumCircuit,
     *,
     tolerance: float = 1e-6,
+    random_seeds: tuple[int, ...] = (17, 37, 73),
 ) -> dict:
-    """Verify both circuits implement the same unitary up to global phase.
+    """Check semantic equivalence up to global phase without relying on provenance alone.
 
-    The comparison is elementwise after estimating one global phase.  This avoids
-    forming U_a^\dagger U_b, whose dense matrix multiplication is unnecessarily
-    expensive for the 10-qubit exact-validation tier.
+    Dense Operator comparison is used when it is inexpensive.  Otherwise both
+    circuits are independently applied to deterministic Haar-random statevectors.
+    The latter is a probabilistic semantic check, not a formal equivalence proof.
     """
-    import numpy as np
-    from qiskit.quantum_info import Operator
+    from qiskit.quantum_info import Operator, random_statevector
+
+    total_ops = len(circuit_a.data) + len(circuit_b.data)
+    if circuit_a.num_qubits <= 9 and total_ops <= 5000:
+        try:
+            mat_a = Operator(circuit_a).data
+            mat_b = Operator(circuit_b).data
+            error = _phase_aligned_max_error(mat_a.reshape(-1), mat_b.reshape(-1))
+            return {
+                "unitary_equivalence": error < tolerance,
+                "method": "dense_operator_global_phase",
+                "max_deviation": error,
+                "tolerance": tolerance,
+            }
+        except Exception as error:
+            dense_error = repr(error)
+    else:
+        dense_error = "skipped_by_size_policy"
+
     try:
-        mat_a = Operator(circuit_a).data
-        mat_b = Operator(circuit_b).data
-        pivot = np.unravel_index(np.argmax(np.abs(mat_b)), mat_b.shape)
-        if abs(mat_b[pivot]) == 0:
-            return {"unitary_equivalence": False, "reason": "zero unitary pivot"}
-        phase = mat_a[pivot] / mat_b[pivot]
-        if abs(phase) == 0:
-            return {"unitary_equivalence": False, "reason": "zero global-phase estimate"}
-        phase /= abs(phase)
-        error = float(np.max(np.abs(mat_a - phase * mat_b)))
-        passed = error < tolerance
+        errors = []
+        dim = 1 << circuit_a.num_qubits
+        for seed in random_seeds:
+            state = random_statevector(dim, seed=seed)
+            out_a = state.evolve(circuit_a).data
+            out_b = state.evolve(circuit_b).data
+            errors.append(_phase_aligned_max_error(out_a, out_b))
+        worst = max(errors) if errors else float("inf")
         return {
-            "unitary_equivalence": passed,
-            "max_deviation": error,
-            "global_phase_magnitude": float(abs(phase)),
+            "unitary_equivalence": worst < tolerance,
+            "method": "deterministic_random_statevectors_global_phase",
+            "seeds": list(random_seeds),
+            "max_deviation": worst,
+            "per_seed_max_deviation": errors,
+            "tolerance": tolerance,
+            "dense_operator": dense_error,
         }
-    except Exception as e:
-        return {"unitary_equivalence": "skipped", "reason": str(e)}
+    except Exception as error:
+        return {
+            "unitary_equivalence": "unverified",
+            "method": "verification_failed",
+            "dense_operator": dense_error,
+            "reason": repr(error),
+        }
+
+
+def _qcec_criterion_is_equivalent(criterion: object) -> bool:
+    """Interpret a QCEC equivalence enum/string without suffix false positives."""
+    token = str(criterion).rsplit(".", 1)[-1].strip().lower()
+    return token in {"equivalent", "equivalent_up_to_global_phase"}
+
+
+def _verify_qcec_equivalence(circuit_a: QuantumCircuit, circuit_b: QuantumCircuit) -> dict:
+    """Run MQT QCEC and record a formal circuit-equivalence result.
+
+    QCEC is used for the medium QAOA/QFT/QPE pairs for which it terminates
+    quickly. Deep Grover instances retain the separately recorded construction
+    provenance because QCEC is not practical for those expanded circuits.
+    """
+    from importlib import metadata
+    from time import perf_counter
+
+    from mqt import qcec
+
+    started = perf_counter()
+    try:
+        result = qcec.verify(circuit_a, circuit_b)
+        criterion = str(result.equivalence)
+        equivalent = _qcec_criterion_is_equivalent(criterion)
+        return {
+            "unitary_equivalence": equivalent,
+            "method": "mqt_qcec",
+            "equivalence_criterion": criterion.rsplit(".", 1)[-1],
+            "mqt_qcec_version": metadata.version("mqt-qcec"),
+            "runtime_s": perf_counter() - started,
+        }
+    except Exception as error:
+        return {
+            "unitary_equivalence": "unverified",
+            "method": "mqt_qcec_failed",
+            "mqt_qcec_version": metadata.version("mqt-qcec"),
+            "runtime_s": perf_counter() - started,
+            "reason": repr(error),
+        }
 
 
 # ---------------------------------------------------------------------------
@@ -622,8 +739,8 @@ def main() -> None:
     _log("=" * 72)
     _log(f"Pinned SCIP numerics/feastol: {SCIP_FEASIBILITY_TOLERANCE:.0e}")
 
-    # ---- Tier 2: Algorithm-derived MQT families ----
-    _log("\n--- Tier 2: Algorithm-derived MQT families ---")
+    # ---- Exhaustive regime: algorithm-derived MQT families ----
+    _log("\n--- Exhaustive regime: algorithm-derived MQT families ---")
 
     # Families with heterogeneous native gates (representation effect expected)
     mqt_families = ["qaoa", "qft", "qpeexact", "bv", "grover"]
@@ -633,7 +750,7 @@ def main() -> None:
     # n values where exhaustive enumeration is feasible (K=2 balanced)
     mqt_exact_sizes = [] if os.environ.get("E12_SKIP_EXACT") == "1" else [4, 6, 8, 10]
     # n values for SCIP tier
-    mqt_scip_sizes = [12, 14, 16]
+    mqt_scip_sizes = [] if os.environ.get("E12_SKIP_MEDIUM") == "1" else [12, 14, 16]
     # K values to try for exact tier
     k_values_exact = [2, 3]
 
@@ -676,6 +793,11 @@ def main() -> None:
                         audit_b=audit_b.as_dict(),
                     )
                     record = result.as_dict()
+                    lower_caps, upper_caps = _near_balanced_capacities(n, K)
+                    record["protocol_version"] = "e12-v3-near-balanced"
+                    record["capacity_policy"] = "symmetric_near_balanced_v1"
+                    record["lower_capacities"] = list(lower_caps)
+                    record["upper_capacities"] = list(upper_caps)
                     record["unitary_verification"] = verify
                     record["audit_a"] = audit_a.as_dict()
                     record["audit_b"] = audit_b.as_dict()
@@ -708,10 +830,11 @@ def main() -> None:
                     records.append(record)
                     _log(f"  [{family} n={n} K={K}] error: {error}")
 
-    # ---- Tier 3: Medium tie-safe SCIP instances ----
-    _log("\n--- Tier 3: Medium instances (tie-safe two-stage SCIP) ---")
+    # ---- Medium regime: set-level SCIP instances ----
+    _log("\n--- Medium regime: set-level two-stage SCIP ---")
 
-    tau_values = [1e-8, 1e-9, 1e-10]
+    tau_values = [1e-7, 1e-8, 1e-9]
+    semantic_cache: dict[tuple[str, int], dict] = {}
 
     for family in all_families:
         for n in mqt_scip_sizes:
@@ -722,7 +845,7 @@ def main() -> None:
                     paired = ingest_mqt_pair(family, n)
                 except Exception as error:
                     record = {
-                        "family": family, "n": n, "K": K, "tier": "scip_tie_safe",
+                        "family": family, "n": n, "K": K, "tier": "scip_set_level",
                         "status": "ingestion_error", "error": repr(error),
                     }
                     records.append(record)
@@ -731,6 +854,25 @@ def main() -> None:
 
                 circuit_a, audit_a = paired["cx_normalized"]
                 circuit_b, audit_b = paired["native_qpd"]
+
+                cache_key = (family, n)
+                if cache_key not in semantic_cache:
+                    # Independently check the headline/tractable medium pairs. Deep
+                    # Deep Grover pairs retain construction provenance only; medium QAOA/QFT/QPE use QCEC through n=16.
+                    if family in {"qaoa", "qft", "qpeexact"} and n <= 16:
+                        semantic_cache[cache_key] = _verify_qcec_equivalence(circuit_a, circuit_b)
+                    elif family != "grover" and n <= 16:
+                        semantic_cache[cache_key] = _verify_unitary_equivalence(
+                            circuit_a, circuit_b, random_seeds=(17, 37)
+                        )
+                    else:
+                        semantic_cache[cache_key] = {
+                            "unitary_equivalence": "by_construction",
+                            "method": "common_parameter_sensitive_source_fingerprint_and_semantics_preserving_expansion",
+                            "source_fingerprint": audit_a.source_fingerprint,
+                            "routing": False,
+                            "audit_passed": bool(audit_a.audit_passed and audit_b.audit_passed),
+                        }
 
                 # Run at primary tau_opt (1e-9), record full result
                 try:
@@ -744,6 +886,12 @@ def main() -> None:
                     record = result.as_dict()
                     record["tau_opt"] = 1e-9
                     record["scip_numerics_feastol"] = SCIP_FEASIBILITY_TOLERANCE
+                    lower_caps, upper_caps = _near_balanced_capacities(n, K)
+                    record["protocol_version"] = "e12-v3-near-balanced"
+                    record["capacity_policy"] = "symmetric_near_balanced_v1"
+                    record["lower_capacities"] = list(lower_caps)
+                    record["upper_capacities"] = list(upper_caps)
+                    record["unitary_verification"] = semantic_cache[cache_key]
                     record["audit_a"] = audit_a.as_dict()
                     record["audit_b"] = audit_b.as_dict()
 
@@ -793,14 +941,17 @@ def main() -> None:
 
                     # Check if reversal survives all tau values
                     tau_stable = all(
-                        sensitivity.get(str(t), {}).get("strict_reversal_a_to_b", False)
-                        == result.strict_reversal_a_to_b
+                        (
+                            sensitivity.get(str(t), {}).get("strict_reversal_a_to_b", False),
+                            sensitivity.get(str(t), {}).get("strict_reversal_b_to_a", False),
+                        )
+                        == (result.strict_reversal_a_to_b, result.strict_reversal_b_to_a)
                         for t in tau_values
                     )
                     tau_note = " [tau-stable]" if tau_stable else " [tau-sensitive!]"
 
                     _log(
-                        f"  [{family} n={n} K={K} SCIP-TS] "
+                        f"  [{family} n={n} K={K} SCIP-SET] "
                         f"J_cx*={result.J_a_star:.4f} J_nat*={result.J_b_star:.4f} "
                         f"R(cx->nat)={result.R_a_to_b:.4f} R(nat->cx)={result.R_b_to_a:.4f} "
                         f"delta_l1={result.weight_perturbation_l1:.4f} "
@@ -810,11 +961,11 @@ def main() -> None:
                     )
                 except Exception as error:
                     record = {
-                        "family": family, "n": n, "K": K, "tier": "scip_tie_safe",
+                        "family": family, "n": n, "K": K, "tier": "scip_set_level",
                         "status": "computation_error", "error": repr(error),
                     }
                     records.append(record)
-                    _log(f"  [{family} n={n} K={K} SCIP-TS] error: {error}")
+                    _log(f"  [{family} n={n} K={K} SCIP-SET] error: {error}")
 
     # ---- Summary ----
     _log("\n" + "=" * 72)
@@ -823,7 +974,7 @@ def main() -> None:
 
     valid = [r for r in records if "R_a_to_b" in r]
     exact_valid = [r for r in valid if r.get("tier") == "exact"]
-    scip_valid = [r for r in valid if r.get("tier") == "scip_tie_safe"]
+    scip_valid = [r for r in valid if r.get("tier") == "scip_set_level"]
 
     rev_a_to_b = [r for r in valid if r.get("strict_reversal_a_to_b")]
     rev_b_to_a = [r for r in valid if r.get("strict_reversal_b_to_a")]
@@ -842,18 +993,18 @@ def main() -> None:
         _log(f"Max R(native->cx): {max_R_b_to_a:.6f}")
 
     # kappa vs R analysis (exact tier only)
-    exact_with_kappa = [r for r in exact_valid if r.get("kappa_a_to_b", inf) < inf]
+    exact_with_kappa = [r for r in exact_valid if (r.get("kappa_a_to_b") is not None and r["kappa_a_to_b"] < inf)]
     if exact_with_kappa:
         kappa_lt_1 = [r for r in exact_with_kappa if r["kappa_a_to_b"] < 1]
         kappa_lt_1_stable = [r for r in kappa_lt_1 if r["R_a_to_b"] <= 1 + TOLERANCE]
-        _log(f"\nStability theorem verification (a->b direction):")
+        _log(f"\nStability-condition check (a->b direction):")
         _log(f"  kappa < 1 cases: {len(kappa_lt_1)}")
         _log(f"  kappa < 1 AND R=1: {len(kappa_lt_1_stable)} (theorem predicts all should be R=1)")
         if kappa_lt_1 and len(kappa_lt_1_stable) == len(kappa_lt_1):
-            _log(f"  [OK] Stability theorem CONFIRMED: all kappa<1 cases have R=1")
+            _log(f"  [OK] Stability condition satisfied empirically: all kappa<1 cases have R=1")
         elif kappa_lt_1:
             violations = [r for r in kappa_lt_1 if r["R_a_to_b"] > 1 + TOLERANCE]
-            _log(f"  [FAIL] Stability theorem VIOLATED: {len(violations)} cases with kappa<1 but R>1")
+            _log(f"  [FAIL] Stability-condition regression: {len(violations)} cases with kappa<1 but R>1")
 
     # Per-family breakdown
     _log("\nPer-family breakdown:")

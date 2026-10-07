@@ -1,6 +1,11 @@
-from math import pi
+from qiskit import QuantumCircuit
 
-from certicut.circuits.ingestion import V1_BASIS_GATES, ingest_mqt_benchmark, ingest_mqt_pair
+from certicut.circuits.ingestion import (
+    V1_BASIS_GATES,
+    _fingerprint,
+    ingest_mqt_benchmark,
+    ingest_mqt_pair,
+)
 
 
 def test_mqt_ingestion_is_deterministic_and_cx_only() -> None:
@@ -12,6 +17,17 @@ def test_mqt_ingestion_is_deterministic_and_cx_only() -> None:
     assert audit.transpile_basis == V1_BASIS_GATES
     assert audit.circuit_fingerprint == repeated.circuit_fingerprint
     assert first.count_ops() == second.count_ops()
+
+
+def test_circuit_fingerprint_is_parameter_sensitive() -> None:
+    first = QuantumCircuit(2)
+    first.rzz(0.25, 0, 1)
+    second = QuantumCircuit(2)
+    second.rzz(0.5, 0, 1)
+    repeated = QuantumCircuit(2)
+    repeated.rzz(0.25, 0, 1)
+    assert _fingerprint(first) != _fingerprint(second)
+    assert _fingerprint(first) == _fingerprint(repeated)
 
 
 def test_mqt_algorithmic_families_ingest_under_v1_cx_audit() -> None:
@@ -30,7 +46,11 @@ def test_native_qpd_pair_preserves_source_and_qaoa_rzz_parameters() -> None:
     assert native.two_qubit_gate_types == ("rzz",)
     assert native.audit_passed
     assert all(instruction.operation.num_qubits <= 2 for instruction in native_circuit.data)
-    assert any(abs(float(instruction.operation.params[0])) > 0 for instruction in native_circuit.data if instruction.operation.name == "rzz")
+    assert any(
+        abs(float(instruction.operation.params[0])) > 0
+        for instruction in native_circuit.data
+        if instruction.operation.name == "rzz"
+    )
 
 
 def test_native_vqe_control_matches_cx_two_qubit_representation() -> None:

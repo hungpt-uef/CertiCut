@@ -22,7 +22,7 @@
 \node[font=\bfseries\normalsize] at (47,0) {Semantics-preserving representation change and cut placement};
 \draw[rounded corners=.8pt,draw=black!70,fill=black!4,line width=.5pt] (1,-4) rectangle (93,-15);
 \node[align=center,font=\bfseries\small] at (47,-8) {Same logical unitary $U$ and feasible placement space $\mathcal{F}$};
-\node[align=center,font=\scriptsize] at (47,-12) {$R_{ZZ}^{01}(\theta)=\mathrm{CX}_{01}\,[I\!\otimes\!R_Z(\theta)]\,\mathrm{CX}_{01}$; fixed $K$, capacities, logical wires, and fragment maps};
+\node[align=center,font=\scriptsize] at (47,-12) {$R_{ZZ}^{01}(\theta)=\mathrm{CX}_{01}\,[I\!\otimes\!R_Z(\theta)]\,\mathrm{CX}_{01}$; $\theta=\phi=\pi/16$; fixed $K$, capacities, logical wires, and fragment maps};
 
 % Panel frames and compact in-panel labels. Long headings are left to the caption.
 \foreach \x in {2,26,50,74} \draw[panel] (\x,-21) rectangle ++(20,-32);
@@ -47,7 +47,7 @@
 \node[font=\tiny,anchor=south,fill=white,inner sep=.3pt] at (12,-33.3) {CX};
 \draw[wire] (17,-39)--(17,-44); \fill[black!75] (17,-39) circle (.65mm); \fill[black!75] (17,-44) circle (.65mm);
 \node[font=\tiny,anchor=south,fill=white,inner sep=.3pt] at (17,-38.3) {$R_{ZZ}(\phi)$};
-\node[font=\tiny,align=center,text width=29mm] at (12,-49) {native $w_{01}^{(a)}=\log\rho_{RZZ(\theta)}$};
+\node[font=\tiny,align=center,text width=29mm] at (12,-49) {native $w_{01}^{(a)}\approx0.659$};
 
 % (b) Exact interaction topology for (a): a 4-node chain.
 \coordinate (a0) at (29,-30); \coordinate (a1) at (34,-36); \coordinate (a2) at (39,-42); \coordinate (a3) at (44,-48);
@@ -55,7 +55,7 @@
 \draw[edge,line width=1.25pt] (a1)--(a2);
 \draw[edge,line width=.70pt] (a2)--(a3);
 \foreach \p/\n in {a0/0,a1/1,a2/2,a3/3} \node[qnode,font=\tiny] at (\p) {\n};
-\node[font=\tiny,align=center,text width=29mm] at (36,-50) {$w_{12}=\log 9$; $w_{23}=\log\rho_{RZZ(\phi)}$};
+\node[font=\tiny,align=center,text width=29mm] at (36,-50) {$w_{12}=\log 9\approx2.197$; $w_{23}\approx0.659$};
 
 % (c) A valid balanced K=2 optimum for sufficiently small theta, phi.
 \draw[fragone] (52.5,-28) rectangle (58,-45.5);
@@ -64,7 +64,7 @@
 \node[qnode,font=\tiny] at (64.25,-32) {1}; \node[qnode,font=\tiny] at (64.25,-41.5) {2};
 \node[font=\tiny] at (55.25,-47.5) {$F_1=\{0,3\}$};
 \node[font=\tiny] at (64.25,-47.5) {$F_2=\{1,2\}$};
-\node[font=\tiny,align=center,text width=30mm] at (60,-50) {$w_{01}^{(a)}+w_{23}<w_{12}$};
+\node[font=\tiny,align=center,text width=30mm] at (60,-50) {$0.659+0.659<2.197$};
 
 % (d) Solver gap translated into the modeled overhead ratio.
 \draw[draw=black!70,line width=.7pt] (77,-37) -- (91,-37);
@@ -88,7 +88,7 @@
 \fill[black!75] (15,-72) circle (.7mm); \draw[wire] (15,-72)--(15,-77); \node[target,font=\tiny] at (15,-77) {$+$};
 \draw[wire] (18,-77)--(18,-82); \fill[black!75] (18,-77) circle (.65mm); \fill[black!75] (18,-82) circle (.65mm);
 \node[font=\tiny,anchor=south,fill=white,inner sep=.25pt] at (18,-76.3) {$R_{ZZ}(\phi)$};
-\node[font=\tiny,align=center,text width=29mm] at (12,-87) {$U_b=U_a$ exactly; $w_{01}^{(b)}=2\log9$};
+\node[font=\tiny,align=center,text width=29mm] at (12,-87) {$U_b=U_a$ exactly; $w_{01}^{(b)}=2\log9\approx4.394$};
 
 % (f) Same edge universe, changed weight on edge 0--1 only.
 \coordinate (b0) at (29,-68); \coordinate (b1) at (34,-74); \coordinate (b2) at (39,-80); \coordinate (b3) at (44,-86);
@@ -105,7 +105,7 @@
 \node[qnode,font=\tiny] at (56,-80.8) {2}; \node[qnode,font=\tiny] at (64,-80.8) {3};
 \node[font=\tiny] at (60,-75) {$F_1=\{0,1\}$};
 \node[font=\tiny] at (60,-86) {$F_2=\{2,3\}$};
-\node[font=\tiny,align=center,text width=29mm] at (60,-88.5) {$w_{12}<w_{01}^{(b)}+w_{23}$};
+\node[font=\tiny,align=center,text width=29mm] at (60,-88.5) {$2.197<4.394+0.659$};
 
 % (h) Set-level comparison, not arbitrary solver-selected representatives.
 \node[font=\tiny\bfseries,align=center,text width=29mm] at (84,-67) {$\mathcal A_a=\arg\min_P J_a(P)$\\$\mathcal A_b=\arg\min_P J_b(P)$};
@@ -119,6 +119,6 @@
 \draw[arrow] (22,-38) -- (25.5,-38); \draw[arrow] (46,-38) -- (49.5,-38); \draw[arrow] (70,-38) -- (73.5,-38);
 \draw[arrow] (22,-76) -- (25.5,-76); \draw[arrow] (46,-76) -- (49.5,-76); \draw[arrow] (70,-76) -- (73.5,-76);
 
-\node[font=\tiny,align=center,text=black!70] at (47,-94) {Schematic four-qubit witness: the gate identity is exact; edge width denotes independent-QPD log cost.};
+\node[font=\tiny,align=center,text=black!70] at (47,-94) {Four-qubit witness with $\theta=\phi=\pi/16$: identity exact; edge width denotes independent-QPD log cost.};
 \end{tikzpicture}
 \end{document}

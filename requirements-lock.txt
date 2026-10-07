@@ -1,4 +1,4 @@
-﻿annotated-types==0.8.0
+annotated-types==0.8.0
 antlr4-python3-runtime==4.13.2
 certifi==2026.7.22
 cffi==2.1.1
@@ -20,6 +20,9 @@ kahip==3.25
 kiwisolver==1.5.1
 matplotlib==3.11.1
 mqt.bench==2.2.2
+mqt-core==3.10.1
+mqt-qcec==3.10.0
+nanobind-backend==1.0.0
 narwhals==2.26.0
 networkx==3.6.1
 numpy==2.4.6

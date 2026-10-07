@@ -1,0 +1,40 @@
+{
+  "schema": "certicut-qpe14-exhaustive-audit-v1",
+  "purpose": "Independent exhaustive checks of both n=14 QPE representation-regret records used in the manuscript.",
+  "records": [
+    {
+      "n": 14,
+      "K": 2,
+      "capacity_policy": "symmetric_near_balanced_v1",
+      "feasible_partitions_enumerated": 1716,
+      "J_cx_star": 202.1446611149321,
+      "J_native_star": 28.19001160486163,
+      "delta_cx_to_native": 1.3935970723363695,
+      "delta_native_to_cx": 6.591673732008616,
+      "R_cx_to_native": 4.029317764156574,
+      "R_native_to_cx": 728.999999999969,
+      "argmin_cx_count": 1,
+      "argmin_native_count": 1,
+      "optimum_overlap_count": 0,
+      "margin_cx": 4.394449154672429,
+      "margin_native": 0.03266242242605699
+    },
+    {
+      "n": 14,
+      "K": 3,
+      "capacity_policy": "symmetric_near_balanced_v1",
+      "feasible_partitions_enumerated": 126126,
+      "J_cx_star": 272.45584758969096,
+      "J_native_star": 38.292690383600444,
+      "delta_cx_to_native": 3.3134920219647057,
+      "delta_native_to_cx": 4.394449154672429,
+      "R_cx_to_native": 27.480922096168314,
+      "R_native_to_cx": 80.99999999999923,
+      "argmin_cx_count": 18,
+      "argmin_native_count": 1,
+      "optimum_overlap_count": 0,
+      "margin_cx": 4.394449154672429,
+      "margin_native": 1.9794617872330775
+    }
+  ]
+}

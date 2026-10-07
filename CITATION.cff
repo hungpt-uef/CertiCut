@@ -11,7 +11,7 @@ repository-code: "https://github.com/hungpt-uef/CertiCut"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.22005561"
-    description: "Archived data and software release"
+    description: "Prior archived release (v1.0.0); revision-specific archive pending"
 license: MIT
 preferred-citation:
   type: generic

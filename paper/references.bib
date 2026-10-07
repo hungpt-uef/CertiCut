@@ -1,4 +1,4 @@
-﻿@article{preskill2018,
+@article{preskill2018,
   author = {Preskill, John}, title = {Quantum Computing in the {NISQ} Era and Beyond}, journal = {Quantum}, volume = {2}, pages = {79}, year = {2018}, doi = {10.22331/q-2018-08-06-79}
 }
 @article{peng2020,
@@ -11,7 +11,13 @@
   author = {Tang, Wei and Tomesh, Teague and Suchara, Martin and Larson, Jeffrey and Martonosi, Margaret}, title = {{CutQC}: Using Small Quantum Computers for Large Quantum Circuit Evaluations}, booktitle = {Proceedings of the 26th ACM International Conference on Architectural Support for Programming Languages and Operating Systems}, pages = {473--486}, year = {2021}, doi = {10.1145/3445814.3446758}
 }
 @misc{qiskitcutting,
-  author = {Branczyk, Anna M. and Carrera Vazquez, Alejandro and Egger, Daniel J. and others}, title = {{Qiskit} Addon: Circuit Cutting}, year = {2024}, publisher = {Zenodo}, doi = {10.5281/zenodo.7987997}, url = {https://github.com/Qiskit/qiskit-addon-cutting}
+  author = {Bra{\'n}czyk, Agata M. and Carrera Vazquez, Almudena and Egger, Daniel J. and Fuller, Bryce and Gacon, Julien and Garrison, James R. and Glick, Jennifer R. and Johnson, Caleb and Joshi, Saasha and Pednault, Edwin and Pemmaraju, C. D. and Rivero, Pedro and Shehzad, Ibrahim and Woerner, Stefan},
+  title = {{Qiskit} Addon: Circuit Cutting},
+  year = {2024},
+  version = {0.10.0},
+  doi = {10.5281/zenodo.7987997},
+  note = {Version 0.10.0 archived as Zenodo record 15102772},
+  url = {https://github.com/Qiskit/qiskit-addon-cutting}
 }
 @book{deza1997,
   author = {Deza, Michel M. and Laurent, Monique}, title = {Geometry of Cuts and Metrics}, publisher = {Springer}, year = {1997}, doi = {10.1007/978-3-642-04295-9}
@@ -40,14 +46,32 @@
 @article{kernighanlin1970,
   author = {Kernighan, Brian W. and Lin, Shen}, title = {An Efficient Heuristic Procedure for Partitioning Graphs}, journal = {Bell System Technical Journal}, volume = {49}, number = {2}, pages = {291--307}, year = {1970}, doi = {10.1002/j.1538-7305.1970.tb01770.x}
 }
+
+@article{lian2023hmc,
+  author = {Lian, Hang and Xu, Jinchen and Zhu, Yu and Fan, Zhiqiang and Liu, Yi and Shan, Zheng},
+  title = {Fast Reconstruction Algorithm Based on {HMC} Sampling},
+  journal = {Scientific Reports},
+  volume = {13},
+  pages = {17773},
+  year = {2023},
+  doi = {10.1038/s41598-023-45133-z}
+}
 @article{brandhofer2024,
   author = {Brandhofer, Sebastian and Polian, Ilia and Krsulich, Kevin}, title = {Optimal Partitioning of Quantum Circuits Using Gate Cuts and Wire Cuts}, journal = {IEEE Transactions on Quantum Engineering}, volume = {5}, pages = {1--10}, year = {2024}, doi = {10.1109/TQE.2023.3347106}
 }
 @article{nakamura2025,
   author = {Nakamura, Junya and Satoh, Takahiko and Sanji, Shinichiro}, title = {Improved Sampling Bounds and Scalable Partitioning for Quantum Circuit Cutting Beyond Bipartitions}, journal = {Physical Review A}, volume = {112}, number = {4}, pages = {042422}, year = {2025}, doi = {10.1103/xnw7-mtbd}
 }
-@inproceedings{frohler2026,
-  author = {Fr{\"o}hler, Fiona Jiali and Stade, Yannick and Ufrecht, Christian and Scherer, Daniel D. and Wille, Robert}, title = {Scalable Circuit Cutting: A Framework for Combined Gate and Wire Cuts Using Gate Groups}, booktitle = {2026 IEEE International Conference on Quantum Computing and Engineering (QCE)}, year = {2026}, note = {to appear}, eprint = {2608.05287}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2608.05287}
+@misc{frohler2026,
+  author = {Fr{\"o}hler, Fiona Jiali and Stade, Yannick and Ufrecht, Christian and Scherer, Daniel D. and Wille, Robert},
+  title = {Scalable Circuit Cutting: A Framework for Combined Gate and Wire Cuts Using Gate Groups},
+  year = {2026},
+  eprint = {2608.05287},
+  archiveprefix = {arXiv},
+  primaryclass = {quant-ph},
+  doi = {10.48550/arXiv.2608.05287},
+  note = {Accepted at the 2026 IEEE International Conference on Quantum Computing and Engineering (QCE)},
+  url = {https://arxiv.org/abs/2608.05287}
 }
 @misc{mosaiqc2026,
   author = {Mesman, Koen and Tang, Yinglu and Moller, Matthias and Chen, Boyang and Feld, Sebastian}, title = {{MOSAIQC}: Mixed-Topology-Aware Optimization for Scalable Approximate Noise-Informed Quantum Circuit Cutting}, year = {2026}, eprint = {2607.18888}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, doi = {10.48550/arXiv.2607.18888}, url = {https://arxiv.org/abs/2607.18888}
@@ -58,8 +82,14 @@
 @misc{pal2026noise,
   author = {Pal, Debarthi and Majumdar, Ritajit and Seshadri, Padmanabha Venkatagiri and Ray, Anupama and Simmhan, Yogesh}, title = {Noise-Aware Selection of Circuit Cutting Strategies under Hardware Noise Non-Uniformity}, year = {2026}, eprint = {2604.24422}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, doi = {10.48550/arXiv.2604.24422}, url = {https://arxiv.org/abs/2604.24422}
 }
-@article{peham2022zx_equivalence,
-  author = {Peham, Thomas and Burgholzer, Lukas and Wille, Robert}, title = {Equivalence Checking of Quantum Circuits With the {ZX}-Calculus}, journal = {IEEE Journal on Emerging and Selected Topics in Circuits and Systems}, volume = {12}, number = {3}, pages = {662--675}, year = {2022}, doi = {10.1109/JETCAS.2022.3202204}
+@article{burgholzer2021qcec,
+  author = {Burgholzer, Lukas and Wille, Robert},
+  title = {{{QCEC}}: A {JKQ} Tool for Quantum Circuit Equivalence Checking},
+  journal = {Software Impacts},
+  volume = {7},
+  pages = {100051},
+  year = {2021},
+  doi = {10.1016/j.simpa.2020.100051}
 }
 @article{schmitt2025,
   author = {Schmitt, Lukas and Piveteau, Christophe and Sutter, David}, title = {Cutting Circuits with Multiple Two-Qubit Unitaries}, journal = {Quantum}, volume = {9}, pages = {1634}, year = {2025}, doi = {10.22331/q-2025-02-18-1634}
@@ -73,70 +103,71 @@
 @article{ufrecht2024,
   author = {Ufrecht, Christian and Herzog, Lukas S. and Scherer, Daniel D. and Periyasamy, M. and Rietsch, S. and Plinge, A. and Mutschler, C.}, title = {Optimal Joint Cutting of Two-Qubit Rotation Gates}, journal = {Physical Review A}, volume = {109}, pages = {052440}, year = {2024}, doi = {10.1103/PhysRevA.109.052440}
 }
-@article{ufrecht2023,
-  author = {Ufrecht, Christian and Periyasamy, M. and Rietsch, S. and Scherer, Daniel D. and Plinge, A. and Mutschler, C.}, title = {Cutting Multi-Control Quantum Gates with {ZX} Calculus}, journal = {Quantum}, volume = {7}, pages = {1147}, year = {2023}, doi = {10.22331/q-2023-11-15-1147}
-}
 @article{piveteau2024,
   author = {Piveteau, Christophe and Sutter, David}, title = {Circuit Knitting with Classical Communication}, journal = {IEEE Transactions on Information Theory}, volume = {70}, number = {4}, pages = {2734--2745}, year = {2024}, doi = {10.1109/TIT.2023.3310797}
 }
 @article{piveteau2025sideinfo,
-  author = {Piveteau, Christophe and Schmitt, Lukas and Sutter, David}, title = {Circuit Cutting with Classical Side Information}, journal = {Physical Review Research}, volume = {7}, number = {3}, pages = {033063}, year = {2025}, doi = {10.1103/PhysRevResearch.7.033063}
+  author = {Piveteau, Christophe and Schmitt, Lukas and Sutter, David}, title = {Circuit Cutting with Classical Side Information}, journal = {Physical Review Research}, volume = {7}, number = {3}, pages = {033063}, year = {2025}, doi = {10.1103/38mx-36k6}
 }
 @article{brenner2025,
   author = {Brenner, Lukas and Piveteau, Christophe and Sutter, David}, title = {Optimal Wire Cutting with Classical Communication}, journal = {IEEE Transactions on Information Theory}, volume = {71}, number = {10}, pages = {7742--7752}, year = {2025}, doi = {10.1109/TIT.2025.3601047}
 }
-@article{lowe2023,
-  author = {Lowe, Angus and Medvidovic, M. and Hayes, A. and O'Riordan, L. J. and Bromley, T. R. and Arrazola, J. M. and Killoran, N.}, title = {Fast Quantum Circuit Cutting with Randomized Measurements}, journal = {Quantum}, volume = {7}, pages = {934}, year = {2023}, doi = {10.22331/q-2023-03-02-934}
-}
-@inproceedings{li2024,
-  author = {Li, Xinpeng and Kulkarni, Vinooth and Chen, Daniel T. and Guan, Qiang and Jiang, Weiwen and Xie, Ning and Xu, Shuai and Chaudhary, Vipin}, title = {Efficient Circuit Wire Cutting Based on Commuting Groups}, booktitle = {2024 IEEE International Conference on Quantum Computing and Engineering (QCE)}, pages = {117--123}, year = {2024}, eprint = {2410.20313}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2410.20313}
-}
-@misc{shotqc2024,
-  author = {Chen, Po-Hung and Chiou, Dah-Wei and Chen, Bo-Hung and Jiang, Jie-Hong Roland}, title = {Enhanced Quantum Circuit Cutting Framework for Sampling Overhead Reduction}, year = {2024}, eprint = {2412.17704}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2412.17704}
-}
-@inproceedings{golden2023,
-  author = {Chen, Daniel T. and Hansen, Ethan H. and Li, Xinpeng and Orenstein, Aaron and Kulkarni, Vinooth and Chaudhary, Vipin and Guan, Qiang and Liu, Ji and Zhang, Yang and Xu, Shuai}, title = {Online Detection of Golden Circuit Cutting Points}, booktitle = {2023 IEEE International Conference on Quantum Computing and Engineering (QCE)}, pages = {26--31}, year = {2023}, eprint = {2308.10153}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2308.10153}
-}
-@article{gentinetta2024,
-  author = {Gentinetta, Giorgio and Metz, Florent and Carleo, Giuseppe}, title = {Overhead-Constrained Circuit Knitting for Variational Quantum Dynamics}, journal = {Quantum}, volume = {8}, pages = {1296}, year = {2024}, doi = {10.22331/q-2024-05-21-1296}
-}
-@article{carrera2024,
-  author = {Carrera Vazquez, Alejandro and Tornow, Christian and Riste, Dries and Woerner, Stefan and Takita, Maika and Egger, Daniel J.}, title = {Combining Quantum Processors with Real-Time Classical Communication}, journal = {Nature}, volume = {636}, pages = {75--79}, year = {2024}, doi = {10.1038/s41586-024-08178-2}
-}
 @article{harrowlowe2025,
   author = {Harrow, Aram W. and Lowe, Angus}, title = {Optimal Quantum Circuit Cuts with Application to Clustered Hamiltonian Simulation}, journal = {PRX Quantum}, volume = {6}, pages = {010316}, year = {2025}, doi = {10.1103/PRXQuantum.6.010316}
 }
-@misc{scaleqc2022,
-  author = {Tang, Wei and Martonosi, Margaret}, title = {{ScaleQC}: A Scalable Framework for Hybrid Computation on Quantum and Classical Processors}, year = {2022}, eprint = {2207.00933}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2207.00933}
-}
-@inproceedings{fitcut2024,
-  author = {Kan, Yikun and Du, Zhenyu and Palma, M. and Stein, S. A. and Liu, C. and Wei, W. and Chen, J. and Li, A. and Mao, Y.}, title = {Scalable Circuit Cutting and Scheduling in a Resource-Constrained and Distributed Quantum System}, booktitle = {2024 IEEE International Conference on Quantum Computing and Engineering}, pages = {1077--1088}, year = {2024}, doi = {10.1109/QCE60285.2024.00127}
-}
-@inproceedings{qrcc2025,
-  author = {Pawar, Aishwary and Li, Y. and Mo, Z. and Guo, Y. and Tang, X. and Zhang, Y. and Yang, J.}, title = {{QRCC}: Evaluating Large Quantum Circuits on Small Quantum Computers through Integrated Qubit Reuse and Circuit Cutting}, booktitle = {Proceedings of the 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 4}, pages = {236--251}, year = {2024}, doi = {10.1145/3622781.3674179}
-}
 @inproceedings{circuitfolding2025,
-  author = {Kan, Yikun and Li, Yuxuan and Wang, H. and Mouradian, S. and Mao, Y.}, title = {Circuit Folding: Scalable and Graph-Based Circuit Cutting via Modular Structure Exploitation}, booktitle = {2025 IEEE/ACM International Conference on Computer-Aided Design}, pages = {1--9}, year = {2025}, doi = {10.1109/ICCAD66269.2025.11240933}
+  author = {Kan, Shuwen and Li, Yanni and Wang, Hao and Mouradian, Sara and Mao, Ying},
+  title = {Circuit Folding: Scalable and Graph-Based Circuit Cutting via Modular Structure Exploitation},
+  booktitle = {2025 IEEE/ACM International Conference on Computer-Aided Design (ICCAD)},
+  pages = {1--9},
+  year = {2025},
+  doi = {10.1109/ICCAD66269.2025.11240933}
 }
 @misc{idan2026,
-  author = {Idan, Yuval and Zahavi, Eitan and Mentovich, Elad and Cohen, Eliahu and Zaks, Shmuel}, title = {Quantum Circuit Cutting: Complexity and Optimization}, year = {2026}, eprint = {2604.23700}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2604.23700}
-}
-@article{burt2026,
-  author = {Burt, Felix and Chen, Kuan-Cheng and Leung, Kin K.}, title = {A Multilevel Framework for Partitioning Quantum Circuits}, journal = {Quantum}, volume = {10}, pages = {1984}, year = {2026}, doi = {10.22331/q-2026-01-22-1984}, url = {https://quantum-journal.org/papers/q-2026-01-22-1984/}
-}
-@article{nannicini2022,
-  author = {Nannicini, Giacomo and Bishop, L. S. and G{\"u}nl{\"u}k, Oktay and Jurcevic, Petar}, title = {Optimal Qubit Assignment and Routing via Integer Programming}, journal = {ACM Transactions on Quantum Computing}, volume = {4}, number = {1}, pages = {1--31}, year = {2023}, doi = {10.1145/3544563}
+  author = {Idan, Yuval and Zahavi, Eitan and Mentovich, Elad and Cohen, Eliahu and Zaks, Shmuel}, title = {Quantum Circuit Cutting: Complexity and Optimization}, year = {2026}, eprint = {2604.23700}, archiveprefix = {arXiv}, doi = {10.48550/arXiv.2604.23700}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2604.23700}
 }
 @misc{tamura2026,
-  author = {Tamura, Ryota and Kashimata, Tomoya and Hamakawa, Yohei and Tatsumura, Kosuke and Imai, Hiroshi}, title = {Decomposition of Multi-Qubit Gates for Circuit Cutting}, year = {2026}, eprint = {2603.26278}, archiveprefix = {arXiv}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2603.26278}
+  author = {Tamura, Ryota and Kashimata, Tomoya and Hamakawa, Yohei and Tatsumura, Kosuke and Imai, Hiroshi}, title = {Decomposition of Multi-Qubit Gates for Circuit Cutting}, year = {2026}, eprint = {2603.26278}, archiveprefix = {arXiv}, doi = {10.48550/arXiv.2603.26278}, primaryclass = {quant-ph}, url = {https://arxiv.org/abs/2603.26278}
+}
+
+
+@misc{hart2026,
+  author = {Hart, Michael},
+  title = {Optimal Two-Qubit Gate-Cutting Cost and Measures of Nonlocality},
+  year = {2026},
+  eprint = {2609.30141},
+  archiveprefix = {arXiv},
+  primaryclass = {quant-ph},
+  url = {https://arxiv.org/abs/2609.30141}
+}
+@article{mengoni2026,
+  author = {Mengoni, Riccardo and Nadalin, Walter and Rennela, Mathys and Rotureau, Jimmy and Darras, Tom and Laurat, Julien and Diamanti, Eleni and Lavdas, Ioannis and others},
+  title = {Efficient Gate Reordering for Distributed Quantum Compiling in Data Centers},
+  journal = {EPJ Quantum Technology},
+  volume = {13},
+  pages = {65},
+  year = {2026},
+  doi = {10.1140/epjqt/s40507-026-00513-y}
 }
 @misc{certicut_zenodo,
-  author = {{Phung Trong Hung} and {Huong Bui}},
-  title = {Dataset and software artifact for representation-sensitive quantum circuit cutting with quasiprobability resource bounds},
+  author = {Hung, Phung Trong and Bui, Huong},
+  title = {{hungpt-uef/CertiCut}: {CertiCut} v1.0.0 --- Official Submission Release},
   year = {2026},
   publisher = {Zenodo},
   version = {v1.0.0},
-  note = {{Zenodo}, version v1.0.0, \doi{10.5281/zenodo.22005561}},
+  note = {Prior manuscript/software release},
   doi = {10.5281/zenodo.22005561},
   url = {https://doi.org/10.5281/zenodo.22005561}
 }
+
+@article{ufrecht2023, author={Ufrecht, Christian and Periyasamy, Maniraman and Rietsch, Sebastian and Scherer, Daniel D. and Plinge, Axel and Mutschler, Christopher}, title={Cutting Multi-Control Quantum Gates with {ZX} Calculus}, journal={Quantum}, volume={7}, pages={1147}, year={2023}, doi={10.22331/q-2023-11-15-1147}}
+@article{lowe2023, author={Lowe, Angus and Medvidovic, Matija and Hayes, Anthony and O'Riordan, Lee J. and Bromley, Thomas R. and Arrazola, Juan Miguel and Killoran, Nathan}, title={Fast Quantum Circuit Cutting with Randomized Measurements}, journal={Quantum}, volume={7}, pages={934}, year={2023}, doi={10.22331/q-2023-03-02-934}}
+@inproceedings{li2024, author={Li, Xinpeng and Kulkarni, Vinooth and Chen, Daniel T. and Guan, Qiang and Jiang, Weiwen and Xie, Ning and Xu, Shuai and Chaudhary, Vipin}, title={Efficient Circuit Wire Cutting Based on Commuting Groups}, booktitle={2024 IEEE International Conference on Quantum Computing and Engineering (QCE)}, pages={117--123}, year={2024}, eprint={2410.20313}, archiveprefix={arXiv}, primaryclass={quant-ph}, url={https://arxiv.org/abs/2410.20313}}
+@misc{shotqc2024, author={Chen, Po-Hung and Chiou, Dah-Wei and Chen, Bo-Hung and Jiang, Jie-Hong Roland}, title={Enhanced Quantum Circuit Cutting Framework for Sampling Overhead Reduction}, year={2024}, eprint={2412.17704}, archiveprefix={arXiv}, primaryclass={quant-ph}, url={https://arxiv.org/abs/2412.17704}}
+@inproceedings{golden2023, author={Chen, Daniel T. and Hansen, Ethan H. and Li, Xinpeng and Orenstein, Aaron and Kulkarni, Vinooth and Chaudhary, Vipin and Guan, Qiang and Liu, Ji and Zhang, Yang and Xu, Shuai}, title={Online Detection of Golden Circuit Cutting Points}, booktitle={2023 IEEE International Conference on Quantum Computing and Engineering (QCE)}, pages={26--31}, year={2023}, doi={10.1109/QCE57702.2023.00012}}
+@article{gentinetta2024, author={Gentinetta, Gian and Metz, Friederike and Carleo, Giuseppe}, title={Overhead-Constrained Circuit Knitting for Variational Quantum Dynamics}, journal={Quantum}, volume={8}, pages={1296}, year={2024}, doi={10.22331/q-2024-03-21-1296}}
+@article{carrera2024, author={Carrera Vazquez, Almudena and Tornow, Christian and Riste, Dries and Woerner, Stefan and Takita, Maika and Egger, Daniel J.}, title={Combining Quantum Processors with Real-Time Classical Communication}, journal={Nature}, volume={636}, pages={75--79}, year={2024}, doi={10.1038/s41586-024-08178-2}}
+@misc{scaleqc2022, author={Tang, Wei and Martonosi, Margaret}, title={{ScaleQC}: A Scalable Framework for Hybrid Computation on Quantum and Classical Processors}, year={2022}, eprint={2207.00933}, archiveprefix={arXiv}, primaryclass={quant-ph}, url={https://arxiv.org/abs/2207.00933}}
+@inproceedings{fitcut2024, author={Kan, Shuwen and Du, Zhenyu and Palma, Michele and Stein, Samuel A. and Liu, Chang and Wei, Wenzhuo and Chen, Jianfeng and Li, Ang and Mao, Ying}, title={Scalable Circuit Cutting and Scheduling in a Resource-Constrained and Distributed Quantum System}, booktitle={2024 IEEE International Conference on Quantum Computing and Engineering (QCE)}, pages={1077--1088}, year={2024}, doi={10.1109/QCE60285.2024.00127}}
+@article{eslaminia2026, author={Eslaminia, Milad and Le Beux, S{\'e}bastien}, title={Reducing Maximum Subcircuits Depth in Quantum Circuit Cutting}, journal={IEEE Transactions on Quantum Engineering}, volume={7}, pages={3103209}, year={2026}, doi={10.1109/TQE.2026.3690593}}
+@inproceedings{cutreg2025, author={Periyasamy, Maniraman and Ufrecht, Christian and Scherer, Daniel D. and Mauerer, Wolfgang}, title={{CutReg}: A Loss Regularizer for Enhancing the Scalability of {QML} via Adaptive Circuit Cutting}, booktitle={2025 IEEE International Conference on Quantum Computing and Engineering (QCE)}, pages={99--103}, year={2025}, doi={10.1109/QCE65121.2025.10302}, eprint={2506.14858}, archiveprefix={arXiv}, primaryclass={quant-ph}}

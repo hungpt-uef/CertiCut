@@ -1,0 +1,42 @@
+{
+  "schema": "certicut-e12-summary-v1",
+  "canonical_result": "results/e12_representation_placement_regret.json",
+  "capacity_policy": {
+    "name": "symmetric_near_balanced_v1",
+    "lower": "floor(n/K)",
+    "upper": "ceil(n/K)"
+  },
+  "paired_records": 96,
+  "records_per_family": {
+    "bv": 12,
+    "dj": 12,
+    "ghz": 12,
+    "grover": 12,
+    "qaoa": 12,
+    "qft": 12,
+    "qpeexact": 12,
+    "vqe_real_amp": 12
+  },
+  "set_level_changes": 8,
+  "changes_by_family": {
+    "grover": 5,
+    "qpeexact": 3
+  },
+  "qpe_n14_k2": {
+    "delta_cx_to_native": 1.3935970723363695,
+    "delta_native_to_cx": 6.591673732008616,
+    "R_cx_to_native": 4.029317764156574,
+    "R_native_to_cx": 728.999999999969,
+    "semantic_check": {
+      "unitary_equivalence": true,
+      "method": "mqt_qcec",
+      "equivalence_criterion": "equivalent_up_to_global_phase",
+      "mqt_qcec_version": "3.10.0",
+      "runtime_s": 0.16116289999627043
+    }
+  },
+  "stability_check": {
+    "kappa_lt_1": 25,
+    "kappa_lt_1_and_R1": 25
+  }
+}
